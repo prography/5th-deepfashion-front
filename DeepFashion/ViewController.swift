@@ -9,14 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBAction func SignUpButtonPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: SegueIdentifier.goToSignUp, sender: self)
+    @IBAction func SignUpButtonPressed(_: UIButton) {
+        performSegue(withIdentifier: SegueIdentifier.goToSignUp, sender: self)
     }
-
 }
-
