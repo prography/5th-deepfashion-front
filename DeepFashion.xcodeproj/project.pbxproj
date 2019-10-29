@@ -15,8 +15,9 @@
 		0733A6CD2365D99900E26B38 /* DeepFashionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6CC2365D99900E26B38 /* DeepFashionTests.swift */; };
 		0733A6D82365D99900E26B38 /* DeepFashionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */; };
 		0733A6E62365DFAC00E26B38 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E52365DFAC00E26B38 /* Constants.swift */; };
-		0733A6E82365E32500E26B38 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E72365E32500E26B38 /* SignUpViewController.swift */; };
+		0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */; };
 		0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E923660F0500E26B38 /* SceneDelegate.swift */; };
+		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +52,9 @@
 		0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepFashionUITests.swift; sourceTree = "<group>"; };
 		0733A6D92365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6E52365DFAC00E26B38 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		0733A6E72365E32500E26B38 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignUpViewController.swift; sourceTree = "<group>"; };
 		0733A6E923660F0500E26B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +109,8 @@
 				0733A6E923660F0500E26B38 /* SceneDelegate.swift */,
 				0733A6E52365DFAC00E26B38 /* Constants.swift */,
 				0733A6B92365D99800E26B38 /* ViewController.swift */,
-				0733A6E72365E32500E26B38 /* SignUpViewController.swift */,
+				0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */,
+				078E583C23684281000A960B /* SecondSignUpViewController.swift */,
 				0733A6BB2365D99800E26B38 /* Main.storyboard */,
 				0733A6BE2365D99900E26B38 /* Assets.xcassets */,
 				0733A6C02365D99900E26B38 /* LaunchScreen.storyboard */,
@@ -265,11 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */,
 				0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* ViewController.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,
 				0733A6E62365DFAC00E26B38 /* Constants.swift in Sources */,
-				0733A6E82365E32500E26B38 /* SignUpViewController.swift in Sources */,
+				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
