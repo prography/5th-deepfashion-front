@@ -11,7 +11,7 @@
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
         <!--SignUp-->
         <scene sceneID="Ht8-gY-tMD">
             <objects>
-                <viewController title="SignUp" modalPresentationStyle="fullScreen" interfaceStyle="light" id="dve-eK-BpR" customClass="FirstSignUpViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SignUp" modalPresentationStyle="fullScreen" interfaceStyle="light" id="dve-eK-BpR" customClass="FirstSignUpView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="llX-82-Zwa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,7 +126,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6자리이상 영문소문자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6N-dm-Zel">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6N-dm-Zel">
                                         <rect key="frame" x="0.0" y="30" width="220" height="39.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,7 +140,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문소문자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A4l-gg-DC0">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A4l-gg-DC0">
                                         <rect key="frame" x="0.0" y="109.5" width="220" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -154,7 +154,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문소문자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="116-GC-wGm">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="116-GC-wGm">
                                         <rect key="frame" x="0.0" y="189" width="220" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -221,6 +221,13 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="계정, 성별 설정" id="SeR-fv-GhW"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="genderSegmentedControl" destination="5hv-Tf-aWZ" id="92z-c2-6xp"/>
+                        <outlet property="idTextField" destination="K6N-dm-Zel" id="euX-66-0X9"/>
+                        <outlet property="nextPageButton" destination="FiK-sP-1LJ" id="kJU-Mi-f8K"/>
+                        <outlet property="passwordConfirmTextField" destination="116-GC-wGm" id="57k-9i-XsF"/>
+                        <outlet property="passwordTextField" destination="A4l-gg-DC0" id="NtL-Kx-vix"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPr-Zs-Y4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -229,7 +236,7 @@
         <!--선호스타일 설정-->
         <scene sceneID="IY2-8o-4Ka">
             <objects>
-                <viewController id="L8J-ZO-A7u" customClass="SecondSignUpViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L8J-ZO-A7u" customClass="SecondSignUpView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ol-59-VJR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -377,6 +384,9 @@
                                 <state key="normal" title="가입 완료">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpFinishedButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="kAN-YE-dPt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -393,8 +403,12 @@
                         <viewLayoutGuide key="safeArea" id="xGA-aK-34u"/>
                     </view>
                     <navigationItem key="navigationItem" title="선호스타일 설정" id="9JS-q7-19q"/>
+                    <connections>
+                        <segue destination="BxI-ns-ITX" kind="unwind" identifier="unwindToMain" unwindAction="prepareForUnwindWithSegue:" id="1lI-nm-xcF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQe-aP-LlW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="BxI-ns-ITX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2255.625" y="-154.22535211267606"/>
         </scene>

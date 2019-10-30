@@ -10,4 +10,5 @@ import Foundation
 
 struct SegueIdentifier {
     static let goToSignUp = "goToSignUp"
+    static let unwindToMain = "unwindToMain"
 }
