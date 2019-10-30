@@ -20,31 +20,25 @@ class FirstSignUpView: UIViewController {
     @IBOutlet private weak var nextPageButton: UIButton!
     
     /// MARK: - Property
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     private var signUpViewModel = SignUpViewModel()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        nextPageButton.isEnabled = false
-        bindUI()
+//        bindUI()
+    }
+
+    private func bindUI() {
+//        signUpViewModel.idInputText
+//        .asObservable()
+//        .bind(to: idTextField.rx.text.orEmpty)
+//        .disposed(by: disposeBag)
     }
     
-    private func bindUI() {
-        
-        // optional 바인딩 후 idInputTextSubject를 bind한다. 
-//        self.idTextField.rx.text.orEmpty
-//        .bind(to: idInputText)
-//        .disposed(by: disposeBag)
-        
-//        nextPageButton.rx.tap
-//        .asDriver()
-//            .drive(onNext: { [weak self] _ in
-//                if(nextPageButton.isEnabled) {
-//                    self.
-//                }
-//        })
-        
+    deinit {
+//        self.disposeBag = DisposeBag()
     }
     
 }

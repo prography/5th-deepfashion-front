@@ -10,13 +10,24 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
+    
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        if let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.mainNavigationController) as? UINavigationController {
+            self.window?.rootViewController = mainNavigationController
+            self.window?.makeKeyAndVisible()
+        }
+//        let mainView = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.mainView)
+//        mainNavigationController?.topViewController = mainView
         return true
     }
 
-//    // MARK: UISceneSession Lifecycle
-//
+    // MARK: UISceneSession Lifecycle
+
 //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
 //        // Called when a new scene session is being created.
 //        // Use this method to select a configuration to create the new scene with.

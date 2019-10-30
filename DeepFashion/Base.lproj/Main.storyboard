@@ -11,13 +11,13 @@
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="MainView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="EwL-22-Vck">
-                                <rect key="frame" x="50" y="100.5" width="220" height="350"/>
+                                <rect key="frame" x="50" y="61" width="220" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2t1-tL-Br3">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="61"/>
@@ -33,31 +33,31 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="namePhonePad" smartInsertDeleteType="no" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAv-bD-6HS">
-                                        <rect key="frame" x="0.0" y="138" width="220" height="51"/>
+                                        <rect key="frame" x="0.0" y="138" width="220" height="50.5"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-HG-Vg2">
-                                        <rect key="frame" x="0.0" y="202" width="220" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="201.5" width="220" height="51"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" title="LOG IN">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1U9-D7-asQ">
-                                        <rect key="frame" x="0.0" y="265.5" width="220" height="36"/>
+                                        <rect key="frame" x="0.0" y="265.5" width="220" height="35.5"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Continue with Google">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="L34-vA-O1x">
-                                        <rect key="frame" x="0.0" y="314.5" width="220" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="314" width="220" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNP-RL-yff">
-                                                <rect key="frame" x="0.0" y="0.0" width="106" height="35.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="106" height="36"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Join us">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -67,7 +67,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxr-nN-RoT">
-                                                <rect key="frame" x="114" y="0.0" width="106" height="35.5"/>
+                                                <rect key="frame" x="114" y="0.0" width="106" height="36"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Forget password?">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -99,6 +99,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Main" id="YbW-6A-pI4"/>
                     <connections>
                         <segue destination="nf3-Xj-aZL" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="Dft-42-Txy"/>
@@ -112,22 +113,22 @@
         <!--SignUp-->
         <scene sceneID="Ht8-gY-tMD">
             <objects>
-                <viewController title="SignUp" modalPresentationStyle="fullScreen" interfaceStyle="light" id="dve-eK-BpR" customClass="FirstSignUpView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SignUp" modalPresentationStyle="fullScreen" id="dve-eK-BpR" customClass="FirstSignUpView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="llX-82-Zwa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nL6-hd-0kQ">
-                                <rect key="frame" x="50" y="80.5" width="220" height="350"/>
+                                <rect key="frame" x="50" y="61" width="220" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-sg-5Mc">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6N-dm-Zel">
-                                        <rect key="frame" x="0.0" y="30" width="220" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="29.5" width="220" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,7 +142,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A4l-gg-DC0">
-                                        <rect key="frame" x="0.0" y="109.5" width="220" height="40"/>
+                                        <rect key="frame" x="0.0" y="109.5" width="220" height="39.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,13 +150,13 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9L-Wo-Ryz">
-                                        <rect key="frame" x="0.0" y="159.5" width="220" height="19.5"/>
+                                        <rect key="frame" x="0.0" y="159" width="220" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="116-GC-wGm">
-                                        <rect key="frame" x="0.0" y="189" width="220" height="40"/>
+                                        <rect key="frame" x="0.0" y="189" width="220" height="39.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,13 +164,13 @@
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="password"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9N-DA-hyf">
-                                        <rect key="frame" x="0.0" y="239" width="220" height="20"/>
+                                        <rect key="frame" x="0.0" y="238.5" width="220" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hv-Tf-aWZ">
-                                        <rect key="frame" x="0.0" y="269" width="220" height="35"/>
+                                        <rect key="frame" x="0.0" y="268.5" width="220" height="35.5"/>
                                         <segments>
                                             <segment title="남성"/>
                                             <segment title="여성"/>
@@ -220,7 +221,6 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="계정, 성별 설정" id="SeR-fv-GhW"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="genderSegmentedControl" destination="5hv-Tf-aWZ" id="92z-c2-6xp"/>
                         <outlet property="idTextField" destination="K6N-dm-Zel" id="euX-66-0X9"/>
@@ -236,13 +236,13 @@
         <!--선호스타일 설정-->
         <scene sceneID="IY2-8o-4Ka">
             <objects>
-                <viewController id="L8J-ZO-A7u" customClass="SecondSignUpView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="L8J-ZO-A7u" customClass="SecondSignUpView" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ol-59-VJR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="257-Gg-gyA">
-                                <rect key="frame" x="30" y="130.5" width="260" height="250"/>
+                                <rect key="frame" x="30" y="111" width="260" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="선호 스타일을 선택해 주세요.(1개 이상)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFo-fv-5Mz">
                                         <rect key="frame" x="0.0" y="0.0" width="260" height="34"/>
@@ -376,7 +376,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZy-Na-5lf">
-                                <rect key="frame" x="30" y="395.5" width="260" height="35"/>
+                                <rect key="frame" x="30" y="376" width="260" height="35"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="7bJ-9f-t8o"/>
@@ -392,8 +392,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gZy-Na-5lf" firstAttribute="top" secondItem="257-Gg-gyA" secondAttribute="bottom" constant="15" id="3lz-QR-VEg"/>
-                            <constraint firstItem="gZy-Na-5lf" firstAttribute="leading" secondItem="257-Gg-gyA" secondAttribute="leading" id="6HZ-uN-Twg"/>
-                            <constraint firstItem="gZy-Na-5lf" firstAttribute="trailing" secondItem="257-Gg-gyA" secondAttribute="trailing" id="Env-Gs-7iU"/>
+                            <constraint firstItem="gZy-Na-5lf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="257-Gg-gyA" secondAttribute="leading" id="6HZ-uN-Twg"/>
+                            <constraint firstItem="gZy-Na-5lf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="257-Gg-gyA" secondAttribute="trailing" id="Env-Gs-7iU"/>
                             <constraint firstItem="257-Gg-gyA" firstAttribute="centerY" secondItem="4Ol-59-VJR" secondAttribute="centerY" multiplier="0.9" id="ccL-sr-dlU"/>
                             <constraint firstItem="gZy-Na-5lf" firstAttribute="centerX" secondItem="257-Gg-gyA" secondAttribute="centerX" id="evh-Dk-cqg"/>
                             <constraint firstItem="257-Gg-gyA" firstAttribute="centerX" secondItem="4Ol-59-VJR" secondAttribute="centerX" id="jh6-xL-a3Q"/>
@@ -432,9 +432,10 @@
         <!--Navigation Controller-->
         <scene sceneID="n2a-zH-s7j">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="urw-8l-13v" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="urw-8l-13v" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="IQo-gH-s2t">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="IQo-gH-s2t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

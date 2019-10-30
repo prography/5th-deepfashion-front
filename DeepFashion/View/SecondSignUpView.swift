@@ -12,11 +12,19 @@ import RxCocoa
 
 class SecondSignUpView: UIViewController {
     
+    /// MARK: - Properties
+    var disposeBag = DisposeBag()
+    
+    /// MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func signUpFinishedButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
+    }
+    
+    deinit {
+        self.disposeBag = DisposeBag()
     }
 }
