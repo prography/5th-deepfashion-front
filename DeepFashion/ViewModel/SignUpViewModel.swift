@@ -12,7 +12,7 @@ import RxCocoa
 
 class SignUpViewModel {
     
-    /// MARK: - Subjects
+    /// MARK: - Properties
     // id, password가 유효한지를 체크하는 behaviorSubject
     let idValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     let passwordValid: BehaviorSubject<Bool> = BehaviorSubject(value: false)
@@ -24,5 +24,9 @@ class SignUpViewModel {
     
     /// MARK: - Properties
     var disposeBag = DisposeBag()
+    
+    func combine() {
+        
+    }
     
 }

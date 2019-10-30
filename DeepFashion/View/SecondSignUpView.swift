@@ -20,10 +20,12 @@ class SecondSignUpView: UIViewController {
         super.viewDidLoad()
     }
     
+    /// MARK: - IBAction
     @IBAction func signUpFinishedButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
     }
     
+    /// MARK: Deinit
     deinit {
         self.disposeBag = DisposeBag()
     }
