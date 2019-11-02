@@ -8,6 +8,12 @@
 
 import Foundation
 
+struct UIIdentifier {
+    static let mainView = "mainView"
+    static let mainNavigationController = "MainNavigationController"
+}
+
 struct SegueIdentifier {
     static let goToSignUp = "goToSignUp"
+    static let unwindToMain = "unwindToMain"
 }
