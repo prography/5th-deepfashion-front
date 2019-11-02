@@ -8,9 +8,17 @@
 
 import UIKit
 
-class MainView: UIViewController {
+class MainViewController: UIViewController {
     
     /// MARK: - IBOutlet
+    
+    @IBOutlet weak var googleLoginButton: UIButton!
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var logInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    
     
     /// MARK: - Properties
     

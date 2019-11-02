@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SecondSignUpView: UIViewController {
+class SecondSignUpViewController: UIViewController {
     
     /// MARK: - Properties
     var disposeBag = DisposeBag()
