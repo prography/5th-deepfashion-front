@@ -19,6 +19,7 @@
 		0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E923660F0500E26B38 /* SceneDelegate.swift */; };
 		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
 		07D5E9AD236EBF0900A27B28 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* UserData.swift */; };
+		07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* TextField+.swift */; };
 		9C6530313BA91902888C5D6F /* Pods_DeepFashion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5CB424E36348009ECEDDD7 /* Pods_DeepFashion.framework */; };
 		B3B65F60FA47B028109B97C2 /* Pods_DeepFashionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E4017DEBBEEAF6AA853027 /* Pods_DeepFashionUITests.framework */; };
 		C5DDA6E6A178DDFAD4786704 /* Pods_DeepFashionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 313AC84D5098FCF94AB95C71 /* Pods_DeepFashionTests.framework */; };
@@ -60,6 +61,7 @@
 		0733A6E923660F0500E26B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
 		07D5E9AC236EBF0900A27B28 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		07D5E9AE236EE6A800A27B28 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		313AC84D5098FCF94AB95C71 /* Pods_DeepFashionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepFashionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E8E8838A93ADACE533B286 /* Pods-DeepFashionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashionTests.debug.xcconfig"; path = "Target Support Files/Pods-DeepFashionTests/Pods-DeepFashionTests.debug.xcconfig"; sourceTree = "<group>"; };
 		50B2A7F7849E4B243304EEDE /* Pods-DeepFashion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashion.debug.xcconfig"; path = "Target Support Files/Pods-DeepFashion/Pods-DeepFashion.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			children = (
 				0733A6E52365DFAC00E26B38 /* Constants.swift */,
 				07D5E9AC236EBF0900A27B28 /* UserData.swift */,
+				07D5E9AE236EE6A800A27B28 /* TextField+.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,
 				0733A6E62365DFAC00E26B38 /* Constants.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
+				07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

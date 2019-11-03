@@ -292,21 +292,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AG4-3o-ZNp">
                                         <rect key="frame" x="0.0" y="35" width="280" height="37.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-bJ-Pse">
+                                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-bJ-Pse">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="37.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="캐쥬얼">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-or-rpZ">
+                                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-or-rpZ">
                                                 <rect key="frame" x="100" y="0.0" width="80" height="37.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="오피스룩">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uop-x4-XDs">
+                                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uop-x4-XDs">
                                                 <rect key="frame" x="200" y="0.0" width="80" height="37.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="스트리트">
@@ -317,6 +317,12 @@
                                         <constraints>
                                             <constraint firstItem="Uop-x4-XDs" firstAttribute="width" secondItem="fDJ-bJ-Pse" secondAttribute="width" id="B5j-80-oIx"/>
                                             <constraint firstItem="GPu-or-rpZ" firstAttribute="width" secondItem="fDJ-bJ-Pse" secondAttribute="width" id="DNL-vv-5fl"/>
+                                            <constraint firstAttribute="bottom" secondItem="fDJ-bJ-Pse" secondAttribute="bottom" id="YqI-1M-plp"/>
+                                            <constraint firstAttribute="bottom" secondItem="Uop-x4-XDs" secondAttribute="bottom" id="f32-iL-lb2"/>
+                                            <constraint firstItem="GPu-or-rpZ" firstAttribute="top" secondItem="AG4-3o-ZNp" secondAttribute="top" id="fYP-tl-zzM"/>
+                                            <constraint firstAttribute="bottom" secondItem="GPu-or-rpZ" secondAttribute="bottom" id="l9M-h1-o4X"/>
+                                            <constraint firstItem="fDJ-bJ-Pse" firstAttribute="top" secondItem="AG4-3o-ZNp" secondAttribute="top" id="lWN-AH-6XF"/>
+                                            <constraint firstItem="Uop-x4-XDs" firstAttribute="top" secondItem="AG4-3o-ZNp" secondAttribute="top" id="ldf-bP-NF3"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t6X-6k-Xef">
@@ -346,7 +352,13 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="gZK-yT-7M5" firstAttribute="width" secondItem="akT-kN-Twe" secondAttribute="width" id="0dz-X6-meO"/>
+                                            <constraint firstItem="akT-kN-Twe" firstAttribute="top" secondItem="t6X-6k-Xef" secondAttribute="top" id="4De-Y9-LeE"/>
+                                            <constraint firstAttribute="bottom" secondItem="gZK-yT-7M5" secondAttribute="bottom" id="Iej-t9-Ihi"/>
+                                            <constraint firstAttribute="bottom" secondItem="akT-kN-Twe" secondAttribute="bottom" id="TbZ-Ty-7FZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Rse-nN-P3v" secondAttribute="bottom" id="U8o-Ol-g0b"/>
+                                            <constraint firstItem="Rse-nN-P3v" firstAttribute="top" secondItem="t6X-6k-Xef" secondAttribute="top" id="Y9v-ex-NUC"/>
                                             <constraint firstItem="Rse-nN-P3v" firstAttribute="width" secondItem="akT-kN-Twe" secondAttribute="width" id="b3W-af-JIQ"/>
+                                            <constraint firstItem="gZK-yT-7M5" firstAttribute="top" secondItem="t6X-6k-Xef" secondAttribute="top" id="cGA-S5-sdh"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WmF-gM-2QS">
@@ -375,8 +387,14 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="WuR-qf-45m" firstAttribute="top" secondItem="WmF-gM-2QS" secondAttribute="top" id="21X-vj-XDM"/>
+                                            <constraint firstItem="SgB-o1-sd5" firstAttribute="top" secondItem="WmF-gM-2QS" secondAttribute="top" id="BDA-ft-4d8"/>
                                             <constraint firstItem="7Ya-mb-GE4" firstAttribute="width" secondItem="SgB-o1-sd5" secondAttribute="width" id="aEg-nH-gU4"/>
+                                            <constraint firstAttribute="bottom" secondItem="7Ya-mb-GE4" secondAttribute="bottom" id="aq4-zP-5Bo"/>
+                                            <constraint firstItem="7Ya-mb-GE4" firstAttribute="top" secondItem="WmF-gM-2QS" secondAttribute="top" id="dco-Xg-1mo"/>
+                                            <constraint firstAttribute="bottom" secondItem="WuR-qf-45m" secondAttribute="bottom" id="fLh-Eg-lee"/>
                                             <constraint firstItem="WuR-qf-45m" firstAttribute="width" secondItem="SgB-o1-sd5" secondAttribute="width" id="mhe-V0-adK"/>
+                                            <constraint firstAttribute="bottom" secondItem="SgB-o1-sd5" secondAttribute="bottom" id="uIz-IG-H7V"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C9s-mR-O0G">
@@ -405,7 +423,11 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="ZeN-V2-SyU" firstAttribute="top" secondItem="C9s-mR-O0G" secondAttribute="top" id="Hk2-0O-ESz"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZeN-V2-SyU" secondAttribute="bottom" id="JQv-3L-X5h"/>
                                             <constraint firstItem="7xx-GB-CEp" firstAttribute="width" secondItem="biP-PM-P3c" secondAttribute="width" id="YbB-y3-g75"/>
+                                            <constraint firstItem="7xx-GB-CEp" firstAttribute="top" secondItem="C9s-mR-O0G" secondAttribute="top" id="cfb-d1-ror"/>
+                                            <constraint firstAttribute="bottom" secondItem="7xx-GB-CEp" secondAttribute="bottom" id="sac-sQ-abx"/>
                                             <constraint firstItem="ZeN-V2-SyU" firstAttribute="width" secondItem="biP-PM-P3c" secondAttribute="width" id="yBf-M8-GhP"/>
                                         </constraints>
                                     </stackView>
@@ -437,8 +459,8 @@
                             <constraint firstItem="gZy-Na-5lf" firstAttribute="centerX" secondItem="257-Gg-gyA" secondAttribute="centerX" id="evh-Dk-cqg"/>
                             <constraint firstItem="257-Gg-gyA" firstAttribute="centerX" secondItem="4Ol-59-VJR" secondAttribute="centerX" id="jh6-xL-a3Q"/>
                             <constraint firstItem="257-Gg-gyA" firstAttribute="top" secondItem="xGA-aK-34u" secondAttribute="top" constant="15" id="nyl-M4-V0R"/>
-                            <constraint firstItem="gZy-Na-5lf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="257-Gg-gyA" secondAttribute="leading" id="sdX-Co-oT7"/>
-                            <constraint firstItem="gZy-Na-5lf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="257-Gg-gyA" secondAttribute="trailing" id="v2V-qB-jQM"/>
+                            <constraint firstItem="gZy-Na-5lf" firstAttribute="leading" secondItem="257-Gg-gyA" secondAttribute="leading" id="sdX-Co-oT7"/>
+                            <constraint firstItem="gZy-Na-5lf" firstAttribute="trailing" secondItem="257-Gg-gyA" secondAttribute="trailing" id="v2V-qB-jQM"/>
                             <constraint firstItem="xGA-aK-34u" firstAttribute="trailing" secondItem="257-Gg-gyA" secondAttribute="trailing" constant="20" id="x15-jB-Pni"/>
                             <constraint firstItem="257-Gg-gyA" firstAttribute="leading" secondItem="xGA-aK-34u" secondAttribute="leading" constant="20" id="zyB-Ns-8GI"/>
                         </constraints>

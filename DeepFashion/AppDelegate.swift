@@ -11,15 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    
+
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
+        window = UIWindow(frame: UIScreen.main.bounds)
+
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         if let mainNavigationController = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.mainNavigationController) as? UINavigationController {
-            self.window?.rootViewController = mainNavigationController
-            self.window?.makeKeyAndVisible()
+            window?.rootViewController = mainNavigationController
+            window?.makeKeyAndVisible()
         }
 //        let mainView = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.mainView)
 //        mainNavigationController?.topViewController = mainView
