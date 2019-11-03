@@ -13,20 +13,16 @@ import RxCocoa
 class SecondSignUpViewController: UIViewController {
     
     /// MARK: - Properties
-    var disposeBag = DisposeBag()
+    var isGenderMan = true
     
     /// MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("now gender : \(isGenderMan)")
     }
     
     /// MARK: - IBAction
     @IBAction func signUpFinishedButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
-    }
-    
-    /// MARK: Deinit
-    deinit {
-        self.disposeBag = DisposeBag()
     }
 }

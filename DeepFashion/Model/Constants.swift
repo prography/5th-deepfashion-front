@@ -14,6 +14,11 @@ struct UIIdentifier {
 }
 
 struct SegueIdentifier {
-    static let goToSignUp = "goToSignUp"
+    static let goToFirstSignUp = "goToFirstSignUp"
+    static let goToSecondSignUp = "goToSecondSignUp"
     static let unwindToMain = "unwindToMain"
+}
+
+struct MyCharacterSet {
+    static let signUp = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 }

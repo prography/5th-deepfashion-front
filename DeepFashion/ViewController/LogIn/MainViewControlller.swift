@@ -26,11 +26,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     /// MARK: - IBAction
     /// MARK: Transition
     @IBAction func SignUpButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: SegueIdentifier.goToSignUp, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: self)
     }
     
     /// MARK: Unwind
