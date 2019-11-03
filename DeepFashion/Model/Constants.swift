@@ -34,3 +34,8 @@ struct UserDataRule {
         static let maxLength = 10
     }
 }
+
+struct FashionStyle {
+    static let male = ["Casual", "OfficeLook", "Street", "Vintage", "Hiphop", "Sports", "Dandy"]
+    static let Female = ["Casual", "OfficeLook", "Street", "Vintage", "Hiphop", "Sports", "Lovely", "Luxuty", "Sexy", "Modern", "Chic", "Innocence"]
+}

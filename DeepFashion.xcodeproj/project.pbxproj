@@ -195,9 +195,17 @@
 			children = (
 				0733A6E52365DFAC00E26B38 /* Constants.swift */,
 				07D5E9AC236EBF0900A27B28 /* UserData.swift */,
-				07D5E9AE236EE6A800A27B28 /* TextField+.swift */,
+				07D5E9B0236EEE7500A27B28 /* Extension */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		07D5E9B0236EEE7500A27B28 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				07D5E9AE236EE6A800A27B28 /* TextField+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		7AD8DCFED537B87C46F7016F /* Frameworks */ = {
