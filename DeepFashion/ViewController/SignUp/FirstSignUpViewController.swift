@@ -70,17 +70,12 @@ class FirstSignUpViewController: UIViewController {
     }
 
     func checkFillInData() {
-        guard let idText = self.idTextField.text,
-            let passwordText = self.passwordTextField.text,
-            let passwordConfirmText = self.passwordConfirmTextField.text else { return }
-
-        isFillInData = (idText.trimmingCharacters(in: .whitespaces).count >= UserDataRule.Id.minLength &&
-            passwordText.trimmingCharacters(in: .whitespaces).count >= UserDataRule.Password.minLength &&
-            passwordConfirmText.trimmingCharacters(in: .whitespaces).count >= UserDataRule.Password.minLength &&
-            passwordConfirmText == passwordText) ? true : false
-        idTextField.checkValidId()
-        passwordTextField.checkValidPassword()
-        passwordConfirmTextField.checkEqualToOriginPasword(originText: passwordText)
+        guard var passwordText = self.passwordTextField.text else { return }
+        isFillInData = (
+            idTextField.checkValidId()
+                && passwordTextField.checkValidPassword()
+                && passwordConfirmTextField.checkEqualToOriginPasword(originText: passwordText)
+        ) ? true : false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {

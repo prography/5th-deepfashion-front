@@ -20,5 +20,15 @@ final class UserData {
         self.id = id
         self.password = password
         self.gender = gender
+        style = [Int](repeating: 0, count: 12)
+    }
+
+    func toggleStyleData(tagIndex: Int) -> Int {
+        if style[tagIndex] == 0 {
+            style[tagIndex] = 1
+        } else {
+            style[tagIndex] = 0
+        }
+        return style[tagIndex]
     }
 }

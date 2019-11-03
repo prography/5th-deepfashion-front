@@ -17,33 +17,39 @@ extension UITextField {
         layer.borderColor = UIColor.blue.cgColor
     }
 
-    func checkValidPassword() {
-        guard let nowTextLength = self.text?.count else { return }
-        if nowTextLength != 0 {
-            if nowTextLength >= UserDataRule.Password.minLength, nowTextLength <= UserDataRule.Password.maxLength {
-                configureValidStatus()
-            } else {
-                configureInvalidStatus()
-            }
+    func checkValidPassword() -> Bool {
+        guard let nowTextLength = self.text?.count else { return false }
+        if nowTextLength >= UserDataRule.Password.minLength, nowTextLength != 0 {
+            configureValidStatus()
+            return true
+        } else {
+            configureInvalidStatus()
+            return false
         }
     }
 
-    func checkValidId() {
-        guard let nowTextLength = self.text?.count else { return }
-        if nowTextLength != 0 {
-            if nowTextLength >= UserDataRule.Id.minLength, nowTextLength <= UserDataRule.Id.maxLength {
-                configureValidStatus()
-            } else {
-                configureInvalidStatus()
-            }
+    func checkValidId() -> Bool {
+        guard let nowTextLength = self.text?.count else { return false }
+        if nowTextLength >= UserDataRule.Id.minLength, nowTextLength != 0 {
+            configureValidStatus()
+            return true
+        } else {
+            configureInvalidStatus()
+            return false
         }
     }
 
-    func checkEqualToOriginPasword(originText text: String) {
-        guard let nowText = self.text else { return }
-        if !nowText.isEmpty {
-            if nowText == text { configureValidStatus() }
-            else { configureInvalidStatus() }
+    func checkEqualToOriginPasword(originText text: String) -> Bool {
+        guard var nowText = self.text else { return false }
+        while nowText.count > UserDataRule.Password.maxLength { nowText.removeLast() }
+        if nowText == text, !text.isEmpty {
+            configureValidStatus()
+            print("true")
+            return true
+        } else {
+            configureInvalidStatus()
+            print("false")
+            return false
         }
     }
 
