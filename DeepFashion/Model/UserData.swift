@@ -16,6 +16,8 @@ final class UserData {
     private(set) var gender: Int = 0
     private(set) var style = [Int](repeating: 0, count: 12)
 
+    private init() {}
+
     func setUserData(id: String, password: String, gender: Int) {
         self.id = id
         self.password = password

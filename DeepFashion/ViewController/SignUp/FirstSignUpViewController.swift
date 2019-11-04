@@ -39,11 +39,7 @@ class FirstSignUpViewController: UIViewController {
     private var isFillInData: Bool {
         set {
             _isFillInData = newValue
-            if newValue {
-                self.nextPageButton.isEnabled = true
-            } else {
-                self.nextPageButton.isEnabled = false
-            }
+            self.nextPageButton.configureButtonByStatus(newValue)
         }
 
         get { return _isFillInData }
@@ -54,29 +50,34 @@ class FirstSignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTextField()
+        configureSignUpButton()
     }
 
     // MARK: - Method
 
-    func configureTextField() {
+    private func configureSignUpButton() {
+        nextPageButton.configureDisabledButton()
+    }
+
+    private func configureTextField() {
         idTextField.configureBasicTextField()
         passwordTextField.configureBasicTextField()
         passwordConfirmTextField.configureBasicTextField()
     }
 
-    func checkCharacter(textField _: UITextField, character: String) -> Bool {
-        let characterSet = CharacterSet(charactersIn: MyCharacterSet.signUp).inverted
-
-        return character.rangeOfCharacter(from: characterSet) == nil
+    private func checkCharacter(textField _: UITextField, character: String) -> Bool {
+        let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
+        let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted
+        return character.rangeOfCharacter(from: alphabetSet) == nil
+            || character.rangeOfCharacter(from: numberSet) == nil
     }
 
-    func checkFillInData() {
+    private func checkFillInData() {
         guard let passwordText = self.passwordTextField.text else { return }
-        isFillInData = (
-            idTextField.checkValidId()
-                && passwordTextField.checkValidPassword()
-                && passwordConfirmTextField.checkEqualToOriginPasword(originText: passwordText)
-        ) ? true : false
+        let idStatus = idTextField.checkValidId()
+        let passwordStatus = passwordTextField.checkValidPassword()
+        let passwordConfirmStatus = passwordConfirmTextField.checkEqualToOriginPasword(originText: passwordText)
+        isFillInData = idStatus && passwordStatus && passwordConfirmStatus
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {

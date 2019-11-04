@@ -17,9 +17,10 @@ extension UITextField {
         layer.borderColor = UIColor.blue.cgColor
     }
 
-    func checkValidPassword() -> Bool {
-        guard let nowTextLength = self.text?.count else { return false }
-        if nowTextLength >= UserDataRule.Password.minLength, nowTextLength != 0 {
+    func checkValidId() -> Bool {
+        guard var nowText = self.text else { return false }
+        while nowText.count > UserDataRule.Id.maxLength { nowText.removeLast() }
+        if nowText.count >= UserDataRule.Id.minLength, nowText.count != 0, nowText.isAlphabetPrefix() {
             configureValidStatus()
             return true
         } else {
@@ -28,9 +29,10 @@ extension UITextField {
         }
     }
 
-    func checkValidId() -> Bool {
-        guard let nowTextLength = self.text?.count else { return false }
-        if nowTextLength >= UserDataRule.Id.minLength, nowTextLength != 0 {
+    func checkValidPassword() -> Bool {
+        guard var nowText = self.text else { return false }
+        while nowText.count > UserDataRule.Password.maxLength { nowText.removeLast() }
+        if nowText.count >= UserDataRule.Password.minLength, nowText.count != 0, nowText.isAlphabetNumeric() {
             configureValidStatus()
             return true
         } else {
@@ -42,13 +44,11 @@ extension UITextField {
     func checkEqualToOriginPasword(originText text: String) -> Bool {
         guard var nowText = self.text else { return false }
         while nowText.count > UserDataRule.Password.maxLength { nowText.removeLast() }
-        if nowText == text, !text.isEmpty {
+        if nowText == text, !text.isEmpty, nowText.isAlphabetNumeric() {
             configureValidStatus()
-            print("true")
             return true
         } else {
             configureInvalidStatus()
-            print("false")
             return false
         }
     }

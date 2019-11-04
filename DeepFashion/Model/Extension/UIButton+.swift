@@ -9,17 +9,28 @@
 import UIKit
 
 extension UIButton {
-    func configureBasicButton() {
-        layer.borderWidth = 2
+    func configureDisabledButton() {
+        layer.borderWidth = 1
         layer.borderColor = UIColor.darkGray.cgColor
-        backgroundColor = .lightGray
+        setTitleColor(.black, for: .normal)
+        backgroundColor = .gray
         layer.cornerRadius = 6
     }
 
     func configureSelectedButton() {
-        layer.borderWidth = 2
+        layer.borderWidth = 1
         layer.borderColor = UIColor.darkGray.cgColor
+        setTitleColor(.white, for: .normal)
         backgroundColor = .black
         layer.cornerRadius = 6
+    }
+
+    func configureButtonByStatus(_ isEnabled: Bool) {
+        self.isEnabled = isEnabled
+        if isEnabled {
+            configureSelectedButton()
+        } else {
+            configureDisabledButton()
+        }
     }
 }
