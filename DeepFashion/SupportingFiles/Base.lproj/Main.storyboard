@@ -483,7 +483,7 @@
                                     <constraint firstItem="C9s-mR-O0G" firstAttribute="height" secondItem="AG4-3o-ZNp" secondAttribute="height" id="cq1-BV-Vsu"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gZy-Na-5lf">
+                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gZy-Na-5lf">
                                 <rect key="frame" x="20" y="260" width="280" height="40"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -492,6 +492,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <state key="normal" title="가입 완료">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="BxI-ns-ITX" kind="unwind" unwindAction="prepareForUnwindWithSegue:" id="hFW-v3-Z4b"/>
@@ -513,6 +516,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="선호스타일 설정" id="9JS-q7-19q"/>
                     <connections>
+                        <outlet property="signUpFinishButton" destination="gZy-Na-5lf" id="TVo-Yg-nQy"/>
                         <segue destination="BxI-ns-ITX" kind="unwind" identifier="unwindToMain" unwindAction="prepareForUnwindWithSegue:" id="1lI-nm-xcF"/>
                     </connections>
                 </viewController>

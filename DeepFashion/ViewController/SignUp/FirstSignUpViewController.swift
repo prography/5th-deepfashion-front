@@ -38,6 +38,7 @@ class FirstSignUpViewController: UIViewController {
     private var _isFillInData = false
     private var isFillInData: Bool {
         set {
+            _isFillInData = newValue
             if newValue {
                 self.nextPageButton.isEnabled = true
             } else {
@@ -70,7 +71,7 @@ class FirstSignUpViewController: UIViewController {
     }
 
     func checkFillInData() {
-        guard var passwordText = self.passwordTextField.text else { return }
+        guard let passwordText = self.passwordTextField.text else { return }
         isFillInData = (
             idTextField.checkValidId()
                 && passwordTextField.checkValidPassword()
