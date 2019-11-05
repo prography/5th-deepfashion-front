@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class LoginViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var googleLoginButton: UIButton!
@@ -20,8 +20,8 @@ class MainViewController: UIViewController {
 
     // MARK: - Properties
 
-    var _isFillInData = false
-    var isFillInData: Bool {
+    private var _isFillInData = false
+    private var isFillInData: Bool {
         set {
             _isFillInData = newValue
             loginButton.configureButtonByStatus(newValue)
@@ -81,6 +81,10 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: self)
     }
 
+    @IBAction func loginButtonPressed(_: UIButton) {
+        performSegue(withIdentifier: SegueIdentifier.goToMain, sender: self)
+    }
+
     // MARK: Unwind
 
     @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {
@@ -88,7 +92,7 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITextFieldDelegate {
+extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
         print("\(string)")
         return checkCharacter(textField: textField, character: string)
