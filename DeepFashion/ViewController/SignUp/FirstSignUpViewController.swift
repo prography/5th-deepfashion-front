@@ -94,12 +94,10 @@ class FirstSignUpViewController: UIViewController {
 
     @IBAction func textFieldEditingValueChanged(_ sender: UITextField) {
         guard var nowText = sender.text else { return }
-        if nowText.count > 10 {
+        while nowText.count > UserDataRule.Common.maxLength {
             nowText.removeLast()
-            DispatchQueue.main.async {
-                sender.text = String(nowText)
-            }
         }
+        sender.text = String(nowText)
         checkFillInData()
     }
 

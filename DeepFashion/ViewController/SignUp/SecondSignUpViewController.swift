@@ -43,18 +43,31 @@ class SecondSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("now gender : \(isGenderMan)")
         configureStyleSelectButton()
+        configureSignUpFinishButton()
     }
 
     // MARK: - Method
+
+    private func configureSignUpFinishButton() {
+        signUpFinishButton.configureDisabledButton()
+    }
+
+    private func configureStyleButtonDisabled(styleButton: UIButton) {
+        styleButton.configureDisabledButton()
+        styleButton.backgroundColor = .white
+    }
+
+    private func configureStyleButtonSelected(styleButton: UIButton) {
+        styleButton.configureSelectedButton()
+    }
 
     private func configureStyleSelectButton() {
         let firstButtonTag = UIIdentifier.StyleButton.startTagIndex
         let lastButtonTag = UIIdentifier.StyleButton.endTagIndex
         for buttonIndex in firstButtonTag ... lastButtonTag {
             guard let styleButton = self.view.viewWithTag(buttonIndex) as? UIButton else { return }
-            styleButton.configureDisabledButton()
+            configureStyleButtonDisabled(styleButton: styleButton)
 
             var nowButtonText = ""
             if isGenderMan {
@@ -82,10 +95,10 @@ class SecondSignUpViewController: UIViewController {
         let flag = UserData.shared.toggleStyleData(tagIndex: sender.tag - UIIdentifier.StyleButton.startTagIndex)
 
         if flag == 0 {
-            sender.configureDisabledButton()
+            configureStyleButtonDisabled(styleButton: sender)
             styleSelectionCount -= 1
         } else {
-            sender.configureSelectedButton()
+            configureStyleButtonSelected(styleButton: sender)
             styleSelectionCount += 1
         }
 

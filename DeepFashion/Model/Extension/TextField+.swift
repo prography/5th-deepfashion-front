@@ -19,7 +19,7 @@ extension UITextField {
 
     func checkValidId() -> Bool {
         guard var nowText = self.text else { return false }
-        while nowText.count > UserDataRule.Id.maxLength { nowText.removeLast() }
+        while nowText.count > UserDataRule.Common.maxLength { nowText.removeLast() }
         if nowText.count >= UserDataRule.Id.minLength, nowText.count != 0, nowText.isAlphabetPrefix() {
             configureValidStatus()
             return true
@@ -31,7 +31,7 @@ extension UITextField {
 
     func checkValidPassword() -> Bool {
         guard var nowText = self.text else { return false }
-        while nowText.count > UserDataRule.Password.maxLength { nowText.removeLast() }
+        while nowText.count > UserDataRule.Common.maxLength { nowText.removeLast() }
         if nowText.count >= UserDataRule.Password.minLength, nowText.count != 0, nowText.isAlphabetNumeric() {
             configureValidStatus()
             return true
@@ -43,7 +43,7 @@ extension UITextField {
 
     func checkEqualToOriginPasword(originText text: String) -> Bool {
         guard var nowText = self.text else { return false }
-        while nowText.count > UserDataRule.Password.maxLength { nowText.removeLast() }
+        while nowText.count > UserDataRule.Common.maxLength { nowText.removeLast() }
         if nowText == text, !text.isEmpty, nowText.isAlphabetNumeric() {
             configureValidStatus()
             return true
