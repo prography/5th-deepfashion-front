@@ -27,10 +27,14 @@
 - * 백엔드 연계, 로그인, 회원가입 데이터 저장 및 체크 기능 구현 예정 (~11/16)
 
 <div>
-<img width="250" src="https://user-images.githubusercontent.com/4410021/68251803-3770eb00-0067-11ea-90c1-42aaff71efa9.png"><&nbsp>
-<img width="250" src="https://user-images.githubusercontent.com/4410021/68251807-3c359f00-0067-11ea-9e74-2e24ce529f60.png"><br>
-<img width="250" src="https://user-images.githubusercontent.com/4410021/68251810-3dff6280-0067-11ea-941e-0ab7e4d82585.png"><&nbsp>
+<img width="250" src="https://user-images.githubusercontent.com/4410021/68251803-3770eb00-0067-11ea-90c1-42aaff71efa9.png"> &nbsp;
+<img width="250" src="https://user-images.githubusercontent.com/4410021/68251807-3c359f00-0067-11ea-9e74-2e24ce529f60.png">
+</div>
+
+<br>
+
+<div>
+<img width="250" src="https://user-images.githubusercontent.com/4410021/68251810-3dff6280-0067-11ea-941e-0ab7e4d82585.png"> &nbsp;
 <img width="250" src="https://user-images.githubusercontent.com/4410021/68251814-3fc92600-0067-11ea-83bd-eba3669e8e93.png">
 </div>
-    
 <br>
