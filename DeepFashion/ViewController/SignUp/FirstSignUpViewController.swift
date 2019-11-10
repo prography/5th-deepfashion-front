@@ -87,7 +87,7 @@ class FirstSignUpViewController: UIViewController {
             let genderIndex = self.genderSegmentedControl?.selectedSegmentIndex else { return }
 
         nextViewController.isGenderMan = genderIndex == 0 ? true : false
-        UserData.shared.setUserData(id: idText, password: passwordText, gender: genderIndex)
+        CommonUserData.shared.setUserData(id: idText, password: passwordText, gender: genderIndex)
     }
 
     // MARK: - IBAction

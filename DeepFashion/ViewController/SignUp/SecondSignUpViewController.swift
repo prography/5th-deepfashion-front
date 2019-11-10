@@ -92,7 +92,7 @@ class SecondSignUpViewController: UIViewController {
     }
 
     @IBAction func styleSelectButtonPressed(_ sender: UIButton) {
-        let flag = UserData.shared.toggleStyleData(tagIndex: sender.tag - UIIdentifier.StyleButton.startTagIndex)
+        let flag = CommonUserData.shared.toggleStyleData(tagIndex: sender.tag - UIIdentifier.StyleButton.startTagIndex)
 
         if flag == 0 {
             configureStyleButtonDisabled(styleButton: sender)
@@ -102,7 +102,7 @@ class SecondSignUpViewController: UIViewController {
             styleSelectionCount += 1
         }
 
-        UserData.shared.style.forEach {
+        CommonUserData.shared.style.forEach {
             print($0, terminator: " ")
         }
     }
