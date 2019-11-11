@@ -11,6 +11,7 @@ import UIKit
 final class CommonUserData {
     static let shared = CommonUserData()
 
+    private(set) var userData: UserData?
     private(set) var id: String = ""
     private(set) var password: String = ""
     private(set) var gender: Int = 0
@@ -22,7 +23,7 @@ final class CommonUserData {
         self.id = id
         self.password = password
         self.gender = gender
-        style = [Int](repeating: 0, count: 12)
+        userData = UserData(userName: id, styles: self.style, password: password, gender: gender)
     }
 
     func toggleStyleData(tagIndex: Int) -> Int {
@@ -31,6 +32,9 @@ final class CommonUserData {
         } else {
             style[tagIndex] = 0
         }
+        userData?.configureStyle(styles: style)
         return style[tagIndex]
     }
+    
+    
 }

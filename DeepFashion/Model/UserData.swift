@@ -9,15 +9,32 @@
 import Foundation
 
 struct UserData {
-    private var userName = ""
-    private var styles = ""
-    private var password = ""
-    private var gender = ""
-    init(userName: String, styles: String, password: String, gender: String) {
+    private(set) var userName = ""
+    private(set) var style = [Int]()
+    private(set) var password = ""
+    private(set) var gender = ""
+    init(userName: String, styles: [Int], password: String, gender genderIndex: Int) {
         self.userName = userName
-        self.styles = styles
         self.password = password
-        self.gender = gender
+        self.gender = genderIndex == 0 ? "M" : "W"
+        
+        var newStyles = [Int]()
+        for i in styles.indices {
+            if styles[i] == 1 {
+                newStyles.append(i+1)
+            }
+        }
+        self.style = newStyles
+    }
+    
+    mutating func configureStyle(styles: [Int]) {
+        var newStyles = [Int]()
+        for i in styles.indices {
+            if styles[i] == 1 {
+                newStyles.append(i+1)
+            }
+        }
+        self.style = newStyles
     }
 }
 

@@ -88,7 +88,12 @@ class LoginViewController: UIViewController {
     // MARK: Unwind
 
     @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {
-        print("Unwind to MainView!")
+        /// Data Check Test
+        guard let userData = CommonUserData.shared.userData else { return }
+        print("Current UsrData is... : \(userData)")
+        RequestAPI.shared.postUserAPIData(userData: userData) { (userAPIData) in
+            print("userAPIData is... \(userAPIData)")
+        }
     }
 }
 

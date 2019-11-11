@@ -12,7 +12,7 @@ import Foundation
 struct UserAPIData: Codable {
     let userName: String
     let gender: String
-    let styles: String
+    let styles: [Int]
     let password: String
     
     enum CodingKeys: String, CodingKey {
