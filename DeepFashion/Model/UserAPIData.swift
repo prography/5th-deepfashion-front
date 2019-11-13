@@ -1,22 +1,23 @@
 //
-//  APIData.swift
+//  UserAPIGetData.swift
 //  DeepFashion
 //
-//  Created by MinKyeongTae on 10/11/2019.
+//  Created by MinKyeongTae on 2019/11/13.
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
 import Foundation
 
-/// API UserData Format
+// MARK: - Welcome
+
 struct UserAPIData: Codable {
-    let userName: String
-    let gender: String
-    let styles: [Int]
-    let password: String
-    
-    enum CodingKeys: String, CodingKey {
-        case userName = "username"
-        case gender, styles, password
-    }
+    let username, gender: String
+    let styles: [Style]
+}
+
+// MARK: - Style
+
+struct Style: Codable {
+    let id: Int
+    let name: String
 }

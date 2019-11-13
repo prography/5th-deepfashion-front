@@ -1,0 +1,5 @@
+why does the password show up in plaintext for custom user?
+
+1. accounts-list only for super user,
+
+

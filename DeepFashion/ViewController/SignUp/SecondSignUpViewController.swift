@@ -47,6 +47,11 @@ class SecondSignUpViewController: UIViewController {
         configureSignUpFinishButton()
     }
 
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+        styleSelectionCount = 0
+    }
+
     // MARK: - Method
 
     private func configureSignUpFinishButton() {

@@ -23,7 +23,7 @@ final class CommonUserData {
         self.id = id
         self.password = password
         self.gender = gender
-        userData = UserData(userName: id, styles: self.style, password: password, gender: gender)
+        userData = UserData(userName: id, styles: style, password: password, gender: gender)
     }
 
     func toggleStyleData(tagIndex: Int) -> Int {
@@ -35,6 +35,4 @@ final class CommonUserData {
         userData?.configureStyle(styles: style)
         return style[tagIndex]
     }
-    
-    
 }

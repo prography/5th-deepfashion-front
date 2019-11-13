@@ -16,25 +16,24 @@ struct UserData {
     init(userName: String, styles: [Int], password: String, gender genderIndex: Int) {
         self.userName = userName
         self.password = password
-        self.gender = genderIndex == 0 ? "M" : "W"
-        
+        gender = genderIndex == 0 ? "M" : "W"
+
         var newStyles = [Int]()
         for i in styles.indices {
             if styles[i] == 1 {
-                newStyles.append(i+1)
+                newStyles.append(i + 1)
             }
         }
-        self.style = newStyles
+        style = newStyles
     }
-    
+
     mutating func configureStyle(styles: [Int]) {
         var newStyles = [Int]()
         for i in styles.indices {
             if styles[i] == 1 {
-                newStyles.append(i+1)
+                newStyles.append(i + 1)
             }
         }
-        self.style = newStyles
+        style = newStyles
     }
 }
-

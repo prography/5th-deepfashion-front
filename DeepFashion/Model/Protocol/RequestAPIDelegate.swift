@@ -13,4 +13,3 @@ protocol RequestAPIDelegate: class {
     func requestAPIDidFinished()
     func requestAPIDidError()
 }
-

@@ -16,7 +16,11 @@
 		0733A6D82365D99900E26B38 /* DeepFashionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */; };
 		0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */; };
 		0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E923660F0500E26B38 /* SceneDelegate.swift */; };
-		077C77B1237812570088B151 /* UserAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIData.swift */; };
+		076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */; };
+		076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */; };
+		076F6BCC237BFEA800A2CBB4 /* UserTokenAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCB237BFEA800A2CBB4 /* UserTokenAPIData.swift */; };
+		076F6BCE237BFF8100A2CBB4 /* UserLoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCD237BFF8100A2CBB4 /* UserLoginData.swift */; };
+		077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIPostData.swift */; };
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
 		077C77BA2378155F0088B151 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B92378155F0088B151 /* UserData.swift */; };
@@ -68,7 +72,11 @@
 		0733A6D92365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignUpViewController.swift; sourceTree = "<group>"; };
 		0733A6E923660F0500E26B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		077C77B0237812570088B151 /* UserAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIData.swift; sourceTree = "<group>"; };
+		076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIData.swift; sourceTree = "<group>"; };
+		076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIPostData.swift; sourceTree = "<group>"; };
+		076F6BCB237BFEA800A2CBB4 /* UserTokenAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTokenAPIData.swift; sourceTree = "<group>"; };
+		076F6BCD237BFF8100A2CBB4 /* UserLoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginData.swift; sourceTree = "<group>"; };
+		077C77B0237812570088B151 /* UserAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPostData.swift; sourceTree = "<group>"; };
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
 		077C77B92378155F0088B151 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -222,7 +230,11 @@
 			isa = PBXGroup;
 			children = (
 				07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */,
-				077C77B0237812570088B151 /* UserAPIData.swift */,
+				077C77B0237812570088B151 /* UserAPIPostData.swift */,
+				076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */,
+				076F6BCD237BFF8100A2CBB4 /* UserLoginData.swift */,
+				076F6BCB237BFEA800A2CBB4 /* UserTokenAPIData.swift */,
+				076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */,
 				077C77B92378155F0088B151 /* UserData.swift */,
 				077C77B22378145C0088B151 /* RequestAPI.swift */,
 				077C77B42378149F0088B151 /* Protocol */,
@@ -498,19 +510,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076F6BCC237BFEA800A2CBB4 /* UserTokenAPIData.swift in Sources */,
 				078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */,
 				07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */,
 				07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */,
-				077C77B1237812570088B151 /* UserAPIData.swift in Sources */,
+				076F6BCE237BFF8100A2CBB4 /* UserLoginData.swift in Sources */,
+				077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */,
 				07D5E9B9236EF9A900A27B28 /* UserDataRule.swift in Sources */,
 				077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */,
 				07D5E9B5236EF98D00A27B28 /* SegueIdentifier.swift in Sources */,
 				0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */,
+				076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */,
 				07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */,
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
+				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
