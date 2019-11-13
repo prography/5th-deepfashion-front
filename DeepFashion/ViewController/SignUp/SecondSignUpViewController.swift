@@ -96,10 +96,16 @@ class SecondSignUpViewController: UIViewController {
         /// Data Check Test
         guard let userData = CommonUserData.shared.userData else { return }
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
-        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIMode.userDataPost) { userAPIData in
+        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIMode.userDataPost) { userAPIData, succeed in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
-            print("succeed userAPIData is... \(String(describing: userAPIData))")
-            self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
+            if succeed {
+                print("succeed userAPIData is... \(String(describing: userAPIData))")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
+                }
+            } else {
+                print("회원가입 에러 났음 ㅠㅠ...")
+            }
         }
     }
 

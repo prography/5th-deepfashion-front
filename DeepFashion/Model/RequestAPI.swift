@@ -26,6 +26,9 @@ final class RequestAPI {
 
     // MARK: - Properties
 
+    private let urlSession = URLSession(configuration: .default)
+    private var dataTask = URLSessionDataTask()
+
     weak var delegate: RequestAPIDelegate?
 
     func printUserAPIData() {
@@ -37,17 +40,23 @@ final class RequestAPI {
         print("userData is... : \(userData)")
     }
 
-    func postAPIData<T: Encodable>(userData: T, APIMode: APIMode, completion _: @escaping (UserTokenAPIData) -> Void) {
+    func postAPIData<T: Encodable>(userData: T, APIMode: APIMode, completion: @escaping (T.Type?, Bool) -> Void) {
         switch APIMode {
         case .loginDataPost:
 
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.loginPost)"
-            guard let userData = userData as? LoginAPIPostData else { return }
+            guard let userData = userData as? LoginAPIPostData else {
+                completion(nil, false)
+                return
+            }
 
             let userDataToPost = LoginAPIPostData(userName: userData.userName, password: userData.password)
             print("userAPIData... : \(userDataToPost)")
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
-                let postURL = URL(string: userDataPostURLString) else { return }
+                let postURL = URL(string: userDataPostURLString) else {
+                completion(nil, false)
+                return
+            }
 
             print("userAPIData... : \(userAPIData)")
             var urlRequest = URLRequest(url: postURL)
@@ -55,16 +64,17 @@ final class RequestAPI {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
             // URLSession을 만들어 Post 작용을 시작한다.
-            let urlSession = URLSession.shared
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
                 data, response, error in
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
+                    completion(nil, false)
                 }
 
                 guard let data = data,
                     let userData = try? JSONDecoder().decode(UserTokenAPIData.self, from: data) else {
+                    completion(nil, false)
                     return
                 }
 
@@ -76,47 +86,57 @@ final class RequestAPI {
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
+                        completion(nil, true)
                     } else {
                         print("request failed : \(response.statusCode)")
+                        completion(nil, false)
                     }
                 }
             }.resume()
+
         case .userDataPost:
 
-            guard let userData = userData as? UserAPIPostData else { return }
+            guard let userData = userData as? UserAPIPostData else {
+                completion(nil, false)
+                return
+            }
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.userDataPost)"
             print("userDataPostURLString : \(userDataPostURLString)")
             let userDataToPost = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.styles, password: userData.password)
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
-                let postURL = URL(string: userDataPostURLString) else { return }
+                let postURL = URL(string: userDataPostURLString) else {
+                completion(nil, false)
+                return
+            }
 
             var urlRequest = URLRequest(url: postURL)
             urlRequest.httpMethod = "POST"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
             // URLSession을 만들어 Post 작용을 시작한다.
-            let urlSession = URLSession.shared
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
                 data, response, error in
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
+                    completion(nil, false)
                 }
 
                 guard let data = data,
                     let userData = try? JSONDecoder().decode(UserAPIData.self, from: data) else {
+                    completion(nil, false)
                     return
                 }
-
-                print("userAPIData : \(userData)")
 
                 if let response = response as? HTTPURLResponse {
                     print("post response : \(response)")
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
+                        completion(nil, true)
                     } else {
                         print("request failed : \(response.statusCode)")
+                        completion(nil, false)
                     }
                 }
             }.resume()

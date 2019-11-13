@@ -85,9 +85,15 @@ class LoginViewController: UIViewController {
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text else { return }
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
-        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIMode.loginDataPost) { userAPIData in
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIMode.loginDataPost) { userAPIData, succeed in
             print("succeed userAPIData is... \(String(describing: userAPIData))")
-            self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: self)
+            if succeed {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: self)
+                }
+            } else {
+                print("에러났음 ㅠㅠ")
+            }
         }
     }
 
