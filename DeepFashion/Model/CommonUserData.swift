@@ -35,4 +35,8 @@ final class CommonUserData {
         userData?.configureStyle(styles: style)
         return style[tagIndex]
     }
+
+    func resetStyleData() {
+        style = [Int](repeating: 0, count: 12)
+    }
 }

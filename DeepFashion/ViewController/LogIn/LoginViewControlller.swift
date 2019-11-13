@@ -84,8 +84,8 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_: UIButton) {
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text else { return }
-        let userData = UserLoginData(userName: idText, password: passwordText)
-        RequestAPI.shared.postLoginAPIData(userData: userData) { userAPIData in
+        let userData = LoginAPIPostData(userName: idText, password: passwordText)
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIMode.loginDataPost) { userAPIData in
             print("succeed userAPIData is... \(String(describing: userAPIData))")
             self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: self)
         }
@@ -93,15 +93,7 @@ class LoginViewController: UIViewController {
 
     // MARK: Unwind
 
-    @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {
-        /// Data Check Test
-        guard let userData = CommonUserData.shared.userData else { return }
-        print("Current UsrData is... : \(userData)")
-        RequestAPI.shared.postUserAPIData(userData: userData) { userAPIData in
-            // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
-            print("succeed userAPIData is... \(String(describing: userAPIData))")
-        }
-    }
+    @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {}
 }
 
 extension LoginViewController: UITextFieldDelegate {

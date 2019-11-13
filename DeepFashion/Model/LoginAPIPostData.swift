@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LoginAPIPostData: Codable {
+struct LoginAPIPostData: Encodable {
     let userName: String
     let password: String
 
