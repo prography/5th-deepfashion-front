@@ -9,6 +9,7 @@
 import Foundation
 
 struct SegueIdentifier {
+    static let goToMain = "goToMainView"
     static let goToFirstSignUp = "goToFirstSignUp"
     static let goToSecondSignUp = "goToSecondSignUp"
     static let unwindToMain = "unwindToMain"

@@ -9,13 +9,15 @@
 import Foundation
 
 struct UserDataRule {
+    struct Common {
+        static let maxLength = 10
+    }
+
     struct Id {
         static let minLength = 6
-        static let maxLength = 10
     }
 
     struct Password {
         static let minLength = 8
-        static let maxLength = 10
     }
 }

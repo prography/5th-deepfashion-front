@@ -11,27 +11,68 @@ import RxSwift
 import UIKit
 
 class SecondSignUpViewController: UIViewController {
+    // MARK: IBOutlet
+
+    @IBOutlet var signUpFinishButton: UIButton!
+
     // MARK: - Properties
 
     var isGenderMan = true
-    var selectionCount = 0
+
+    private var _isFillInData = false
+    private var isFillInData: Bool {
+        set {
+            _isFillInData = newValue
+            signUpFinishButton.configureButtonByStatus(newValue)
+        }
+
+        get { return _isFillInData }
+    }
+
+    private var _styleSelectionCount = 0
+    private var styleSelectionCount: Int {
+        set {
+            _styleSelectionCount = newValue
+            isFillInData = newValue > 0 ? true : false
+        }
+
+        get { return _styleSelectionCount }
+    }
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("now gender : \(isGenderMan)")
         configureStyleSelectButton()
+        configureSignUpFinishButton()
+    }
+
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+        styleSelectionCount = 0
     }
 
     // MARK: - Method
 
-    func configureStyleSelectButton() {
+    private func configureSignUpFinishButton() {
+        signUpFinishButton.configureDisabledButton()
+    }
+
+    private func configureStyleButtonDisabled(styleButton: UIButton) {
+        styleButton.configureDisabledButton()
+        styleButton.backgroundColor = .white
+    }
+
+    private func configureStyleButtonSelected(styleButton: UIButton) {
+        styleButton.configureSelectedButton()
+    }
+
+    private func configureStyleSelectButton() {
         let firstButtonTag = UIIdentifier.StyleButton.startTagIndex
         let lastButtonTag = UIIdentifier.StyleButton.endTagIndex
         for buttonIndex in firstButtonTag ... lastButtonTag {
             guard let styleButton = self.view.viewWithTag(buttonIndex) as? UIButton else { return }
-            styleButton.configureBasicButton()
+            configureStyleButtonDisabled(styleButton: styleButton)
 
             var nowButtonText = ""
             if isGenderMan {
@@ -52,21 +93,35 @@ class SecondSignUpViewController: UIViewController {
     // MARK: - IBAction
 
     @IBAction func signUpFinishedButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
+        /// Data Check Test
+        guard let userData = CommonUserData.shared.userData else { return }
+        let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
+        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIMode.userDataPost) { userAPIData, succeed in
+            // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
+            if succeed {
+                print("succeed userAPIData is... \(String(describing: userAPIData))")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
+                }
+            } else {
+                print("회원가입 에러 났음 ㅠㅠ...")
+            }
+        }
     }
 
     @IBAction func styleSelectButtonPressed(_ sender: UIButton) {
-        let flag = UserData.shared.toggleStyleData(tagIndex: sender.tag - UIIdentifier.StyleButton.startTagIndex)
+        let flag = CommonUserData.shared.toggleStyleData(tagIndex: sender.tag - UIIdentifier.StyleButton.startTagIndex)
 
         if flag == 0 {
-            sender.configureBasicButton()
+            configureStyleButtonDisabled(styleButton: sender)
+            styleSelectionCount -= 1
         } else {
-            sender.configureSelectedButton()
+            configureStyleButtonSelected(styleButton: sender)
+            styleSelectionCount += 1
         }
 
-        UserData.shared.style.forEach {
+        CommonUserData.shared.style.forEach {
             print($0, terminator: " ")
         }
-        print("")
     }
 }

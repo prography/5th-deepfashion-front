@@ -4,7 +4,7 @@
 //
 //  Created by MinKyeongTae on 27/10/2019.
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
-//  Now Branch : Feature/SaveSignUpData
+//  Now Branch : Feature/RequestSignUpAPI
 
 import UIKit
 
