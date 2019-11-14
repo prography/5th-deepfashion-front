@@ -78,6 +78,8 @@ final class RequestAPI {
                     return
                 }
 
+                // MARK: - Token Check
+
                 print("token is.. \(userData.token)")
                 print("userAPIData : \(userData)")
 
@@ -115,18 +117,18 @@ final class RequestAPI {
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
-                data, response, error in
+                _, response, error in
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
                     completion(nil, false)
                 }
 
-                guard let data = data,
-                    let userData = try? JSONDecoder().decode(UserAPIData.self, from: data) else {
-                    completion(nil, false)
-                    return
-                }
+//                guard let data = data,
+//                    let userData = try? JSONDecoder().decode(UserAPIData.self, from: data) else {
+//                    completion(nil, false)
+//                    return
+//                }
 
                 if let response = response as? HTTPURLResponse {
                     print("post response : \(response)")

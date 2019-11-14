@@ -49,6 +49,7 @@ class SecondSignUpViewController: UIViewController {
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
+        CommonUserData.shared.resetStyleData()
         styleSelectionCount = 0
     }
 
@@ -96,10 +97,9 @@ class SecondSignUpViewController: UIViewController {
         /// Data Check Test
         guard let userData = CommonUserData.shared.userData else { return }
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
-        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIMode.userDataPost) { userAPIData, succeed in
+        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIMode.userDataPost) { _, succeed in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
             if succeed {
-                print("succeed userAPIData is... \(String(describing: userAPIData))")
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
                 }
