@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserLoginData {
+struct LoginUserData {
     let userName: String
     let password: String
 }
