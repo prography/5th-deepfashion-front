@@ -580,20 +580,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take or Set the Picture!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp5-jY-ZN2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take or Set the Picture!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp5-jY-ZN2">
                                 <rect key="frame" x="73" y="178" width="178" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cF8-vY-xA5">
+                                <rect key="frame" x="110" y="275" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Gko-Bl-hFm"/>
+                                    <constraint firstAttribute="width" constant="100" id="rE0-hL-GoV"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vdl-x6-2sl" firstAttribute="trailing" secondItem="Tp5-jY-ZN2" secondAttribute="trailing" constant="69" id="12W-3R-hvW"/>
+                            <constraint firstItem="Tp5-jY-ZN2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vdl-x6-2sl" secondAttribute="leading" id="LwR-Pw-Ept"/>
+                            <constraint firstItem="cF8-vY-xA5" firstAttribute="centerX" secondItem="vdl-x6-2sl" secondAttribute="centerX" id="aa7-6g-U5M"/>
+                            <constraint firstItem="vdl-x6-2sl" firstAttribute="bottom" secondItem="cF8-vY-xA5" secondAttribute="bottom" constant="100" id="i5W-uS-SXY"/>
+                            <constraint firstItem="Tp5-jY-ZN2" firstAttribute="top" secondItem="vdl-x6-2sl" secondAttribute="top" constant="178" id="n2k-9b-Kq7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="plus.square" catalog="system" id="q3p-tE-foQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="selectedPhotoImageView" destination="cF8-vY-xA5" id="gd9-p1-Mrn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axQ-XY-zAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

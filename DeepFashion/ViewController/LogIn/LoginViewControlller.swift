@@ -103,7 +103,6 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
-        print("\(string)")
         return checkCharacter(textField: textField, character: string)
     }
 }
