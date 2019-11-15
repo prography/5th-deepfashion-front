@@ -28,4 +28,17 @@ extension UIViewController {
     func closePhotoAlbum(_ imagePickerController: UIImagePickerController) {
         imagePickerController.dismiss(animated: true, completion: nil)
     }
+
+    func presentAuthRequestAlertController(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let getAuthAction = UIAlertAction(title: "네", style: .default) { _ in
+            if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
+            }
+        }
+        let denyAuthAction = UIAlertAction(title: "싫습니다", style: .cancel, handler: nil)
+        alertController.addAction(getAuthAction)
+        alertController.addAction(denyAuthAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }

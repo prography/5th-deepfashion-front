@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
     // MARK: Transition
 
     @IBAction func SignUpButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: nil)
     }
 
     @IBAction func loginButtonPressed(_: UIButton) {
@@ -86,9 +86,10 @@ class LoginViewController: UIViewController {
             let passwordText = self.passwordTextField.text else { return }
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIMode.loginDataPost) { _, succeed in
-            if succeed {
+            // 테스트용 조건 설정 중)
+            if !succeed {
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: self)
+                    self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
                 }
             } else {
                 print("에러났음 ㅠㅠ")

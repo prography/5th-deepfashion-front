@@ -70,6 +70,7 @@ final class RequestAPI {
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
                     completion(nil, false)
+                    return
                 }
 
                 guard let data = data,

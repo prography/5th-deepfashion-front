@@ -6,6 +6,7 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
+import AVFoundation
 import Photos
 import UIKit
 
@@ -36,8 +37,30 @@ class PhotoAddViewController: UIViewController {
     func configurePhotoSelectAlertController() {
         let takePictureAlertAction = UIAlertAction(title: "사진 찍기", style: .default) { _ in
             print("사진 찍기 클릭")
-            self.openCamera(self.photoPickerViewController)
+            let cameraType = AVMediaType.video
+            let cameraAuthStatus = AVCaptureDevice.authorizationStatus(for: cameraType)
+            switch cameraAuthStatus {
+            case .authorized:
+                if self.openCamera(self.photoPickerViewController) {
+                    // succeed
+                } else {
+                    self.presentCameraAuthRequestAlertController()
+                }
             // 초기 실행 시, 사진 촬영 권한 요청, 흭득 시 사용 가능
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: cameraType, completionHandler: { granted in
+                    if granted {
+                        if self.openCamera(self.photoPickerViewController) {
+                            // succeed
+                        } else {
+                            self.presentCameraAuthRequestAlertController()
+                        }
+                    } else {
+                        self.presentCameraAuthRequestAlertController()
+                    }
+                })
+            default: self.presentCameraAuthRequestAlertController()
+            }
         }
 
         let getAlbumAlertAction = UIAlertAction(title: "앨범 사진 가져오기", style: .default, handler: { _ in
@@ -79,16 +102,11 @@ class PhotoAddViewController: UIViewController {
     }
 
     func presentPhotoAuthRequestAlertController() {
-        let alertController = UIAlertController(title: "사집첩 권한 필요", message: "사진첩 사용을 위해 권한허용 설정을 해주세요.", preferredStyle: .alert)
-        let getAuthAction = UIAlertAction(title: "네", style: .default) { _ in
-            if let appSettings = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
-            }
-        }
-        let denyAuthAction = UIAlertAction(title: "싫습니다", style: .cancel, handler: nil)
-        alertController.addAction(getAuthAction)
-        alertController.addAction(denyAuthAction)
-        present(alertController, animated: true, completion: nil)
+        presentAuthRequestAlertController(title: "사진첩 접근권한 필요", message: "사진첩을 실행하려면 접근권한 설정이 필요합니다.")
+    }
+
+    func presentCameraAuthRequestAlertController() {
+        presentAuthRequestAlertController(title: "카메라 접근권한 필요", message: "카메라를 실행하려면 접근권한 설정이 필요합니다.")
     }
 
     // MARK: - Methods

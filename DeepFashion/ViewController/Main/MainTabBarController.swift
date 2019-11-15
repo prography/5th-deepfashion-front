@@ -19,11 +19,11 @@ class MainTabBarController: UITabBarController {
         delegate = self
     }
 
-    override func didMove(toParent _: UIViewController?) {
-        // 사진을 찍을지, 앨범에서 불러올지를 묻는다.
-        // 처음 텝바컨트롤러 실행 시 호출
-        print("didMove!!")
-    }
+//    override func didMove(toParent _: UIViewController?) {
+//        // 사진을 찍을지, 앨범에서 불러올지를 묻는다.
+//        // 처음 텝바컨트롤러 실행 시 호출
+//        print("didMove!!")
+//    }
 
     /*
      // MARK: - Navigation
