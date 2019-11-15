@@ -551,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoQ-tG-ule" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="1382"/>
+            <point key="canvasLocation" x="859" y="1382"/>
         </scene>
         <!--FourthView-->
         <scene sceneID="AyH-Jc-bPg">
@@ -570,7 +570,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-2F-Fa8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3088" y="996"/>
+            <point key="canvasLocation" x="3476" y="1382"/>
+        </scene>
+        <!--Photo Add View Controller-->
+        <scene sceneID="yPN-H7-C6S">
+            <objects>
+                <viewController id="k0I-cA-kpf" customClass="PhotoAddViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UzU-Z3-DGI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take or Set the Picture!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp5-jY-ZN2">
+                                <rect key="frame" x="73" y="178" width="178" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" selectedImage="plus.square" catalog="system" id="q3p-tE-foQ">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="axQ-XY-zAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1743" y="1376"/>
         </scene>
         <!--thirdView-->
         <scene sceneID="g0p-8c-jDg">
@@ -589,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uN4-CX-qln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2351" y="1382"/>
+            <point key="canvasLocation" x="2616" y="1382"/>
         </scene>
         <!--firstView-->
         <scene sceneID="8Bq-3q-DU9">
@@ -607,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dR-Yc-pXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903.75" y="1381.6901408450703"/>
+            <point key="canvasLocation" x="-11" y="1382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n2a-zH-s7j">
@@ -631,7 +658,7 @@
         <!--메인 뷰-->
         <scene sceneID="JBE-vc-0hX">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="메인 뷰" id="x34-lN-e5E"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" itemSpacing="50" itemWidth="50" id="ZF9-44-la4">
@@ -644,6 +671,7 @@
                     <connections>
                         <segue destination="abK-qW-sZg" kind="relationship" relationship="viewControllers" id="738-YM-4cJ"/>
                         <segue destination="wfz-52-Igo" kind="relationship" relationship="viewControllers" id="Umb-uB-NW8"/>
+                        <segue destination="k0I-cA-kpf" kind="relationship" relationship="viewControllers" id="eJc-DB-jWm"/>
                         <segue destination="MEW-gU-6r0" kind="relationship" relationship="viewControllers" id="58F-Sv-Bha"/>
                         <segue destination="qJ7-0X-wOs" kind="relationship" relationship="viewControllers" id="OPO-lL-YVs"/>
                     </connections>
@@ -653,5 +681,8 @@
             <point key="canvasLocation" x="1851" y="582"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus.square" catalog="system" width="64" height="56"/>
+    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
