@@ -1,4 +1,9 @@
 PODS:
+  - LibTorch (0.0.2):
+    - LibTorch/Core (= 0.0.2)
+  - LibTorch/Core (0.0.2):
+    - LibTorch/Torch
+  - LibTorch/Torch (0.0.2)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -7,20 +12,24 @@ PODS:
   - RxSwift (5.0.0)
 
 DEPENDENCIES:
+  - LibTorch
   - RxCocoa
   - RxSwift (~> 5.0.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - RxCocoa
     - RxRelay
     - RxSwift
+  trunk:
+    - LibTorch
 
 SPEC CHECKSUMS:
+  LibTorch: f4b576069920da1c6d9963ccb3c737529c6cc991
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 664db5cace5e720ee0a3401177605d71a7ffbf65
+PODFILE CHECKSUM: 906b66c161540f5f088ef2c1193bf4752953df60
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
