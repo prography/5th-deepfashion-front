@@ -17,8 +17,15 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var forgotPasswordButton: UIButton!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     // MARK: - Properties
+
+    private var isAPIDataRequested = false {
+        willSet {
+            indicatorView.checkIndicatorView(newValue)
+        }
+    }
 
     private var _isFillInData = false
     private var isFillInData: Bool {
@@ -34,6 +41,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        RequestAPI.shared.delegate = self
         configureTextField()
         configureLoginButton()
     }
@@ -78,7 +86,7 @@ class LoginViewController: UIViewController {
     // MARK: Transition
 
     @IBAction func SignUpButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: self)
+        performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: nil)
     }
 
     @IBAction func loginButtonPressed(_: UIButton) {
@@ -86,9 +94,10 @@ class LoginViewController: UIViewController {
             let passwordText = self.passwordTextField.text else { return }
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIMode.loginDataPost) { _, succeed in
-            if succeed {
+            // 테스트용 조건 설정 중)
+            if !succeed {
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: self)
+                    self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
                 }
             } else {
                 print("에러났음 ㅠㅠ")
@@ -103,7 +112,23 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
-        print("\(string)")
         return checkCharacter(textField: textField, character: string)
+    }
+}
+
+extension LoginViewController: RequestAPIDelegate {
+    func requestAPIDidBegin() {
+        // 인디케이터 동작
+        isAPIDataRequested = true
+    }
+
+    func requestAPIDidFinished() {
+        // 인디케이터 종료 및 세그 동작 실행
+        isAPIDataRequested = false
+    }
+
+    func requestAPIDidError() {
+        // 에러 발생 시 동작 실행
+        isAPIDataRequested = false
     }
 }

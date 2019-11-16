@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = mainNavigationController
             window?.makeKeyAndVisible()
         }
-//        let mainView = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.mainView)
-//        mainNavigationController?.topViewController = mainView
         return true
     }
 

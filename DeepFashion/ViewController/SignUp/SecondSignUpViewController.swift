@@ -14,10 +14,16 @@ class SecondSignUpViewController: UIViewController {
     // MARK: IBOutlet
 
     @IBOutlet var signUpFinishButton: UIButton!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     // MARK: - Properties
 
     var isGenderMan = true
+    private var isAPIDataRequested = false {
+        willSet {
+            indicatorView.checkIndicatorView(newValue)
+        }
+    }
 
     private var _isFillInData = false
     private var isFillInData: Bool {
@@ -43,6 +49,7 @@ class SecondSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        RequestAPI.shared.delegate = self
         configureStyleSelectButton()
         configureSignUpFinishButton()
     }
@@ -123,5 +130,23 @@ class SecondSignUpViewController: UIViewController {
         CommonUserData.shared.style.forEach {
             print($0, terminator: " ")
         }
+    }
+}
+
+extension SecondSignUpViewController: RequestAPIDelegate {
+    func requestAPIDidBegin() {
+        // 인디케이터 동작
+        isAPIDataRequested = true
+    }
+
+    func requestAPIDidFinished() {
+        // 인디케이터 종료 및 세그 동작 실행
+        isAPIDataRequested = false
+    }
+
+    func requestAPIDidError() {
+        // 에러 발생 시 동작 실행
+        isAPIDataRequested = false
+        // 에러 발생 AlertController를 띄운다.
     }
 }

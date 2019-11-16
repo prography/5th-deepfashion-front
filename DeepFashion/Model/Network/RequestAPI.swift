@@ -41,11 +41,13 @@ final class RequestAPI {
     }
 
     func postAPIData<T: Encodable>(userData: T, APIMode: APIMode, completion: @escaping (T.Type?, Bool) -> Void) {
+        delegate?.requestAPIDidBegin()
         switch APIMode {
         case .loginDataPost:
 
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.loginPost)"
             guard let userData = userData as? LoginAPIPostData else {
+                delegate?.requestAPIDidError()
                 completion(nil, false)
                 return
             }
@@ -54,6 +56,7 @@ final class RequestAPI {
             print("userAPIData... : \(userDataToPost)")
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
+                delegate?.requestAPIDidError()
                 completion(nil, false)
                 return
             }
@@ -69,11 +72,14 @@ final class RequestAPI {
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
+                    self.delegate?.requestAPIDidError()
                     completion(nil, false)
+                    return
                 }
 
                 guard let data = data,
                     let userData = try? JSONDecoder().decode(UserTokenAPIData.self, from: data) else {
+                    self.delegate?.requestAPIDidError()
                     completion(nil, false)
                     return
                 }
@@ -88,9 +94,11 @@ final class RequestAPI {
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidFinished()
                         completion(nil, true)
                     } else {
                         print("request failed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidError()
                         completion(nil, false)
                     }
                 }
@@ -99,6 +107,7 @@ final class RequestAPI {
         case .userDataPost:
 
             guard let userData = userData as? UserAPIPostData else {
+                delegate?.requestAPIDidError()
                 completion(nil, false)
                 return
             }
@@ -107,6 +116,7 @@ final class RequestAPI {
             let userDataToPost = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.styles, password: userData.password)
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
+                delegate?.requestAPIDidError()
                 completion(nil, false)
                 return
             }
@@ -121,23 +131,20 @@ final class RequestAPI {
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
+                    self.delegate?.requestAPIDidError()
                     completion(nil, false)
                 }
-
-//                guard let data = data,
-//                    let userData = try? JSONDecoder().decode(UserAPIData.self, from: data) else {
-//                    completion(nil, false)
-//                    return
-//                }
 
                 if let response = response as? HTTPURLResponse {
                     print("post response : \(response)")
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidFinished()
                         completion(nil, true)
                     } else {
                         print("request failed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidError()
                         completion(nil, false)
                     }
                 }
