@@ -21,6 +21,12 @@ class LoginViewController: UIViewController {
 
     // MARK: - Properties
 
+    private var isAPIDataRequested = false {
+        willSet {
+            indicatorView.checkIndicatorView(newValue)
+        }
+    }
+
     private var _isFillInData = false
     private var isFillInData: Bool {
         set {
@@ -113,13 +119,16 @@ extension LoginViewController: UITextFieldDelegate {
 extension LoginViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         // 인디케이터 동작
+        isAPIDataRequested = true
     }
 
     func requestAPIDidFinished() {
         // 인디케이터 종료 및 세그 동작 실행
+        isAPIDataRequested = false
     }
 
     func requestAPIDidError() {
         // 에러 발생 시 동작 실행
+        isAPIDataRequested = false
     }
 }
