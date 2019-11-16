@@ -113,9 +113,19 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="Ye5-FE-TJQ"/>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="R5u-wh-hcu">
+                                <rect key="frame" x="135" y="237" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PPD-jg-Nfg"/>
+                                    <constraint firstAttribute="width" constant="50" id="l08-qd-2gI"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="R5u-wh-hcu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0b5-gh-IyI"/>
+                            <constraint firstItem="R5u-wh-hcu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5xp-hc-vg7"/>
                             <constraint firstItem="EwL-22-Vck" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Qav-1l-mA9"/>
                             <constraint firstItem="EwL-22-Vck" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RSY-QF-TCl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EwL-22-Vck" secondAttribute="trailing" id="nWi-mr-ksX"/>
@@ -129,6 +139,7 @@
                         <outlet property="forgotPasswordButton" destination="RnP-Hd-4ap" id="Qje-PW-4h2"/>
                         <outlet property="googleLoginButton" destination="1U9-D7-asQ" id="xtM-pC-SFJ"/>
                         <outlet property="idTextField" destination="ypv-GV-f7F" id="JOA-Hg-MAf"/>
+                        <outlet property="indicatorView" destination="R5u-wh-hcu" id="5fJ-oG-ock"/>
                         <outlet property="loginButton" destination="fTI-HG-Vg2" id="TEZ-th-IlD"/>
                         <outlet property="passwordTextField" destination="lAv-bD-6HS" id="WAp-RZ-zmH"/>
                         <outlet property="signUpButton" destination="BNP-RL-yff" id="dKB-5M-ez7"/>
@@ -138,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648.79999999999995" y="117.39130434782609"/>
+            <point key="canvasLocation" x="648.75" y="117.25352112676056"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="Ht8-gY-tMD">
@@ -510,10 +521,20 @@
                                     <action selector="signUpFinishedButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="3Jg-S7-vpW"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="j4Z-KG-2HO">
+                                <rect key="frame" x="135" y="237" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kJq-bQ-l4R"/>
+                                    <constraint firstAttribute="width" constant="50" id="neM-l8-W8S"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gZy-Na-5lf" firstAttribute="top" secondItem="257-Gg-gyA" secondAttribute="bottom" constant="15" id="3lz-QR-VEg"/>
+                            <constraint firstItem="j4Z-KG-2HO" firstAttribute="centerX" secondItem="4Ol-59-VJR" secondAttribute="centerX" id="fbF-v2-5Gl"/>
+                            <constraint firstItem="j4Z-KG-2HO" firstAttribute="centerY" secondItem="4Ol-59-VJR" secondAttribute="centerY" id="gBP-R0-3tg"/>
                             <constraint firstItem="257-Gg-gyA" firstAttribute="centerX" secondItem="4Ol-59-VJR" secondAttribute="centerX" id="jh6-xL-a3Q"/>
                             <constraint firstItem="257-Gg-gyA" firstAttribute="top" secondItem="xGA-aK-34u" secondAttribute="top" constant="10" id="nyl-M4-V0R"/>
                             <constraint firstItem="gZy-Na-5lf" firstAttribute="leading" secondItem="257-Gg-gyA" secondAttribute="leading" id="sdX-Co-oT7"/>
@@ -526,6 +547,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="선호스타일 설정" id="9JS-q7-19q"/>
                     <connections>
+                        <outlet property="indicatorView" destination="j4Z-KG-2HO" id="hVU-Ji-OTa"/>
                         <outlet property="signUpFinishButton" destination="gZy-Na-5lf" id="TVo-Yg-nQy"/>
                         <segue destination="BxI-ns-ITX" kind="unwind" identifier="unwindToMain" unwindAction="prepareForUnwindWithSegue:" id="1lI-nm-xcF"/>
                     </connections>

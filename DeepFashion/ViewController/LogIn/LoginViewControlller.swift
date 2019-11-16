@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     @IBOutlet var signUpButton: UIButton!
     @IBOutlet var forgotPasswordButton: UIButton!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     // MARK: - Properties
 
@@ -34,6 +35,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        RequestAPI.shared.delegate = self
         configureTextField()
         configureLoginButton()
     }
@@ -105,5 +107,19 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
         return checkCharacter(textField: textField, character: string)
+    }
+}
+
+extension LoginViewController: RequestAPIDelegate {
+    func requestAPIDidBegin() {
+        // 인디케이터 동작
+    }
+
+    func requestAPIDidFinished() {
+        // 인디케이터 종료 및 세그 동작 실행
+    }
+
+    func requestAPIDidError() {
+        // 에러 발생 시 동작 실행
     }
 }
