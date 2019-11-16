@@ -137,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07020DF8237FDE99000CFAC2 /* MainTabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				07598531237E93E500C48EE7 /* PhotoAddViewController.swift */,
+			);
+			path = MainTabBarView;
+			sourceTree = "<group>";
+		};
 		0733A6A92365D99800E26B38 = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				07598535237E96F000C48EE7 /* MainTabBarController.swift */,
-				07598531237E93E500C48EE7 /* PhotoAddViewController.swift */,
+				07020DF8237FDE99000CFAC2 /* MainTabBarView */,
 			);
 			path = Main;
 			sourceTree = "<group>";

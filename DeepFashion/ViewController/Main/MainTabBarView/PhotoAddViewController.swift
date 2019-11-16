@@ -93,8 +93,11 @@ class PhotoAddViewController: UIViewController {
                 fatalError()
             }
         })
+
+        let cancelAlertAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         photoSelectAlertController.addAction(takePictureAlertAction)
         photoSelectAlertController.addAction(getAlbumAlertAction)
+        photoSelectAlertController.addAction(cancelAlertAction)
     }
 
     func presentPhotoSelectAlertController() {
