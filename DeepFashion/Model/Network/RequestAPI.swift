@@ -31,15 +31,6 @@ final class RequestAPI {
 
     weak var delegate: RequestAPIDelegate?
 
-    func printUserAPIData() {
-        let userId = CommonUserData.shared.id
-        let userPassword = CommonUserData.shared.password
-        let userStyle = CommonUserData.shared.style
-        let userGender = CommonUserData.shared.gender
-        let userData = UserData(userName: userId, styles: userStyle, password: userPassword, gender: userGender)
-        print("userData is... : \(userData)")
-    }
-
     func postAPIData<T: Encodable>(userData: T, APIMode: APIMode, completion: @escaping (T.Type?, Bool) -> Void) {
         delegate?.requestAPIDidBegin()
         switch APIMode {
@@ -111,6 +102,7 @@ final class RequestAPI {
                 completion(nil, false)
                 return
             }
+
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.userDataPost)"
             print("userDataPostURLString : \(userDataPostURLString)")
             let userDataToPost = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.styles, password: userData.password)

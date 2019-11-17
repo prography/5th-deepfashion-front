@@ -10,30 +10,37 @@ import Foundation
 
 struct UserData {
     private(set) var userName = ""
-    private(set) var style = [Int]()
+    private(set) var style = Set<Int>()
     private(set) var password = ""
     private(set) var gender = ""
-    init(userName: String, styles: [Int], password: String, gender genderIndex: Int) {
+    init(userName: String, styles: Set<String>, password: String, gender genderIndex: Int) {
         self.userName = userName
         self.password = password
         gender = genderIndex == 0 ? "M" : "W"
 
-        var newStyles = [Int]()
-        for i in styles.indices {
-            if styles[i] == 1 {
-                newStyles.append(i + 1)
-            }
+        var newStyles = Set<Int>()
+        for value in styles.enumerated() {
+            guard let styleIndex = FashionStyle.dictionary[value.element] else { continue }
+            newStyles.insert(styleIndex)
         }
+
         style = newStyles
     }
 
-    mutating func configureStyle(styles: [Int]) {
-        var newStyles = [Int]()
-        for i in styles.indices {
-            if styles[i] == 1 {
-                newStyles.append(i + 1)
-            }
+    mutating func configureStyle(styles: [String: Int]) {
+        var newStyles = Set<Int>()
+        let mappingStyles = styles.filter { $0.value == 1 }
+
+        for (key, _) in mappingStyles {
+            guard let styleIndex = FashionStyle.dictionary[key] else { continue }
+            newStyles.insert(styleIndex)
         }
+
         style = newStyles
+
+        for value in style {
+            print("\(value), ", terminator: "")
+        }
+        print("")
     }
 }

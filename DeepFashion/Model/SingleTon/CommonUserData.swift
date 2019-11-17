@@ -15,7 +15,7 @@ final class CommonUserData {
     private(set) var id: String = ""
     private(set) var password: String = ""
     private(set) var gender: Int = 0
-    private(set) var style = [Int](repeating: 0, count: 12)
+    private(set) var selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxuty": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
 
     private init() {}
 
@@ -23,20 +23,21 @@ final class CommonUserData {
         self.id = id
         self.password = password
         self.gender = gender
-        userData = UserData(userName: id, styles: style, password: password, gender: gender)
+        userData = UserData(userName: id, styles: [], password: password, gender: gender)
     }
 
-    func toggleStyleData(tagIndex: Int) -> Int {
-        if style[tagIndex] == 0 {
-            style[tagIndex] = 1
+    func toggleStyleData(styleName: String) -> Int {
+        if selectedStyle[styleName] == 0 {
+            selectedStyle[styleName] = 1
         } else {
-            style[tagIndex] = 0
+            selectedStyle[styleName] = 0
         }
-        userData?.configureStyle(styles: style)
-        return style[tagIndex]
+        userData?.configureStyle(styles: selectedStyle)
+        return selectedStyle[styleName] ?? 0
     }
 
     func resetStyleData() {
-        style = [Int](repeating: 0, count: 12)
+        selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxuty": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
+        userData?.configureStyle(styles: selectedStyle)
     }
 }
