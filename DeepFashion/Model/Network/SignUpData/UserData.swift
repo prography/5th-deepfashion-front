@@ -10,7 +10,7 @@ import Foundation
 
 struct UserData {
     private(set) var userName = ""
-    private(set) var style = Set<Int>()
+    private(set) var style = [Int]()
     private(set) var password = ""
     private(set) var gender = ""
     init(userName: String, styles: Set<String>, password: String, gender genderIndex: Int) {
@@ -24,7 +24,7 @@ struct UserData {
             newStyles.insert(styleIndex)
         }
 
-        style = newStyles
+        style = newStyles.sorted()
     }
 
     mutating func configureStyle(styles: [String: Int]) {
@@ -36,7 +36,8 @@ struct UserData {
             newStyles.insert(styleIndex)
         }
 
-        style = newStyles
+        let orderedStyles = newStyles.sorted()
+        style = orderedStyles
 
         for value in style {
             print("\(value), ", terminator: "")

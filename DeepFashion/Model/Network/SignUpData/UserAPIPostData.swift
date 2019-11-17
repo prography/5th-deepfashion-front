@@ -12,7 +12,7 @@ import Foundation
 struct UserAPIPostData: Encodable {
     let userName: String
     let gender: String
-    let styles: Set<Int>
+    let styles: [Int]
     let password: String
 
     enum CodingKeys: String, CodingKey {
