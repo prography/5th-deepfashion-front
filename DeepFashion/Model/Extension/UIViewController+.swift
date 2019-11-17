@@ -41,4 +41,21 @@ extension UIViewController {
         alertController.addAction(denyAuthAction)
         present(alertController, animated: true, completion: nil)
     }
+
+    func presentBasicAlertController(title: String, message: String, completion: @escaping (Bool) -> Void) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let getAuthAction = UIAlertAction(title: "네", style: .default) { _ in
+            completion(true)
+        }
+
+        // 2)
+        let denyAuthAction = UIAlertAction(title: "싫습니다", style: .cancel) { _ in
+            completion(false)
+        }
+
+        alertController.addAction(getAuthAction)
+        alertController.addAction(denyAuthAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }

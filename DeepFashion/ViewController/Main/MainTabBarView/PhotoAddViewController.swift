@@ -119,9 +119,19 @@ class PhotoAddViewController: UIViewController {
 
 extension PhotoAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        // 만약 이미지가 성공적으로 선택 되었다면, 해당 이미지를 저장할 지를 묻는 AlertController를 띄운다.
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
         selectedPhotoImageView.image = selectedImage
         closePhotoAlbum(photoPickerViewController)
+        presentBasicAlertController(title: "사진을 저장 유무 확인", message: "사진을 저장하시겠습니까?") { isSucceed in
+            if isSucceed {
+                // 저장을 원하면 post처리를 진행한다.
+                print("Ready To Post Photo Image!")
+            } else {
+                // 저장을 거부하면 일단 아무것도 실행 안함
+                print("Cancel to save Photo Image!")
+            }
+        }
     }
 }
 
