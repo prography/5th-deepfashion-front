@@ -560,14 +560,14 @@
         <!--SecondView-->
         <scene sceneID="ERn-qo-GpZ">
             <objects>
-                <viewController title="SecondView" id="wfz-52-Igo" sceneMemberID="viewController">
+                <viewController title="SecondView" id="wfz-52-Igo" customClass="ClosetListViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILb-48-Kcd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="KJJ-Gy-1Pj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Setting" id="R4f-aN-H9e">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="R4f-aN-H9e">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                 </viewController>
@@ -578,14 +578,14 @@
         <!--FourthView-->
         <scene sceneID="AyH-Jc-bPg">
             <objects>
-                <viewController id="qJ7-0X-wOs" sceneMemberID="viewController">
+                <viewController id="qJ7-0X-wOs" customClass="MyPageViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pqs-Mh-jUn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ukZ-jQ-0He"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="MyPage" id="uhi-T6-xoe">
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="uhi-T6-xoe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
@@ -626,7 +626,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="plus.square" catalog="system" id="q3p-tE-foQ">
+                    <tabBarItem key="tabBarItem" selectedImage="plus.square" catalog="system" systemItem="mostViewed" id="q3p-tE-foQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -640,14 +640,14 @@
         <!--thirdView-->
         <scene sceneID="g0p-8c-jDg">
             <objects>
-                <viewController id="MEW-gU-6r0" sceneMemberID="viewController">
+                <viewController id="MEW-gU-6r0" customClass="CodiListViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OWW-gJ-Qh0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="QW0-Wo-UzZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="MyList" id="99N-QG-aOe">
+                    <tabBarItem key="tabBarItem" systemItem="more" id="99N-QG-aOe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="thirdView" id="TYo-Nj-8DF"/>
@@ -656,17 +656,17 @@
             </objects>
             <point key="canvasLocation" x="2616" y="1382"/>
         </scene>
-        <!--firstView-->
+        <!--Favorite-->
         <scene sceneID="8Bq-3q-DU9">
             <objects>
-                <viewController title="firstView" id="abK-qW-sZg" sceneMemberID="viewController">
+                <viewController title="Favorite" id="abK-qW-sZg" customClass="HomeViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2t-dv-yFB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="DhY-gW-9gC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="HOME" id="cbF-Up-1aj">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="cbF-Up-1aj">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                 </viewController>
@@ -683,6 +683,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="IQo-gH-s2t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -693,12 +699,12 @@
             </objects>
             <point key="canvasLocation" x="-290.39999999999998" y="117.39130434782609"/>
         </scene>
-        <!--메인 뷰-->
+        <!--My 추천 리스트-->
         <scene sceneID="JBE-vc-0hX">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="메인 뷰" id="x34-lN-e5E"/>
+                    <navigationItem key="navigationItem" title="My 추천 리스트" id="x34-lN-e5E"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" itemSpacing="50" itemWidth="50" id="ZF9-44-la4">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

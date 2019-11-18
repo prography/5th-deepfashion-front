@@ -58,4 +58,9 @@ extension UIViewController {
         alertController.addAction(denyAuthAction)
         present(alertController, animated: true, completion: nil)
     }
+
+    func configureBasicTitle(_ title: String) {
+        tabBarController?.title = title
+        navigationController?.title = title
+    }
 }
