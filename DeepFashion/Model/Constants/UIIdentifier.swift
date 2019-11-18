@@ -12,6 +12,12 @@ struct UIIdentifier {
     static let mainView = "mainView"
     static let mainNavigationController = "MainNavigationController"
 
+    struct Cell {
+        struct CollectionView {
+            static let closetList = "closetListCell"
+        }
+    }
+
     struct StyleButton {
         static let startTagIndex = 101
         static let endTagIndex = 112

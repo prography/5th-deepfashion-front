@@ -8,4 +8,9 @@
 
 import UIKit
 
-class ClosetListCollectionViewCell: UICollectionViewCell {}
+class ClosetListCollectionViewCell: UICollectionViewCell {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        backgroundColor = .white
+    }
+}
