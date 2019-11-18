@@ -6,11 +6,12 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum APIMode: String {
     case userDataPost
     case loginDataPost
+    case styleImagePost
 }
 
 struct APIURL {
@@ -18,6 +19,7 @@ struct APIURL {
     struct SubURL {
         static let userDataPost = "accounts/"
         static let loginPost = "accounts/login/"
+        static let styleImagePost = "accounts/"
     }
 }
 
@@ -31,7 +33,7 @@ final class RequestAPI {
 
     weak var delegate: RequestAPIDelegate?
 
-    func postAPIData<T: Encodable>(userData: T, APIMode: APIMode, completion: @escaping (T.Type?, Bool) -> Void) {
+    func postAPIData<T>(userData: T, APIMode: APIMode, completion: @escaping (T.Type?, Bool) -> Void) {
         delegate?.requestAPIDidBegin()
         switch APIMode {
         case .loginDataPost:
@@ -119,6 +121,54 @@ final class RequestAPI {
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
+                _, response, error in
+
+                if error != nil {
+                    print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
+                    self.delegate?.requestAPIDidError()
+                    completion(nil, false)
+                }
+
+                if let response = response as? HTTPURLResponse {
+                    print("post response : \(response)")
+
+                    if (200 ... 299).contains(response.statusCode) {
+                        print("request successed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidFinished()
+                        completion(nil, true)
+                    } else {
+                        print("request failed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidError()
+                        completion(nil, false)
+                    }
+                }
+            }.resume()
+
+        case .styleImagePost:
+
+            guard let userData = userData as? UIImage else {
+                delegate?.requestAPIDidError()
+                completion(nil, false)
+                return
+            }
+
+            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.styleImagePost)"
+            print("userDataPostURLString : \(userDataPostURLString)")
+
+            let imageDataToPost = userData.jpegData(compressionQuality: 0.9)
+
+            guard let postURL = URL(string: userDataPostURLString) else {
+                delegate?.requestAPIDidError()
+                completion(nil, false)
+                return
+            }
+
+            var urlRequest = URLRequest(url: postURL)
+            urlRequest.httpMethod = "POST"
+            urlRequest.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+
+            // URLSession을 만들어 Post 작용을 시작한다.
+            urlSession.uploadTask(with: urlRequest, from: imageDataToPost) {
                 _, response, error in
 
                 if error != nil {
