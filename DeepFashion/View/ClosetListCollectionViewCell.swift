@@ -9,6 +9,8 @@
 import UIKit
 
 class ClosetListCollectionViewCell: UICollectionViewCell {
+    @IBOutlet var fashionImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .white

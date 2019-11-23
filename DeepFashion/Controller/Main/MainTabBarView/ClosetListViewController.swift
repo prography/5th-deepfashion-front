@@ -19,6 +19,10 @@ class ClosetListViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureViewController()
+
+        DispatchQueue.main.async {
+            self.closetListCollectionView.reloadData()
+        }
     }
 }
 
@@ -56,12 +60,13 @@ extension ClosetListViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 10
+        return CommonUserData.shared.userImage.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.closetList, for: indexPath) as? ClosetListCollectionViewCell else { return UICollectionViewCell() }
 
+        collectionViewCell.fashionImageView.image = CommonUserData.shared.userImage[indexPath.item]
         return collectionViewCell
     }
 }
