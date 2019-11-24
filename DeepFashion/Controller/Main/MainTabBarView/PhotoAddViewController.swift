@@ -31,7 +31,13 @@ class PhotoAddViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         photoPickerViewController.delegate = self
+        configureViewController()
         configurePhotoSelectAlertController()
+    }
+
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        configureViewController()
     }
 
     func configurePhotoSelectAlertController() {
@@ -127,6 +133,21 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
             if isSucceed {
                 // 저장을 원하면 post처리를 진행한다.
                 print("Ready To Post Photo Image!")
+
+                guard let selectedImage = self.selectedPhotoImageView.image else { return }
+                CommonUserData.shared.addUserImage(selectedImage)
+                print(CommonUserData.shared.userImage)
+
+                // MARK: - Post The Image
+
+//                RequestAPI.shared.postAPIData(userData: self.selectedPhotoImageView.image, APIMode: APIMode.styleImagePost) { _, isSucceed in
+//
+//                    if isSucceed {
+//                        print("이미지 post 성공!")
+//                    } else {
+//                        print("이미지 post Error...")
+//                    }
+//                }
             } else {
                 // 저장을 거부하면 일단 아무것도 실행 안함
                 print("Cancel to save Photo Image!")
@@ -136,3 +157,9 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
 }
 
 extension PhotoAddViewController: UINavigationControllerDelegate {}
+
+extension PhotoAddViewController: UIViewControllerSetting {
+    func configureViewController() {
+        configureBasicTitle(ViewData.Title.MainTabBarView.photoAddView)
+    }
+}

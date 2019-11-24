@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		07020DF7237FD506000CFAC2 /* UIIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */; };
-		07020DFB237FEEE5000CFAC2 /* TorchModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 07020DFA237FEEE5000CFAC2 /* TorchModule.m */; };
+		07020DFB237FEEE5000CFAC2 /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07020DFA237FEEE5000CFAC2 /* TorchModule.mm */; };
+		071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */; };
 		0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B52365D99800E26B38 /* AppDelegate.swift */; };
 		0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B92365D99800E26B38 /* LoginViewControlller.swift */; };
 		0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6BB2365D99800E26B38 /* Main.storyboard */; };
@@ -31,6 +32,12 @@
 		077C77BA2378155F0088B151 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B92378155F0088B151 /* UserData.swift */; };
 		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
+		07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */; };
+		07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */; };
+		07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */; };
+		07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */; };
+		07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */; };
+		07B6E0642382B64A00D6A9E1 /* TitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0632382B64A00D6A9E1 /* TitleData.swift */; };
 		07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */; };
 		07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* TextField+.swift */; };
 		07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */; };
@@ -64,7 +71,9 @@
 /* Begin PBXFileReference section */
 		07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIIndicatorView+.swift"; sourceTree = "<group>"; };
 		07020DF9237FEEE4000CFAC2 /* DeepFashion-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeepFashion-Bridging-Header.h"; sourceTree = "<group>"; };
-		07020DFA237FEEE5000CFAC2 /* TorchModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TorchModule.m; sourceTree = "<group>"; };
+		07020DFA237FEEE5000CFAC2 /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
+		071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewCell.swift; sourceTree = "<group>"; };
+		071372E42385140D00A2AC86 /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
 		0733A6B22365D99800E26B38 /* DeepFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0733A6B52365D99800E26B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0733A6B92365D99800E26B38 /* LoginViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControlller.swift; sourceTree = "<group>"; };
@@ -93,6 +102,12 @@
 		077C77B92378155F0088B151 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
 		07AA4784237046780074DE76 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListViewController.swift; sourceTree = "<group>"; };
+		07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListViewController.swift; sourceTree = "<group>"; };
+		07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerSetting.swift; sourceTree = "<group>"; };
+		07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		07B6E0632382B64A00D6A9E1 /* TitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleData.swift; sourceTree = "<group>"; };
 		07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserData.swift; sourceTree = "<group>"; };
 		07D5E9AE236EE6A800A27B28 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifier.swift; sourceTree = "<group>"; };
@@ -143,17 +158,23 @@
 		07020DF8237FDE99000CFAC2 /* MainTabBarView */ = {
 			isa = PBXGroup;
 			children = (
+				07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */,
+				07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */,
 				07598531237E93E500C48EE7 /* PhotoAddViewController.swift */,
+				07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */,
+				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
 			);
 			path = MainTabBarView;
 			sourceTree = "<group>";
 		};
-		07020DFC237FF0D3000CFAC2 /* PyTorch */ = {
+		07020DFC237FF0D3000CFAC2 /* PyTorchBridge */ = {
 			isa = PBXGroup;
 			children = (
-				07020DFA237FEEE5000CFAC2 /* TorchModule.m */,
+				071372E42385140D00A2AC86 /* TorchModule.h */,
+				07020DFA237FEEE5000CFAC2 /* TorchModule.mm */,
+				07020DF9237FEEE4000CFAC2 /* DeepFashion-Bridging-Header.h */,
 			);
-			path = PyTorch;
+			path = PyTorchBridge;
 			sourceTree = "<group>";
 		};
 		0733A6A92365D99800E26B38 = {
@@ -183,10 +204,10 @@
 			children = (
 				0733A6B52365D99800E26B38 /* AppDelegate.swift */,
 				0733A6E923660F0500E26B38 /* SceneDelegate.swift */,
-				07020DFC237FF0D3000CFAC2 /* PyTorch */,
-				07020DF9237FEEE4000CFAC2 /* DeepFashion-Bridging-Header.h */,
+				07020DFC237FF0D3000CFAC2 /* PyTorchBridge */,
 				07D5E9A5236E00F100A27B28 /* Model */,
-				0758941323699B3B00B59A28 /* ViewController */,
+				07B6E0652382C05700D6A9E1 /* View */,
+				0758941323699B3B00B59A28 /* Controller */,
 				0733A6C32365D99900E26B38 /* Info.plist */,
 				07D5E9A4236E00E200A27B28 /* SupportingFiles */,
 			);
@@ -211,14 +232,14 @@
 			path = DeepFashionUITests;
 			sourceTree = "<group>";
 		};
-		0758941323699B3B00B59A28 /* ViewController */ = {
+		0758941323699B3B00B59A28 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				07598530237E93D700C48EE7 /* Main */,
 				07D5E9A3236E00C900A27B28 /* LogIn */,
 				07D5E9A2236E00BE00A27B28 /* SignUp */,
 			);
-			path = ViewController;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		07598530237E93D700C48EE7 /* Main */ = {
@@ -234,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */,
+				07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -274,6 +296,14 @@
 				07ADBD89237D0D65004222CB /* LoginData */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		07B6E0652382C05700D6A9E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		07D5E9A2236E00BE00A27B28 /* SignUp */ = {
@@ -331,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */,
+				07B6E0632382B64A00D6A9E1 /* TitleData.swift */,
 				07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */,
 				07D5E9B4236EF98D00A27B28 /* SegueIdentifier.swift */,
 				07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */,
@@ -598,15 +629,22 @@
 				07D5E9B5236EF98D00A27B28 /* SegueIdentifier.swift in Sources */,
 				0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */,
 				076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */,
-				07020DFB237FEEE5000CFAC2 /* TorchModule.m in Sources */,
+				07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */,
+				07020DFB237FEEE5000CFAC2 /* TorchModule.mm in Sources */,
 				07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */,
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
+				07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,
+				071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */,
+				07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */,
+				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
+				07B6E0642382B64A00D6A9E1 /* TitleData.swift in Sources */,
+				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
 				07AA4785237046780074DE76 /* String+.swift in Sources */,
@@ -794,7 +832,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = OurTrees.DeepFashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/DeepFashion-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/PyTorchBridge/DeepFashion-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -816,7 +854,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = OurTrees.DeepFashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/DeepFashion-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/PyTorchBridge/DeepFashion-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

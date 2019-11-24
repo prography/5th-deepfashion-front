@@ -10,6 +10,7 @@ router.register(r'', views.AccountViewSet)
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
-    path('login/', ObtainAuthToken.as_view())
+    path('login/', ObtainAuthToken.as_view()),
+    path('logout/', views.Logout.as_view()),
 ]
 urlpatterns += router.urls

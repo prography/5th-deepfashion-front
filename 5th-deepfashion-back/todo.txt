@@ -1,5 +1,2 @@
-why does the password show up in plaintext for custom user?
 
-1. accounts-list only for super user,
-
-
+just add image field to clothing, delete post image model -> do necessary work surrouning the model
