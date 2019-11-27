@@ -129,30 +129,42 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
         selectedPhotoImageView.image = selectedImage
         closePhotoAlbum(photoPickerViewController)
-        presentBasicAlertController(title: "사진을 저장 유무 확인", message: "사진을 저장하시겠습니까?") { isSucceed in
-            if isSucceed {
-                // 저장을 원하면 post처리를 진행한다.
-                print("Ready To Post Photo Image!")
 
-                guard let selectedImage = self.selectedPhotoImageView.image else { return }
-                CommonUserData.shared.addUserImage(selectedImage)
-                print(CommonUserData.shared.userImage)
+        // 스토리보드를 통해 사진 추가 페이지를 불러온다.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-                // MARK: - Post The Image
-
-//                RequestAPI.shared.postAPIData(userData: self.selectedPhotoImageView.image, APIMode: APIMode.styleImagePost) { _, isSucceed in
-//
-//                    if isSucceed {
-//                        print("이미지 post 성공!")
-//                    } else {
-//                        print("이미지 post Error...")
-//                    }
-//                }
-            } else {
-                // 저장을 거부하면 일단 아무것도 실행 안함
-                print("Cancel to save Photo Image!")
-            }
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: "AddFashionViewController") as? AddFashionViewController else {
+            return
         }
+
+        viewController.selectedFashionImage = selectedImage
+        navigationController?.pushViewController(viewController, animated: true)
+
+//        presentBasicAlertController(title: "사진을 저장 유무 확인", message: "사진을 저장하시겠습니까?") { isSucceed in
+
+//            if isSucceed {
+//                // 저장을 원하면 post처리를 진행한다.
+//                print("Ready To Post Photo Image!")
+//
+//                guard let selectedImage = self.selectedPhotoImageView.image else { return }
+//                CommonUserData.shared.addUserImage(selectedImage)
+//                print(CommonUserData.shared.userImage)
+//
+//                // MARK: - Post The Image
+//
+        ////                RequestAPI.shared.postAPIData(userData: self.selectedPhotoImageView.image, APIMode: APIMode.styleImagePost) { _, isSucceed in
+        ////
+        ////                    if isSucceed {
+        ////                        print("이미지 post 성공!")
+        ////                    } else {
+        ////                        print("이미지 post Error...")
+        ////                    }
+        ////                }
+//            } else {
+//                // 저장을 거부하면 일단 아무것도 실행 안함
+//                print("Cancel to save Photo Image!")
+//            }
+//        }
     }
 }
 
