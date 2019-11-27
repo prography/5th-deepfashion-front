@@ -29,7 +29,19 @@ class AddFashionViewController: UIViewController {
         guard let selectedFashionImage = self.selectedFashionImage else { return }
 
         CommonUserData.shared.addUserImage(selectedFashionImage)
-        navigationController?.popViewController(animated: true)
+
+        let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, image: self.selectedFashionImage)
+        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { _, isSucceed in
+            if isSucceed {
+                print("Clothing Post Succeed!!!")
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            } else {
+                print("Clothing Post Error!!!")
+            }
+        }
+
         print(CommonUserData.shared.userImage)
     }
 

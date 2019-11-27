@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text else { return }
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
-        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIMode.loginDataPost) { _, succeed in
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { _, succeed in
             // 테스트용 조건 설정 중)
             if succeed {
                 DispatchQueue.main.async {

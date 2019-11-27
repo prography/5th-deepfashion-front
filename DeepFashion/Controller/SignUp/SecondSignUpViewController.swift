@@ -104,7 +104,7 @@ class SecondSignUpViewController: UIViewController {
         /// Data Check Test
         guard let userData = CommonUserData.shared.userData else { return }
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
-        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIMode.userDataPost) { _, succeed in
+        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.userDataPost) { _, succeed in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
             if succeed {
                 DispatchQueue.main.async {
