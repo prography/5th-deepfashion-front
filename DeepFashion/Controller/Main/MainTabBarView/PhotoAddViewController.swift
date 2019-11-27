@@ -125,21 +125,21 @@ class PhotoAddViewController: UIViewController {
 
 extension PhotoAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        // 만약 이미지가 성공적으로 선택 되었다면, 해당 이미지를 저장할 지를 묻는 AlertController를 띄운다.
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
         selectedPhotoImageView.image = selectedImage
         closePhotoAlbum(photoPickerViewController)
 
         // 스토리보드를 통해 사진 추가 페이지를 불러온다.
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: "AddFashionViewController") as? AddFashionViewController else {
+        let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.addFashion) as? AddFashionViewController else {
             return
         }
 
+        // 미리 해당 뷰컨에 필요한 이미지 추가 후 네비게이션 스택에 푸시
         viewController.selectedFashionImage = selectedImage
         navigationController?.pushViewController(viewController, animated: true)
 
+        // 만약 이미지가 성공적으로 선택 되었다면, 해당 이미지를 저장할 지를 묻는 AlertController를 띄운다.
 //        presentBasicAlertController(title: "사진을 저장 유무 확인", message: "사진을 저장하시겠습니까?") { isSucceed in
 
 //            if isSucceed {

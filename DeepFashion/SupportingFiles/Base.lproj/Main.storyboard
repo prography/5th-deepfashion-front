@@ -741,7 +741,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일 종류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-2r-aeG">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 옷 분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-2r-aeG">
                                         <rect key="frame" x="0.0" y="299" width="300" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -754,7 +754,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일 종류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIC-8p-EDn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 스타일 종류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIC-8p-EDn">
                                         <rect key="frame" x="0.0" y="370" width="300" height="30"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -771,14 +771,11 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
-                                <rect key="frame" x="10" y="445" width="300" height="30"/>
+                                <rect key="frame" x="10" y="445" width="300" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u8-yu-lvO">
-                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="wAP-L1-Uho"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="등록하기">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -788,11 +785,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
-                                        <rect key="frame" x="155.5" y="0.0" width="144.5" height="30"/>
+                                        <rect key="frame" x="155.5" y="0.0" width="144.5" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="enP-ya-08e"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="취소하기">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -803,6 +797,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="GPo-Ry-TaY"/>
                                     <constraint firstItem="vIs-YW-h5X" firstAttribute="width" secondItem="3u8-yu-lvO" secondAttribute="width" id="u83-l8-Ozl"/>
                                 </constraints>
                             </stackView>
@@ -822,6 +817,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="fashionImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
+                        <outlet property="fashionNameTextField" destination="f0v-hs-9lF" id="Sg9-Xp-KMN"/>
+                        <outlet property="fashionStyleLabel" destination="FIC-8p-EDn" id="AHM-0p-dee"/>
+                        <outlet property="fashionTypeLabel" destination="Bb5-2r-aeG" id="u8a-AD-834"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ev-yl-kLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

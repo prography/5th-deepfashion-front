@@ -12,6 +12,11 @@ struct UIIdentifier {
     static let mainView = "mainView"
     static let mainNavigationController = "MainNavigationController"
 
+    static let mainStoryboard = "Main"
+    struct ViewController {
+        static let addFashion = "AddFashionViewController"
+    }
+
     struct Cell {
         struct CollectionView {
             static let closetList = "closetListCell"
