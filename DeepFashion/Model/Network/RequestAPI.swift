@@ -79,7 +79,8 @@ final class RequestAPI {
 
                 // MARK: - Token Check
 
-                print("token is.. \(userData.token)")
+                CommonUserData.shared.setUserToken(userData.token)
+                print("token is.. \(CommonUserData.shared.userToken)")
                 print("userAPIData : \(userData)")
 
                 if let response = response as? HTTPURLResponse {

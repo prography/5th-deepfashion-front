@@ -95,7 +95,7 @@ class LoginViewController: UIViewController {
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIMode.loginDataPost) { _, succeed in
             // 테스트용 조건 설정 중)
-            if !succeed {
+            if succeed {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
                 }
