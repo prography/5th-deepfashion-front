@@ -11,7 +11,8 @@ import UIKit
 class AddFashionViewController: UIViewController {
     @IBOutlet var fashionNameTextField: UITextField!
 
-    @IBOutlet var fashionTypeLabel: UILabel!
+    @IBOutlet var fashionTypeButton: UIButton!
+
     @IBOutlet var fashionStyleLabel: UILabel!
 
     @IBOutlet var fashionImageView: UIImageView!
@@ -22,6 +23,8 @@ class AddFashionViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         fashionImageView.image = selectedFashionImage
     }
+
+    private func presentFashionTypePickerView() {}
 
     @IBAction func addFashionButton(_: UIButton) {
         print("Add the Fashion!!")
@@ -44,6 +47,8 @@ class AddFashionViewController: UIViewController {
 
         print(CommonUserData.shared.userImage)
     }
+
+    @IBAction func fashionTypeButtonPressed(_: UIButton) {}
 
     @IBAction func cancelButton(_: UIButton) {
         print("Cancel Adding the Fashion!!")

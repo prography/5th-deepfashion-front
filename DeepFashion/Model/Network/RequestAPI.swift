@@ -171,10 +171,10 @@ final class RequestAPI {
             }
 
             var urlRequest = URLRequest(url: postURL)
-            urlRequest.httpMethod = "POST"
-            urlRequest.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
             // token 등록이 필요
             urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.httpMethod = "POST"
+            urlRequest.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
