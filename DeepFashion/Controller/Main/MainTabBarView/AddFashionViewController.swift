@@ -9,6 +9,8 @@
 import UIKit
 
 class AddFashionViewController: UIViewController {
+    // MARK: - UIs
+
     @IBOutlet var fashionNameTextField: UITextField!
 
     @IBOutlet var fashionTypeButton: UIButton!
@@ -16,15 +18,29 @@ class AddFashionViewController: UIViewController {
     @IBOutlet var fashionStyleLabel: UILabel!
 
     @IBOutlet var fashionImageView: UIImageView!
+
     var selectedFashionImage: UIImage?
+
+    private let fashionTypeAlertController: FashionTypeAlertController = {
+        let fashionAlertController = FashionTypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)
+        return fashionAlertController
+    }()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fashionTypeAlertController.fashionTypePickerView.delegate = self
+        fashionTypeAlertController.fashionTypePickerView.dataSource = self
         navigationController?.navigationBar.isHidden = true
         fashionImageView.image = selectedFashionImage
     }
 
-    private func presentFashionTypePickerView() {}
+    // MARK: - Methods
+
+    private func presentFashionTypePickerView() {
+        present(fashionTypeAlertController, animated: true)
+    }
 
     @IBAction func addFashionButton(_: UIButton) {
         print("Add the Fashion!!")
@@ -48,11 +64,33 @@ class AddFashionViewController: UIViewController {
         print(CommonUserData.shared.userImage)
     }
 
-    @IBAction func fashionTypeButtonPressed(_: UIButton) {}
+    @IBAction func fashionTypeButtonPressed(_: UIButton) {
+        presentFashionTypePickerView()
+    }
 
     @IBAction func cancelButton(_: UIButton) {
         print("Cancel Adding the Fashion!!")
 
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension AddFashionViewController: UIPickerViewDelegate {
+    func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
+        fashionTypeButton.setTitle("\(ViewData.Title.fashionType[row])", for: .normal)
+    }
+}
+
+extension AddFashionViewController: UIPickerViewDataSource {
+    func numberOfComponents(in _: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
+        return ViewData.Title.fashionType.count
+    }
+
+    func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
+        return "\(ViewData.Title.fashionType[row])"
     }
 }

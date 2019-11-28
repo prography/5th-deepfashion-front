@@ -715,11 +715,11 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-DH-Yhc">
-                                        <rect key="frame" x="0.0" y="33.5" width="300" height="145"/>
+                                        <rect key="frame" x="0.0" y="33.5" width="300" height="144"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-Jd-FuW">
-                                        <rect key="frame" x="0.0" y="191.5" width="300" height="20"/>
+                                        <rect key="frame" x="0.0" y="190.5" width="300" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="sWZ-R3-e2b"/>
                                         </constraints>
@@ -728,7 +728,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="패션 이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-hs-9lF">
-                                        <rect key="frame" x="0.0" y="224.5" width="300" height="30"/>
+                                        <rect key="frame" x="0.0" y="223.5" width="300" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="8kk-H4-0RQ"/>
                                         </constraints>
@@ -736,16 +736,16 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
-                                        <rect key="frame" x="0.0" y="267.5" width="300" height="15.5"/>
+                                        <rect key="frame" x="0.0" y="266.5" width="300" height="15.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOs-Gn-nJK">
-                                        <rect key="frame" x="0.0" y="296" width="300" height="33"/>
+                                        <rect key="frame" x="0.0" y="295" width="300" height="34"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="상의"/>
+                                        <state key="normal" title="Outer"/>
                                         <connections>
                                             <action selector="fashionTypeButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="67I-bf-Xwf"/>
                                         </connections>
@@ -766,6 +766,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="bks-kG-fpX" firstAttribute="height" secondItem="FiH-Jd-FuW" secondAttribute="height" multiplier="0.75" id="DxO-Jb-BDe"/>
+                                    <constraint firstItem="dOs-Gn-nJK" firstAttribute="height" secondItem="FIC-8p-EDn" secondAttribute="height" multiplier="1.13333" id="Imm-dK-Juc"/>
                                     <constraint firstItem="vwC-XZ-suw" firstAttribute="height" secondItem="FiH-Jd-FuW" secondAttribute="height" multiplier="0.766667" id="a0d-uJ-Rlh"/>
                                     <constraint firstAttribute="height" constant="400" id="f22-Vq-999"/>
                                     <constraint firstItem="FIC-8p-EDn" firstAttribute="height" secondItem="f0v-hs-9lF" secondAttribute="height" id="xOR-vF-f23"/>

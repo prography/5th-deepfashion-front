@@ -37,7 +37,7 @@
 		07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */; };
 		07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */; };
 		07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */; };
-		07B6E0642382B64A00D6A9E1 /* TitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0632382B64A00D6A9E1 /* TitleData.swift */; };
+		07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0632382B64A00D6A9E1 /* ViewData.swift */; };
 		07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */; };
 		07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */; };
 		07B7F6C2238FAA7F00EA9C10 /* FashionTypeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6C1238FAA7F00EA9C10 /* FashionTypeAlertController.swift */; };
@@ -110,7 +110,7 @@
 		07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListViewController.swift; sourceTree = "<group>"; };
 		07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerSetting.swift; sourceTree = "<group>"; };
 		07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
-		07B6E0632382B64A00D6A9E1 /* TitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleData.swift; sourceTree = "<group>"; };
+		07B6E0632382B64A00D6A9E1 /* ViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewData.swift; sourceTree = "<group>"; };
 		07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFashionViewController.swift; sourceTree = "<group>"; };
 		07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingAPIData.swift; sourceTree = "<group>"; };
 		07B7F6C1238FAA7F00EA9C10 /* FashionTypeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionTypeAlertController.swift; sourceTree = "<group>"; };
@@ -378,7 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */,
-				07B6E0632382B64A00D6A9E1 /* TitleData.swift */,
+				07B6E0632382B64A00D6A9E1 /* ViewData.swift */,
 				07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */,
 				07D5E9B4236EF98D00A27B28 /* SegueIdentifier.swift */,
 				07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */,
@@ -662,7 +662,7 @@
 				07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */,
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
-				07B6E0642382B64A00D6A9E1 /* TitleData.swift in Sources */,
+				07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */,
 				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,
 				07B7F6C2238FAA7F00EA9C10 /* FashionTypeAlertController.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,

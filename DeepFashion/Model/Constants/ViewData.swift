@@ -10,6 +10,8 @@ import Foundation
 
 struct ViewData {
     struct Title {
+        static let fashionType = ["Outer", "Top", "Bottom", "Shoes"]
+
         struct MainTabBarView {
             static let homeView = "마이 추천 리스트"
             static let closetListView = "마이 옷장 리스트"
