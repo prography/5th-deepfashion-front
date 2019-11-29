@@ -20,6 +20,7 @@ struct UIIdentifier {
     struct Cell {
         struct CollectionView {
             static let closetList = "closetListCell"
+            static let styleTitle = "styleTitleCell"
         }
     }
 

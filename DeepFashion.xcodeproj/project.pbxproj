@@ -31,6 +31,8 @@
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
 		077C77BA2378155F0088B151 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B92378155F0088B151 /* UserData.swift */; };
 		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
+		07A3B0C22391086E0028DC6B /* FashionStyleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C12391086E0028DC6B /* FashionStyleSelectViewController.swift */; };
+		07A3B0C4239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */; };
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
 		07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */; };
 		07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */; };
@@ -104,6 +106,8 @@
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
 		077C77B92378155F0088B151 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
+		07A3B0C12391086E0028DC6B /* FashionStyleSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionStyleSelectViewController.swift; sourceTree = "<group>"; };
+		07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionStyleSelectCollectionViewCell.swift; sourceTree = "<group>"; };
 		07AA4784237046780074DE76 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
 				07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */,
 				07B7F6C1238FAA7F00EA9C10 /* FashionTypeAlertController.swift */,
+				07A3B0C12391086E0028DC6B /* FashionStyleSelectViewController.swift */,
 			);
 			path = MainTabBarView;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */,
+				07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -636,6 +642,7 @@
 				076F6BCC237BFEA800A2CBB4 /* UserTokenAPIData.swift in Sources */,
 				078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */,
 				07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */,
+				07A3B0C4239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift in Sources */,
 				07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */,
 				07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */,
 				07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */,
@@ -659,6 +666,7 @@
 				07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */,
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
+				07A3B0C22391086E0028DC6B /* FashionStyleSelectViewController.swift in Sources */,
 				07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */,
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
