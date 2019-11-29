@@ -275,6 +275,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		07A3B0C7239126940028DC6B /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				07A3B0C523911BBC0028DC6B /* StyleCellLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		07ADBD88237D0D59004222CB /* SingleTon */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,7 +327,7 @@
 			children = (
 				071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */,
 				07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */,
-				07A3B0C523911BBC0028DC6B /* StyleCellLayout.swift */,
+				07A3B0C7239126940028DC6B /* Layout */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,10 +370,10 @@
 		07D5E9A5236E00F100A27B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07D5E9B1236EF96B00A27B28 /* Constants */,
 				077C77B42378149F0088B151 /* Protocol */,
 				07ADBD88237D0D59004222CB /* SingleTon */,
 				07ADBD8B237D0DC4004222CB /* Network */,
-				07D5E9B1236EF96B00A27B28 /* Constants */,
 				07D5E9B0236EEE7500A27B28 /* Extension */,
 			);
 			path = Model;

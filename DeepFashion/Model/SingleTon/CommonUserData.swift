@@ -26,6 +26,7 @@ final class CommonUserData {
         self.password = password
         self.gender = gender
         userData = UserData(userName: id, styles: [], password: password, gender: gender)
+        userImage = [UIImage]()
     }
 
     func addUserImage(_ image: UIImage) {
