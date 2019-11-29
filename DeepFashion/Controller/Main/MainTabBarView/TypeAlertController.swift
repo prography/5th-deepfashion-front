@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FashionTypeAlertController: UIAlertController {
+class TypeAlertController: UIAlertController {
     // MARK: - UI
 
     let fashionTypePickerView: UIPickerView = {

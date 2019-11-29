@@ -129,6 +129,7 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
         selectedPhotoImageView.image = selectedImage
         closePhotoAlbum(photoPickerViewController)
 
+        // ** 정리 필요 **
         // 스토리보드를 통해 사진 추가 페이지를 불러온다.
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.addFashion) as? AddFashionViewController else {

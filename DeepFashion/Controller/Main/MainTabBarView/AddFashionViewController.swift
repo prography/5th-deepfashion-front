@@ -21,8 +21,8 @@ class AddFashionViewController: UIViewController {
 
     var selectedFashionImage: UIImage?
 
-    private let fashionTypeAlertController: FashionTypeAlertController = {
-        let fashionAlertController = FashionTypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)
+    private let fashionTypeAlertController: TypeAlertController = {
+        let fashionAlertController = TypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)
         return fashionAlertController
     }()
 
@@ -36,11 +36,18 @@ class AddFashionViewController: UIViewController {
         fashionImageView.image = selectedFashionImage
     }
 
-    // MARK: - Methods
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = false
+    }
+
+    // MARK: Methods
 
     private func presentFashionTypePickerView() {
         present(fashionTypeAlertController, animated: true)
     }
+
+    // MARK: - IB Methods
 
     @IBAction func addFashionButton(_: UIButton) {
         print("Add the Fashion!!")
@@ -66,6 +73,12 @@ class AddFashionViewController: UIViewController {
 
     @IBAction func fashionTypeButtonPressed(_: UIButton) {
         presentFashionTypePickerView()
+    }
+
+    @IBAction func fashionStyleButtonPressed(_: UIButton) {
+        let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
+        let styleSelectViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.styleSelect)
+        navigationController?.pushViewController(styleSelectViewController, animated: true)
     }
 
     @IBAction func cancelButton(_: UIButton) {
