@@ -18,7 +18,8 @@ final class CommonUserData {
     private(set) var gender: Int = 0
     private(set) var selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
 
-    private(set) var userImage = [UIImage]()
+    private(set) var userClothingList = [UserClothingData]()
+
     private init() {}
 
     func setUserData(id: String, password: String, gender: Int) {
@@ -26,11 +27,11 @@ final class CommonUserData {
         self.password = password
         self.gender = gender
         userData = UserData(userName: id, styles: [], password: password, gender: gender)
-        userImage = [UIImage]()
+        userClothingList = [UserClothingData]()
     }
 
-    func addUserImage(_ image: UIImage) {
-        userImage.append(image)
+    func addUserClothing(_ clothingData: UserClothingData) {
+        userClothingList.append(clothingData)
     }
 
     func setUserToken(_ token: String) {
@@ -50,5 +51,9 @@ final class CommonUserData {
     func resetStyleData() {
         selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
         userData?.configureStyle(styles: selectedStyle)
+    }
+
+    func resetClothingData() {
+        userClothingList = [UserClothingData]()
     }
 }

@@ -60,13 +60,13 @@ extension ClosetListViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return CommonUserData.shared.userImage.count
+        return CommonUserData.shared.userClothingList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let collectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.closetList, for: indexPath) as? ClosetListCollectionViewCell else { return UICollectionViewCell() }
 
-        collectionViewCell.fashionImageView.image = CommonUserData.shared.userImage[indexPath.item]
+        collectionViewCell.fashionImageView.image = CommonUserData.shared.userClothingList[indexPath.item].image
         return collectionViewCell
     }
 }

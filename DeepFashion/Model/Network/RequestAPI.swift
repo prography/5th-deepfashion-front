@@ -89,7 +89,7 @@ final class RequestAPI {
                 print("userAPIData : \(userData)")
 
                 if let response = response as? HTTPURLResponse {
-                    print("post response : \(response)")
+//                    print("post response : \(response)")
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
@@ -136,7 +136,7 @@ final class RequestAPI {
                 }
 
                 if let response = response as? HTTPURLResponse {
-                    print("post response : \(response)")
+//                    print("post response : \(response)")
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
@@ -187,7 +187,7 @@ final class RequestAPI {
                 }
 
                 if let response = response as? HTTPURLResponse {
-                    print("post response : \(response)")
+//                    print("post response : \(response)")
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")

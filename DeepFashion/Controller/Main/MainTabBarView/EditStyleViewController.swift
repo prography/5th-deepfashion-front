@@ -63,6 +63,9 @@ class EditStyleViewController: UIViewController {
     @IBAction func finishButtonPressed(_: UIButton) {
         print("Finish Button Pressed!!")
         CommonUserData.shared.resetStyleData()
+        guard let viewControllers = navigationController?.viewControllers,
+            let addFashionViewControlller = navigationController?.viewControllers[viewControllers.count - 2] as? AddFashionViewController else { return }
+        addFashionViewControlller.selectedFashionStyle = selectedStyleIndex
         navigationController?.popViewController(animated: true)
     }
 

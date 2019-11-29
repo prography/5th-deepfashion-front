@@ -824,6 +824,7 @@
                     <connections>
                         <outlet property="fashionImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
                         <outlet property="fashionNameTextField" destination="f0v-hs-9lF" id="Sg9-Xp-KMN"/>
+                        <outlet property="fashionStyleButton" destination="lbQ-UA-1hn" id="vjq-Fa-zAr"/>
                         <outlet property="fashionTypeButton" destination="dOs-Gn-nJK" id="Olm-ub-T0q"/>
                     </connections>
                 </viewController>

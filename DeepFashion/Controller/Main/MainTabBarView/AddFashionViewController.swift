@@ -14,12 +14,12 @@ class AddFashionViewController: UIViewController {
     @IBOutlet var fashionNameTextField: UITextField!
 
     @IBOutlet var fashionTypeButton: UIButton!
-
-    @IBOutlet var fashionStyleLabel: UILabel!
+    @IBOutlet var fashionStyleButton: UIButton!
 
     @IBOutlet var fashionImageView: UIImageView!
 
     var selectedFashionImage: UIImage?
+    var selectedFashionStyle = [(String, Int)]()
 
     private let fashionTypeAlertController: TypeAlertController = {
         let fashionAlertController = TypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)
@@ -32,6 +32,8 @@ class AddFashionViewController: UIViewController {
         super.viewDidLoad()
         fashionTypeAlertController.fashionTypePickerView.delegate = self
         fashionTypeAlertController.fashionTypePickerView.dataSource = self
+
+        fashionNameTextField.delegate = self
         navigationController?.navigationBar.isHidden = true
         fashionImageView.image = selectedFashionImage
     }
@@ -39,9 +41,23 @@ class AddFashionViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.isHidden = false
+        configureFashionStyleButton()
     }
 
     // MARK: Methods
+
+    private func configureFashionStyleButton() {
+        if selectedFashionStyle.count == 0 { return }
+        var fashionStyleButtonTitle = ""
+        for i in selectedFashionStyle.indices {
+            if selectedFashionStyle[i].1 == 1 {
+                fashionStyleButtonTitle += "\(selectedFashionStyle[i].0)"
+                if i != selectedFashionStyle.count - 1 { fashionStyleButtonTitle += " " }
+            }
+        }
+
+        fashionStyleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
+    }
 
     private func presentFashionTypePickerView() {
         present(fashionTypeAlertController, animated: true)
@@ -54,8 +70,11 @@ class AddFashionViewController: UIViewController {
         // 이미지 저장 준비가 되었다면 저장 후 해당 뷰컨트롤러를 pop 처리
         guard let selectedFashionImage = self.selectedFashionImage else { return }
 
-        CommonUserData.shared.addUserImage(selectedFashionImage)
+        guard let nowfashionType = fashionTypeButton.titleLabel?.text else { return }
+        let clothingData = UserClothingData(image: selectedFashionImage, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
+        CommonUserData.shared.addUserClothing(clothingData)
 
+        print("now Adding Clothing Data : \(clothingData)")
         let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, image: self.selectedFashionImage)
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { _, isSucceed in
             if isSucceed {
@@ -65,10 +84,14 @@ class AddFashionViewController: UIViewController {
                 }
             } else {
                 print("Clothing Post Error!!!")
+                print("하지만 사진 등록 테스트를 위해 이전 뷰로 돌아갑니다..")
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
 
-        print(CommonUserData.shared.userImage)
+        print(CommonUserData.shared.userClothingList)
     }
 
     @IBAction func fashionTypeButtonPressed(_: UIButton) {
@@ -105,5 +128,12 @@ extension AddFashionViewController: UIPickerViewDataSource {
 
     func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
         return "\(ViewData.Title.fashionType[row])"
+    }
+}
+
+extension AddFashionViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
