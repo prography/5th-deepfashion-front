@@ -68,10 +68,11 @@ class AddFashionViewController: UIViewController {
     @IBAction func addFashionButton(_: UIButton) {
         print("Add the Fashion!!")
         // 이미지 저장 준비가 되었다면 저장 후 해당 뷰컨트롤러를 pop 처리
-        guard let selectedFashionImage = self.selectedFashionImage else { return }
+        guard let selectedFashionImage = self.selectedFashionImage,
+            let selectedFashionName = fashionNameTextField.text else { return }
 
         guard let nowfashionType = fashionTypeButton.titleLabel?.text else { return }
-        let clothingData = UserClothingData(image: selectedFashionImage, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
+        let clothingData = UserClothingData(image: selectedFashionImage, name: selectedFashionName, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
         CommonUserData.shared.addUserClothing(clothingData)
 
         print("now Adding Clothing Data : \(clothingData)")
