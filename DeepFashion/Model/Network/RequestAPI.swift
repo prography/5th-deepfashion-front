@@ -38,6 +38,29 @@ final class RequestAPI {
 
     weak var delegate: RequestAPIDelegate?
 
+    private func createBody(parameters: [String: String],
+                    boundary: String,
+                    data: Data,
+                    mimeType: String,
+                    filename: String) -> Data {
+        let body = NSMutableData()
+        let boundaryPrefix = "--\(boundary)\r\n"
+        for (key, value) in parameters {
+            body.appendString(boundaryPrefix)
+            body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            body.appendString("\(value)\r\n")
+        }
+        
+        body.appendString(boundaryPrefix)
+        body.appendString("Content-Disposition: form-data; name=\"file\"; filename=\"\(filename)\"\r\n")
+        body.appendString("Content-Type: \(mimeType)\r\n\r\n")
+        body.append(data)
+        body.appendString("\r\n")
+        body.appendString("--".appending(boundary.appending("--")))
+        
+        return body as Data
+    }
+    
     func postAPIData<T>(userData: T, APIMode: APIPostMode, completion: @escaping (T.Type?, Bool) -> Void) {
         delegate?.requestAPIDidBegin()
         switch APIMode {
@@ -171,10 +194,12 @@ final class RequestAPI {
             }
 
             var urlRequest = URLRequest(url: postURL)
+            let boundary = "Boundary-\(UUID().uuidString)"
             // token 등록이 필요
             urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
             urlRequest.httpMethod = "POST"
-            urlRequest.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+//            urlRequest.httpBody =
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {

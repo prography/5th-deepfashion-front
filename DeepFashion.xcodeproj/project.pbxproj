@@ -46,6 +46,7 @@
 		07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */; };
 		07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */; };
 		07C745A82392A41D0045AB56 /* FashionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* FashionType.swift */; };
+		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */; };
 		07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* TextField+.swift */; };
 		07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */; };
@@ -124,6 +125,7 @@
 		07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingAPIData.swift; sourceTree = "<group>"; };
 		07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlertController.swift; sourceTree = "<group>"; };
 		07C745A72392A41D0045AB56 /* FashionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionType.swift; sourceTree = "<group>"; };
+		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserData.swift; sourceTree = "<group>"; };
 		07D5E9AE236EE6A800A27B28 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifier.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				07AA4784237046780074DE76 /* String+.swift */,
 				07598537237EABA800C48EE7 /* UIViewController+.swift */,
 				07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */,
+				07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */,
 				07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */,
 				07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */,
+				07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */,
 				076F6BCE237BFF8100A2CBB4 /* LoginUserData.swift in Sources */,
 				077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */,
 				07D5E9B9236EF9A900A27B28 /* UserDataRule.swift in Sources */,
