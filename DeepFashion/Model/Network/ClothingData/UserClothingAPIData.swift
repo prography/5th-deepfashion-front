@@ -16,7 +16,7 @@ struct UserClothingAPIData: Encodable {
     let color: String
     let season: Int
     let part: Int
-    let image: UIImage?
+    let images: UIImage?
     enum CodingKeys: String, CodingKey {
         case style, name, color, season, part, image
     }
@@ -24,7 +24,7 @@ struct UserClothingAPIData: Encodable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
-        if let image = image,
+        if let image = images,
             let data = image.pngData() {
             try container.encode(data, forKey: .image)
         }

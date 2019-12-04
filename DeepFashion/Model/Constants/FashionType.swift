@@ -13,13 +13,13 @@ enum FashionType: String {
     case top = "Top"
     case bottom = "Bottom"
     case shoes = "Shoes"
-    
+
     var title: String {
         switch self {
-            case .outer: return "Outer"
-            case .top: return "Top"
-            case .bottom: return "Bottom"
-            case .shoes: return "Shoes"
+        case .outer: return "Outer"
+        case .top: return "Top"
+        case .bottom: return "Bottom"
+        case .shoes: return "Shoes"
         }
     }
 }

@@ -25,6 +25,8 @@ import RxSwift
 import UIKit
 
 class FirstSignUpViewController: UIViewController {
+    // MARK: UIs
+
     // MARK: - IBOutlet
 
     @IBOutlet private var idTextField: UITextField!
@@ -33,7 +35,7 @@ class FirstSignUpViewController: UIViewController {
     @IBOutlet private var genderSegmentedControl: UISegmentedControl!
     @IBOutlet private var nextPageButton: UIButton!
 
-    // MARK: - Properties
+    // MARK: Properties
 
     private var _isFillInData = false
     private var isFillInData: Bool {
@@ -45,7 +47,7 @@ class FirstSignUpViewController: UIViewController {
         get { return _isFillInData }
     }
 
-    // MARK: - LifeCycle
+    // MARK: LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +55,7 @@ class FirstSignUpViewController: UIViewController {
         configureSignUpButton()
     }
 
-    // MARK: - Method
+    // MARK: Methods
 
     private func configureSignUpButton() {
         nextPageButton.configureDisabledButton()
@@ -90,7 +92,7 @@ class FirstSignUpViewController: UIViewController {
         CommonUserData.shared.setUserData(id: idText, password: passwordText, gender: genderIndex)
     }
 
-    // MARK: - IBAction
+    // MARK: - IBActions
 
     @IBAction func textFieldEditingValueChanged(_ sender: UITextField) {
         guard var nowText = sender.text else { return }

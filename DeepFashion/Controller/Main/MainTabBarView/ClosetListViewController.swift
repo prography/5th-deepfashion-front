@@ -9,7 +9,13 @@
 import UIKit
 
 class ClosetListViewController: UIViewController {
+    // MARK: UIs
+
+    // MARK: - IBOutlet
+
     @IBOutlet var closetListCollectionView: UICollectionView!
+
+    // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()

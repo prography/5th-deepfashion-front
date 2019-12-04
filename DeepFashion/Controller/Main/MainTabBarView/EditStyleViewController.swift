@@ -9,13 +9,13 @@
 import UIKit
 
 class EditStyleViewController: UIViewController {
-    // MARK: - UIs
+    // MARK: UIs
 
     @IBOutlet var styleCollectionView: UICollectionView!
 
     @IBOutlet var styleSubscriptionButton: UIButton!
 
-    // MARK: - Properties
+    // MARK: Properties
 
     private var fashionStyles: [String] = {
         var fashionStyles = [String]()
@@ -58,7 +58,7 @@ class EditStyleViewController: UIViewController {
         }
     }
 
-    // MARK: - IB Methods
+    // MARK: - IBActions
 
     @IBAction func finishButtonPressed(_: UIButton) {
         print("Finish Button Pressed!!")

@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    // MARK: UIs
+
     // MARK: - IBOutlet
 
     @IBOutlet var googleLoginButton: UIButton!
@@ -19,7 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var forgotPasswordButton: UIButton!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
 
-    // MARK: - Properties
+    // MARK: Properties
 
     private var isAPIDataRequested = false {
         willSet {
@@ -37,7 +39,7 @@ class LoginViewController: UIViewController {
         get { return _isFillInData }
     }
 
-    // MARK: - LifeCycle
+    // MARK: LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +48,7 @@ class LoginViewController: UIViewController {
         configureLoginButton()
     }
 
-    // MARK: - Method
+    // MARK: Methods
 
     private func configureLoginButton() {
         loginButton.configureDisabledButton()
@@ -72,7 +74,7 @@ class LoginViewController: UIViewController {
         isFillInData = idStatus && passwordStatus
     }
 
-    // MARK: - IBAction
+    // MARK: - IBActions
 
     @objc func textFieldEditingChanged(_ sender: UITextField) {
         guard var nowText = sender.text else { return }
@@ -83,7 +85,7 @@ class LoginViewController: UIViewController {
         checkFillInData()
     }
 
-    // MARK: Transition
+    // MARK: - Transition
 
     @IBAction func SignUpButtonPressed(_: UIButton) {
         performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: nil)
@@ -105,7 +107,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    // MARK: Unwind
+    // MARK: - Unwind
 
     @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {}
 }

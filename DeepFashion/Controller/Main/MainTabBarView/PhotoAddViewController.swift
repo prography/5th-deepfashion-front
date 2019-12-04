@@ -11,9 +11,13 @@ import Photos
 import UIKit
 
 class PhotoAddViewController: UIViewController {
-    // MARK: - Properties
+    // MARK: UIs
+
+    // MARK: - IBOutlet
 
     @IBOutlet var selectedPhotoImageView: UIImageView!
+
+    // MARK: - Properties
 
     private let photoSelectAlertController: UIAlertController = {
         let photoSelectAlertController = UIAlertController(title: "사진 추가방법 선택", message: "사진 추가방법을 선택하세요.", preferredStyle: .actionSheet)
@@ -26,7 +30,7 @@ class PhotoAddViewController: UIViewController {
         return photoPickerViewController
     }()
 
-    // MARK: - Life Cycle
+    // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,9 @@ class PhotoAddViewController: UIViewController {
         configureViewController()
     }
 
-    func configurePhotoSelectAlertController() {
+    // MARK: Methods
+
+    private func configurePhotoSelectAlertController() {
         let takePictureAlertAction = UIAlertAction(title: "사진 찍기", style: .default) { _ in
             print("사진 찍기 클릭")
             let cameraType = AVMediaType.video
@@ -110,11 +116,11 @@ class PhotoAddViewController: UIViewController {
         present(photoSelectAlertController, animated: true, completion: nil)
     }
 
-    func presentPhotoAuthRequestAlertController() {
+    private func presentPhotoAuthRequestAlertController() {
         presentAuthRequestAlertController(title: "사진첩 접근권한 필요", message: "사진첩을 실행하려면 접근권한 설정이 필요합니다.")
     }
 
-    func presentCameraAuthRequestAlertController() {
+    private func presentCameraAuthRequestAlertController() {
         presentAuthRequestAlertController(title: "카메라 접근권한 필요", message: "카메라를 실행하려면 접근권한 설정이 필요합니다.")
     }
 
@@ -139,33 +145,6 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
         // 미리 해당 뷰컨에 필요한 이미지 추가 후 네비게이션 스택에 푸시
         viewController.selectedFashionImage = selectedImage
         navigationController?.pushViewController(viewController, animated: true)
-
-        // 만약 이미지가 성공적으로 선택 되었다면, 해당 이미지를 저장할 지를 묻는 AlertController를 띄운다.
-//        presentBasicAlertController(title: "사진을 저장 유무 확인", message: "사진을 저장하시겠습니까?") { isSucceed in
-
-//            if isSucceed {
-//                // 저장을 원하면 post처리를 진행한다.
-//                print("Ready To Post Photo Image!")
-//
-//                guard let selectedImage = self.selectedPhotoImageView.image else { return }
-//                CommonUserData.shared.addUserImage(selectedImage)
-//                print(CommonUserData.shared.userImage)
-//
-//                // MARK: - Post The Image
-//
-        ////                RequestAPI.shared.postAPIData(userData: self.selectedPhotoImageView.image, APIMode: APIMode.styleImagePost) { _, isSucceed in
-        ////
-        ////                    if isSucceed {
-        ////                        print("이미지 post 성공!")
-        ////                    } else {
-        ////                        print("이미지 post Error...")
-        ////                    }
-        ////                }
-//            } else {
-//                // 저장을 거부하면 일단 아무것도 실행 안함
-//                print("Cancel to save Photo Image!")
-//            }
-//        }
     }
 }
 

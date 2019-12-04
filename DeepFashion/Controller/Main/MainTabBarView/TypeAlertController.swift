@@ -9,14 +9,14 @@
 import UIKit
 
 class TypeAlertController: UIAlertController {
-    // MARK: - UI
+    // MARK: UIs
 
     let fashionTypePickerView: UIPickerView = {
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
         return pickerView
     }()
 
-    // MARK: - Life Cycle
+    // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class TypeAlertController: UIAlertController {
         makeAlertAction()
     }
 
-    // MARK: - Method
+    // MARK: Method
 
     // MARK: - Configuration
 

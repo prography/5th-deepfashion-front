@@ -161,7 +161,7 @@ final class RequestAPI {
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.clothing)"
             print("userDataPostURLString : \(userDataPostURLString)")
 
-            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, season: userData.season, part: userData.part, image: userData.image)
+            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, season: userData.season, part: userData.part, images: userData.images)
 
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
@@ -179,6 +179,10 @@ final class RequestAPI {
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
                 _, response, error in
+
+//                if let data = data {
+//                    print("now Clothing Data: \(data)")
+//                }
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")

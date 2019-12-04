@@ -9,7 +9,7 @@
 import UIKit
 
 class AddFashionViewController: UIViewController {
-    // MARK: - UIs
+    // MARK: IBOutlet
 
     @IBOutlet var fashionNameTextField: UITextField!
 
@@ -17,6 +17,8 @@ class AddFashionViewController: UIViewController {
     @IBOutlet var fashionStyleButton: UIButton!
 
     @IBOutlet var fashionImageView: UIImageView!
+
+    // MARK: Properties
 
     var selectedFashionImage: UIImage?
     var selectedFashionStyle = [(String, Int)]()
@@ -26,7 +28,7 @@ class AddFashionViewController: UIViewController {
         return fashionAlertController
     }()
 
-    // MARK: - Life Cycle
+    // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +65,7 @@ class AddFashionViewController: UIViewController {
         present(fashionTypeAlertController, animated: true)
     }
 
-    // MARK: - IB Methods
+    // MARK: - IBActions
 
     @IBAction func addFashionButton(_: UIButton) {
         print("Add the Fashion!!")
@@ -76,7 +78,7 @@ class AddFashionViewController: UIViewController {
         CommonUserData.shared.addUserClothing(clothingData)
 
         print("now Adding Clothing Data : \(clothingData)")
-        let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, image: self.selectedFashionImage)
+        let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, images: self.selectedFashionImage)
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { _, isSucceed in
             if isSucceed {
                 print("Clothing Post Succeed!!!")

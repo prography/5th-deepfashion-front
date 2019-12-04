@@ -11,12 +11,14 @@ import RxSwift
 import UIKit
 
 class SecondSignUpViewController: UIViewController {
-    // MARK: IBOutlet
+    // MARK: UIs
+
+    // MARK: - IBOutlet
 
     @IBOutlet var signUpFinishButton: UIButton!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
 
-    // MARK: - Properties
+    // MARK: Properties
 
     var isGenderMan = true
     private var isAPIDataRequested = false {
@@ -45,7 +47,7 @@ class SecondSignUpViewController: UIViewController {
         get { return _styleSelectionCount }
     }
 
-    // MARK: - Life Cycle
+    // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +62,7 @@ class SecondSignUpViewController: UIViewController {
         styleSelectionCount = 0
     }
 
-    // MARK: - Method
+    // MARK: Methods
 
     private func configureSignUpFinishButton() {
         signUpFinishButton.configureDisabledButton()
@@ -98,7 +100,7 @@ class SecondSignUpViewController: UIViewController {
         }
     }
 
-    // MARK: - IBAction
+    // MARK: - IBActions
 
     @IBAction func signUpFinishedButtonPressed(_: UIButton) {
         /// Data Check Test

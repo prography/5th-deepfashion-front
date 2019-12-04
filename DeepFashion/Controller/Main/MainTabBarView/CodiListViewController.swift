@@ -9,6 +9,8 @@
 import UIKit
 
 class CodiListViewController: UIViewController {
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
