@@ -151,7 +151,6 @@ class PhotoAddViewController: UIViewController {
                         DispatchQueue.main.async {
                             self.openPhotoAlbum(self.photoPickerViewController)
                         }
-
                         print("Present the Album List")
                     default:
                         print("사용자 불허")
