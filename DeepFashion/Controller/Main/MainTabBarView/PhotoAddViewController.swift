@@ -32,6 +32,23 @@ class PhotoAddViewController: UIViewController {
         return photoPickerViewController
     }()
 
+    private var selectedClothingImage: UIImage? {
+        willSet {
+            guard let newImage = newValue else { return }
+            // 1) 사진 촬영 or 앨범을 선택해서 이미지를 받아온 후
+            // 2) 앨범 or 화면 화면을 닫는다.
+            photoPickerViewController.dismiss(animated: true) { [weak self] in
+                DispatchQueue.main.async { [weak self] in
+                    // 3) 이미지를 분석, 분석 결과를 저장한다.
+                    self?.classificateImage(newImage) { [weak self] in
+                        // 4)  커스텀 패션 설정 창을 띄운다.
+                        self?.presentAddFashionViewController(selectedImage: newImage)
+                    }
+                }
+            }
+        }
+    }
+
     private let yjModule: TorchModule = {
         if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
             let module = TorchModule(fileAtPath: filePath) {
@@ -190,18 +207,9 @@ class PhotoAddViewController: UIViewController {
 extension PhotoAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
+
         selectedPhotoImageView.image = selectedImage
-        // 1) 사진 촬영 or 앨범을 선택해서 이미지를 받아온 후
-        // 2) 앨범 or 화면 화면을 닫는다.
-        closePhotoAlbum(photoPickerViewController) { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                // 3) 이미지를 분석한다.
-                self?.classificateImage(selectedImage) { [weak self] in
-                    // 4) 분석 결과를 저장하고 커스텀 패션 설정 창을 띄운다.
-                    self?.presentAddFashionViewController(selectedImage: selectedImage)
-                }
-            }
-        }
+        selectedClothingImage = selectedImage
     }
 }
 
