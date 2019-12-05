@@ -25,8 +25,10 @@ extension UIViewController {
         }
     }
 
-    func closePhotoAlbum(_ imagePickerController: UIImagePickerController) {
-        imagePickerController.dismiss(animated: true, completion: nil)
+    func closePhotoAlbum(_ imagePickerController: UIImagePickerController, completion: @escaping () -> Void) {
+        imagePickerController.dismiss(animated: true) {
+            completion()
+        }
     }
 
     func presentAuthRequestAlertController(title: String, message: String) {

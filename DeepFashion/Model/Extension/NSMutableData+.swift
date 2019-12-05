@@ -11,6 +11,6 @@ import Foundation
 extension NSMutableData {
     func appendString(_ string: String) {
         guard let data = string.data(using: String.Encoding.utf8, allowLossyConversion: false) else { return }
-        self.append(data)
+        append(data)
     }
 }

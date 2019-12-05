@@ -20,8 +20,6 @@
 // Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
-import RxCocoa
-import RxSwift
 import UIKit
 
 class FirstSignUpViewController: UIViewController {

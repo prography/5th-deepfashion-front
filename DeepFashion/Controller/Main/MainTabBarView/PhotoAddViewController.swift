@@ -17,18 +17,38 @@ class PhotoAddViewController: UIViewController {
 
     @IBOutlet var selectedPhotoImageView: UIImageView!
 
+    @IBOutlet var classificationLabel: [UILabel]!
+
     // MARK: - Properties
 
-    private let photoSelectAlertController: UIAlertController = {
+    private lazy var photoSelectAlertController: UIAlertController = {
         let photoSelectAlertController = UIAlertController(title: "사진 추가방법 선택", message: "사진 추가방법을 선택하세요.", preferredStyle: .actionSheet)
         return photoSelectAlertController
     }()
 
-    private let photoPickerViewController: UIImagePickerController = {
+    private lazy var photoPickerViewController: UIImagePickerController = {
         let photoPickerViewController = UIImagePickerController()
         photoPickerViewController.allowsEditing = true
         return photoPickerViewController
     }()
+
+//    private lazy var yjModule: TorchModule = {
+//        if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
+//            let module = TorchModule(fileAtPath: filePath) {
+//            return module
+//        } else {
+//            fatalError("Can't find the model file!")
+//        }
+//    }()
+//
+//    private lazy var yjData: [String] = {
+//        if let filePath = Bundle.main.path(forResource: "yjWords", ofType: "txt"),
+//            let labels = try? String(contentsOfFile: filePath) {
+//            return labels.components(separatedBy: .newlines)
+//        } else {
+//            fatalError("Can't find the text file!")
+//        }
+//    }()
 
     // MARK: Life Cycle
 
@@ -37,6 +57,26 @@ class PhotoAddViewController: UIViewController {
         photoPickerViewController.delegate = self
         configureViewController()
         configurePhotoSelectAlertController()
+
+//        let image = UIImage(named: "longJacket.png")!
+//
+//        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
+//        guard var pixelBuffer = resizedImage.normalized() else {
+//            print("Fucking Asshole")
+//            return
+//        }
+//
+//        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
+//            print("You Mother Fucker")
+//            return
+//        }
+//
+//        let zippedResults = zip(yjData.indices, outputs)
+//        let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
+//        print("sortedResults: \(sortedResults)")
+//        for (key,result) in sortedResults.enumerated() {
+//            classificationLabel[key].text = yjData[result.0]
+//        }
     }
 
     override func viewWillAppear(_: Bool) {
@@ -45,6 +85,26 @@ class PhotoAddViewController: UIViewController {
     }
 
     // MARK: Methods
+
+    private func classificateImage(_: UIImage) {
+//        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
+//        guard var pixelBuffer = resizedImage.normalized() else {
+//            print("Fucking Asshole")
+//            return
+//        }
+//
+//        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
+//            print("You Mother Fucker")
+//            return
+//        }
+//
+//        let zippedResults = zip(yjData.indices, outputs)
+//        let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
+//        print("sortedResults: \(sortedResults)")
+//        for (key,result) in sortedResults.enumerated() {
+//            classificationLabel[key].text = yjData[result.0]
+//        }
+    }
 
     private func configurePhotoSelectAlertController() {
         let takePictureAlertAction = UIAlertAction(title: "사진 찍기", style: .default) { _ in
@@ -88,7 +148,10 @@ class PhotoAddViewController: UIViewController {
                     case .authorized:
                         print("사용자 측 권한 허용 선택")
                         // 이때는 앨범 리스트를 연다.
-                        self.openPhotoAlbum(self.photoPickerViewController)
+                        DispatchQueue.main.async {
+                            self.openPhotoAlbum(self.photoPickerViewController)
+                        }
+
                         print("Present the Album List")
                     default:
                         print("사용자 불허")
@@ -99,7 +162,9 @@ class PhotoAddViewController: UIViewController {
             case .authorized:
                 print("authorized, 접근 승인")
                 // 이때는 앨범을 열어준다.
-                self.openPhotoAlbum(self.photoPickerViewController)
+                DispatchQueue.main.async {
+                    self.openPhotoAlbum(self.photoPickerViewController)
+                }
                 print("Present the Album List")
             @unknown default:
                 fatalError()
@@ -126,17 +191,7 @@ class PhotoAddViewController: UIViewController {
 
     // MARK: - Methods
 
-    func checkAlbumAuthority(alertAction _: UIAlertAction) {}
-}
-
-extension PhotoAddViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let selectedImage = info[.editedImage] as? UIImage else { return }
-        selectedPhotoImageView.image = selectedImage
-        closePhotoAlbum(photoPickerViewController)
-
-        // ** 정리 필요 **
-        // 스토리보드를 통해 사진 추가 페이지를 불러온다.
+    private func presentAddFashionViewController(selectedImage: UIImage) {
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.addFashion) as? AddFashionViewController else {
             return
@@ -145,6 +200,25 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
         // 미리 해당 뷰컨에 필요한 이미지 추가 후 네비게이션 스택에 푸시
         viewController.selectedFashionImage = selectedImage
         navigationController?.pushViewController(viewController, animated: true)
+    }
+
+    func checkAlbumAuthority(alertAction _: UIAlertAction) {}
+}
+
+extension PhotoAddViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        selectedPhotoImageView.image = selectedImage
+        // 앨범을 닫는다.
+        closePhotoAlbum(photoPickerViewController) { [weak self] in
+            DispatchQueue.main.async {
+                // 이미지를 분석한다.
+                self?.classificateImage(selectedImage)
+//                { [weak self] in
+                ////                    //                    self?.presentAddFashionViewController(selectedImage: selectedImage)
+//                }
+            }
+        }
     }
 }
 
