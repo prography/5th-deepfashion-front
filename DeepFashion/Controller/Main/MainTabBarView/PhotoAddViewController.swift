@@ -32,23 +32,23 @@ class PhotoAddViewController: UIViewController {
         return photoPickerViewController
     }()
 
-//    private lazy var yjModule: TorchModule = {
-//        if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
-//            let module = TorchModule(fileAtPath: filePath) {
-//            return module
-//        } else {
-//            fatalError("Can't find the model file!")
-//        }
-//    }()
-//
-//    private lazy var yjData: [String] = {
-//        if let filePath = Bundle.main.path(forResource: "yjWords", ofType: "txt"),
-//            let labels = try? String(contentsOfFile: filePath) {
-//            return labels.components(separatedBy: .newlines)
-//        } else {
-//            fatalError("Can't find the text file!")
-//        }
-//    }()
+    private let yjModule: TorchModule = {
+        if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
+            let module = TorchModule(fileAtPath: filePath) {
+            return module
+        } else {
+            fatalError("Can't find the model file!")
+        }
+    }()
+
+    private let yjData: [String] = {
+        if let filePath = Bundle.main.path(forResource: "words", ofType: "txt"),
+            let labels = try? String(contentsOfFile: filePath) {
+            return labels.components(separatedBy: .newlines)
+        } else {
+            fatalError("Can't find the text file!")
+        }
+    }()
 
     // MARK: Life Cycle
 
@@ -57,26 +57,6 @@ class PhotoAddViewController: UIViewController {
         photoPickerViewController.delegate = self
         configureViewController()
         configurePhotoSelectAlertController()
-
-//        let image = UIImage(named: "longJacket.png")!
-//
-//        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
-//        guard var pixelBuffer = resizedImage.normalized() else {
-//            print("Fucking Asshole")
-//            return
-//        }
-//
-//        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
-//            print("You Mother Fucker")
-//            return
-//        }
-//
-//        let zippedResults = zip(yjData.indices, outputs)
-//        let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
-//        print("sortedResults: \(sortedResults)")
-//        for (key,result) in sortedResults.enumerated() {
-//            classificationLabel[key].text = yjData[result.0]
-//        }
     }
 
     override func viewWillAppear(_: Bool) {
@@ -86,24 +66,27 @@ class PhotoAddViewController: UIViewController {
 
     // MARK: Methods
 
-    private func classificateImage(_: UIImage) {
-//        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
-//        guard var pixelBuffer = resizedImage.normalized() else {
-//            print("Fucking Asshole")
-//            return
-//        }
-//
-//        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
-//            print("You Mother Fucker")
-//            return
-//        }
-//
-//        let zippedResults = zip(yjData.indices, outputs)
-//        let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
-//        print("sortedResults: \(sortedResults)")
-//        for (key,result) in sortedResults.enumerated() {
-//            classificationLabel[key].text = yjData[result.0]
-//        }
+    private func classificateImage(_ image: UIImage, completion: @escaping () -> Void) {
+        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
+        guard var pixelBuffer = resizedImage.normalized() else {
+            print("Fucking Asshole")
+            completion()
+            return
+        }
+
+        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
+            completion()
+            print("You Mother Fucker")
+            return
+        }
+
+        let zippedResults = zip(yjData.indices, outputs)
+        let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
+        print("sortedResults: \(sortedResults)")
+        for (key, result) in sortedResults.enumerated() {
+            classificationLabel[key].text = yjData[result.0]
+        }
+        completion()
     }
 
     private func configurePhotoSelectAlertController() {
@@ -208,14 +191,15 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
         selectedPhotoImageView.image = selectedImage
-        // 앨범을 닫는다.
+        // 1) 사진 촬영 or 앨범을 선택해서 이미지를 받아온 후
+        // 2) 앨범 or 화면 화면을 닫는다.
         closePhotoAlbum(photoPickerViewController) { [weak self] in
-            DispatchQueue.main.async {
-                // 이미지를 분석한다.
-                self?.classificateImage(selectedImage)
-//                { [weak self] in
-                ////                    //                    self?.presentAddFashionViewController(selectedImage: selectedImage)
-//                }
+            DispatchQueue.main.async { [weak self] in
+                // 3) 이미지를 분석한다.
+                self?.classificateImage(selectedImage) { [weak self] in
+                    // 4) 분석 결과를 저장하고 커스텀 패션 설정 창을 띄운다.
+                    self?.presentAddFashionViewController(selectedImage: selectedImage)
+                }
             }
         }
     }

@@ -37,6 +37,8 @@
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
 		07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE792399035B000C215E /* UIImage+.swift */; };
 		07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE8A23992C0E000C215E /* TorchModule.mm */; };
+		07B5AE8F23992D04000C215E /* model.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07B5AE8D23992D04000C215E /* model.pt */; };
+		07B5AE9023992D04000C215E /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07B5AE8E23992D04000C215E /* words.txt */; };
 		07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */; };
 		07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */; };
 		07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */; };
@@ -117,6 +119,8 @@
 		07B5AE8823992BEF000C215E /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
 		07B5AE8923992C0D000C215E /* DeepFashion-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeepFashion-Bridging-Header.h"; sourceTree = "<group>"; };
 		07B5AE8A23992C0E000C215E /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
+		07B5AE8D23992D04000C215E /* model.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.pt; sourceTree = "<group>"; };
+		07B5AE8E23992D04000C215E /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListViewController.swift; sourceTree = "<group>"; };
 		07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListViewController.swift; sourceTree = "<group>"; };
@@ -330,6 +334,15 @@
 			path = PyTorch;
 			sourceTree = "<group>";
 		};
+		07B5AE8C23992CE9000C215E /* PyTorch */ = {
+			isa = PBXGroup;
+			children = (
+				07B5AE8D23992D04000C215E /* model.pt */,
+				07B5AE8E23992D04000C215E /* words.txt */,
+			);
+			path = PyTorch;
+			sourceTree = "<group>";
+		};
 		07B6E0652382C05700D6A9E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,6 +392,7 @@
 		07D5E9A5236E00F100A27B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				07B5AE8C23992CE9000C215E /* PyTorch */,
 				07D5E9B1236EF96B00A27B28 /* Constants */,
 				077C77B42378149F0088B151 /* Protocol */,
 				07ADBD88237D0D59004222CB /* SingleTon */,
@@ -550,6 +564,8 @@
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
+				07B5AE9023992D04000C215E /* words.txt in Resources */,
+				07B5AE8F23992D04000C215E /* model.pt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
