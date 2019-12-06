@@ -12,11 +12,8 @@ class AddFashionViewController: UIViewController {
     // MARK: IBOutlet
 
     @IBOutlet var fashionNameTextField: UITextField!
-
     @IBOutlet var fashionStyleButton: UIButton!
-
     @IBOutlet var fashionImageView: UIImageView!
-
     @IBOutlet var fashionTypeSegmentedControl: UISegmentedControl!
     @IBOutlet var fashionWeatherButtons: [UIButton]!
 
@@ -49,6 +46,25 @@ class AddFashionViewController: UIViewController {
     }
 
     // MARK: Methods
+
+    /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
+    private func isNameTextFieldEmpty() -> Bool {
+        guard let nameText = fashionNameTextField.text else { return false }
+        return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
+    }
+
+    /// weatherButtons가 적어도 1개 이상 설정되어있는지 확인하는 메서드
+    private func checkWeatherButtonSetting() -> Bool {
+        for i in fashionWeatherButtons.indices {
+            if fashionWeatherButtons[i].isSelected { return true }
+        }
+        return false
+    }
+
+    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
+    private func checkStyleButtonSetting() -> Bool {
+        return selectedFashionData.style.count != 0
+    }
 
     private func configureFashionStyleButton() {
         if selectedFashionData.style.count == 0 { return }
