@@ -8,11 +8,11 @@
 
 import UIKit
 
-enum FashionType: String {
-    case outer = "Outer"
-    case top = "Top"
-    case bottom = "Bottom"
-    case shoes = "Shoes"
+enum FashionType: Int {
+    case outer = 0
+    case top = 1
+    case bottom = 2
+    case shoes = 3
 
     var title: String {
         switch self {

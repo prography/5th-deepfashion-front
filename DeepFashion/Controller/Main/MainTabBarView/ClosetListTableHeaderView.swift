@@ -9,13 +9,42 @@
 import UIKit
 
 class ClosetListTableHeaderView: UIView {
-    @IBOutlet var titleLabel: UILabel!
+    let titleLabel: UILabel = {
+        let titleLabel = UILabel()
+        titleLabel.text = "헤더뷰 타이틀"
+        titleLabel.textAlignment = .left
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        titleLabel.textColor = .white
+        return titleLabel
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .black
+        addSubviews()
+        configureConstraint()
     }
 
-    required init?(coder _: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func configureTitleLabel(_ text: String) {
+        titleLabel.text = text
+    }
+
+    func addSubviews() {
+        addSubview(titleLabel)
+    }
+
+    func configureConstraint() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 5),
+            titleLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: -20),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
+            titleLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+        ])
     }
 }

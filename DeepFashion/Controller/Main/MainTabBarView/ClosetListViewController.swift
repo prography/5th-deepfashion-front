@@ -37,13 +37,27 @@ extension ClosetListViewController: UITableViewDelegate {
         return 100
     }
 
-    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
-        return UIView()
+    func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
+        return 50
+    }
+
+    func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let fashionType = FashionType(rawValue: section)
+        guard let headerViewTitleText = fashionType?.title else { return UIView() }
+
+        let closetListTableHeaderView = ClosetListTableHeaderView()
+        print(headerViewTitleText)
+        closetListTableHeaderView.configureTitleLabel(headerViewTitleText)
+        return closetListTableHeaderView
     }
 }
 
 extension ClosetListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 1
+    }
+
+    func numberOfSections(in _: UITableView) -> Int {
         return 4
     }
 

@@ -52,7 +52,6 @@
 		07C745A82392A41D0045AB56 /* FashionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* FashionType.swift */; };
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
-		07D4994B239A8D260099B7A9 /* ClosetListTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D4994A239A8D260099B7A9 /* ClosetListTableHeaderView.xib */; };
 		07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */; };
 		07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */; };
 		07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* TextField+.swift */; };
@@ -138,7 +137,6 @@
 		07C745A72392A41D0045AB56 /* FashionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionType.swift; sourceTree = "<group>"; };
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
-		07D4994A239A8D260099B7A9 /* ClosetListTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetListTableHeaderView.xib; sourceTree = "<group>"; };
 		07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableHeaderView.swift; sourceTree = "<group>"; };
 		07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserData.swift; sourceTree = "<group>"; };
 		07D5E9AE236EE6A800A27B28 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */,
 				07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */,
 				07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */,
-				07D4994A239A8D260099B7A9 /* ClosetListTableHeaderView.xib */,
 				07598531237E93E500C48EE7 /* PhotoAddViewController.swift */,
 				07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */,
 				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
@@ -573,7 +570,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07D4994B239A8D260099B7A9 /* ClosetListTableHeaderView.xib in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
