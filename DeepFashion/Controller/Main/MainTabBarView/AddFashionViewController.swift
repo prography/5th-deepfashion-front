@@ -20,7 +20,7 @@ class AddFashionViewController: UIViewController {
 
     // MARK: Properties
 
-    var selectedFashionData = SelectedFashionData()
+    var selectedFashionData = FashionData()
 
     private let fashionTypeAlertController: TypeAlertController = {
         let fashionAlertController = TypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)

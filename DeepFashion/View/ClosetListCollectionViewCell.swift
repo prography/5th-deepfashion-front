@@ -13,6 +13,10 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .white
+        backgroundColor = .lightGray
+    }
+
+    func configureCell(image: UIImage) {
+        fashionImageView.image = image
     }
 }

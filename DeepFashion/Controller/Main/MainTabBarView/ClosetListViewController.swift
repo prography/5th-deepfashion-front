@@ -34,11 +34,11 @@ class ClosetListViewController: UIViewController {
 
 extension ClosetListViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 100
+        return 120
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return 50
+        return 30
     }
 
     func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -63,7 +63,10 @@ extension ClosetListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
-
+        let clothingData = CommonUserData.shared.userClothingList.filter { $0.fashionType == indexPath.section }
+        print("Now Index Section : \(indexPath.section)")
+        print("Now Section Data : \(clothingData)")
+        closetListTableViewCell.configureCell(clothingData: clothingData)
         return closetListTableViewCell
     }
 }

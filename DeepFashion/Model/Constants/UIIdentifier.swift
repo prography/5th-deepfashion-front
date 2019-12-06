@@ -20,8 +20,8 @@ struct UIIdentifier {
 
     struct Cell {
         struct CollectionView {
-            static let closetList = "closetListCell"
-            static let styleTitle = "styleTitleCell"
+            static let closetList = "closetListCollectionViewCell"
+            static let styleTitle = "styleTitleCollectionViewCell"
         }
 
         struct TableView {

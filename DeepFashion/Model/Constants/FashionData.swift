@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct SelectedFashionData {
+struct FashionData {
     var image: UIImage?
     var style: [(String, Int)] = []
     var typeIndex = 0
