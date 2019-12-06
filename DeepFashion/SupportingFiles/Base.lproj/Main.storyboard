@@ -718,10 +718,10 @@
             </objects>
             <point key="canvasLocation" x="1743" y="1376"/>
         </scene>
-        <!--Add Fashion View Controller-->
+        <!--옷 등록하기-->
         <scene sceneID="Tdj-r2-JXy">
             <objects>
-                <viewController storyboardIdentifier="AddFashionViewController" id="TFM-gH-Vx2" customClass="AddFashionViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddFashionViewController" title="옷 등록하기" id="TFM-gH-Vx2" customClass="AddFashionViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IKm-vE-afn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -729,71 +729,159 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QYX-Qr-SFX">
                                 <rect key="frame" x="10" y="10" width="300" height="400"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 옷 등록 하기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CW-dq-0vt">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Dln-h7-5Yz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-DH-Yhc">
-                                        <rect key="frame" x="0.0" y="43" width="300" height="130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="51.5"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-Jd-FuW">
-                                        <rect key="frame" x="0.0" y="186" width="300" height="20"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QN5-E0-Xud">
+                                        <rect key="frame" x="0.0" y="64.5" width="300" height="80"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-Jd-FuW">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="패션 이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-hs-9lF">
+                                                <rect key="frame" x="0.0" y="35.5" width="300" height="44.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="sWZ-R3-e2b"/>
+                                            <constraint firstItem="f0v-hs-9lF" firstAttribute="height" secondItem="FiH-Jd-FuW" secondAttribute="height" multiplier="2" id="MGP-4S-D9I"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="패션 이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-hs-9lF">
-                                        <rect key="frame" x="0.0" y="219" width="300" height="30"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-y0-Iy1">
+                                        <rect key="frame" x="0.0" y="157.5" width="300" height="72"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-Xz-Mzn">
+                                                <rect key="frame" x="0.0" y="32.5" width="300" height="40.5"/>
+                                                <segments>
+                                                    <segment title="Outer"/>
+                                                    <segment title="Top"/>
+                                                    <segment title="Bottom"/>
+                                                    <segment title="Shoes"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="fashionTypeSegmentedControlValueChanged:" destination="TFM-gH-Vx2" eventType="valueChanged" id="PTj-kR-Oe6"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="8kk-H4-0RQ"/>
+                                            <constraint firstItem="Ngo-Xz-Mzn" firstAttribute="height" secondItem="vwC-XZ-suw" secondAttribute="height" multiplier="2" id="eL2-cQ-bDC"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
-                                        <rect key="frame" x="0.0" y="262" width="300" height="15.5"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOs-Gn-nJK">
-                                        <rect key="frame" x="0.0" y="290.5" width="300" height="34"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Outer"/>
-                                        <connections>
-                                            <action selector="fashionTypeButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="67I-bf-Xwf"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bks-kG-fpX">
-                                        <rect key="frame" x="0.0" y="337.5" width="300" height="15"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-UA-1hn">
-                                        <rect key="frame" x="0.0" y="365.5" width="300" height="34.5"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <state key="normal" title="Formal"/>
-                                        <connections>
-                                            <action selector="fashionStyleButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="m9J-oe-Usy"/>
-                                        </connections>
-                                    </button>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="1Sv-vk-Cyb">
+                                        <rect key="frame" x="0.0" y="242.5" width="300" height="72.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입는 계절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-Mv-KCi">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="20"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nHV-0a-Ykw">
+                                                <rect key="frame" x="0.0" y="33" width="300" height="39.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-8T-BMN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="71.5" height="39.5"/>
+                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                        <state key="normal" title="봄">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="BSc-Pf-hiy"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-d3-1bd">
+                                                        <rect key="frame" x="76.5" y="0.0" width="71" height="39.5"/>
+                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                        <state key="normal" title="여름">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="7Mi-15-hMc"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-vF-Ldd">
+                                                        <rect key="frame" x="152.5" y="0.0" width="71.5" height="39.5"/>
+                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                        <state key="normal" title="가을">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="hge-7T-Q2g"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cND-UZ-xFT">
+                                                        <rect key="frame" x="229" y="0.0" width="71" height="39.5"/>
+                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                        <state key="normal" title="겨울">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="AoF-Zu-Pbn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="nHV-0a-Ykw" firstAttribute="height" secondItem="rzc-Mv-KCi" secondAttribute="height" multiplier="2" id="4md-wo-1Cu"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-qU-mAk">
+                                        <rect key="frame" x="0.0" y="328" width="300" height="72"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bks-kG-fpX">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-UA-1hn">
+                                                <rect key="frame" x="0.0" y="32.5" width="300" height="39.5"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <state key="normal" title="Formal"/>
+                                                <connections>
+                                                    <action selector="fashionStyleButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="m9J-oe-Usy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lbQ-UA-1hn" firstAttribute="height" secondItem="bks-kG-fpX" secondAttribute="height" multiplier="2" id="MRB-oy-dqC"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="lbQ-UA-1hn" firstAttribute="height" secondItem="dOs-Gn-nJK" secondAttribute="height" id="1Yc-Ut-hhN"/>
-                                    <constraint firstItem="bks-kG-fpX" firstAttribute="height" secondItem="FiH-Jd-FuW" secondAttribute="height" multiplier="0.75" id="DxO-Jb-BDe"/>
-                                    <constraint firstItem="vwC-XZ-suw" firstAttribute="height" secondItem="FiH-Jd-FuW" secondAttribute="height" multiplier="0.766667" id="a0d-uJ-Rlh"/>
+                                    <constraint firstItem="lqj-qU-mAk" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" id="MqS-1Y-9VR"/>
+                                    <constraint firstItem="1Sv-vk-Cyb" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" id="TPx-mV-hqM"/>
+                                    <constraint firstItem="QN5-E0-Xud" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" multiplier="1.10526" id="ZxS-cX-Kbx"/>
                                     <constraint firstAttribute="height" constant="400" id="f22-Vq-999"/>
                                 </constraints>
                             </stackView>
@@ -846,7 +934,11 @@
                         <outlet property="fashionImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
                         <outlet property="fashionNameTextField" destination="f0v-hs-9lF" id="Sg9-Xp-KMN"/>
                         <outlet property="fashionStyleButton" destination="lbQ-UA-1hn" id="vjq-Fa-zAr"/>
-                        <outlet property="fashionTypeButton" destination="dOs-Gn-nJK" id="Olm-ub-T0q"/>
+                        <outlet property="fashionTypeSegmentedControl" destination="Ngo-Xz-Mzn" id="s8F-ye-oDN"/>
+                        <outletCollection property="fashionWeatherButtons" destination="YY6-8T-BMN" collectionClass="NSMutableArray" id="xgo-f4-RvE"/>
+                        <outletCollection property="fashionWeatherButtons" destination="ldN-d3-1bd" collectionClass="NSMutableArray" id="ceG-zB-myj"/>
+                        <outletCollection property="fashionWeatherButtons" destination="Lrc-vF-Ldd" collectionClass="NSMutableArray" id="uRG-dv-xWh"/>
+                        <outletCollection property="fashionWeatherButtons" destination="cND-UZ-xFT" collectionClass="NSMutableArray" id="jDy-7W-Jce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ev-yl-kLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -13,15 +13,19 @@ class AddFashionViewController: UIViewController {
 
     @IBOutlet var fashionNameTextField: UITextField!
 
-    @IBOutlet var fashionTypeButton: UIButton!
     @IBOutlet var fashionStyleButton: UIButton!
 
     @IBOutlet var fashionImageView: UIImageView!
+
+    @IBOutlet var fashionTypeSegmentedControl: UISegmentedControl!
+    @IBOutlet var fashionWeatherButtons: [UIButton]!
 
     // MARK: Properties
 
     var selectedFashionImage: UIImage?
     var selectedFashionStyle = [(String, Int)]()
+    var selectedFashionTypeIndex = 0
+    var selectedWeatherIndex: Set<Int> = [0]
 
     private let fashionTypeAlertController: TypeAlertController = {
         let fashionAlertController = TypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)
@@ -32,12 +36,13 @@ class AddFashionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fashionTypeAlertController.fashionTypePickerView.delegate = self
         fashionTypeAlertController.fashionTypePickerView.dataSource = self
-
         fashionNameTextField.delegate = self
         navigationController?.navigationBar.isHidden = true
         fashionImageView.image = selectedFashionImage
+
+        configureFashionTypeSegmentedControl()
+        configureFashionWeatherButtons()
     }
 
     override func viewWillAppear(_: Bool) {
@@ -61,9 +66,21 @@ class AddFashionViewController: UIViewController {
         fashionStyleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
     }
 
-    private func presentFashionTypePickerView() {
-        present(fashionTypeAlertController, animated: true)
+    private func configureFashionTypeSegmentedControl() {
+        // 초기 선택 인덱스를 설정
+        fashionTypeSegmentedControl.selectedSegmentIndex = 0
     }
+
+    private func configureFashionWeatherButtons() {
+        for i in fashionWeatherButtons.indices {
+            if i == 0 { fashionWeatherButtons[i].isSelected = true }
+            else { fashionWeatherButtons[i].isSelected = false }
+        }
+    }
+
+//    private func presentFashionTypePickerView() {
+//        present(fashionTypeAlertController, animated: true)
+//    }
 
     // MARK: - IBActions
 
@@ -73,11 +90,12 @@ class AddFashionViewController: UIViewController {
         guard let selectedFashionImage = self.selectedFashionImage,
             let selectedFashionName = fashionNameTextField.text else { return }
 
-        guard let nowfashionType = fashionTypeButton.titleLabel?.text else { return }
-        let clothingData = UserClothingData(image: selectedFashionImage, name: selectedFashionName, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
-        CommonUserData.shared.addUserClothing(clothingData)
+//        guard let nowfashionType = fashionTypeButton.titleLabel?.text else { return }
 
-        print("now Adding Clothing Data : \(clothingData)")
+//        let clothingData = UserClothingData(image: selectedFashionImage, name: selectedFashionName, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
+//        CommonUserData.shared.addUserClothing(clothingData)
+//
+//        print("now Adding Clothing Data : \(clothingData)")
         let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, images: self.selectedFashionImage)
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { _, isSucceed in
             if isSucceed {
@@ -97,9 +115,9 @@ class AddFashionViewController: UIViewController {
         print(CommonUserData.shared.userClothingList)
     }
 
-    @IBAction func fashionTypeButtonPressed(_: UIButton) {
-        presentFashionTypePickerView()
-    }
+//    @IBAction func fashionTypeButtonPressed(_: UIButton) {
+//        presentFashionTypePickerView()
+//    }
 
     @IBAction func fashionStyleButtonPressed(_: UIButton) {
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
@@ -112,11 +130,23 @@ class AddFashionViewController: UIViewController {
 
         navigationController?.popViewController(animated: true)
     }
-}
 
-extension AddFashionViewController: UIPickerViewDelegate {
-    func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-        fashionTypeButton.setTitle("\(ViewData.Title.fashionType[row])", for: .normal)
+    @IBAction func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        selectedFashionTypeIndex = sender.selectedSegmentIndex
+        print("now SelectedTypeIndex : \(selectedFashionTypeIndex)")
+    }
+
+    @IBAction func fashionWeatherButtonPressed(_ sender: UIButton) {
+        var selectedButton = UIButton()
+        for i in fashionWeatherButtons.indices {
+            if sender == fashionWeatherButtons[i] {
+                selectedButton = sender
+                break
+            }
+        }
+
+        guard let selectedText = selectedButton.titleLabel?.text else { return }
+        print("nowSelected WeatherButton Index : \(selectedText)")
     }
 }
 
