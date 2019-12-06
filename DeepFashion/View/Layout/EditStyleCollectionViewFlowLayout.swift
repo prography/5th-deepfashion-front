@@ -35,10 +35,7 @@ class EditStyleCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let totalSpacing = minimumInteritemSpacing * CGFloat(itemsPerRow - 1)
         let newWidth = (collectionView!.bounds.size.width - sectionInset.left - sectionInset.right - totalSpacing) / CGFloat(itemsPerRow)
         newItemSize.width = max(newItemSize.width, newWidth)
-        if itemSize.height > 0 {
-            let aspectRatio: CGFloat = itemSize.width / itemSize.height
-            newItemSize.height = newItemSize.width / aspectRatio * 0.6
-        }
+        newItemSize.height = newItemSize.width * 0.6
         itemSize = newItemSize
     }
 }

@@ -32,7 +32,7 @@
 		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
 		07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */; };
 		07A3B0C4239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */; };
-		07A3B0C623911BBC0028DC6B /* StyleCellLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C523911BBC0028DC6B /* StyleCellLayout.swift */; };
+		07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */; };
 		07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C8239138EB0028DC6B /* UserClothingData.swift */; };
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
 		07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE792399035B000C215E /* UIImage+.swift */; };
@@ -113,7 +113,7 @@
 		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
 		07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleViewController.swift; sourceTree = "<group>"; };
 		07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionStyleSelectCollectionViewCell.swift; sourceTree = "<group>"; };
-		07A3B0C523911BBC0028DC6B /* StyleCellLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleCellLayout.swift; sourceTree = "<group>"; };
+		07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		07A3B0C8239138EB0028DC6B /* UserClothingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingData.swift; sourceTree = "<group>"; };
 		07AA4784237046780074DE76 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		07B5AE792399035B000C215E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		07A3B0C7239126940028DC6B /* Layout */ = {
 			isa = PBXGroup;
 			children = (
-				07A3B0C523911BBC0028DC6B /* StyleCellLayout.swift */,
+				07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -700,7 +700,7 @@
 				07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */,
 				07C745A82392A41D0045AB56 /* FashionType.swift in Sources */,
 				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,
-				07A3B0C623911BBC0028DC6B /* StyleCellLayout.swift in Sources */,
+				07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */,
 				07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,

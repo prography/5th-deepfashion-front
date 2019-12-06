@@ -15,7 +15,7 @@ struct UIIdentifier {
     static let mainStoryboard = "Main"
     struct ViewController {
         static let addFashion = "AddFashionViewController"
-        static let styleSelect = "StyleSelectViewController"
+        static let editStyle = "StyleSelectViewController"
     }
 
     struct Cell {
@@ -27,6 +27,8 @@ struct UIIdentifier {
 
     struct StyleButton {
         static let startTagIndex = 101
-        static let endTagIndex = 112
+        static let endWomenTagIndex = 112
+        static let endManTagIndex = 107
+        static let endMaxTagIndex = 112
     }
 }

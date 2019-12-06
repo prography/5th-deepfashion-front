@@ -15,34 +15,39 @@ class FashionStyleSelectCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    override var isSelected: Bool {
-        willSet {
-            if newValue {
-                styleTitleLabel.backgroundColor = .black
-                styleTitleLabel.textColor = .white
-            } else {
-                styleTitleLabel.backgroundColor = .white
-                styleTitleLabel.textColor = .black
-            }
-            layoutIfNeeded()
-        }
-    }
+//    override var isSelected: Bool {
+//        willSet {
+//            if newValue {
+//                styleTitleLabel.backgroundColor = .black
+//                styleTitleLabel.textColor = .white
+//            } else {
+//                styleTitleLabel.backgroundColor = .white
+//                styleTitleLabel.textColor = .black
+//            }
+//        }
+//    }
 
-    func configureCell(_ title: String, itemIndex _: Int) {
-        styleTitleLabel.text = title
-        backgroundColor = .white
+    func configureCell(style: (String, Int)) {
+        styleTitleLabel.text = style.0
+        if style.1 == 0 {
+            backgroundColor = .white
+            styleTitleLabel.textColor = .black
+        } else {
+            backgroundColor = .black
+            styleTitleLabel.textColor = .white
+        }
     }
 
     func toggleCell(styles: inout [(String, Int)], itemIndex: Int) -> Bool {
         if styles[itemIndex].1 == 0 {
             styles[itemIndex].1 = 1
-            isSelected = true
+            backgroundColor = .black
+            styleTitleLabel.textColor = .white
             return true
         } else {
             styles[itemIndex].1 = 0
-            contentView.backgroundColor = .white
+            backgroundColor = .white
             styleTitleLabel.textColor = .black
-            isSelected = false
             return false
         }
     }

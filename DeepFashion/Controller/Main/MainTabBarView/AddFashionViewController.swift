@@ -76,35 +76,43 @@ class AddFashionViewController: UIViewController {
     }
 
     private func selectFashionWeatherButton(_ button: UIButton) {
-        var selectedButton = UIButton()
+        var selectedIndex = 0
         for i in fashionWeatherButtons.indices {
             if button == fashionWeatherButtons[i] {
-                selectedButton = button
+                selectedIndex = i
                 break
             }
         }
-        guard let selectedText = selectedButton.titleLabel?.text else { return }
-        print("nowSelected WeatherButton Index : \(selectedText)")
-    }
 
-//    private func presentFashionTypePickerView() {
-//        present(fashionTypeAlertController, animated: true)
-//    }
+        if fashionWeatherButtons[selectedIndex].isSelected {
+            selectedFashionData.weatherIndex[selectedIndex] = 0
+            fashionWeatherButtons[selectedIndex].isSelected.toggle()
+        } else {
+            selectedFashionData.weatherIndex[selectedIndex] = 1
+            fashionWeatherButtons[selectedIndex].isSelected.toggle()
+        }
+    }
 
     // MARK: - IBActions
 
     @IBAction func addFashionButton(_: UIButton) {
         print("Add the Fashion!!")
-        // 이미지 저장 준비가 되었다면 저장 후 해당 뷰컨트롤러를 pop 처리
-        guard let selectedFashionImage = selectedFashionData.image,
-            let selectedFashionName = fashionNameTextField.text else { return }
 
-//        guard let nowfashionType = fashionTypeButton.titleLabel?.text else { return }
+        // 이미지, 이름 셋팅
+        guard let fashionImage = selectedFashionData.image,
+            let fashionName = fashionNameTextField.text else { return }
+        // 옷 타입, 스타일 셋팅
+        let fashionType = selectedFashionData.typeIndex
+        let fashionStyle = selectedFashionData.style
+        // 옷 날씨타입 셋팅
+        var fashionWeatherIndex = [Int]()
+        for i in 0 ..< 4 {
+            if selectedFashionData.weatherIndex[i] == 1 { fashionWeatherIndex.append(i) }
+        }
+        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: fashionType, fashionWeahter: fashionWeatherIndex, fashionStyle: fashionStyle)
+        CommonUserData.shared.addUserClothing(clothingData)
+        print("now Adding Clothing Data : \(clothingData)")
 
-//        let clothingData = UserClothingData(image: SelectedData.fashionImage, name: selectedFashionName, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
-//        CommonUserData.shared.addUserClothing(clothingData)
-//
-//        print("now Adding Clothing Data : \(clothingData)")
         let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, images: selectedFashionData.image)
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { _, isSucceed in
             if isSucceed {
@@ -124,19 +132,19 @@ class AddFashionViewController: UIViewController {
         print(CommonUserData.shared.userClothingList)
     }
 
-//    @IBAction func fashionTypeButtonPressed(_: UIButton) {
-//        presentFashionTypePickerView()
-//    }
+    //    @IBAction func fashionTypeButtonPressed(_: UIButton) {
+    //        presentFashionTypePickerView()
+    //    }
 
-    @IBAction func fashionStyleButtonPressed(_: UIButton) {
+    @IBAction func editStyleButtonPressed(_: UIButton) {
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
-        let styleSelectViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.styleSelect)
+        guard let styleSelectViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
+        styleSelectViewController.selectedStyle = selectedFashionData.style
+        print(selectedFashionData.style)
         navigationController?.pushViewController(styleSelectViewController, animated: true)
     }
 
     @IBAction func cancelButton(_: UIButton) {
-        print("Cancel Adding the Fashion!!")
-
         navigationController?.popViewController(animated: true)
     }
 

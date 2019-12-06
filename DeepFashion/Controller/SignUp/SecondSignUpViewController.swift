@@ -77,16 +77,18 @@ class SecondSignUpViewController: UIViewController {
 
     private func configureStyleSelectButton() {
         let firstButtonTag = UIIdentifier.StyleButton.startTagIndex
-        let lastButtonTag = UIIdentifier.StyleButton.endTagIndex
+        let lastButtonTag = UIIdentifier.StyleButton.endMaxTagIndex
         for buttonIndex in firstButtonTag ... lastButtonTag {
             guard let styleButton = self.view.viewWithTag(buttonIndex) as? UIButton else { return }
             configureStyleButtonDisabled(styleButton: styleButton)
 
             var nowButtonText = ""
             if isGenderMan {
-                nowButtonText = FashionStyle.male[buttonIndex - firstButtonTag]
+                if buttonIndex <= UIIdentifier.StyleButton.endManTagIndex {
+                    nowButtonText = FashionStyle.male[buttonIndex - firstButtonTag]
+                }
             } else {
-                nowButtonText = FashionStyle.Female[buttonIndex - firstButtonTag]
+                nowButtonText = FashionStyle.female[buttonIndex - firstButtonTag]
             }
 
             if nowButtonText != "" {
