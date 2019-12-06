@@ -51,6 +51,9 @@
 		07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */; };
 		07C745A82392A41D0045AB56 /* FashionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* FashionType.swift */; };
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
+		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
+		07D4994B239A8D260099B7A9 /* ClosetListTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D4994A239A8D260099B7A9 /* ClosetListTableHeaderView.xib */; };
+		07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */; };
 		07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */; };
 		07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* TextField+.swift */; };
 		07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */; };
@@ -134,6 +137,9 @@
 		07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlertController.swift; sourceTree = "<group>"; };
 		07C745A72392A41D0045AB56 /* FashionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionType.swift; sourceTree = "<group>"; };
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
+		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
+		07D4994A239A8D260099B7A9 /* ClosetListTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosetListTableHeaderView.xib; sourceTree = "<group>"; };
+		07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableHeaderView.swift; sourceTree = "<group>"; };
 		07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserData.swift; sourceTree = "<group>"; };
 		07D5E9AE236EE6A800A27B28 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifier.swift; sourceTree = "<group>"; };
@@ -186,6 +192,8 @@
 			children = (
 				07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */,
 				07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */,
+				07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */,
+				07D4994A239A8D260099B7A9 /* ClosetListTableHeaderView.xib */,
 				07598531237E93E500C48EE7 /* PhotoAddViewController.swift */,
 				07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */,
 				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
@@ -350,6 +358,7 @@
 			children = (
 				071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */,
 				07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */,
+				07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */,
 				07A3B0C7239126940028DC6B /* Layout */,
 			);
 			path = View;
@@ -564,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D4994B239A8D260099B7A9 /* ClosetListTableHeaderView.xib in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
@@ -665,6 +675,7 @@
 				07020DF7237FD506000CFAC2 /* UIIndicatorView+.swift in Sources */,
 				076F6BCC237BFEA800A2CBB4 /* UserTokenAPIData.swift in Sources */,
 				078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */,
+				07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */,
 				07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */,
 				07A3B0C4239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift in Sources */,
 				07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */,
@@ -677,6 +688,7 @@
 				07D5E9B9236EF9A900A27B28 /* UserDataRule.swift in Sources */,
 				077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */,
 				07598532237E93E500C48EE7 /* PhotoAddViewController.swift in Sources */,
+				07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */,
 				07D5E9B5236EF98D00A27B28 /* SegueIdentifier.swift in Sources */,
 				0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */,
 				076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */,

@@ -23,6 +23,10 @@ struct UIIdentifier {
             static let closetList = "closetListCell"
             static let styleTitle = "styleTitleCell"
         }
+
+        struct TableView {
+            static let closetList = "closetListTableViewCell"
+        }
     }
 
     struct StyleButton {
