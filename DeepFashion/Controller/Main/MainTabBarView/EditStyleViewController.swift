@@ -65,7 +65,7 @@ class EditStyleViewController: UIViewController {
         CommonUserData.shared.resetStyleData()
         guard let viewControllers = navigationController?.viewControllers,
             let addFashionViewControlller = navigationController?.viewControllers[viewControllers.count - 2] as? AddFashionViewController else { return }
-        addFashionViewControlller.selectedFashionStyle = selectedStyleIndex
+        addFashionViewControlller.selectedFashionData.style = selectedStyleIndex
         navigationController?.popViewController(animated: true)
     }
 

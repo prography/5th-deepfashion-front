@@ -39,6 +39,7 @@
 		07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE8A23992C0E000C215E /* TorchModule.mm */; };
 		07B5AE8F23992D04000C215E /* model.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07B5AE8D23992D04000C215E /* model.pt */; };
 		07B5AE9023992D04000C215E /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07B5AE8E23992D04000C215E /* words.txt */; };
+		07B5AE94239A4DEE000C215E /* SelectedFashionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE93239A4DEE000C215E /* SelectedFashionData.swift */; };
 		07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */; };
 		07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */; };
 		07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */; };
@@ -121,6 +122,7 @@
 		07B5AE8A23992C0E000C215E /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
 		07B5AE8D23992D04000C215E /* model.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.pt; sourceTree = "<group>"; };
 		07B5AE8E23992D04000C215E /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		07B5AE93239A4DEE000C215E /* SelectedFashionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFashionData.swift; sourceTree = "<group>"; };
 		07B6E0592382AD9600D6A9E1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListViewController.swift; sourceTree = "<group>"; };
 		07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListViewController.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */,
 				07D5E9BA236EF9C000A27B28 /* FashionStyle.swift */,
 				07C745A72392A41D0045AB56 /* FashionType.swift */,
+				07B5AE93239A4DEE000C215E /* SelectedFashionData.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */,
 				07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */,
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
+				07B5AE94239A4DEE000C215E /* SelectedFashionData.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
 				07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */,

@@ -22,10 +22,7 @@ class AddFashionViewController: UIViewController {
 
     // MARK: Properties
 
-    var selectedFashionImage: UIImage?
-    var selectedFashionStyle = [(String, Int)]()
-    var selectedFashionTypeIndex = 0
-    var selectedWeatherIndex: Set<Int> = [0]
+    var selectedFashionData = SelectedFashionData()
 
     private let fashionTypeAlertController: TypeAlertController = {
         let fashionAlertController = TypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)
@@ -40,7 +37,7 @@ class AddFashionViewController: UIViewController {
         fashionNameTextField.delegate = self
         navigationController?.navigationBar.isHidden = true
 
-        fashionImageView.image = selectedFashionImage
+        fashionImageView.image = selectedFashionData.image
 
         configureFashionTypeSegmentedControl()
         configureFashionWeatherButtons()
@@ -54,12 +51,12 @@ class AddFashionViewController: UIViewController {
     // MARK: Methods
 
     private func configureFashionStyleButton() {
-        if selectedFashionStyle.count == 0 { return }
+        if selectedFashionData.style.count == 0 { return }
         var fashionStyleButtonTitle = ""
-        for i in selectedFashionStyle.indices {
-            if selectedFashionStyle[i].1 == 1 {
-                fashionStyleButtonTitle += "\(selectedFashionStyle[i].0)"
-                if i != selectedFashionStyle.count - 1 { fashionStyleButtonTitle += " " }
+        for i in selectedFashionData.style.indices {
+            if selectedFashionData.style[i].1 == 1 {
+                fashionStyleButtonTitle += "\(selectedFashionData.style[i].0)"
+                if i != selectedFashionData.style.count - 1 { fashionStyleButtonTitle += " " }
             }
         }
 
@@ -99,16 +96,16 @@ class AddFashionViewController: UIViewController {
     @IBAction func addFashionButton(_: UIButton) {
         print("Add the Fashion!!")
         // 이미지 저장 준비가 되었다면 저장 후 해당 뷰컨트롤러를 pop 처리
-        guard let selectedFashionImage = self.selectedFashionImage,
+        guard let selectedFashionImage = selectedFashionData.image,
             let selectedFashionName = fashionNameTextField.text else { return }
 
 //        guard let nowfashionType = fashionTypeButton.titleLabel?.text else { return }
 
-//        let clothingData = UserClothingData(image: selectedFashionImage, name: selectedFashionName, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
+//        let clothingData = UserClothingData(image: SelectedData.fashionImage, name: selectedFashionName, fashionType: nowfashionType, fashionStyle: selectedFashionStyle)
 //        CommonUserData.shared.addUserClothing(clothingData)
 //
 //        print("now Adding Clothing Data : \(clothingData)")
-        let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, images: self.selectedFashionImage)
+        let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, images: selectedFashionData.image)
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { _, isSucceed in
             if isSucceed {
                 print("Clothing Post Succeed!!!")
@@ -144,8 +141,8 @@ class AddFashionViewController: UIViewController {
     }
 
     @IBAction func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        selectedFashionTypeIndex = sender.selectedSegmentIndex
-        print("now SelectedTypeIndex : \(selectedFashionTypeIndex)")
+        selectedFashionData.typeIndex = sender.selectedSegmentIndex
+        print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
     }
 
     @IBAction func fashionWeatherButtonPressed(_ sender: UIButton) {
