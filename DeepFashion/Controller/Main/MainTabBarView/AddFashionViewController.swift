@@ -126,9 +126,11 @@ class AddFashionViewController: UIViewController {
     private func checkFillInData() {
         if checkStyleButtonSetting(), checkWeatherButtonSetting(), isNameTextFieldEmpty() {
             registrationButton.isEnabled = true
+            registrationButton.alpha = 1.0
             print("TRUE!!!")
         } else {
             registrationButton.isEnabled = false
+            registrationButton.alpha = 0.7
             print("FALSE!!!")
         }
     }
