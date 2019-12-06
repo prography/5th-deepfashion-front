@@ -39,6 +39,7 @@ class AddFashionViewController: UIViewController {
         fashionTypeAlertController.fashionTypePickerView.dataSource = self
         fashionNameTextField.delegate = self
         navigationController?.navigationBar.isHidden = true
+
         fashionImageView.image = selectedFashionImage
 
         configureFashionTypeSegmentedControl()
@@ -47,7 +48,6 @@ class AddFashionViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        navigationController?.navigationBar.isHidden = false
         configureFashionStyleButton()
     }
 
@@ -76,6 +76,18 @@ class AddFashionViewController: UIViewController {
             if i == 0 { fashionWeatherButtons[i].isSelected = true }
             else { fashionWeatherButtons[i].isSelected = false }
         }
+    }
+
+    private func selectFashionWeatherButton(_ button: UIButton) {
+        var selectedButton = UIButton()
+        for i in fashionWeatherButtons.indices {
+            if button == fashionWeatherButtons[i] {
+                selectedButton = button
+                break
+            }
+        }
+        guard let selectedText = selectedButton.titleLabel?.text else { return }
+        print("nowSelected WeatherButton Index : \(selectedText)")
     }
 
 //    private func presentFashionTypePickerView() {
@@ -137,16 +149,7 @@ class AddFashionViewController: UIViewController {
     }
 
     @IBAction func fashionWeatherButtonPressed(_ sender: UIButton) {
-        var selectedButton = UIButton()
-        for i in fashionWeatherButtons.indices {
-            if sender == fashionWeatherButtons[i] {
-                selectedButton = sender
-                break
-            }
-        }
-
-        guard let selectedText = selectedButton.titleLabel?.text else { return }
-        print("nowSelected WeatherButton Index : \(selectedText)")
+        selectFashionWeatherButton(sender)
     }
 }
 

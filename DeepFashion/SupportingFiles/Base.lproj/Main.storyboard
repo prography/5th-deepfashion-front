@@ -726,24 +726,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QYX-Qr-SFX">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QYX-Qr-SFX">
                                 <rect key="frame" x="10" y="10" width="300" height="400"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-DH-Yhc">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="51.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="Yet-UP-B5L"/>
+                                        </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QN5-E0-Xud">
-                                        <rect key="frame" x="0.0" y="64.5" width="300" height="80"/>
+                                        <rect key="frame" x="0.0" y="163" width="300" height="53.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-Jd-FuW">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="22.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="13.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="패션 이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-hs-9lF">
-                                                <rect key="frame" x="0.0" y="35.5" width="300" height="44.5"/>
+                                                <rect key="frame" x="0.0" y="26.5" width="300" height="27"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -753,16 +756,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-y0-Iy1">
-                                        <rect key="frame" x="0.0" y="157.5" width="300" height="72"/>
+                                        <rect key="frame" x="0.0" y="229.5" width="300" height="48"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="11.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-Xz-Mzn">
-                                                <rect key="frame" x="0.0" y="32.5" width="300" height="40.5"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="300" height="24.5"/>
                                                 <segments>
                                                     <segment title="Outer"/>
                                                     <segment title="Top"/>
@@ -779,19 +782,19 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="1Sv-vk-Cyb">
-                                        <rect key="frame" x="0.0" y="242.5" width="300" height="72.5"/>
+                                        <rect key="frame" x="0.0" y="290.5" width="300" height="48.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입는 계절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-Mv-KCi">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="12"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nHV-0a-Ykw">
-                                                <rect key="frame" x="0.0" y="33" width="300" height="39.5"/>
+                                                <rect key="frame" x="0.0" y="25" width="300" height="23.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-8T-BMN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="71.5" height="39.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="71.5" height="23.5"/>
                                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                         <state key="normal" title="봄">
@@ -805,7 +808,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-d3-1bd">
-                                                        <rect key="frame" x="76.5" y="0.0" width="71" height="39.5"/>
+                                                        <rect key="frame" x="76.5" y="0.0" width="71" height="23.5"/>
                                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                         <state key="normal" title="여름">
@@ -819,7 +822,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-vF-Ldd">
-                                                        <rect key="frame" x="152.5" y="0.0" width="71.5" height="39.5"/>
+                                                        <rect key="frame" x="152.5" y="0.0" width="71.5" height="23.5"/>
                                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                         <state key="normal" title="가을">
@@ -833,7 +836,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cND-UZ-xFT">
-                                                        <rect key="frame" x="229" y="0.0" width="71" height="39.5"/>
+                                                        <rect key="frame" x="229" y="0.0" width="71" height="23.5"/>
                                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                         <state key="normal" title="겨울">
@@ -855,16 +858,16 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-qU-mAk">
-                                        <rect key="frame" x="0.0" y="328" width="300" height="72"/>
+                                        <rect key="frame" x="0.0" y="352" width="300" height="48"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bks-kG-fpX">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="11.5"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-UA-1hn">
-                                                <rect key="frame" x="0.0" y="32.5" width="300" height="39.5"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="300" height="23.5"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <state key="normal" title="Formal"/>
@@ -885,12 +888,12 @@
                                     <constraint firstAttribute="height" constant="400" id="f22-Vq-999"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
-                                <rect key="frame" x="10" y="445" width="300" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
+                                <rect key="frame" x="10" y="430" width="300" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u8-yu-lvO">
-                                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="등록하기">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -900,7 +903,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
-                                        <rect key="frame" x="155.5" y="0.0" width="144.5" height="50"/>
+                                        <rect key="frame" x="150" y="0.0" width="150" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="취소하기">
@@ -923,7 +926,7 @@
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="QYX-Qr-SFX" secondAttribute="trailing" constant="10" id="Gou-sE-Mdi"/>
                             <constraint firstItem="QYX-Qr-SFX" firstAttribute="top" secondItem="b84-4g-Hlw" secondAttribute="top" constant="10" id="R0N-7m-ksV"/>
                             <constraint firstItem="hQe-oS-nZg" firstAttribute="trailing" secondItem="QYX-Qr-SFX" secondAttribute="trailing" id="Y0e-sm-sqv"/>
-                            <constraint firstItem="hQe-oS-nZg" firstAttribute="top" secondItem="QYX-Qr-SFX" secondAttribute="bottom" constant="35" id="fz7-eU-ZkI"/>
+                            <constraint firstItem="hQe-oS-nZg" firstAttribute="top" secondItem="QYX-Qr-SFX" secondAttribute="bottom" constant="20" id="fz7-eU-ZkI"/>
                             <constraint firstItem="hQe-oS-nZg" firstAttribute="leading" secondItem="QYX-Qr-SFX" secondAttribute="leading" id="zkG-JL-npY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b84-4g-Hlw"/>

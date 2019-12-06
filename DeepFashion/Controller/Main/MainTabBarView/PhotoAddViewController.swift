@@ -78,6 +78,7 @@ class PhotoAddViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = false
         configureViewController()
     }
 
