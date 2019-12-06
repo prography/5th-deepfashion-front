@@ -54,7 +54,7 @@ class EditStyleViewController: UIViewController {
 
     // MARK: Methods
 
-    func configureSelectedStyleCount() {
+    private func configureSelectedStyleCount() {
         for i in selectedStyle.indices {
             if selectedStyle[i].1 == 1 { selectedStyleCount += 1 }
         }

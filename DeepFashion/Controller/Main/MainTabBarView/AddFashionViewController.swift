@@ -11,11 +11,12 @@ import UIKit
 class AddFashionViewController: UIViewController {
     // MARK: IBOutlet
 
-    @IBOutlet var fashionNameTextField: UITextField!
-    @IBOutlet var fashionStyleButton: UIButton!
-    @IBOutlet var fashionImageView: UIImageView!
-    @IBOutlet var fashionTypeSegmentedControl: UISegmentedControl!
-    @IBOutlet var fashionWeatherButtons: [UIButton]!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var styleButton: UIButton!
+    @IBOutlet var clothingImageView: UIImageView!
+    @IBOutlet var typeSegmentedControl: UISegmentedControl!
+    @IBOutlet var weatherButtons: [UIButton]!
+    @IBOutlet var registrationButton: UIButton!
 
     // MARK: Properties
 
@@ -31,10 +32,11 @@ class AddFashionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fashionTypeAlertController.fashionTypePickerView.dataSource = self
-        fashionNameTextField.delegate = self
+        nameTextField.delegate = self
+        nameTextField.delegate = self
         navigationController?.navigationBar.isHidden = true
 
-        fashionImageView.image = selectedFashionData.image
+        clothingImageView.image = selectedFashionData.image
 
         configureFashionTypeSegmentedControl()
         configureFashionWeatherButtons()
@@ -43,20 +45,25 @@ class AddFashionViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureFashionStyleButton()
+        checkFillInData()
     }
 
     // MARK: Methods
 
+    private func configureRegistrationButton() {
+        registrationButton.isEnabled = false
+    }
+
     /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
     private func isNameTextFieldEmpty() -> Bool {
-        guard let nameText = fashionNameTextField.text else { return false }
+        guard let nameText = nameTextField.text else { return false }
         return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
     }
 
     /// weatherButtons가 적어도 1개 이상 설정되어있는지 확인하는 메서드
     private func checkWeatherButtonSetting() -> Bool {
-        for i in fashionWeatherButtons.indices {
-            if fashionWeatherButtons[i].isSelected { return true }
+        for i in weatherButtons.indices {
+            if weatherButtons[i].isSelected { return true }
         }
         return false
     }
@@ -76,36 +83,53 @@ class AddFashionViewController: UIViewController {
             }
         }
 
-        fashionStyleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
+        styleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
     }
 
     private func configureFashionTypeSegmentedControl() {
         // 초기 선택 인덱스를 설정
-        fashionTypeSegmentedControl.selectedSegmentIndex = 0
+        typeSegmentedControl.selectedSegmentIndex = 0
     }
 
     private func configureFashionWeatherButtons() {
-        for i in fashionWeatherButtons.indices {
-            if i == 0 { fashionWeatherButtons[i].isSelected = true }
-            else { fashionWeatherButtons[i].isSelected = false }
+        for i in weatherButtons.indices {
+            if i == 0 { weatherButtons[i].isSelected = true }
+            else { weatherButtons[i].isSelected = false }
         }
     }
 
     private func selectFashionWeatherButton(_ button: UIButton) {
         var selectedIndex = 0
-        for i in fashionWeatherButtons.indices {
-            if button == fashionWeatherButtons[i] {
+        for i in weatherButtons.indices {
+            if button == weatherButtons[i] {
                 selectedIndex = i
                 break
             }
         }
 
-        if fashionWeatherButtons[selectedIndex].isSelected {
+        if weatherButtons[selectedIndex].isSelected {
             selectedFashionData.weatherIndex[selectedIndex] = 0
-            fashionWeatherButtons[selectedIndex].isSelected.toggle()
+            weatherButtons[selectedIndex].isSelected.toggle()
         } else {
             selectedFashionData.weatherIndex[selectedIndex] = 1
-            fashionWeatherButtons[selectedIndex].isSelected.toggle()
+            weatherButtons[selectedIndex].isSelected.toggle()
+        }
+    }
+
+    private func checkCharacter(textField _: UITextField, character: String) -> Bool {
+        let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
+        let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted
+        return character.rangeOfCharacter(from: alphabetSet) == nil
+            || character.rangeOfCharacter(from: numberSet) == nil
+    }
+
+    private func checkFillInData() {
+        if checkStyleButtonSetting(), checkWeatherButtonSetting(), isNameTextFieldEmpty() {
+            registrationButton.isEnabled = true
+            print("TRUE!!!")
+        } else {
+            registrationButton.isEnabled = false
+            print("FALSE!!!")
         }
     }
 
@@ -116,7 +140,7 @@ class AddFashionViewController: UIViewController {
 
         // 이미지, 이름 셋팅
         guard let fashionImage = selectedFashionData.image,
-            let fashionName = fashionNameTextField.text else { return }
+            let fashionName = nameTextField.text else { return }
         // 옷 타입, 스타일 셋팅
         let fashionType = selectedFashionData.typeIndex
         let fashionStyle = selectedFashionData.style
@@ -148,10 +172,6 @@ class AddFashionViewController: UIViewController {
         print(CommonUserData.shared.userClothingList)
     }
 
-    //    @IBAction func fashionTypeButtonPressed(_: UIButton) {
-    //        presentFashionTypePickerView()
-    //    }
-
     @IBAction func editStyleButtonPressed(_: UIButton) {
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
         guard let styleSelectViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
@@ -171,6 +191,11 @@ class AddFashionViewController: UIViewController {
 
     @IBAction func fashionWeatherButtonPressed(_ sender: UIButton) {
         selectFashionWeatherButton(sender)
+        checkFillInData()
+    }
+
+    @IBAction func nameTextFieldEditingChanged(_: UITextField) {
+        checkFillInData()
     }
 }
 
@@ -189,6 +214,10 @@ extension AddFashionViewController: UIPickerViewDataSource {
 }
 
 extension AddFashionViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
+        return checkCharacter(textField: textField, character: string)
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

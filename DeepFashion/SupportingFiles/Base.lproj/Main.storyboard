@@ -749,6 +749,9 @@
                                                 <rect key="frame" x="0.0" y="26.5" width="300" height="27"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="nameTextFieldEditingChanged:" destination="TFM-gH-Vx2" eventType="editingChanged" id="QjS-we-dvn"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -888,7 +891,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
                                 <rect key="frame" x="10" y="430" width="300" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u8-yu-lvO">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u8-yu-lvO">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -899,10 +902,9 @@
                                             <action selector="addFashionButton:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="Inr-hR-jXC"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
                                         <rect key="frame" x="150" y="0.0" width="150" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="취소하기">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -931,14 +933,15 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="fashionImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
-                        <outlet property="fashionNameTextField" destination="f0v-hs-9lF" id="Sg9-Xp-KMN"/>
-                        <outlet property="fashionStyleButton" destination="lbQ-UA-1hn" id="vjq-Fa-zAr"/>
-                        <outlet property="fashionTypeSegmentedControl" destination="Ngo-Xz-Mzn" id="s8F-ye-oDN"/>
-                        <outletCollection property="fashionWeatherButtons" destination="YY6-8T-BMN" collectionClass="NSMutableArray" id="xgo-f4-RvE"/>
-                        <outletCollection property="fashionWeatherButtons" destination="ldN-d3-1bd" collectionClass="NSMutableArray" id="ceG-zB-myj"/>
-                        <outletCollection property="fashionWeatherButtons" destination="Lrc-vF-Ldd" collectionClass="NSMutableArray" id="uRG-dv-xWh"/>
-                        <outletCollection property="fashionWeatherButtons" destination="cND-UZ-xFT" collectionClass="NSMutableArray" id="jDy-7W-Jce"/>
+                        <outlet property="clothingImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
+                        <outlet property="nameTextField" destination="f0v-hs-9lF" id="Sg9-Xp-KMN"/>
+                        <outlet property="registrationButton" destination="3u8-yu-lvO" id="rMZ-OE-tbf"/>
+                        <outlet property="styleButton" destination="lbQ-UA-1hn" id="vjq-Fa-zAr"/>
+                        <outlet property="typeSegmentedControl" destination="Ngo-Xz-Mzn" id="s8F-ye-oDN"/>
+                        <outletCollection property="weatherButtons" destination="YY6-8T-BMN" collectionClass="NSMutableArray" id="xgo-f4-RvE"/>
+                        <outletCollection property="weatherButtons" destination="ldN-d3-1bd" collectionClass="NSMutableArray" id="ceG-zB-myj"/>
+                        <outletCollection property="weatherButtons" destination="Lrc-vF-Ldd" collectionClass="NSMutableArray" id="uRG-dv-xWh"/>
+                        <outletCollection property="weatherButtons" destination="cND-UZ-xFT" collectionClass="NSMutableArray" id="jDy-7W-Jce"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ev-yl-kLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
