@@ -41,6 +41,10 @@ extension ClosetListViewController: UITableViewDelegate {
         return 30
     }
 
+    func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
+        return CGFloat.leastNonzeroMagnitude
+    }
+
     func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let fashionType = FashionType(rawValue: section)
         guard let headerViewTitleText = fashionType?.title else { return UIView() }
