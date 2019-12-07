@@ -50,7 +50,6 @@ extension ClosetListViewController: UITableViewDelegate {
         guard let headerViewTitleText = fashionType?.title else { return UIView() }
 
         let closetListTableHeaderView = ClosetListTableHeaderView()
-        print(headerViewTitleText)
         closetListTableHeaderView.configureTitleLabel(headerViewTitleText)
         return closetListTableHeaderView
     }
@@ -68,8 +67,6 @@ extension ClosetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
         let clothingData = CommonUserData.shared.userClothingList.filter { $0.fashionType == indexPath.section }
-        print("Now Index Section : \(indexPath.section)")
-        print("Now Section Data : \(clothingData)")
         closetListTableViewCell.configureCell(clothingData: clothingData)
         return closetListTableViewCell
     }

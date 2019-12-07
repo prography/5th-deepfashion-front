@@ -38,10 +38,5 @@ struct UserData {
 
         let orderedStyles = newStyles.sorted()
         style = orderedStyles
-
-        for value in style {
-            print("\(value), ", terminator: "")
-        }
-        print("")
     }
 }

@@ -125,21 +125,25 @@ class AddFashionViewController: UIViewController {
 
     private func checkFillInData() {
         if checkStyleButtonSetting(), checkWeatherButtonSetting(), isNameTextFieldEmpty() {
-            registrationButton.isEnabled = true
-            registrationButton.alpha = 1.0
-            print("TRUE!!!")
+            makeRegistrationButtonEnabled()
         } else {
-            registrationButton.isEnabled = false
-            registrationButton.alpha = 0.7
-            print("FALSE!!!")
+            makeRegistrationButtonDisabled()
         }
+    }
+
+    private func makeRegistrationButtonDisabled() {
+        registrationButton.isEnabled = false
+        registrationButton.alpha = 0.7
+    }
+
+    private func makeRegistrationButtonEnabled() {
+        registrationButton.isEnabled = true
+        registrationButton.alpha = 1.0
     }
 
     // MARK: - IBActions
 
     @IBAction func addFashionButton(_: UIButton) {
-        print("Add the Fashion!!")
-
         // 이미지, 이름 셋팅
         guard let fashionImage = selectedFashionData.image,
             let fashionName = nameTextField.text else { return }
@@ -164,7 +168,6 @@ class AddFashionViewController: UIViewController {
                 }
             } else {
                 print("Clothing Post Error!!!")
-                print("하지만 사진 등록 테스트를 위해 이전 뷰로 돌아갑니다..")
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }

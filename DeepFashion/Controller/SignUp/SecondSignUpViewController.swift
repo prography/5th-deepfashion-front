@@ -113,6 +113,7 @@ class SecondSignUpViewController: UIViewController {
                     self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
                 }
             } else {
+                // * ISSUE : 네트워킹 or 회원가입 오입력에 따른 AlertController 띄울 예정
                 print("회원가입 에러 났음 ㅠㅠ...")
             }
         }
@@ -120,7 +121,7 @@ class SecondSignUpViewController: UIViewController {
 
     @IBAction func styleSelectButtonPressed(_ sender: UIButton) {
         guard let styleName = sender.titleLabel?.text else { return }
-        print("now name : \(styleName)")
+
         let flag = CommonUserData.shared.toggleStyleData(styleName: styleName)
 
         if flag == 0 {

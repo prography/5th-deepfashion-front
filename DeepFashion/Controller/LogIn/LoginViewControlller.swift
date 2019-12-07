@@ -102,7 +102,8 @@ class LoginViewController: UIViewController {
                     self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
                 }
             } else {
-                print("에러났음 ㅠㅠ")
+                // * ISSUE : 네트워킹 or 로그인 오입력에 따른 AlertController 띄울 예정
+                print("로그인 에러났음 ㅠㅠ")
             }
         }
     }
