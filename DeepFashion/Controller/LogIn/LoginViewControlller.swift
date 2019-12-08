@@ -74,6 +74,10 @@ class LoginViewController: UIViewController {
         isFillInData = idStatus && passwordStatus
     }
 
+    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
+        view.endEditing(true)
+    }
+
     // MARK: - IBActions
 
     @objc func textFieldEditingChanged(_ sender: UITextField) {

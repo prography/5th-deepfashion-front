@@ -80,6 +80,10 @@ class FirstSignUpViewController: UIViewController {
         isFillInData = idStatus && passwordStatus && passwordConfirmStatus
     }
 
+    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
+        view.endEditing(true)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
         guard let nextViewController = segue.destination as? SecondSignUpViewController else { return }
         guard let idText = self.idTextField.text,
