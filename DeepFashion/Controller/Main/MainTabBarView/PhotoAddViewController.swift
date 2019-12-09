@@ -49,23 +49,26 @@ class PhotoAddViewController: UIViewController {
         }
     }
 
-//    private let yjModule: TorchModule = {
-//        if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
-//            let module = TorchModule(fileAtPath: filePath) {
-//            return module
-//        } else {
-//            fatalError("Can't find the model file!")
-//        }
-//    }()
+    /*
+      // MARK: - Add DeepLearning Module
+     private let yjModule: TorchModule = {
+         if let filePath = Bundle.main.path(forResource: "yjLight", ofType: "pt"),
+             let module = TorchModule(fileAtPath: filePath) {
+             return module
+         } else {
+             fatalError("Can't find the model file!")
+         }
+     }()
 
-//    private let yjData: [String] = {
-//        if let filePath = Bundle.main.path(forResource: "words", ofType: "txt"),
-//            let labels = try? String(contentsOfFile: filePath) {
-//            return labels.components(separatedBy: .newlines)
-//        } else {
-//            fatalError("Can't find the text file!")
-//        }
-//    }()
+     private let yjData: [String] = {
+         if let filePath = Bundle.main.path(forResource: "words", ofType: "txt"),
+             let labels = try? String(contentsOfFile: filePath) {
+             return labels.components(separatedBy: .newlines)
+         } else {
+             fatalError("Can't find the text file!")
+         }
+     }()
+     */
 
     // MARK: Life Cycle
 
@@ -84,26 +87,30 @@ class PhotoAddViewController: UIViewController {
 
     // MARK: Methods
 
+    // MARK: - DeepLearning Classification Method
+
     private func classificateImage(_: UIImage, completion: @escaping () -> Void) {
-//        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
-//        guard var pixelBuffer = resizedImage.normalized() else {
-//            print("Fucking Asshole")
-//            completion()
-//            return
-//        }
-//
-//        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
-//            completion()
-//            print("You Mother Fucker")
-//            return
-//        }
-//
-//        let zippedResults = zip(yjData.indices, outputs)
-//        let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
-//        print("sortedResults: \(sortedResults)")
-//        for (key, result) in sortedResults.enumerated() {
-//            classificationLabel[key].text = yjData[result.0]
-//        }
+        /*
+         let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
+         guard var pixelBuffer = resizedImage.normalized() else {
+             print("Fucking Asshole")
+             completion()
+             return
+         }
+
+         guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
+             completion()
+             print("You Mother Fucker")
+             return
+         }
+
+         let zippedResults = zip(yjData.indices, outputs)
+         let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
+         print("sortedResults: \(sortedResults)")
+         for (key, result) in sortedResults.enumerated() {
+             classificationLabel[key].text = yjData[result.0]
+         }
+         */
         completion()
     }
 

@@ -8,6 +8,39 @@
 
 import UIKit
 
+enum NetworkError {
+    case client
+    case server
+    case wrongType
+    case unknown
+
+    var errorTitle: String {
+        switch self {
+        case .client:
+            return "클라이언트 에러"
+        case .server:
+            return "서버 에러"
+        case .wrongType:
+            return "올바르지 않은 입력"
+        case .unknown:
+            return "예기치 못한 에러"
+        }
+    }
+
+    var errorMessage: String {
+        switch self {
+        case .client:
+            return "클라이언트 문제가 발생했습니다. "
+        case .server:
+            return "네트워크 상태가 불안정 합니다."
+        case .wrongType:
+            return "올바른 입력을 해주시기 바랍니다."
+        case .unknown:
+            return "예기치 못한 에러가 발생했습니다."
+        }
+    }
+}
+
 enum APIPostMode: String {
     case userDataPost
     case loginDataPost
@@ -61,7 +94,10 @@ final class RequestAPI {
         return body as Data
     }
 
-    func postAPIData<T>(userData: T, APIMode: APIPostMode, completion: @escaping (T.Type?, Bool) -> Void) {
+    func postAPIData<T>(userData: T, APIMode: APIPostMode, completion: @escaping (NetworkError?) -> Void) {
+        var nowStatusCode = 0
+        var errorType: NetworkError = .unknown
+
         delegate?.requestAPIDidBegin()
         switch APIMode {
         case .loginDataPost:
@@ -69,7 +105,7 @@ final class RequestAPI {
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.login)"
             guard let userData = userData as? LoginAPIPostData else {
                 delegate?.requestAPIDidError()
-                completion(nil, false)
+                completion(NetworkError.wrongType)
                 return
             }
 
@@ -78,7 +114,8 @@ final class RequestAPI {
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
                 delegate?.requestAPIDidError()
-                completion(nil, false)
+
+                completion(NetworkError.unknown)
                 return
             }
 
@@ -90,18 +127,20 @@ final class RequestAPI {
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
                 data, response, error in
+                nowStatusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
 
                 if error != nil {
-                    print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
                     self.delegate?.requestAPIDidError()
-                    completion(nil, false)
+                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                    completion(errorType)
                     return
                 }
 
                 guard let data = data,
                     let userData = try? JSONDecoder().decode(UserTokenAPIData.self, from: data) else {
                     self.delegate?.requestAPIDidError()
-                    completion(nil, false)
+                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                    completion(errorType)
                     return
                 }
 
@@ -112,16 +151,17 @@ final class RequestAPI {
                 print("userAPIData : \(userData)")
 
                 if let response = response as? HTTPURLResponse {
-//                    print("post response : \(response)")
+//                    print("login post response : \(response)")
 
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
-                        completion(nil, true)
+                        completion(nil)
                     } else {
                         print("request failed : \(response.statusCode)")
                         self.delegate?.requestAPIDidError()
-                        completion(nil, false)
+                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                        completion(errorType)
                     }
                 }
             }.resume()
@@ -130,7 +170,7 @@ final class RequestAPI {
 
             guard let userData = userData as? UserAPIPostData else {
                 delegate?.requestAPIDidError()
-                completion(nil, false)
+                completion(NetworkError.wrongType)
                 return
             }
 
@@ -140,7 +180,7 @@ final class RequestAPI {
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
                 delegate?.requestAPIDidError()
-                completion(nil, false)
+                completion(NetworkError.unknown)
                 return
             }
 
@@ -155,7 +195,8 @@ final class RequestAPI {
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
                     self.delegate?.requestAPIDidError()
-                    completion(nil, false)
+                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                    completion(errorType)
                 }
 
                 if let response = response as? HTTPURLResponse {
@@ -164,11 +205,12 @@ final class RequestAPI {
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
-                        completion(nil, true)
+                        completion(nil)
                     } else {
                         print("request failed : \(response.statusCode)")
                         self.delegate?.requestAPIDidError()
-                        completion(nil, false)
+                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                        completion(errorType)
                     }
                 }
             }.resume()
@@ -177,7 +219,7 @@ final class RequestAPI {
 
             guard let userData = userData as? UserClothingAPIData else {
                 delegate?.requestAPIDidError()
-                completion(nil, false)
+                completion(NetworkError.wrongType)
                 return
             }
 
@@ -189,7 +231,7 @@ final class RequestAPI {
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
                 delegate?.requestAPIDidError()
-                completion(nil, false)
+                completion(NetworkError.unknown)
                 return
             }
 
@@ -208,7 +250,8 @@ final class RequestAPI {
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
                     self.delegate?.requestAPIDidError()
-                    completion(nil, false)
+                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                    completion(errorType)
                 }
 
                 if let response = response as? HTTPURLResponse {
@@ -217,14 +260,21 @@ final class RequestAPI {
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
-                        completion(nil, true)
+                        completion(nil)
                     } else {
                         print("request failed : \(response.statusCode)")
                         self.delegate?.requestAPIDidError()
-                        completion(nil, false)
+                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                        completion(errorType)
                     }
                 }
             }.resume()
         }
+    }
+
+    func classifyErrorType(statusCode: Int, errorType: inout NetworkError) {
+        if statusCode / 100 == 4 { errorType = .client }
+        else if statusCode / 100 == 5 { errorType = .server }
+        else { errorType = .unknown }
     }
 }

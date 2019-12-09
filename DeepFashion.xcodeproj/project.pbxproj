@@ -29,6 +29,7 @@
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
 		077C77BA2378155F0088B151 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B92378155F0088B151 /* UserData.swift */; };
+		07885436239E53B000B31331 /* yjLight.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07885435239E53A200B31331 /* yjLight.pt */; };
 		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
 		07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */; };
 		07A3B0C4239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */; };
@@ -112,6 +113,7 @@
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
 		077C77B92378155F0088B151 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		07885435239E53A200B31331 /* yjLight.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = yjLight.pt; sourceTree = "<group>"; };
 		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
 		07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleViewController.swift; sourceTree = "<group>"; };
 		07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionStyleSelectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				07B5AE8D23992D04000C215E /* model.pt */,
+				07885435239E53A200B31331 /* yjLight.pt */,
 				07B5AE8E23992D04000C215E /* words.txt */,
 			);
 			path = PyTorch;
@@ -570,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07885436239E53B000B31331 /* yjLight.pt in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,

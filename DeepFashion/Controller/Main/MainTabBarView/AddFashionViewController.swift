@@ -160,8 +160,8 @@ class AddFashionViewController: UIViewController {
         print("now Adding Clothing Data : \(clothingData)")
 
         let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, images: selectedFashionData.image)
-        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { _, isSucceed in
-            if isSucceed {
+        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { errorType in
+            if errorType == nil {
                 print("Clothing Post Succeed!!!")
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)

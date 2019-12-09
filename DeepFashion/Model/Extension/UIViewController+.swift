@@ -44,20 +44,29 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func presentBasicAlertController(title: String, message: String, completion: @escaping (Bool) -> Void) {
+    func presentBasicOneButtonAlertController(title: String, message: String, completion: @escaping () -> Void) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        let getAuthAction = UIAlertAction(title: "네", style: .default) { _ in
+            completion()
+        }
+        alertController.addAction(getAuthAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    func presentBasicTwoButtonAlertController(title: String, message: String, completion: @escaping (Bool) -> Void) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let getAuthAction = UIAlertAction(title: "네", style: .default) { _ in
             completion(true)
         }
+        alertController.addAction(getAuthAction)
 
-        // 2)
         let denyAuthAction = UIAlertAction(title: "싫습니다", style: .cancel) { _ in
             completion(false)
         }
-
-        alertController.addAction(getAuthAction)
         alertController.addAction(denyAuthAction)
+
         present(alertController, animated: true, completion: nil)
     }
 
