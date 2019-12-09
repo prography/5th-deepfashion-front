@@ -663,7 +663,7 @@
                     <view key="view" contentMode="scaleToFill" id="pqs-Mh-jUn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.85222656811025921" green="0.89742518122207349" blue="0.96848052740097046" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="ukZ-jQ-0He"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="uhi-T6-xoe">
@@ -683,8 +683,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take or Set the Picture!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp5-jY-ZN2">
-                                <rect key="frame" x="74.5" y="178" width="176.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take or Set the Picture!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tp5-jY-ZN2">
+                                <rect key="frame" x="20" y="178" width="280" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -720,17 +720,17 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="1" green="0.92141841798855184" blue="0.94189509869313204" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="vdl-x6-2sl" firstAttribute="trailing" secondItem="Tp5-jY-ZN2" secondAttribute="trailing" constant="69" id="12W-3R-hvW"/>
+                            <constraint firstItem="vdl-x6-2sl" firstAttribute="trailing" secondItem="Tp5-jY-ZN2" secondAttribute="trailing" constant="20" id="12W-3R-hvW"/>
                             <constraint firstItem="qka-CT-ApO" firstAttribute="leading" secondItem="vdl-x6-2sl" secondAttribute="leading" constant="10" id="4it-gY-pjH"/>
-                            <constraint firstItem="Tp5-jY-ZN2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vdl-x6-2sl" secondAttribute="leading" id="LwR-Pw-Ept"/>
                             <constraint firstItem="qka-CT-ApO" firstAttribute="top" secondItem="cF8-vY-xA5" secondAttribute="bottom" constant="17.5" id="OOl-WT-LED"/>
                             <constraint firstItem="vdl-x6-2sl" firstAttribute="trailing" secondItem="qka-CT-ApO" secondAttribute="trailing" constant="10" id="WHO-d8-N0K"/>
                             <constraint firstItem="cF8-vY-xA5" firstAttribute="centerX" secondItem="vdl-x6-2sl" secondAttribute="centerX" id="aa7-6g-U5M"/>
                             <constraint firstItem="vdl-x6-2sl" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qka-CT-ApO" secondAttribute="bottom" constant="10" id="fTC-BD-ktT"/>
                             <constraint firstItem="cF8-vY-xA5" firstAttribute="top" secondItem="Tp5-jY-ZN2" secondAttribute="bottom" constant="30" id="mR1-ef-Wbu"/>
                             <constraint firstItem="Tp5-jY-ZN2" firstAttribute="top" secondItem="vdl-x6-2sl" secondAttribute="top" constant="178" id="n2k-9b-Kq7"/>
+                            <constraint firstItem="Tp5-jY-ZN2" firstAttribute="leading" secondItem="vdl-x6-2sl" secondAttribute="leading" constant="20" id="pyz-aQ-hTb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
                     </view>
@@ -1095,7 +1095,7 @@
                     <view key="view" contentMode="scaleToFill" id="OWW-gJ-Qh0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.83188049400151753" green="0.77367196288918805" blue="0.96851998567581177" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="QW0-Wo-UzZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="99N-QG-aOe">
@@ -1114,7 +1114,7 @@
                     <view key="view" contentMode="scaleToFill" id="c2t-dv-yFB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DhY-gW-9gC"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="cbF-Up-1aj">
