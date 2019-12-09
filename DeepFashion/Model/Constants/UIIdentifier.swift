@@ -26,6 +26,7 @@ struct UIIdentifier {
 
         struct TableView {
             static let closetList = "closetListTableViewCell"
+            static let myPage = "myPageTableViewCell"
         }
     }
 

@@ -663,17 +663,43 @@
                     <view key="view" contentMode="scaleToFill" id="pqs-Mh-jUn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2ZT-c4-n4M">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="475"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPageTableViewCell" rowHeight="66" id="1zF-4q-yhx" customClass="MyPageTableViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zF-4q-yhx" id="p9B-kf-iP5">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.93113458183783782" blue="0.89213976936015027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.85222656811025921" green="0.89742518122207349" blue="0.96848052740097046" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="2ZT-c4-n4M" firstAttribute="leading" secondItem="ukZ-jQ-0He" secondAttribute="leading" id="9KP-ho-YA5"/>
+                            <constraint firstItem="2ZT-c4-n4M" firstAttribute="top" secondItem="ukZ-jQ-0He" secondAttribute="top" id="O57-8G-uRE"/>
+                            <constraint firstItem="ukZ-jQ-0He" firstAttribute="bottom" secondItem="2ZT-c4-n4M" secondAttribute="bottom" id="Tft-Bg-csu"/>
+                            <constraint firstItem="ukZ-jQ-0He" firstAttribute="trailing" secondItem="2ZT-c4-n4M" secondAttribute="trailing" id="jik-eY-BSm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ukZ-jQ-0He"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="uhi-T6-xoe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
+                    <connections>
+                        <outlet property="myPageTableView" destination="2ZT-c4-n4M" id="k62-WL-T5L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-2F-Fa8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3476" y="1382"/>
+            <point key="canvasLocation" x="3474.375" y="1381.6901408450703"/>
         </scene>
         <!--Photo Add View Controller-->
         <scene sceneID="yPN-H7-C6S">
