@@ -18,17 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EwL-22-Vck">
-                                <rect key="frame" x="0.0" y="10" width="320" height="300"/>
+                                <rect key="frame" x="0.0" y="10" width="320" height="250"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1U9-D7-asQ">
-                                        <rect key="frame" x="5" y="0.0" width="310" height="46"/>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="구글계정으로 로그인 하기">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ypv-GV-f7F">
-                                        <rect key="frame" x="5" y="56" width="310" height="45.5"/>
+                                        <rect key="frame" x="5" y="0.0" width="310" height="47.5"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,7 +32,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAv-bD-6HS">
-                                        <rect key="frame" x="5" y="111.5" width="310" height="46"/>
+                                        <rect key="frame" x="5" y="57.5" width="310" height="47"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,7 +43,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RnP-Hd-4ap">
-                                        <rect key="frame" x="10" y="167.5" width="300" height="10"/>
+                                        <rect key="frame" x="10" y="114.5" width="300" height="10"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="HN3-KU-VK7"/>
@@ -62,7 +55,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-HG-Vg2">
-                                        <rect key="frame" x="5" y="187.5" width="310" height="45.5"/>
+                                        <rect key="frame" x="5" y="134.5" width="310" height="47.5"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <state key="normal" title="로그인">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -72,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9X-K2-cfU">
-                                        <rect key="frame" x="5" y="243" width="310" height="1"/>
+                                        <rect key="frame" x="5" y="192" width="310" height="1"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="MGD-gB-ez7"/>
@@ -82,7 +75,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNP-RL-yff">
-                                        <rect key="frame" x="5" y="254" width="310" height="46"/>
+                                        <rect key="frame" x="5" y="203" width="310" height="47"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="회원가입">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -94,21 +87,18 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="lAv-bD-6HS" firstAttribute="leading" secondItem="Ye5-FE-TJQ" secondAttribute="leading" constant="5" id="1F5-sm-Xjr"/>
-                                    <constraint firstItem="1U9-D7-asQ" firstAttribute="leading" secondItem="Ye5-FE-TJQ" secondAttribute="leading" constant="5" id="1cX-Kq-9ay"/>
                                     <constraint firstItem="lAv-bD-6HS" firstAttribute="height" secondItem="ypv-GV-f7F" secondAttribute="height" id="2wc-Bj-Yn9"/>
                                     <constraint firstItem="ypv-GV-f7F" firstAttribute="leading" secondItem="Ye5-FE-TJQ" secondAttribute="leading" constant="5" id="44C-xY-Eh4"/>
                                     <constraint firstItem="fTI-HG-Vg2" firstAttribute="height" secondItem="lAv-bD-6HS" secondAttribute="height" id="5VX-Qr-jJe"/>
-                                    <constraint firstItem="ypv-GV-f7F" firstAttribute="height" secondItem="1U9-D7-asQ" secondAttribute="height" id="80f-CN-Pkh"/>
                                     <constraint firstItem="Ye5-FE-TJQ" firstAttribute="trailing" secondItem="fTI-HG-Vg2" secondAttribute="trailing" constant="5" id="BDv-Vb-1el"/>
                                     <constraint firstItem="fTI-HG-Vg2" firstAttribute="leading" secondItem="Ye5-FE-TJQ" secondAttribute="leading" constant="5" id="CSz-Vu-M0s"/>
                                     <constraint firstItem="Ye5-FE-TJQ" firstAttribute="trailing" secondItem="BNP-RL-yff" secondAttribute="trailing" constant="5" id="S0U-90-PH0"/>
                                     <constraint firstItem="Ye5-FE-TJQ" firstAttribute="trailing" secondItem="F9X-K2-cfU" secondAttribute="trailing" constant="5" id="Sza-oO-krd"/>
                                     <constraint firstItem="fTI-HG-Vg2" firstAttribute="height" secondItem="BNP-RL-yff" secondAttribute="height" id="ZCs-kk-vGe"/>
                                     <constraint firstItem="Ye5-FE-TJQ" firstAttribute="trailing" secondItem="lAv-bD-6HS" secondAttribute="trailing" constant="5" id="b15-ci-pqi"/>
-                                    <constraint firstAttribute="height" constant="300" id="cFV-M3-Wgh"/>
+                                    <constraint firstAttribute="height" constant="250" id="cFV-M3-Wgh"/>
                                     <constraint firstItem="Ye5-FE-TJQ" firstAttribute="trailing" secondItem="ypv-GV-f7F" secondAttribute="trailing" constant="5" id="eVW-Xt-Ve3"/>
                                     <constraint firstItem="F9X-K2-cfU" firstAttribute="leading" secondItem="Ye5-FE-TJQ" secondAttribute="leading" constant="5" id="mab-uO-RJZ"/>
-                                    <constraint firstItem="Ye5-FE-TJQ" firstAttribute="trailing" secondItem="1U9-D7-asQ" secondAttribute="trailing" constant="5" id="rbr-dS-XqD"/>
                                     <constraint firstItem="BNP-RL-yff" firstAttribute="leading" secondItem="Ye5-FE-TJQ" secondAttribute="leading" constant="5" id="sNN-5H-RF5"/>
                                     <constraint firstAttribute="trailing" secondItem="RnP-Hd-4ap" secondAttribute="trailing" constant="10" id="sq2-A1-zMm"/>
                                 </constraints>
@@ -138,7 +128,6 @@
                     <navigationItem key="navigationItem" title="DeepFashion" id="YbW-6A-pI4"/>
                     <connections>
                         <outlet property="forgotPasswordButton" destination="RnP-Hd-4ap" id="Qje-PW-4h2"/>
-                        <outlet property="googleLoginButton" destination="1U9-D7-asQ" id="xtM-pC-SFJ"/>
                         <outlet property="idTextField" destination="ypv-GV-f7F" id="JOA-Hg-MAf"/>
                         <outlet property="indicatorView" destination="R5u-wh-hcu" id="5fJ-oG-ock"/>
                         <outlet property="loginButton" destination="fTI-HG-Vg2" id="TEZ-th-IlD"/>

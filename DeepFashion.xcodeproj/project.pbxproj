@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		07020DF7237FD506000CFAC2 /* UIIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */; };
+		0703845C239F91C700924B98 /* yjWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0703845B239F91C700924B98 /* yjWords.txt */; };
 		071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */; };
 		0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B52365D99800E26B38 /* AppDelegate.swift */; };
 		0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B92365D99800E26B38 /* LoginViewControlller.swift */; };
@@ -32,6 +33,7 @@
 		07885436239E53B000B31331 /* yjLight.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07885435239E53A200B31331 /* yjLight.pt */; };
 		07885438239E690400B31331 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07885437239E690400B31331 /* MyPageTableViewCell.swift */; };
 		0788543A239E6B6700B31331 /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07885439239E6B6700B31331 /* MyPageTableHeaderView.swift */; };
+		0788543C239E703000B31331 /* norm_seg_model.pt in Resources */ = {isa = PBXBuildFile; fileRef = 0788543B239E702A00B31331 /* norm_seg_model.pt */; };
 		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
 		07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */; };
 		07A3B0C4239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */; };
@@ -88,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIIndicatorView+.swift"; sourceTree = "<group>"; };
+		0703845B239F91C700924B98 /* yjWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yjWords.txt; sourceTree = "<group>"; };
 		071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewCell.swift; sourceTree = "<group>"; };
 		0733A6B22365D99800E26B38 /* DeepFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0733A6B52365D99800E26B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		07885435239E53A200B31331 /* yjLight.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = yjLight.pt; sourceTree = "<group>"; };
 		07885437239E690400B31331 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		07885439239E6B6700B31331 /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
+		0788543B239E702A00B31331 /* norm_seg_model.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = norm_seg_model.pt; sourceTree = "<group>"; };
 		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
 		07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleViewController.swift; sourceTree = "<group>"; };
 		07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionStyleSelectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -350,7 +354,9 @@
 			isa = PBXGroup;
 			children = (
 				07B5AE8D23992D04000C215E /* model.pt */,
+				0788543B239E702A00B31331 /* norm_seg_model.pt */,
 				07885435239E53A200B31331 /* yjLight.pt */,
+				0703845B239F91C700924B98 /* yjWords.txt */,
 				07B5AE8E23992D04000C215E /* words.txt */,
 			);
 			path = PyTorch;
@@ -579,8 +585,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0788543C239E703000B31331 /* norm_seg_model.pt in Resources */,
 				07885436239E53B000B31331 /* yjLight.pt in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
+				0703845C239F91C700924B98 /* yjWords.txt in Resources */,
 				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
 				07B5AE9023992D04000C215E /* words.txt in Resources */,
