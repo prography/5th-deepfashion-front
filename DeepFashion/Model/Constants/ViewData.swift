@@ -20,4 +20,14 @@ struct ViewData {
             static let myPageView = "마이 페이지"
         }
     }
+
+    struct Section {
+        struct Count {
+            static let myPageTableView = 1
+        }
+
+        struct Row {
+            static let myPageTableView = ["공지사항", "개인/보안", "스타일수정", "이용약관"]
+        }
+    }
 }

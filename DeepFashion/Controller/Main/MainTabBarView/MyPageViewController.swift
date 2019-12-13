@@ -41,9 +41,9 @@ extension MyPageViewController: UITableViewDelegate {
         return 50
     }
 
-    func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
         let headerView = MyPageTableHeaderView()
-        headerView.configureTitleLabel("Now Section is \(section)!!")
+        headerView.configureTitleLabel("마이 페이지")
         return headerView
     }
 
@@ -54,16 +54,16 @@ extension MyPageViewController: UITableViewDelegate {
 
 extension MyPageViewController: UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
-        return 3
+        return ViewData.Section.Count.myPageTableView
     }
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 3
+        return ViewData.Section.Row.myPageTableView.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let myPageCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.myPage, for: indexPath) as? MyPageTableViewCell else { return UITableViewCell() }
-
+        myPageCell.configureCell(title: ViewData.Section.Row.myPageTableView[indexPath.row])
         return myPageCell
     }
 }

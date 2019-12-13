@@ -663,8 +663,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zF-4q-yhx" id="p9B-kf-iP5">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFL-Wk-8t2">
+                                                    <rect key="frame" x="25" y="16" width="42" height="34"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RFL-Wk-8t2" firstAttribute="top" secondItem="p9B-kf-iP5" secondAttribute="topMargin" constant="5" id="PuA-JC-ryO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="RFL-Wk-8t2" secondAttribute="bottom" constant="5" id="YLa-SS-Ok2"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RFL-Wk-8t2" secondAttribute="trailing" constant="20" symbolic="YES" id="fn7-Fe-AaP"/>
+                                                <constraint firstItem="RFL-Wk-8t2" firstAttribute="centerY" secondItem="p9B-kf-iP5" secondAttribute="centerY" id="hBk-yz-4bY"/>
+                                                <constraint firstItem="RFL-Wk-8t2" firstAttribute="leading" secondItem="p9B-kf-iP5" secondAttribute="leadingMargin" constant="10" id="rb2-IN-1bi"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.93113458183783782" blue="0.89213976936015027" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="RFL-Wk-8t2" id="5mR-7E-NeP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1129,7 +1147,7 @@
                     <view key="view" contentMode="scaleToFill" id="c2t-dv-yFB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DhY-gW-9gC"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="cbF-Up-1aj">
