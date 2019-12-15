@@ -31,15 +31,7 @@ class AddFashionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fashionTypeAlertController.fashionTypePickerView.dataSource = self
-        nameTextField.delegate = self
-        nameTextField.delegate = self
-        navigationController?.navigationBar.isHidden = true
-
-        clothingImageView.image = selectedFashionData.image
-
-        configureFashionTypeSegmentedControl()
-        configureFashionWeatherButtons()
+        configureViewController()
     }
 
     override func viewWillAppear(_: Bool) {
@@ -226,5 +218,19 @@ extension AddFashionViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension AddFashionViewController: UIViewControllerSetting {
+    func configureViewController() {
+        fashionTypeAlertController.fashionTypePickerView.dataSource = self
+        nameTextField.delegate = self
+
+        navigationController?.navigationBar.isHidden = true
+
+        clothingImageView.image = selectedFashionData.image
+
+        configureFashionTypeSegmentedControl()
+        configureFashionWeatherButtons()
     }
 }
