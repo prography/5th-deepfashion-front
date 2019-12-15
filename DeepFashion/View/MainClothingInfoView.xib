@@ -19,8 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="216" height="188"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K7L-gz-2gC">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="longJacket" translatesAutoresizingMaskIntoConstraints="NO" id="K7L-gz-2gC">
                     <rect key="frame" x="5" y="5" width="206" height="178"/>
+                    <color key="backgroundColor" red="0.88331724948090773" green="0.98363072570131127" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTD-LE-eTg">
                     <rect key="frame" x="5" y="5" width="206" height="30"/>
@@ -48,4 +49,7 @@
             <point key="canvasLocation" x="-5.7971014492753632" y="-114.50892857142857"/>
         </view>
     </objects>
+    <resources>
+        <image name="longJacket" width="526" height="304"/>
+    </resources>
 </document>

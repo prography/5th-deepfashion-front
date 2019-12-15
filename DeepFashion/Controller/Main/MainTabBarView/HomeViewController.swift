@@ -8,17 +8,29 @@
 
 import UIKit
 
+@IBDesignable
 class HomeViewController: UIViewController {
     // MARK: - Life Cycle
+
+    @IBOutlet var clothingInfoView: [MainClothingInfoView]!
+
+    private let clothingPartTitle = [" Top", " Outer", " Bottom", " Shoes"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        configureClothingInfoViewTitle()
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureViewController()
+    }
+
+    private func configureClothingInfoViewTitle() {
+        for i in clothingPartTitle.indices {
+            clothingInfoView[i].titleLabel.text = clothingPartTitle[i]
+        }
     }
 }
 
