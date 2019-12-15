@@ -20,6 +20,9 @@
 		0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */; };
 		0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E923660F0500E26B38 /* SceneDelegate.swift */; };
 		07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */; };
+		07554FF023A63D7300691C5B /* Fashionclass.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07554FEF23A63D6B00691C5B /* Fashionclass.pt */; };
+		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
+		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
 		07598532237E93E500C48EE7 /* PhotoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598531237E93E500C48EE7 /* PhotoAddViewController.swift */; };
 		07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598535237E96F000C48EE7 /* MainTabBarController.swift */; };
 		07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598537237EABA800C48EE7 /* UIViewController+.swift */; };
@@ -109,6 +112,9 @@
 		0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignUpViewController.swift; sourceTree = "<group>"; };
 		0733A6E923660F0500E26B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingPostAPIResultData.swift; sourceTree = "<group>"; };
+		07554FEF23A63D6B00691C5B /* Fashionclass.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fashionclass.pt; sourceTree = "<group>"; };
+		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
+		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
 		07598531237E93E500C48EE7 /* PhotoAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddViewController.swift; sourceTree = "<group>"; };
 		07598535237E96F000C48EE7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		07598537237EABA800C48EE7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -356,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				07B5AE8D23992D04000C215E /* model.pt */,
+				07554FEF23A63D6B00691C5B /* Fashionclass.pt */,
 				0788543B239E702A00B31331 /* norm_seg_model.pt */,
 				07885435239E53A200B31331 /* yjLight.pt */,
 				0703845B239F91C700924B98 /* yjWords.txt */,
@@ -373,6 +380,8 @@
 				07885437239E690400B31331 /* MyPageTableViewCell.swift */,
 				07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */,
 				07885439239E6B6700B31331 /* MyPageTableHeaderView.swift */,
+				07554FF123A661D100691C5B /* MainClothingInfoView.swift */,
+				07554FF323A663B500691C5B /* MainClothingInfoView.xib */,
 				07A3B0C7239126940028DC6B /* Layout */,
 			);
 			path = View;
@@ -588,6 +597,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07554FF023A63D7300691C5B /* Fashionclass.pt in Resources */,
+				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
 				0788543C239E703000B31331 /* norm_seg_model.pt in Resources */,
 				07885436239E53B000B31331 /* yjLight.pt in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
@@ -726,6 +737,7 @@
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
 				07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */,
 				07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */,
+				07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */,
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
 				07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */,

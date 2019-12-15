@@ -56,7 +56,7 @@ class PhotoAddViewController: UIViewController {
      // pt파일을 불러와 TorchModule을 준비한다.
      private let yjModule: TorchModule = {
          // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
+         if let filePath = Bundle.main.path(forResource: "Fashionclass", ofType: "pt"),
              let module = TorchModule(fileAtPath: filePath) {
              return module
          } else {

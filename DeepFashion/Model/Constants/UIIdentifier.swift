@@ -18,6 +18,10 @@ struct UIIdentifier {
         static let editStyle = "StyleSelectViewController"
     }
 
+    struct NibName {
+        static let mainClothingInfoView = "MainClothingInfoView"
+    }
+
     struct Cell {
         struct CollectionView {
             static let closetList = "closetListCollectionViewCell"
