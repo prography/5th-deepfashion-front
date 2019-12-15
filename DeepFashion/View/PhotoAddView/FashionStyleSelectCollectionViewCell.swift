@@ -15,18 +15,6 @@ class FashionStyleSelectCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-//    override var isSelected: Bool {
-//        willSet {
-//            if newValue {
-//                styleTitleLabel.backgroundColor = .black
-//                styleTitleLabel.textColor = .white
-//            } else {
-//                styleTitleLabel.backgroundColor = .white
-//                styleTitleLabel.textColor = .black
-//            }
-//        }
-//    }
-
     func configureCell(style: (String, Int)) {
         styleTitleLabel.text = style.0
         if style.1 == 0 {

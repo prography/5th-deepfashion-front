@@ -11,14 +11,31 @@ import UIKit
 class CodiListViewController: UIViewController {
     // MARK: - Life Cycle
 
+    @IBOutlet var codiListCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        codiListCollectionView.delegate = self
+        codiListCollectionView.dataSource = self
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureViewController()
+    }
+}
+
+extension CodiListViewController: UICollectionViewDelegate {}
+
+extension CodiListViewController: UICollectionViewDataSource {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let codiListCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.codiList, for: indexPath) as? CodiListCollectionViewCell else { return UICollectionViewCell() }
+
+        return codiListCell
     }
 }
 

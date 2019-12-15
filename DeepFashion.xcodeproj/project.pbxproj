@@ -23,6 +23,7 @@
 		07554FF023A63D7300691C5B /* Fashionclass.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07554FEF23A63D6B00691C5B /* Fashionclass.pt */; };
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
 		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
+		07554FFA23A67ABE00691C5B /* CodiListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */; };
 		07598532237E93E500C48EE7 /* PhotoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598531237E93E500C48EE7 /* PhotoAddViewController.swift */; };
 		07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598535237E96F000C48EE7 /* MainTabBarController.swift */; };
 		07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598537237EABA800C48EE7 /* UIViewController+.swift */; };
@@ -115,6 +116,7 @@
 		07554FEF23A63D6B00691C5B /* Fashionclass.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fashionclass.pt; sourceTree = "<group>"; };
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
 		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
+		07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListCollectionViewCell.swift; sourceTree = "<group>"; };
 		07598531237E93E500C48EE7 /* PhotoAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddViewController.swift; sourceTree = "<group>"; };
 		07598535237E96F000C48EE7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		07598537237EABA800C48EE7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -272,6 +274,42 @@
 			path = DeepFashionUITests;
 			sourceTree = "<group>";
 		};
+		07554FF523A679F600691C5B /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				07554FF123A661D100691C5B /* MainClothingInfoView.swift */,
+				07554FF323A663B500691C5B /* MainClothingInfoView.xib */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		07554FF623A67A0800691C5B /* ClosetListView */ = {
+			isa = PBXGroup;
+			children = (
+				071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */,
+				07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */,
+				07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */,
+			);
+			path = ClosetListView;
+			sourceTree = "<group>";
+		};
+		07554FF723A67A1400691C5B /* MyPageView */ = {
+			isa = PBXGroup;
+			children = (
+				07885437239E690400B31331 /* MyPageTableViewCell.swift */,
+				07885439239E6B6700B31331 /* MyPageTableHeaderView.swift */,
+			);
+			path = MyPageView;
+			sourceTree = "<group>";
+		};
+		07554FF823A67A2600691C5B /* PhotoAddView */ = {
+			isa = PBXGroup;
+			children = (
+				07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */,
+			);
+			path = PhotoAddView;
+			sourceTree = "<group>";
+		};
 		0758941323699B3B00B59A28 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,15 +412,12 @@
 		07B6E0652382C05700D6A9E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				07A3B0C3239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift */,
-				071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */,
-				07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */,
-				07885437239E690400B31331 /* MyPageTableViewCell.swift */,
-				07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */,
-				07885439239E6B6700B31331 /* MyPageTableHeaderView.swift */,
-				07554FF123A661D100691C5B /* MainClothingInfoView.swift */,
-				07554FF323A663B500691C5B /* MainClothingInfoView.xib */,
+				07554FF823A67A2600691C5B /* PhotoAddView */,
+				07554FF623A67A0800691C5B /* ClosetListView */,
+				07554FF723A67A1400691C5B /* MyPageView */,
+				07554FF523A679F600691C5B /* HomeView */,
 				07A3B0C7239126940028DC6B /* Layout */,
+				07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -710,6 +745,7 @@
 				07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */,
 				07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */,
 				07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */,
+				07554FFA23A67ABE00691C5B /* CodiListCollectionViewCell.swift in Sources */,
 				07885438239E690400B31331 /* MyPageTableViewCell.swift in Sources */,
 				07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */,
 				076F6BCE237BFF8100A2CBB4 /* LoginUserData.swift in Sources */,
