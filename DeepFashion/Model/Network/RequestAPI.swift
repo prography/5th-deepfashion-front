@@ -244,7 +244,7 @@ final class RequestAPI {
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
-                _, response, error in
+                resultData, response, error in
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
@@ -252,6 +252,18 @@ final class RequestAPI {
                     self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                     completion(errorType)
                 }
+
+                guard let postAPIResultData = resultData else {
+                    completion(errorType)
+                    return
+                }
+
+                guard let postResultData = try? JSONDecoder().decode(UserClothingPostAPIResultData.self, from: postAPIResultData) else {
+                    print("UserClothingPostAPIResultData Decode Error")
+                    completion(errorType)
+                    return
+                }
+                print("postResultData is.. \(postResultData)")
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {

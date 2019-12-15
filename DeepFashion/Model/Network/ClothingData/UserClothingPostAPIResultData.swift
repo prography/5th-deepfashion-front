@@ -13,10 +13,6 @@ struct UserClothingPostAPIResultData: Codable {
     let name, color: String
     let owner, season, part: Int
     let images: [ClothingSubData]
-
-    enum CodingKeys: String, CodingKey {
-        case style, name, color, owner, season, part, images
-    }
 }
 
 struct ClothingSubData: Codable {
