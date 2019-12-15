@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - EditStyleCollectionView's FlowLayout
+// MARK: - CodiListCollectionView's FlowLayout
 
 class CodiListCollectionViewFlowLayout: UICollectionViewFlowLayout {
     private var numberOfItemsPerRow = 2
