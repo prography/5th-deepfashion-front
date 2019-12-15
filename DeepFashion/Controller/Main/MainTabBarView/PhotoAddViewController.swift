@@ -49,35 +49,35 @@ class PhotoAddViewController: UIViewController {
         }
     }
 
-    // /*
+    /*
 
-    // MARK: - Add DeepLearning Module
+     // MARK: - Add DeepLearning Module
 
-    // pt파일을 불러와 TorchModule을 준비한다.
-    private let yjModule: TorchModule = {
-        // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-        if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
-            let module = TorchModule(fileAtPath: filePath) {
-            return module
-        } else {
-            // pt파일을 읽지 못하면 해당 행 실행
-            fatalError("Can't find the model file!")
-        }
-    }()
+     // pt파일을 불러와 TorchModule을 준비한다.
+     private let yjModule: TorchModule = {
+         // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
+         if let filePath = Bundle.main.path(forResource: "model", ofType: "pt"),
+             let module = TorchModule(fileAtPath: filePath) {
+             return module
+         } else {
+             // pt파일을 읽지 못하면 해당 행 실행
+             fatalError("Can't find the model file!")
+         }
+     }()
 
-    // txt데이터를 불러와 문자열 배열로 준비한다.
-    private let yjData: [String] = {
-        // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 txt파일을 TorchModule에서 읽는다.
-        if let filePath = Bundle.main.path(forResource: "words", ofType: "txt"),
-            let labels = try? String(contentsOfFile: filePath) {
-            return labels.components(separatedBy: .newlines)
-        } else {
-            // txt파일을 읽지 못하면 해당 행 실행
-            fatalError("Can't find the text file!")
-        }
-    }()
+     // txt데이터를 불러와 문자열 배열로 준비한다.
+     private let yjData: [String] = {
+         // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 txt파일을 TorchModule에서 읽는다.
+         if let filePath = Bundle.main.path(forResource: "words", ofType: "txt"),
+             let labels = try? String(contentsOfFile: filePath) {
+             return labels.components(separatedBy: .newlines)
+         } else {
+             // txt파일을 읽지 못하면 해당 행 실행
+             fatalError("Can't find the text file!")
+         }
+     }()
 
-    // */
+     */
 
     // MARK: Life Cycle
 
@@ -99,29 +99,29 @@ class PhotoAddViewController: UIViewController {
     // MARK: - DeepLearning Classification Method
 
     /// 이미지를 판별하는 과정이 진행되는 메서드
-    private func classificateImage(_ image:
+    private func classificateImage(_:
         UIImage, completion: @escaping () -> Void) {
-        //  /*
+        /*
 
-        // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
-        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
-        // 224x224 크기의 리사이즈 된 이미지를 Float32 배열로 변환하여 pixelBuffer에 저장한다.
-        guard var pixelBuffer = resizedImage.normalized() else {
-            return
-        }
+         // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
+         let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
+         // 224x224 크기의 리사이즈 된 이미지를 Float32 배열로 변환하여 pixelBuffer에 저장한다.
+         guard var pixelBuffer = resizedImage.normalized() else {
+             return
+         }
 
-        // 이미지를 배열로변환 한 뒤 해당 배열에 TorchModule의 predict메서드를 이용해 classification을 진행한다.
-        // 만약 classification 이 제대로 되지 않으면 else 로 빠져나가 classificateImage 메서드가 종료된다.
-        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
-            return
-        }
-        let zippedResults = zip(yjData.indices, outputs)
-        let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
-        print("sortedResults: \(sortedResults)")
-        for (key, result) in sortedResults.enumerated() {
-            classificationLabel[key].text = yjData[result.0]
-        }
-        // */
+         // 이미지를 배열로변환 한 뒤 해당 배열에 TorchModule의 predict메서드를 이용해 classification을 진행한다.
+         // 만약 classification 이 제대로 되지 않으면 else 로 빠져나가 classificateImage 메서드가 종료된다.
+         guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
+             return
+         }
+         let zippedResults = zip(yjData.indices, outputs)
+         let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
+         print("sortedResults: \(sortedResults)")
+         for (key, result) in sortedResults.enumerated() {
+             classificationLabel[key].text = yjData[result.0]
+         }
+         */
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
         completion()
     }

@@ -159,7 +159,7 @@ class AddFashionViewController: UIViewController {
         CommonUserData.shared.addUserClothing(clothingData)
         print("now Adding Clothing Data : \(clothingData)")
 
-        let clotingData = UserClothingAPIData(style: 0, name: "clothing", color: "white", season: 0, part: 0, images: selectedFashionData.image)
+        let clotingData = UserClothingAPIData(style: 1, name: "clothing", color: "white", owner: 1, season: 1, part: 1, images: [1])
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { errorType in
             if errorType == nil {
                 print("Clothing Post Succeed!!!")
@@ -169,7 +169,7 @@ class AddFashionViewController: UIViewController {
             } else {
                 print("Clothing Post Error!!!")
                 DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
+                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.") {}
                 }
             }
         }

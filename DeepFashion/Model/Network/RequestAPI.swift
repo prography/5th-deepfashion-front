@@ -144,6 +144,8 @@ final class RequestAPI {
                     return
                 }
 
+                print("data is \(userData)")
+
                 // MARK: - Token Check
 
                 CommonUserData.shared.setUserToken(userData.token)
@@ -226,7 +228,7 @@ final class RequestAPI {
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.clothing)"
             print("userDataPostURLString : \(userDataPostURLString)")
 
-            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, season: userData.season, part: userData.part, images: userData.images)
+            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, owner: userData.owner, season: userData.season, part: userData.part, images: userData.images)
 
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
@@ -236,12 +238,9 @@ final class RequestAPI {
             }
 
             var urlRequest = URLRequest(url: postURL)
-            let boundary = "Boundary-\(UUID().uuidString)"
-            // token 등록이 필요
             urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
             urlRequest.httpMethod = "POST"
-            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-            urlRequest.httpBody = createBody(parameters: [:], boundary: boundary, data: userData.images!.jpegData(compressionQuality: 0.7)!, mimeType: "image/jpg", filename: "clothing.jpg")
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
@@ -255,8 +254,6 @@ final class RequestAPI {
                 }
 
                 if let response = response as? HTTPURLResponse {
-//                    print("post response : \(response)")
-
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()

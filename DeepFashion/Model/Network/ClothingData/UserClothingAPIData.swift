@@ -6,7 +6,7 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
-// MARK: - UserClothingAPIData Post Form Struct
+// MARK: - UserClothingAPIData /clothing/ Post Form Structure
 
 import UIKit
 
@@ -14,19 +14,11 @@ struct UserClothingAPIData: Encodable {
     let style: Int
     let name: String
     let color: String
+    let owner: Int
     let season: Int
     let part: Int
-    let images: UIImage?
+    let images: [Int]
     enum CodingKeys: String, CodingKey {
-        case style, name, color, season, part, image
-    }
-
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-
-        if let image = images,
-            let data = image.pngData() {
-            try container.encode(data, forKey: .image)
-        }
+        case style, name, color, owner, season, part, images
     }
 }
