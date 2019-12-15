@@ -91,8 +91,8 @@
 <img width=200 alt="mainTabBar_3" src="https://user-images.githubusercontent.com/4410021/70866615-29d84a80-1faf-11ea-9ab2-8ef13c369c80.png">
 <img width=200 alt="mainTabBar_4" src="https://user-images.githubusercontent.com/4410021/70866614-29d84a80-1faf-11ea-9d86-cc4de8b0bf6a.png">
 <img width=200 alt="mainTabBar_5" src="https://user-images.githubusercontent.com/4410021/70866613-293fb400-1faf-11ea-8823-9f4996e53e6f.png">
-<img width=200 alt="mainTabBar_3_1" src="https://user-images.githubusercontent.com/4410021/70866612-28a71d80-1faf-11ea-9122-9043cbe395b2.png">
-<img width=200 alt="mainTabBar_3_2" src="https://user-images.githubusercontent.com/4410021/70866611-28a71d80-1faf-11ea-9a47-ba382caae320.png">
+<img width=200 alt="mainTabBar_3_1" src="https://user-images.githubusercontent.com/4410021/70867708-93f6ec80-1fbb-11ea-8997-7110f216a5cd.png">
+<img width=200 alt="mainTabBar_3_2" src="https://user-images.githubusercontent.com/4410021/70867707-935e5600-1fbb-11ea-8c9b-c5c00cb69a24.png">
 </div>
 
 <br>
