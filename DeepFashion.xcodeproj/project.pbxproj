@@ -24,6 +24,7 @@
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
 		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
 		07554FFA23A67ABE00691C5B /* CodiListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */; };
+		07554FFC23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FFB23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift */; };
 		07598532237E93E500C48EE7 /* PhotoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598531237E93E500C48EE7 /* PhotoAddViewController.swift */; };
 		07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598535237E96F000C48EE7 /* MainTabBarController.swift */; };
 		07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598537237EABA800C48EE7 /* UIViewController+.swift */; };
@@ -117,6 +118,7 @@
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
 		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
 		07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListCollectionViewCell.swift; sourceTree = "<group>"; };
+		07554FFB23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		07598531237E93E500C48EE7 /* PhotoAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddViewController.swift; sourceTree = "<group>"; };
 		07598535237E96F000C48EE7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		07598537237EABA800C48EE7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */,
+				07554FFB23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,
+				07554FFC23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
 				07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,

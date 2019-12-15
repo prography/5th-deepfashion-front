@@ -34,7 +34,7 @@ extension MyPageViewController: UIViewControllerSetting {
 
 extension MyPageViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 60
+        return 50
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
