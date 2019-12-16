@@ -634,7 +634,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJJ-Gy-1Pj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="R4f-aN-H9e">
+                    <tabBarItem key="tabBarItem" title="옷장 리스트" selectedImage="doc.text.fill" catalog="system" id="R4f-aN-H9e">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -696,7 +696,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ukZ-jQ-0He"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="uhi-T6-xoe">
+                    <tabBarItem key="tabBarItem" title="마이 페이지" selectedImage="person.crop.circle" catalog="system" id="uhi-T6-xoe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
@@ -708,7 +708,7 @@
             </objects>
             <point key="canvasLocation" x="3474.375" y="1381.6901408450703"/>
         </scene>
-        <!--Photo Add View Controller-->
+        <!--옷 추가하기-->
         <scene sceneID="yPN-H7-C6S">
             <objects>
                 <viewController id="k0I-cA-kpf" customClass="PhotoAddViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
@@ -767,7 +767,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="plus.square" catalog="system" systemItem="mostViewed" id="q3p-tE-foQ">
+                    <tabBarItem key="tabBarItem" title="옷 추가하기" selectedImage="plus.square" catalog="system" id="q3p-tE-foQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -1145,14 +1145,66 @@
                                 <collectionViewLayout key="collectionViewLayout" id="C4b-PU-VZe" customClass="CodiListCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="codiListCollectionViewCell" id="e4n-bY-vRz" customClass="CodiListCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="126" height="116"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="143"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gGq-tc-rtf">
-                                            <rect key="frame" x="0.0" y="0.0" width="126" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="126" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="VS0-SN-eZt">
+                                                    <rect key="frame" x="5" y="5" width="116" height="133"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="116-B2-yvH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="116" height="51"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MxY-Bf-qf6">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="56.5" height="51"/>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dmB-C8-lsn">
+                                                                    <rect key="frame" x="59.5" y="0.0" width="56.5" height="51"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Oos-es-iRJ">
+                                                            <rect key="frame" x="0.0" y="54" width="116" height="50.5"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OoY-fk-Yms">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="56.5" height="50.5"/>
+                                                                </imageView>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qaK-2t-LIB">
+                                                                    <rect key="frame" x="59.5" y="0.0" width="56.5" height="50.5"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luf-UL-dre">
+                                                            <rect key="frame" x="0.0" y="107.5" width="116" height="25.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Luf-UL-dre" firstAttribute="height" secondItem="Oos-es-iRJ" secondAttribute="height" multiplier="0.5" id="HVu-yy-67z"/>
+                                                        <constraint firstItem="Oos-es-iRJ" firstAttribute="height" secondItem="116-B2-yvH" secondAttribute="height" multiplier="0.988235" id="mvi-li-lYY"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="VS0-SN-eZt" secondAttribute="bottom" constant="5" id="FfS-Vt-bqu"/>
+                                                <constraint firstAttribute="trailing" secondItem="VS0-SN-eZt" secondAttribute="trailing" constant="5" id="KOK-W6-aRA"/>
+                                                <constraint firstItem="VS0-SN-eZt" firstAttribute="leading" secondItem="gGq-tc-rtf" secondAttribute="leading" constant="5" id="MH8-Ll-4kB"/>
+                                                <constraint firstItem="VS0-SN-eZt" firstAttribute="top" secondItem="gGq-tc-rtf" secondAttribute="top" constant="5" id="qcw-6S-CRX"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.88331724950000001" green="0.98363072569999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <size key="customSize" width="126" height="116"/>
+                                        <size key="customSize" width="126" height="143"/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Luf-UL-dre" id="a3u-Bu-zT1"/>
+                                            <outletCollection property="codiImageViewList" destination="MxY-Bf-qf6" collectionClass="NSMutableArray" id="6WX-Ru-dYa"/>
+                                            <outletCollection property="codiImageViewList" destination="dmB-C8-lsn" collectionClass="NSMutableArray" id="g9y-qS-lJM"/>
+                                            <outletCollection property="codiImageViewList" destination="OoY-fk-Yms" collectionClass="NSMutableArray" id="m3A-3c-0HH"/>
+                                            <outletCollection property="codiImageViewList" destination="qaK-2t-LIB" collectionClass="NSMutableArray" id="dOe-CB-0BN"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -1166,7 +1218,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QW0-Wo-UzZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="99N-QG-aOe">
+                    <tabBarItem key="tabBarItem" title="코디 리스트" selectedImage="square.stack.3d.down.right" catalog="system" id="99N-QG-aOe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="thirdView" id="TYo-Nj-8DF"/>
@@ -1342,7 +1394,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DhY-gW-9gC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="cbF-Up-1aj">
+                    <tabBarItem key="tabBarItem" title="코디 추천" selectedImage="star.lefthalf.fill" catalog="system" id="cbF-Up-1aj">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -1408,8 +1460,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="doc.text.fill" catalog="system" width="56" height="64"/>
         <image name="longJacket" width="526" height="304"/>
+        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
         <image name="plus.square" catalog="system" width="64" height="56"/>
+        <image name="square.stack.3d.down.right" catalog="system" width="62" height="64"/>
+        <image name="star.lefthalf.fill" catalog="system" width="64" height="58"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

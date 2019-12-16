@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
 
     // MARK: - IBOutlet
 
-    @IBOutlet var googleLoginButton: UIButton!
     @IBOutlet var idTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
