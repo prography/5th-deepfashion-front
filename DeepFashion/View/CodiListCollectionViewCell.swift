@@ -30,7 +30,6 @@ class CodiListCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell(itemIndex: Int) {
-        guard let originText = titleLabel.text else { return }
-        titleLabel.text = "\(originText), # \(itemIndex)번째 코디리스트"
+        titleLabel.text = "# \(itemIndex)번째 코디리스트"
     }
 }
