@@ -47,6 +47,7 @@
 		07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C8239138EB0028DC6B /* UserClothingData.swift */; };
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
 		07AB242623AA52F70076ABF5 /* UserClothingUploadAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */; };
+		07AB242823AA57D10076ABF5 /* UserClothingUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */; };
 		07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE792399035B000C215E /* UIImage+.swift */; };
 		07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE8A23992C0E000C215E /* TorchModule.mm */; };
 		07B5AE8F23992D04000C215E /* model.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07B5AE8D23992D04000C215E /* model.pt */; };
@@ -142,6 +143,7 @@
 		07A3B0C8239138EB0028DC6B /* UserClothingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingData.swift; sourceTree = "<group>"; };
 		07AA4784237046780074DE76 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingUploadAPIData.swift; sourceTree = "<group>"; };
+		07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingUploadData.swift; sourceTree = "<group>"; };
 		07B5AE792399035B000C215E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		07B5AE8823992BEF000C215E /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
 		07B5AE8923992C0D000C215E /* DeepFashion-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeepFashion-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 			children = (
 				07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */,
 				07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */,
+				07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */,
 				07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */,
 				07A3B0C8239138EB0028DC6B /* UserClothingData.swift */,
 			);
@@ -793,6 +796,7 @@
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
 				07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */,
 				07AA4785237046780074DE76 /* String+.swift in Sources */,
+				07AB242823AA57D10076ABF5 /* UserClothingUploadData.swift in Sources */,
 				07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */,
 				0788543A239E6B6700B31331 /* MyPageTableHeaderView.swift in Sources */,
 			);

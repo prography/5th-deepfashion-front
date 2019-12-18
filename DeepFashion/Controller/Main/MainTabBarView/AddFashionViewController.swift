@@ -103,6 +103,8 @@ class AddFashionViewController: UIViewController {
     private func uploadClothingImage() {
         // clothingUploadAPIData 를 정의 후 사용하자.
 //        RequestAPI.shared.postAPIData(userData: <#T##T#>, APIMode: <#T##APIPostMode#>, completion: <#T##(NetworkError?) -> Void#>)
+
+//        let clothingImageData = UserClothingUploadAPIData
         DispatchQueue.main.async {
             self.navigationController?.popViewController(animated: true)
         }
