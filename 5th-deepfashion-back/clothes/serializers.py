@@ -25,6 +25,7 @@ class ClothingSerializer(serializers.ModelSerializer):
         ret = super().to_representation(instance)
         print(ret)
         ret["images"] = ImageSerializer(instance.images.all(), many=True).data
+        ret["clothing"] = instance.pk
         return ret
 
 

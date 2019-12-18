@@ -42,7 +42,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        RequestAPI.shared.delegate = self
         configureTextField()
         configureLoginButton()
     }
@@ -145,5 +144,11 @@ extension LoginViewController: RequestAPIDelegate {
     func requestAPIDidError() {
         // 에러 발생 시 동작 실행
         isAPIDataRequested = false
+    }
+}
+
+extension LoginViewController: UIViewControllerSetting {
+    func configureViewController() {
+        RequestAPI.shared.delegate = self
     }
 }
