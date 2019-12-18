@@ -44,7 +44,8 @@ enum NetworkError {
 enum APIPostMode: String {
     case userDataPost
     case loginDataPost
-    case styleImagePost
+    case clothingPost
+    case clothingUploadPost
 }
 
 struct APIURL {
@@ -57,6 +58,7 @@ struct APIURL {
             static let login = "accounts/login/"
             static let styleImage = "accounts/"
             static let clothing = "clothing/"
+            static let clothingUpload = "clothing/upload"
         }
     }
 }
@@ -110,7 +112,7 @@ final class RequestAPI {
             }
 
             let userDataToPost = LoginAPIPostData(userName: userData.userName, password: userData.password)
-            print("userAPIData... : \(userDataToPost)")
+
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
                 delegate?.requestAPIDidError()
@@ -119,7 +121,6 @@ final class RequestAPI {
                 return
             }
 
-            print("userAPIData... : \(userAPIData)")
             var urlRequest = URLRequest(url: postURL)
             urlRequest.httpMethod = "POST"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -137,24 +138,20 @@ final class RequestAPI {
                 }
 
                 guard let data = data,
-                    let userData = try? JSONDecoder().decode(UserTokenAPIData.self, from: data) else {
+                    let userData = try? JSONDecoder().decode(UserLoginAPIData.self, from: data) else {
                     self.delegate?.requestAPIDidError()
                     self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                     completion(errorType)
                     return
                 }
 
-                print("data is \(userData)")
+                print("now PrivateData is \(userData)")
 
                 // MARK: - Token Check
 
-                CommonUserData.shared.setUserToken(userData.token)
-                print("token is.. \(CommonUserData.shared.userToken)")
-                print("userAPIData : \(userData)")
+                CommonUserData.shared.setUserPrivateData(token: userData.token, pk: userData.pk)
 
                 if let response = response as? HTTPURLResponse {
-//                    print("login post response : \(response)")
-
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
@@ -202,8 +199,6 @@ final class RequestAPI {
                 }
 
                 if let response = response as? HTTPURLResponse {
-//                    print("post response : \(response)")
-
                     if (200 ... 299).contains(response.statusCode) {
                         print("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
@@ -217,7 +212,7 @@ final class RequestAPI {
                 }
             }.resume()
 
-        case .styleImagePost:
+        case .clothingPost:
 
             guard let userData = userData as? UserClothingAPIData else {
                 delegate?.requestAPIDidError()
@@ -278,6 +273,66 @@ final class RequestAPI {
                     }
                 }
             }.resume()
+
+        case .clothingUploadPost:
+            guard let userData = userData as? UserClothingAPIData else {
+                delegate?.requestAPIDidError()
+                completion(NetworkError.wrongType)
+                return
+            }
+
+            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.clothingUpload)"
+
+//            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, owner: userData.owner, season: userData.season, part: userData.part, images: userData.images)
+//
+//            guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
+//                let postURL = URL(string: userDataPostURLString) else {
+//                delegate?.requestAPIDidError()
+//                completion(NetworkError.unknown)
+//                return
+//            }
+
+//            var urlRequest = URLRequest(url: postURL)
+//            urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
+//            urlRequest.httpMethod = "POST"
+//            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+
+            // URLSession을 만들어 Post 작용을 시작한다.
+//            urlSession.uploadTask(with: urlRequest, from: userAPIData) {
+//                resultData, response, error in
+//
+//                if error != nil {
+//                    print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
+//                    self.delegate?.requestAPIDidError()
+//                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+//                    completion(errorType)
+//                }
+//
+//                guard let postAPIResultData = resultData else {
+//                    completion(errorType)
+//                    return
+//                }
+//
+//                guard let postResultData = try? JSONDecoder().decode(UserClothingPostAPIResultData.self, from: postAPIResultData) else {
+//                    print("UserClothingPostAPIResultData Decode Error")
+//                    completion(errorType)
+//                    return
+//                }
+//                print("postResultData is.. \(postResultData)")
+//
+//                if let response = response as? HTTPURLResponse {
+//                    if (200 ... 299).contains(response.statusCode) {
+//                        print("request successed : \(response.statusCode)")
+//                        self.delegate?.requestAPIDidFinished()
+//                        completion(nil)
+//                    } else {
+//                        print("request failed : \(response.statusCode)")
+//                        self.delegate?.requestAPIDidError()
+//                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+//                        completion(errorType)
+//                    }
+//                }
+//            }.resume()
         }
     }
 

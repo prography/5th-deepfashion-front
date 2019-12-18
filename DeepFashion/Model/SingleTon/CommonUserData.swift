@@ -13,6 +13,7 @@ final class CommonUserData {
 
     private(set) var userData: UserData?
     private(set) var id: String = ""
+    private(set) var pk: Int = 0
     private(set) var userToken: String = ""
     private(set) var password: String = ""
     private(set) var gender: Int = 0
@@ -34,8 +35,9 @@ final class CommonUserData {
         userClothingList.append(clothingData)
     }
 
-    func setUserToken(_ token: String) {
+    func setUserPrivateData(token: String, pk: Int) {
         userToken = token
+        self.pk = pk
     }
 
     func toggleStyleData(styleName: String) -> Int {

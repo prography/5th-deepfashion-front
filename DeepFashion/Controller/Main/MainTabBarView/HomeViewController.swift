@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     // MARK: - Life Cycle
 
     @IBOutlet var clothingInfoView: [MainClothingInfoView]!
+    @IBOutlet var codiListSaveButton: UIButton!
 
     private let clothingPartTitle = [" Top", " Outer", " Bottom", " Shoes"]
 
@@ -32,10 +33,15 @@ class HomeViewController: UIViewController {
             clothingInfoView[i].titleLabel.text = clothingPartTitle[i]
         }
     }
+
+    private func configureCodiListSaveButton() {
+        codiListSaveButton.isEnabled = true
+    }
 }
 
 extension HomeViewController: UIViewControllerSetting {
     func configureViewController() {
         configureBasicTitle(ViewData.Title.MainTabBarView.homeView)
+        configureCodiListSaveButton()
     }
 }

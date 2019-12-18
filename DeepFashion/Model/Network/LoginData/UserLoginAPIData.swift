@@ -8,10 +8,7 @@
 
 import Foundation
 
-struct UserTokenAPIData: Codable {
+struct UserLoginAPIData: Decodable {
     let token: String
-
-    enum CodingKeys: CodingKey {
-        case token
-    }
+    let pk: Int
 }

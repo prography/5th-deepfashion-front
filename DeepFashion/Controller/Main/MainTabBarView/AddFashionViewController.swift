@@ -100,6 +100,14 @@ class AddFashionViewController: UIViewController {
         registrationButton.alpha = 1.0
     }
 
+    private func uploadClothingImage() {
+        // clothingUploadAPIData 를 정의 후 사용하자.
+//        RequestAPI.shared.postAPIData(userData: <#T##T#>, APIMode: <#T##APIPostMode#>, completion: <#T##(NetworkError?) -> Void#>)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+
     // MARK: - IBActions
 
     @IBAction func addFashionButton(_: UIButton) {
@@ -115,13 +123,12 @@ class AddFashionViewController: UIViewController {
         CommonUserData.shared.addUserClothing(clothingData)
         print("now Adding Clothing Data : \(clothingData)")
 
-        let clotingData = UserClothingAPIData(style: 1, name: "clothing", color: "white", owner: 1, season: weatherIndex + 1, part: typeSegmentedControl.selectedSegmentIndex + 1, images: [1])
-        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { errorType in
+        let clotingData = UserClothingAPIData(style: 1, name: fashionName, color: "white", owner: 1, season: weatherIndex + 1, part: typeSegmentedControl.selectedSegmentIndex + 1, images: [1])
+        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
             if errorType == nil {
-                print("Clothing Post Succeed!!!")
-                DispatchQueue.main.async {
-                    self.navigationController?.popViewController(animated: true)
-                }
+                print("clothing/ Post Succeed!!!")
+                // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
+                self.uploadClothingImage()
             } else {
                 print("Clothing Post Error!!!")
                 DispatchQueue.main.async {
