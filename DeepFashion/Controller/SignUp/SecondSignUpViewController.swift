@@ -110,7 +110,7 @@ class SecondSignUpViewController: UIViewController {
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
             if errorType == nil {
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: SegueIdentifier.unwindToMain, sender: nil)
+                    self.performSegue(withIdentifier: SegueIdentifier.unwindToLogin, sender: nil)
                 }
             } else {
                 // * ISSUE : 네트워킹 or 회원가입 오입력에 따른 AlertController 띄울 예정

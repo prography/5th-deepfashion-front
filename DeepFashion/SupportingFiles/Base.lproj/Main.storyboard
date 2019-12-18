@@ -539,7 +539,7 @@
                     <connections>
                         <outlet property="indicatorView" destination="j4Z-KG-2HO" id="hVU-Ji-OTa"/>
                         <outlet property="signUpFinishButton" destination="gZy-Na-5lf" id="TVo-Yg-nQy"/>
-                        <segue destination="BxI-ns-ITX" kind="unwind" identifier="unwindToMain" unwindAction="prepareForUnwindWithSegue:" id="1lI-nm-xcF"/>
+                        <segue destination="BxI-ns-ITX" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="1lI-nm-xcF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQe-aP-LlW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -702,9 +702,11 @@
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
                     <connections>
                         <outlet property="myPageTableView" destination="2ZT-c4-n4M" id="k62-WL-T5L"/>
+                        <segue destination="XZC-Qk-3ha" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="CQZ-f4-BtO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-2F-Fa8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="XZC-Qk-3ha" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3474.375" y="1381.6901408450703"/>
         </scene>

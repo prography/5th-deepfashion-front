@@ -24,6 +24,16 @@ class MyPageViewController: UIViewController {
         super.viewWillAppear(true)
         configureViewController()
     }
+
+    private func presentLogoutAlertController() {
+        presentBasicTwoButtonAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?") { isYes in
+            if isYes {
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: SegueIdentifier.unwindToLogin, sender: nil)
+                }
+            }
+        }
+    }
 }
 
 extension MyPageViewController: UIViewControllerSetting {
@@ -59,6 +69,27 @@ extension MyPageViewController: UITableViewDataSource {
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return ViewData.Section.Row.myPageTableView.count
+    }
+
+    func tableView(_: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let myPageRow = ViewData.Section.MyPageRow(rawValue: indexPath.row) else {
+            return nil
+        }
+
+        switch myPageRow {
+        case .notice:
+            break
+        case .privacy:
+            break
+        case .modifyStyle:
+            break
+        case .rule:
+            break
+        case .logout:
+            presentLogoutAlertController()
+        }
+
+        return nil
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
