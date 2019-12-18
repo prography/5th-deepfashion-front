@@ -12,7 +12,7 @@ struct FashionData {
     var image: UIImage?
     var style: [(String, Int)] = []
     var typeIndex = 0
-    var weatherIndex: [Int: Int] = [0: 1, 1: 0, 2: 0, 3: 0]
+    var weatherIndex = 0
     var gender = CommonUserData.shared.gender
     init() {
         var styleName: [String] = []

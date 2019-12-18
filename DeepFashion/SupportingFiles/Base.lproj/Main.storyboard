@@ -862,71 +862,22 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nHV-0a-Ykw">
-                                                <rect key="frame" x="0.0" y="25" width="300" height="23.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YY6-8T-BMN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="71.5" height="23.5"/>
-                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                        <state key="normal" title="봄">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <state key="selected">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="BSc-Pf-hiy"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldN-d3-1bd">
-                                                        <rect key="frame" x="76.5" y="0.0" width="71" height="23.5"/>
-                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                        <state key="normal" title="여름">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <state key="selected">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="7Mi-15-hMc"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrc-vF-Ldd">
-                                                        <rect key="frame" x="152.5" y="0.0" width="71.5" height="23.5"/>
-                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                        <state key="normal" title="가을">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <state key="selected">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="hge-7T-Q2g"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cND-UZ-xFT">
-                                                        <rect key="frame" x="229" y="0.0" width="71" height="23.5"/>
-                                                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                        <state key="normal" title="겨울">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <state key="selected">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="fashionWeatherButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="AoF-Zu-Pbn"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </stackView>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L7B-jF-YI8">
+                                                <rect key="frame" x="0.0" y="25" width="300" height="24.5"/>
+                                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <segments>
+                                                    <segment title="봄/가을"/>
+                                                    <segment title="여름"/>
+                                                    <segment title="겨울"/>
+                                                    <segment title="All"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="fashionTypeSegmentedControlValueChanged:" destination="TFM-gH-Vx2" eventType="valueChanged" id="jRu-SQ-jR0"/>
+                                                </connections>
+                                            </segmentedControl>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="nHV-0a-Ykw" firstAttribute="height" secondItem="rzc-Mv-KCi" secondAttribute="height" multiplier="2" id="4md-wo-1Cu"/>
+                                            <constraint firstItem="L7B-jF-YI8" firstAttribute="height" secondItem="rzc-Mv-KCi" secondAttribute="height" multiplier="2" id="va8-sv-Gcp"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-qU-mAk">
@@ -1012,10 +963,7 @@
                         <outlet property="registrationButton" destination="3u8-yu-lvO" id="rMZ-OE-tbf"/>
                         <outlet property="styleButton" destination="lbQ-UA-1hn" id="vjq-Fa-zAr"/>
                         <outlet property="typeSegmentedControl" destination="Ngo-Xz-Mzn" id="s8F-ye-oDN"/>
-                        <outletCollection property="weatherButtons" destination="YY6-8T-BMN" collectionClass="NSMutableArray" id="xgo-f4-RvE"/>
-                        <outletCollection property="weatherButtons" destination="ldN-d3-1bd" collectionClass="NSMutableArray" id="ceG-zB-myj"/>
-                        <outletCollection property="weatherButtons" destination="Lrc-vF-Ldd" collectionClass="NSMutableArray" id="uRG-dv-xWh"/>
-                        <outletCollection property="weatherButtons" destination="cND-UZ-xFT" collectionClass="NSMutableArray" id="jDy-7W-Jce"/>
+                        <outlet property="weatherSegmentedControl" destination="L7B-jF-YI8" id="zdv-uQ-3zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ev-yl-kLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

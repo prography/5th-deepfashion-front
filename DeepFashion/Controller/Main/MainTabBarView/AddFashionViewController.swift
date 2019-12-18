@@ -15,7 +15,7 @@ class AddFashionViewController: UIViewController {
     @IBOutlet var styleButton: UIButton!
     @IBOutlet var clothingImageView: UIImageView!
     @IBOutlet var typeSegmentedControl: UISegmentedControl!
-    @IBOutlet var weatherButtons: [UIButton]!
+    @IBOutlet var weatherSegmentedControl: UISegmentedControl!
     @IBOutlet var registrationButton: UIButton!
 
     // MARK: Properties
@@ -52,14 +52,6 @@ class AddFashionViewController: UIViewController {
         return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
     }
 
-    /// weatherButtons가 적어도 1개 이상 설정되어있는지 확인하는 메서드
-    private func checkWeatherButtonSetting() -> Bool {
-        for i in weatherButtons.indices {
-            if weatherButtons[i].isSelected { return true }
-        }
-        return false
-    }
-
     /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
     private func checkStyleButtonSetting() -> Bool {
         return selectedFashionData.style.count != 0
@@ -83,31 +75,6 @@ class AddFashionViewController: UIViewController {
         typeSegmentedControl.selectedSegmentIndex = 0
     }
 
-    private func configureFashionWeatherButtons() {
-        for i in weatherButtons.indices {
-            if i == 0 { weatherButtons[i].isSelected = true }
-            else { weatherButtons[i].isSelected = false }
-        }
-    }
-
-    private func selectFashionWeatherButton(_ button: UIButton) {
-        var selectedIndex = 0
-        for i in weatherButtons.indices {
-            if button == weatherButtons[i] {
-                selectedIndex = i
-                break
-            }
-        }
-
-        if weatherButtons[selectedIndex].isSelected {
-            selectedFashionData.weatherIndex[selectedIndex] = 0
-            weatherButtons[selectedIndex].isSelected.toggle()
-        } else {
-            selectedFashionData.weatherIndex[selectedIndex] = 1
-            weatherButtons[selectedIndex].isSelected.toggle()
-        }
-    }
-
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
         let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
         let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted
@@ -116,7 +83,7 @@ class AddFashionViewController: UIViewController {
     }
 
     private func checkFillInData() {
-        if checkStyleButtonSetting(), checkWeatherButtonSetting(), isNameTextFieldEmpty() {
+        if checkStyleButtonSetting(), isNameTextFieldEmpty() {
             makeRegistrationButtonEnabled()
         } else {
             makeRegistrationButtonDisabled()
@@ -142,16 +109,13 @@ class AddFashionViewController: UIViewController {
         // 옷 타입, 스타일 셋팅
         let fashionType = selectedFashionData.typeIndex
         let fashionStyle = selectedFashionData.style
-        // 옷 날씨타입 셋팅
-        var fashionWeatherIndex = [Int]()
-        for i in 0 ..< 4 {
-            if selectedFashionData.weatherIndex[i] == 1 { fashionWeatherIndex.append(i) }
-        }
-        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: fashionType, fashionWeahter: fashionWeatherIndex, fashionStyle: fashionStyle)
+        let weatherIndex = weatherSegmentedControl.selectedSegmentIndex
+
+        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: fashionType, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
         CommonUserData.shared.addUserClothing(clothingData)
         print("now Adding Clothing Data : \(clothingData)")
 
-        let clotingData = UserClothingAPIData(style: 1, name: "clothing", color: "white", owner: 1, season: 1, part: 1, images: [1])
+        let clotingData = UserClothingAPIData(style: 1, name: "clothing", color: "white", owner: 1, season: weatherIndex + 1, part: typeSegmentedControl.selectedSegmentIndex + 1, images: [1])
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.styleImagePost) { errorType in
             if errorType == nil {
                 print("Clothing Post Succeed!!!")
@@ -186,9 +150,8 @@ class AddFashionViewController: UIViewController {
         print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
     }
 
-    @IBAction func fashionWeatherButtonPressed(_ sender: UIButton) {
-        selectFashionWeatherButton(sender)
-        checkFillInData()
+    @IBAction func fashionWeatherSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        selectedFashionData.weatherIndex = sender.selectedSegmentIndex
     }
 
     @IBAction func nameTextFieldEditingChanged(_: UITextField) {
@@ -231,6 +194,5 @@ extension AddFashionViewController: UIViewControllerSetting {
         clothingImageView.image = selectedFashionData.image
 
         configureFashionTypeSegmentedControl()
-        configureFashionWeatherButtons()
     }
 }
