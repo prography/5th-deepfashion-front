@@ -37,8 +37,8 @@ struct UIIdentifier {
 
     struct StyleButton {
         static let startTagIndex = 101
-        static let endWomenTagIndex = 112
-        static let endManTagIndex = 107
-        static let endMaxTagIndex = 112
+        static let endWomenTagIndex = 110
+        static let endManTagIndex = 106
+        static let endMaxTagIndex = 110
     }
 }

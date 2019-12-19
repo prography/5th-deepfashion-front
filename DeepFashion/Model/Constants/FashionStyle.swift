@@ -9,7 +9,7 @@
 import Foundation
 
 struct FashionStyle {
-    static let male = ["Casual", "Formal", "Street", "Vintage", "Hiphop", "Sporty", "Dandy"]
-    static let female = ["Casual", "Formal", "Street", "Vintage", "Hiphop", "Sporty", "Lovely", "Luxury", "Sexy", "Modern", "Chic", "Purity"]
-    static let dictionary: [String: Int] = ["Casual": 1, "Formal": 2, "Street": 3, "Vintage": 4, "Hiphop": 5, "Sporty": 6, "Lovely": 7, "Luxury": 8, "Sexy": 9, "Modern": 10, "Chic": 11, "Purity": 12, "Dandy": 13]
+    static let male = ["Casual", "Formal", "Street", "Vintage", "Sporty", "Dandy"]
+    static let female = ["Casual", "Formal", "Street", "Vintage", "Sporty", "Lovely", "Luxury", "Sexy", "Modern", "Purity"]
+    static let dictionary: [String: Int] = ["Dandy": 1, "Vintage": 2, "Sexy": 3, "Purity": 4, "Lovely": 5, "Luxury": 6, "Modern": 7, "Formal/Office": 8, "Sporty": 9, "Street": 10, "Casual": 11]
 }

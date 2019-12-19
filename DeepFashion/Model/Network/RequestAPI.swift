@@ -258,7 +258,9 @@ final class RequestAPI {
                     completion(errorType)
                     return
                 }
-                print("postResultData is.. \(postResultData)")
+
+                //                print("postResultData is.. \(postResultData)")
+                CommonUserData.shared.setClothingCode(postResultData.images[0].clothing)
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
@@ -275,64 +277,65 @@ final class RequestAPI {
             }.resume()
 
         case .clothingUploadPost:
-            guard let userData = userData as? UserClothingAPIData else {
-                delegate?.requestAPIDidError()
-                completion(NetworkError.wrongType)
-                return
-            }
+            // 구현예정)
+            //            guard let userData = userData as? UserClothingUploadData else {
+            //                delegate?.requestAPIDidError()
+            //                completion(NetworkError.wrongType)
+            //                return
+            //            }
+            //
+            //            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.clothingUpload)"
+            completion(nil)
+            //            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, owner: userData.owner, season: userData.season, part: userData.part, images: userData.images)
+            //
+            //            guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
+            //                let postURL = URL(string: userDataPostURLString) else {
+            //                delegate?.requestAPIDidError()
+            //                completion(NetworkError.unknown)
+            //                return
+            //            }
 
-            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.clothingUpload)"
-
-//            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, owner: userData.owner, season: userData.season, part: userData.part, images: userData.images)
-//
-//            guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
-//                let postURL = URL(string: userDataPostURLString) else {
-//                delegate?.requestAPIDidError()
-//                completion(NetworkError.unknown)
-//                return
-//            }
-
-//            var urlRequest = URLRequest(url: postURL)
-//            urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
-//            urlRequest.httpMethod = "POST"
-//            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            //            var urlRequest = URLRequest(url: postURL)
+            //            urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            //            urlRequest.httpMethod = "POST"
+            //            urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
             // URLSession을 만들어 Post 작용을 시작한다.
-//            urlSession.uploadTask(with: urlRequest, from: userAPIData) {
-//                resultData, response, error in
-//
-//                if error != nil {
-//                    print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
-//                    self.delegate?.requestAPIDidError()
-//                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
-//                    completion(errorType)
-//                }
-//
-//                guard let postAPIResultData = resultData else {
-//                    completion(errorType)
-//                    return
-//                }
-//
-//                guard let postResultData = try? JSONDecoder().decode(UserClothingPostAPIResultData.self, from: postAPIResultData) else {
-//                    print("UserClothingPostAPIResultData Decode Error")
-//                    completion(errorType)
-//                    return
-//                }
-//                print("postResultData is.. \(postResultData)")
-//
-//                if let response = response as? HTTPURLResponse {
-//                    if (200 ... 299).contains(response.statusCode) {
-//                        print("request successed : \(response.statusCode)")
-//                        self.delegate?.requestAPIDidFinished()
-//                        completion(nil)
-//                    } else {
-//                        print("request failed : \(response.statusCode)")
-//                        self.delegate?.requestAPIDidError()
-//                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
-//                        completion(errorType)
-//                    }
-//                }
-//            }.resume()
+            //            urlSession.uploadTask(with: urlRequest, from: userAPIData) {
+            //                resultData, response, error in
+            //
+            //                if error != nil {
+            //                    print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
+            //                    self.delegate?.requestAPIDidError()
+            //                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+            //                    completion(errorType)
+            //                }
+            //
+            //                guard let postAPIResultData = resultData else {
+            //                    completion(errorType)
+            //                    return
+            //                }
+            //
+            //                guard let postResultData = try? JSONDecoder().decode(UserClothingPostAPIResultData.self, from: postAPIResultData) else {
+            //                    print("UserClothingPostAPIResultData Decode Error")
+            //                    completion(errorType)
+            //                    return
+            //                }
+            //                print("postResultData is.. \(postResultData)")
+            //
+            //                if let response = response as? HTTPURLResponse {
+            //                    if (200 ... 299).contains(response.statusCode) {
+            //                        print("request successed : \(response.statusCode)")
+            //                        self.delegate?.requestAPIDidFinished()
+            //                        completion(nil)
+            //                    } else {
+            //                        print("request failed : \(response.statusCode)")
+            //                        self.delegate?.requestAPIDidError()
+            //                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+            //                        completion(errorType)
+            //                    }
+            //                }
+            //            }.resume()
         }
     }
 

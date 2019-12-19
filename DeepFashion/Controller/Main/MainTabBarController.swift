@@ -15,9 +15,16 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTabBarController()
+    }
+
+    private func configureTabBarController() {
         navigationItem.setHidesBackButton(true, animated: false)
         delegate = self
+        configureEditBarButtonItem()
     }
+
+    private func configureEditBarButtonItem() {}
 }
 
 extension MainTabBarController: UITabBarControllerDelegate {
