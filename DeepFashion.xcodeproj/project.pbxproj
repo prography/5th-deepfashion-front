@@ -63,7 +63,8 @@
 		07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */; };
 		07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */; };
 		07C5C5EA23AB549000324B67 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */; };
-		07C5C5ED23AB9AD000324B67 /* CodiListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5EC23AB9AD000324B67 /* CodiListData.swift */; };
+		07C5C5ED23AB9AD000324B67 /* CodiDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */; };
+		07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5EE23ABA08900324B67 /* CodiData.swift */; };
 		07C745A82392A41D0045AB56 /* FashionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* FashionType.swift */; };
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
@@ -163,7 +164,8 @@
 		07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingAPIData.swift; sourceTree = "<group>"; };
 		07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlertController.swift; sourceTree = "<group>"; };
 		07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
-		07C5C5EC23AB9AD000324B67 /* CodiListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListData.swift; sourceTree = "<group>"; };
+		07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiDataSet.swift; sourceTree = "<group>"; };
+		07C5C5EE23ABA08900324B67 /* CodiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiData.swift; sourceTree = "<group>"; };
 		07C745A72392A41D0045AB56 /* FashionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionType.swift; sourceTree = "<group>"; };
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
@@ -441,7 +443,8 @@
 				07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */,
 				07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */,
 				07A3B0C8239138EB0028DC6B /* UserClothingData.swift */,
-				07C5C5EC23AB9AD000324B67 /* CodiListData.swift */,
+				07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */,
+				07C5C5EE23ABA08900324B67 /* CodiData.swift */,
 			);
 			path = ClothingData;
 			sourceTree = "<group>";
@@ -788,9 +791,10 @@
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,
+				07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */,
 				07554FFC23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
-				07C5C5ED23AB9AD000324B67 /* CodiListData.swift in Sources */,
+				07C5C5ED23AB9AD000324B67 /* CodiDataSet.swift in Sources */,
 				07B6E05A2382AD9600D6A9E1 /* HomeViewController.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,
 				071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */,

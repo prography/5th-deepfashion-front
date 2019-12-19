@@ -21,6 +21,7 @@ class CodiListViewController: UIViewController {
 
     private var deleteBarButtonItem: UIBarButtonItem = {
         let deleteBarButtonItem = UIBarButtonItem()
+        deleteBarButtonItem.isEnabled = false
         deleteBarButtonItem.title = "삭제"
         return deleteBarButtonItem
     }()
@@ -38,7 +39,7 @@ class CodiListViewController: UIViewController {
             case .view:
                 inactivateDeleteBarButtonItem()
                 activateEditBarButtonItem()
-                editBarButtonItem.title = "선택"
+                editBarButtonItem.title = "편집"
             case .edit:
                 activateDeleteBarButtonItem()
                 editBarButtonItem.title = "취소"
@@ -47,7 +48,15 @@ class CodiListViewController: UIViewController {
         }
     }
 
-    private var selectedIndexPath: Set<IndexPath> = []
+    private var selectedIndexPath: Set<IndexPath> = [] {
+        didSet {
+            if !selectedIndexPath.isEmpty, viewMode == .edit {
+                self.deleteBarButtonItem.isEnabled = true
+            } else {
+                self.deleteBarButtonItem.isEnabled = false
+            }
+        }
+    }
 
     // MARK: - Life Cycle
 
@@ -66,6 +75,9 @@ class CodiListViewController: UIViewController {
         super.viewWillDisappear(true)
         inactivateEditBarButtonItem()
         inactivateDeleteBarButtonItem()
+        DispatchQueue.main.async {
+            self.codiListCollectionView.reloadData()
+        }
     }
 
     private func activateEditBarButtonItem() {
@@ -78,7 +90,7 @@ class CodiListViewController: UIViewController {
     private func activateDeleteBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.leftBarButtonItem = deleteBarButtonItem
-        deleteBarButtonItem.isEnabled = true
+
         deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
         codiListCollectionView.allowsSelection = false
         codiListCollectionView.allowsMultipleSelection = true
@@ -103,12 +115,18 @@ class CodiListViewController: UIViewController {
 
     @objc func deleteBarButtonItemPressed(_: UIButton) {
         print("deleteBarButtonItemPressed")
-        codiListCollectionView.performBatchUpdates({
-            var idexPathArray = [IndexPath]()
-            selectedIndexPath.forEach { idexPathArray.append($0) }
-            codiListCollectionView.deleteItems(at: idexPathArray)
-            selectedIndexPath = Set<IndexPath>()
-        })
+        var originCodiDataList = CommonUserData.shared.codiDataList
+        selectedIndexPath.forEach {
+            originCodiDataList[$0.item] = nil
+        }
+
+        originCodiDataList = originCodiDataList.filter { $0 != nil }
+        guard let codiDataList = originCodiDataList as? [CodiDataSet] else { return }
+        CommonUserData.shared.configureCodiDataList(codiDataList)
+        DispatchQueue.main.async {
+            self.codiListCollectionView.reloadData()
+        }
+        selectedIndexPath = Set<IndexPath>()
     }
 }
 
@@ -121,18 +139,21 @@ extension CodiListViewController: UICollectionViewDelegate {
 
     func collectionView(_: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         selectedIndexPath.remove(indexPath)
+        if selectedIndexPath.isEmpty {}
         print(selectedIndexPath)
     }
 }
 
 extension CodiListViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return CommonUserData.shared.codiListData.count
+        return CommonUserData.shared.codiDataList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let codiListCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.codiList, for: indexPath) as? CodiListCollectionViewCell else { return UICollectionViewCell() }
-        codiListCell.configureCell(itemIndex: indexPath.item)
+        guard let codiListCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.codiList, for: indexPath) as? CodiListCollectionViewCell,
+            let codiDataSet = CommonUserData.shared.codiDataList[indexPath.item] else { return UICollectionViewCell() }
+
+        codiListCell.configureCell(itemIndex: indexPath.item, codiDataSet: codiDataSet)
         return codiListCell
     }
 }

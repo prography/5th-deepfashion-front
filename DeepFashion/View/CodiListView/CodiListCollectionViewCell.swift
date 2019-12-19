@@ -58,8 +58,8 @@ class CodiListCollectionViewCell: UICollectionViewCell {
 
     // MARK: Methods
 
-    func configureCell(itemIndex: Int) {
-        titleLabel.text = "# \(itemIndex)번째 코디리스트"
+    func configureCell(itemIndex _: Int, codiDataSet: CodiDataSet) {
+        titleLabel.text = "# \(codiDataSet.dataSet[0].codiId)id codiDataSet"
     }
 
     func addSubviews() {

@@ -6,4 +6,9 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct CodiData {
+    let codiImage: UIImage?
+    let codiId: Int
+}

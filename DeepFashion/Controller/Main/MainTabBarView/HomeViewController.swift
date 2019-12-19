@@ -12,6 +12,8 @@ import UIKit
 class HomeViewController: UIViewController {
     // MARK: - Life Cycle
 
+    var codiIdCount = 0
+
     @IBOutlet var clothingInfoView: [MainClothingInfoView]!
     @IBOutlet var codiListSaveButton: UIButton!
 
@@ -39,7 +41,15 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_: UIButton) {
-        print("fucking save")
+        var codiDataSet = [CodiData]()
+        for i in clothingInfoView.indices {
+            let codiData = CodiData(codiImage: clothingInfoView[i].clothingImageView.image, codiId: codiIdCount)
+            codiDataSet.append(codiData)
+            if codiDataSet.count == 4 { break }
+        }
+        CommonUserData.shared.addCodiData(codiDataSet)
+        print("codiDataSet Added!!")
+        codiIdCount += 1
     }
 }
 
