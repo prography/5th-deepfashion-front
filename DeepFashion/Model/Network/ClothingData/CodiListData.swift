@@ -9,5 +9,9 @@
 import Foundation
 
 struct CodiListData {
-    let codiSet = [CodiListData](repeating: CodiListData(), count: 4)
+    private var codiSet = [CodiListData]()
+
+    mutating func configureData(dataSet codiListData: [CodiListData]) {
+        codiSet = codiListData
+    }
 }

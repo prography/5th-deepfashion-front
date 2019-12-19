@@ -37,6 +37,10 @@ class HomeViewController: UIViewController {
     private func configureCodiListSaveButton() {
         codiListSaveButton.isEnabled = true
     }
+
+    @IBAction func saveButtonPressed(_: UIButton) {
+        print("fucking save")
+    }
 }
 
 extension HomeViewController: UIViewControllerSetting {

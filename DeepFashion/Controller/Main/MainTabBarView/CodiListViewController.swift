@@ -127,7 +127,7 @@ extension CodiListViewController: UICollectionViewDelegate {
 
 extension CodiListViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 10
+        return CommonUserData.shared.codiListData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

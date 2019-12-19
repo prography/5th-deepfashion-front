@@ -1246,9 +1246,9 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu5-Jd-hH3">
                                         <rect key="frame" x="160" y="0.0" width="160" height="60"/>
-                                        <color key="backgroundColor" red="0.93027810576824299" green="0.96848052740097046" blue="0.92799184173634597" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.86511325319081134" green="0.96851998567581177" blue="0.89753162264709163" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="새로고침 버튼">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -1309,15 +1309,18 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afC-Ei-APJ">
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afC-Ei-APJ">
                                                 <rect key="frame" x="0.0" y="295" width="280" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="v9f-lm-Gwm"/>
                                                 </constraints>
-                                                <state key="normal" title="저장하기">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
+                                                <state key="normal" title="저장하기"/>
+                                                <state key="selected" title="저장하기"/>
+                                                <state key="highlighted" title="저장하기"/>
+                                                <connections>
+                                                    <action selector="saveButtonPressed:" destination="abK-qW-sZg" eventType="touchUpInside" id="d58-vH-rpp"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
