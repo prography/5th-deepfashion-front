@@ -37,14 +37,11 @@ class CodiListViewController: UIViewController {
             switch viewMode {
             case .view:
                 inactivateDeleteBarButtonItem()
+                activateEditBarButtonItem()
                 editBarButtonItem.title = "선택"
-                self.codiListCollectionView.allowsSelection = false
-                self.codiListCollectionView.allowsMultipleSelection = false
             case .edit:
                 activateDeleteBarButtonItem()
                 editBarButtonItem.title = "취소"
-                self.codiListCollectionView.allowsSelection = false
-                self.codiListCollectionView.allowsMultipleSelection = true
                 // removeAll()
             }
         }
@@ -60,7 +57,7 @@ class CodiListViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureViewController()
-        activateEditBarButtonItem()
+        viewMode = .view
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -81,6 +78,8 @@ class CodiListViewController: UIViewController {
         mainTabBarController.navigationItem.leftBarButtonItem = deleteBarButtonItem
         deleteBarButtonItem.isEnabled = true
         deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
+        codiListCollectionView.allowsSelection = false
+        codiListCollectionView.allowsMultipleSelection = true
     }
 
     private func inactivateEditBarButtonItem() {
@@ -91,6 +90,8 @@ class CodiListViewController: UIViewController {
     private func inactivateDeleteBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.leftBarButtonItem = nil
+        codiListCollectionView.allowsSelection = false
+        codiListCollectionView.allowsMultipleSelection = false
     }
 
     @objc func editBarButtonItemPressed(_: UIButton) {
