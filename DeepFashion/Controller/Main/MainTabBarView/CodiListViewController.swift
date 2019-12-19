@@ -9,6 +9,10 @@
 import UIKit
 
 class CodiListViewController: UIViewController {
+    // MARK: UIs
+
+    @IBOutlet var codiListCollectionView: UICollectionView!
+
     private var editBarButtonItem: UIBarButtonItem = {
         let editBarButtonItem = UIBarButtonItem()
         editBarButtonItem.title = "편집"
@@ -21,19 +25,33 @@ class CodiListViewController: UIViewController {
         return deleteBarButtonItem
     }()
 
-    private var isEditingMode: Bool = false {
-        willSet {
-            if newValue {
-                activateDeleteBarButtonItem()
-            } else {
+    // MARK: Properties
+
+    enum ViewMode {
+        case view
+        case edit
+    }
+
+    var viewMode: ViewMode = .view {
+        didSet {
+            switch viewMode {
+            case .view:
                 inactivateDeleteBarButtonItem()
+                editBarButtonItem.title = "선택"
+                self.codiListCollectionView.allowsSelection = false
+                self.codiListCollectionView.allowsMultipleSelection = false
+            case .edit:
+                activateDeleteBarButtonItem()
+                editBarButtonItem.title = "취소"
+                self.codiListCollectionView.allowsSelection = false
+                self.codiListCollectionView.allowsMultipleSelection = true
+                // removeAll()
             }
         }
     }
 
     // MARK: - Life Cycle
 
-    @IBOutlet var codiListCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -77,7 +95,7 @@ class CodiListViewController: UIViewController {
 
     @objc func editBarButtonItemPressed(_: UIButton) {
         print("editBarButtonItemPressed!")
-        isEditingMode.toggle()
+        viewMode = viewMode == .view ? .edit : .view
     }
 
     @objc func deleteBarButtonItemPressed(_: UIButton) {

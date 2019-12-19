@@ -426,7 +426,7 @@
 				07554FF723A67A1400691C5B /* MyPageView */,
 				07554FF523A679F600691C5B /* HomeView */,
 				07A3B0C7239126940028DC6B /* Layout */,
-				07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */,
+				07C5C5EB23AB64CB00324B67 /* CodiListView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -441,6 +441,14 @@
 				07A3B0C8239138EB0028DC6B /* UserClothingData.swift */,
 			);
 			path = ClothingData;
+			sourceTree = "<group>";
+		};
+		07C5C5EB23AB64CB00324B67 /* CodiListView */ = {
+			isa = PBXGroup;
+			children = (
+				07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */,
+			);
+			path = CodiListView;
 			sourceTree = "<group>";
 		};
 		07D5E9A2236E00BE00A27B28 /* SignUp */ = {

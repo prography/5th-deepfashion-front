@@ -9,8 +9,15 @@
 import UIKit
 
 class ClosetListTableViewCell: UITableViewCell {
+    // MARK: UIs
+
     @IBOutlet var closetListCollectionView: UICollectionView!
+
+    // MARK: Properties
+
     private var closetListData: [UserClothingData] = []
+
+    // MARK: Life Cycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,9 +28,10 @@ class ClosetListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
+
+    // MARK: Methods
 
     func configureCell(clothingData: [UserClothingData]) {
         closetListData = clothingData
