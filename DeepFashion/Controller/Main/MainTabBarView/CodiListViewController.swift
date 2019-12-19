@@ -47,6 +47,8 @@ class CodiListViewController: UIViewController {
         }
     }
 
+    private var selectedIndexPath: Set<IndexPath> = []
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -101,10 +103,27 @@ class CodiListViewController: UIViewController {
 
     @objc func deleteBarButtonItemPressed(_: UIButton) {
         print("deleteBarButtonItemPressed")
+        codiListCollectionView.performBatchUpdates({
+            var idexPathArray = [IndexPath]()
+            selectedIndexPath.forEach { idexPathArray.append($0) }
+            codiListCollectionView.deleteItems(at: idexPathArray)
+            selectedIndexPath = Set<IndexPath>()
+        })
     }
 }
 
-extension CodiListViewController: UICollectionViewDelegate {}
+extension CodiListViewController: UICollectionViewDelegate {
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("now item: \(indexPath.item)")
+        selectedIndexPath.insert(indexPath)
+        print(selectedIndexPath)
+    }
+
+    func collectionView(_: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        selectedIndexPath.remove(indexPath)
+        print(selectedIndexPath)
+    }
+}
 
 extension CodiListViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
