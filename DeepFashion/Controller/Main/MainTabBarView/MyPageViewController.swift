@@ -30,8 +30,8 @@ class MyPageViewController: UIViewController {
     }
 
     private func presentLogoutAlertController() {
-        presentBasicTwoButtonAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?") { isYes in
-            if isYes {
+        presentBasicTwoButtonAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?") { isApproved in
+            if isApproved {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: SegueIdentifier.unwindToLogin, sender: nil)
                 }

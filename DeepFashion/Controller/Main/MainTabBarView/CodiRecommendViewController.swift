@@ -44,9 +44,7 @@ class CodiRecommendViewController: UIViewController {
         codiListSaveButton.isEnabled = true
     }
 
-    // MARK: - IBAction
-
-    @IBAction func saveButtonPressed(_: UIButton) {
+    private func addCodiDataSet() {
         var codiDataSet = [CodiData]()
         for i in clothingInfoView.indices {
             let codiData = CodiData(codiImage: clothingInfoView[i].clothingImageView.image, codiId: codiIdCount)
@@ -56,6 +54,16 @@ class CodiRecommendViewController: UIViewController {
         CommonUserData.shared.addCodiData(codiDataSet)
         print("codiDataSet Added!!")
         codiIdCount += 1
+    }
+
+    // MARK: - IBAction
+
+    @IBAction func saveButtonPressed(_: UIButton) {
+        presentBasicTwoButtonAlertController(title: "코디 저장", message: "해당 코디를 저장하시겠습니까?") { isApproved in
+            if isApproved {
+                self.addCodiDataSet()
+            }
+        }
     }
 }
 
