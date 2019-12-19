@@ -8,16 +8,18 @@
 
 import UIKit
 
-@IBDesignable
-class HomeViewController: UIViewController {
-    // MARK: - Life Cycle
-
-    var codiIdCount = 0
+class CodiRecommendViewController: UIViewController {
+    // MARK: UIs
 
     @IBOutlet var clothingInfoView: [MainClothingInfoView]!
     @IBOutlet var codiListSaveButton: UIButton!
 
+    // MARK: Properties
+
     private let clothingPartTitle = [" Top", " Outer", " Bottom", " Shoes"]
+    private var codiIdCount = 0
+
+    // MARK: Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class HomeViewController: UIViewController {
         configureViewController()
     }
 
+    // MARK: Methods
+
     private func configureClothingInfoViewTitle() {
         for i in clothingPartTitle.indices {
             clothingInfoView[i].titleLabel.text = clothingPartTitle[i]
@@ -39,6 +43,8 @@ class HomeViewController: UIViewController {
     private func configureCodiListSaveButton() {
         codiListSaveButton.isEnabled = true
     }
+
+    // MARK: - IBAction
 
     @IBAction func saveButtonPressed(_: UIButton) {
         var codiDataSet = [CodiData]()
@@ -53,7 +59,7 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UIViewControllerSetting {
+extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
         configureBasicTitle(ViewData.Title.MainTabBarView.homeView)
         configureCodiListSaveButton()
