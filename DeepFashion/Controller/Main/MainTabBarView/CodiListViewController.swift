@@ -21,6 +21,16 @@ class CodiListViewController: UIViewController {
         return deleteBarButtonItem
     }()
 
+    private var isEditingMode: Bool = false {
+        willSet {
+            if newValue {
+                activateDeleteBarButtonItem()
+            } else {
+                inactivateDeleteBarButtonItem()
+            }
+        }
+    }
+
     // MARK: - Life Cycle
 
     @IBOutlet var codiListCollectionView: UICollectionView!
@@ -33,35 +43,41 @@ class CodiListViewController: UIViewController {
         super.viewWillAppear(true)
         configureViewController()
         activateEditBarButtonItem()
-        activateDeleteBarButtonItem()
     }
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
-        inactivateBarButtonItems()
+        inactivateEditBarButtonItem()
+        inactivateDeleteBarButtonItem()
     }
 
     private func activateEditBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
-        editBarButtonItem.isEnabled = true
         mainTabBarController.navigationItem.rightBarButtonItem = editBarButtonItem
+        editBarButtonItem.isEnabled = true
         editBarButtonItem.addTargetForAction(target: self, action: #selector(editBarButtonItemPressed(_:)))
     }
 
     private func activateDeleteBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
-        deleteBarButtonItem.isEnabled = true
         mainTabBarController.navigationItem.leftBarButtonItem = deleteBarButtonItem
+        deleteBarButtonItem.isEnabled = true
         deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
     }
 
-    private func inactivateBarButtonItems() {
+    private func inactivateEditBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.rightBarButtonItem = nil
     }
 
+    private func inactivateDeleteBarButtonItem() {
+        guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
+        mainTabBarController.navigationItem.leftBarButtonItem = nil
+    }
+
     @objc func editBarButtonItemPressed(_: UIButton) {
         print("editBarButtonItemPressed!")
+        isEditingMode.toggle()
     }
 
     @objc func deleteBarButtonItemPressed(_: UIButton) {
