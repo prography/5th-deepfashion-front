@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct CodiListData {
-    private var codiSet = [CodiListData]()
+struct CodiDataSet {
+    private var codiSet = [CodiData]()
 
     mutating func configureData(dataSet codiListData: [CodiListData]) {
         codiSet = codiListData
