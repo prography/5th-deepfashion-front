@@ -70,7 +70,7 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let codiRecommendCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.recommend, for: indexPath) as? CodiRecommendCollectionViewCell else { return UICollectionViewCell() }
-
+        codiRecommendCollectionCell.configureCell(title: ViewData.Title.fashionType[indexPath.item])
         return codiRecommendCollectionCell
     }
 }
