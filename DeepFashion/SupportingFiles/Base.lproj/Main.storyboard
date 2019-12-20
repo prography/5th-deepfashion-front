@@ -794,133 +794,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QYX-Qr-SFX">
-                                <rect key="frame" x="10" y="20" width="300" height="400"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-DH-Yhc">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="Yet-UP-B5L"/>
-                                        </constraints>
-                                    </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QN5-E0-Xud">
-                                        <rect key="frame" x="0.0" y="163" width="300" height="53.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-Jd-FuW">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="13.5"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="패션 이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-hs-9lF">
-                                                <rect key="frame" x="0.0" y="26.5" width="300" height="27"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartQuotesType="no" textContentType="name"/>
-                                                <connections>
-                                                    <action selector="nameTextFieldEditingChanged:" destination="TFM-gH-Vx2" eventType="editingChanged" id="QjS-we-dvn"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="f0v-hs-9lF" firstAttribute="height" secondItem="FiH-Jd-FuW" secondAttribute="height" multiplier="2" id="MGP-4S-D9I"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-y0-Iy1">
-                                        <rect key="frame" x="0.0" y="229.5" width="300" height="48"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="11.5"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-Xz-Mzn">
-                                                <rect key="frame" x="0.0" y="24.5" width="300" height="24.5"/>
-                                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <segments>
-                                                    <segment title="Outer"/>
-                                                    <segment title="Top"/>
-                                                    <segment title="Bottom"/>
-                                                    <segment title="Shoes"/>
-                                                </segments>
-                                                <connections>
-                                                    <action selector="fashionTypeSegmentedControlValueChanged:" destination="TFM-gH-Vx2" eventType="valueChanged" id="PTj-kR-Oe6"/>
-                                                </connections>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Ngo-Xz-Mzn" firstAttribute="height" secondItem="vwC-XZ-suw" secondAttribute="height" multiplier="2" id="eL2-cQ-bDC"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="1Sv-vk-Cyb">
-                                        <rect key="frame" x="0.0" y="290.5" width="300" height="48.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입는 계절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-Mv-KCi">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="12"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L7B-jF-YI8">
-                                                <rect key="frame" x="0.0" y="25" width="300" height="24.5"/>
-                                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <segments>
-                                                    <segment title="봄/가을"/>
-                                                    <segment title="여름"/>
-                                                    <segment title="겨울"/>
-                                                    <segment title="All"/>
-                                                </segments>
-                                                <connections>
-                                                    <action selector="fashionTypeSegmentedControlValueChanged:" destination="TFM-gH-Vx2" eventType="valueChanged" id="jRu-SQ-jR0"/>
-                                                </connections>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="L7B-jF-YI8" firstAttribute="height" secondItem="rzc-Mv-KCi" secondAttribute="height" multiplier="2" id="va8-sv-Gcp"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-qU-mAk">
-                                        <rect key="frame" x="0.0" y="352" width="300" height="48"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bks-kG-fpX">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="11.5"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-UA-1hn">
-                                                <rect key="frame" x="0.0" y="24.5" width="300" height="23.5"/>
-                                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                <state key="normal" title="Casual">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="editStyleButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="m9J-oe-Usy"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lbQ-UA-1hn" firstAttribute="height" secondItem="bks-kG-fpX" secondAttribute="height" multiplier="2" id="MRB-oy-dqC"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="lqj-qU-mAk" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" id="MqS-1Y-9VR"/>
-                                    <constraint firstItem="1Sv-vk-Cyb" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" id="TPx-mV-hqM"/>
-                                    <constraint firstItem="QN5-E0-Xud" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" multiplier="1.10526" id="ZxS-cX-Kbx"/>
-                                    <constraint firstAttribute="height" constant="400" id="f22-Vq-999"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
-                                <rect key="frame" x="10" y="440" width="300" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
+                                <rect key="frame" x="0.0" y="498" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u8-yu-lvO">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                         <state key="normal" title="등록하기">
@@ -931,7 +809,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
-                                        <rect key="frame" x="150" y="0.0" width="150" height="50"/>
+                                        <rect key="frame" x="160" y="0.0" width="160" height="50"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="취소하기">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -943,30 +821,167 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GPo-Ry-TaY"/>
-                                    <constraint firstItem="vIs-YW-h5X" firstAttribute="width" secondItem="3u8-yu-lvO" secondAttribute="width" id="u83-l8-Ozl"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-rD-P5A">
+                                <rect key="frame" x="0.0" y="150" width="320" height="348"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="286" id="6CM-XT-gAI" customClass="AddFashionTableViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="286"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6CM-XT-gAI" id="OQW-ha-8wr">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="286"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-M0-ZFg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="286"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QN5-E0-Xud">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="71.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiH-Jd-FuW">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="패션 이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-hs-9lF">
+                                                                    <rect key="frame" x="0.0" y="32.5" width="320" height="39"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartQuotesType="no" textContentType="name"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="f0v-hs-9lF" firstAttribute="height" secondItem="FiH-Jd-FuW" secondAttribute="height" multiplier="2" id="MGP-4S-D9I"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-y0-Iy1">
+                                                            <rect key="frame" x="0.0" y="71.5" width="320" height="71.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-Xz-Mzn">
+                                                                    <rect key="frame" x="0.0" y="32.5" width="320" height="40"/>
+                                                                    <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <segments>
+                                                                        <segment title="Outer"/>
+                                                                        <segment title="Top"/>
+                                                                        <segment title="Bottom"/>
+                                                                        <segment title="Shoes"/>
+                                                                    </segments>
+                                                                </segmentedControl>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Ngo-Xz-Mzn" firstAttribute="height" secondItem="vwC-XZ-suw" secondAttribute="height" multiplier="2" id="eL2-cQ-bDC"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="1Sv-vk-Cyb">
+                                                            <rect key="frame" x="0.0" y="143" width="320" height="71.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입는 계절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-Mv-KCi">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L7B-jF-YI8">
+                                                                    <rect key="frame" x="0.0" y="32.5" width="320" height="40"/>
+                                                                    <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <segments>
+                                                                        <segment title="봄/가을"/>
+                                                                        <segment title="여름"/>
+                                                                        <segment title="겨울"/>
+                                                                        <segment title="All"/>
+                                                                    </segments>
+                                                                </segmentedControl>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="L7B-jF-YI8" firstAttribute="height" secondItem="rzc-Mv-KCi" secondAttribute="height" multiplier="2" id="va8-sv-Gcp"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-qU-mAk">
+                                                            <rect key="frame" x="0.0" y="214.5" width="320" height="71.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bks-kG-fpX">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-UA-1hn">
+                                                                    <rect key="frame" x="0.0" y="32.5" width="320" height="39"/>
+                                                                    <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                    <state key="normal" title="Casual">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="lbQ-UA-1hn" firstAttribute="height" secondItem="bks-kG-fpX" secondAttribute="height" multiplier="2" id="MRB-oy-dqC"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="lqj-qU-mAk" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" id="f4P-uX-9QL"/>
+                                                        <constraint firstItem="QN5-E0-Xud" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" id="jS0-t7-nSJ"/>
+                                                        <constraint firstItem="1Sv-vk-Cyb" firstAttribute="height" secondItem="xQj-y0-Iy1" secondAttribute="height" id="xXU-SP-ysx"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ajD-M0-ZFg" firstAttribute="top" secondItem="OQW-ha-8wr" secondAttribute="top" id="BaX-Zw-iOo"/>
+                                                <constraint firstItem="ajD-M0-ZFg" firstAttribute="leading" secondItem="OQW-ha-8wr" secondAttribute="leading" id="Ek3-fa-ibo"/>
+                                                <constraint firstAttribute="trailing" secondItem="ajD-M0-ZFg" secondAttribute="trailing" id="Iai-xB-FSc"/>
+                                                <constraint firstAttribute="bottom" secondItem="ajD-M0-ZFg" secondAttribute="bottom" id="oac-lB-jqn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameTextField" destination="f0v-hs-9lF" id="JoU-C4-d0h"/>
+                                            <outlet property="styleButton" destination="lbQ-UA-1hn" id="pXc-Mj-wrc"/>
+                                            <outlet property="typeSegmentedControl" destination="Ngo-Xz-Mzn" id="Ien-dd-eeA"/>
+                                            <outlet property="weatherSegmentedControl" destination="L7B-jF-YI8" id="hVd-4c-tbB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-DH-Yhc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Yet-UP-B5L"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QYX-Qr-SFX" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" constant="10" id="70l-KA-42c"/>
-                            <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="QYX-Qr-SFX" secondAttribute="trailing" constant="10" id="Gou-sE-Mdi"/>
-                            <constraint firstItem="QYX-Qr-SFX" firstAttribute="top" secondItem="b84-4g-Hlw" secondAttribute="top" constant="20" id="R0N-7m-ksV"/>
-                            <constraint firstItem="hQe-oS-nZg" firstAttribute="trailing" secondItem="QYX-Qr-SFX" secondAttribute="trailing" id="Y0e-sm-sqv"/>
-                            <constraint firstItem="hQe-oS-nZg" firstAttribute="top" secondItem="QYX-Qr-SFX" secondAttribute="bottom" constant="20" id="fz7-eU-ZkI"/>
-                            <constraint firstItem="hQe-oS-nZg" firstAttribute="leading" secondItem="QYX-Qr-SFX" secondAttribute="leading" id="zkG-JL-npY"/>
+                            <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="MXX-DH-Yhc" secondAttribute="trailing" id="3TQ-R3-AIW"/>
+                            <constraint firstItem="b84-4g-Hlw" firstAttribute="bottom" secondItem="hQe-oS-nZg" secondAttribute="bottom" constant="20" id="4ck-Ff-E5r"/>
+                            <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="tPS-rD-P5A" secondAttribute="trailing" id="5Pw-vC-QgS"/>
+                            <constraint firstItem="tPS-rD-P5A" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="Knn-qx-pdo"/>
+                            <constraint firstItem="MXX-DH-Yhc" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="MRt-Ak-jL2"/>
+                            <constraint firstItem="b84-4g-Hlw" firstAttribute="bottom" secondItem="hQe-oS-nZg" secondAttribute="bottom" constant="20" id="Nny-hV-WUI"/>
+                            <constraint firstItem="MXX-DH-Yhc" firstAttribute="top" secondItem="b84-4g-Hlw" secondAttribute="top" id="SPp-uW-xAY"/>
+                            <constraint firstItem="hQe-oS-nZg" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="XZS-x4-3se"/>
+                            <constraint firstItem="hQe-oS-nZg" firstAttribute="top" secondItem="tPS-rD-P5A" secondAttribute="bottom" id="abt-Tz-lZB"/>
+                            <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="hQe-oS-nZg" secondAttribute="trailing" id="eba-uA-B8l"/>
+                            <constraint firstItem="tPS-rD-P5A" firstAttribute="top" secondItem="MXX-DH-Yhc" secondAttribute="bottom" id="fyJ-A5-PPc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b84-4g-Hlw"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="clothingImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
-                        <outlet property="nameTextField" destination="f0v-hs-9lF" id="Sg9-Xp-KMN"/>
                         <outlet property="registrationButton" destination="3u8-yu-lvO" id="rMZ-OE-tbf"/>
-                        <outlet property="styleButton" destination="lbQ-UA-1hn" id="vjq-Fa-zAr"/>
-                        <outlet property="typeSegmentedControl" destination="Ngo-Xz-Mzn" id="s8F-ye-oDN"/>
-                        <outlet property="weatherSegmentedControl" destination="L7B-jF-YI8" id="zdv-uQ-3zu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ev-yl-kLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,11 +11,7 @@ import UIKit
 class AddFashionViewController: UIViewController {
     // MARK: IBOutlet
 
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var styleButton: UIButton!
     @IBOutlet var clothingImageView: UIImageView!
-    @IBOutlet var typeSegmentedControl: UISegmentedControl!
-    @IBOutlet var weatherSegmentedControl: UISegmentedControl!
     @IBOutlet var registrationButton: UIButton!
 
     // MARK: Properties
@@ -36,7 +32,7 @@ class AddFashionViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureFashionStyleButton()
+//        configureFashionStyleButton()
         checkFillInData()
     }
 
@@ -47,33 +43,33 @@ class AddFashionViewController: UIViewController {
     }
 
     /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
-    private func isNameTextFieldEmpty() -> Bool {
-        guard let nameText = nameTextField.text else { return false }
-        return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
-    }
+//    private func isNameTextFieldEmpty() -> Bool {
+//        guard let nameText = nameTextField.text else { return false }
+//        return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
+//    }
 
     /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
     private func checkStyleButtonSetting() -> Bool {
         return selectedFashionData.style.count != 0
     }
 
-    private func configureFashionStyleButton() {
-        if selectedFashionData.style.count == 0 { return }
-        var fashionStyleButtonTitle = ""
-        for i in selectedFashionData.style.indices {
-            if selectedFashionData.style[i].1 == 1 {
-                fashionStyleButtonTitle += "\(selectedFashionData.style[i].0)"
-                if i != selectedFashionData.style.count - 1 { fashionStyleButtonTitle += " " }
-            }
-        }
-
-        styleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
-    }
-
-    private func configureFashionTypeSegmentedControl() {
-        // 초기 선택 인덱스를 설정
-        typeSegmentedControl.selectedSegmentIndex = 0
-    }
+//    private func configureFashionStyleButton() {
+//        if selectedFashionData.style.count == 0 { return }
+//        var fashionStyleButtonTitle = ""
+//        for i in selectedFashionData.style.indices {
+//            if selectedFashionData.style[i].1 == 1 {
+//                fashionStyleButtonTitle += "\(selectedFashionData.style[i].0)"
+//                if i != selectedFashionData.style.count - 1 { fashionStyleButtonTitle += " " }
+//            }
+//        }
+//
+//        styleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
+//    }
+//
+//    private func configureFashionTypeSegmentedControl() {
+//        // 초기 선택 인덱스를 설정
+//        typeSegmentedControl.selectedSegmentIndex = 0
+//    }
 
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
         let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
@@ -83,11 +79,11 @@ class AddFashionViewController: UIViewController {
     }
 
     private func checkFillInData() {
-        if checkStyleButtonSetting(), isNameTextFieldEmpty() {
-            makeRegistrationButtonEnabled()
-        } else {
-            makeRegistrationButtonDisabled()
-        }
+//        if checkStyleButtonSetting(), isNameTextFieldEmpty() {
+//            makeRegistrationButtonEnabled()
+//        } else {
+//            makeRegistrationButtonDisabled()
+//        }
     }
 
     private func makeRegistrationButtonDisabled() {
@@ -119,94 +115,94 @@ class AddFashionViewController: UIViewController {
 
     @IBAction func addFashionButton(_: UIButton) {
         // 이미지, 이름 셋팅
-        guard let fashionImage = selectedFashionData.image,
-            let fashionName = nameTextField.text else { return }
-        // 옷 타입, 스타일 셋팅
-        let fashionType = selectedFashionData.typeIndex
-        let fashionStyle = selectedFashionData.style
-        let weatherIndex = weatherSegmentedControl.selectedSegmentIndex
-
-        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: fashionType, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
-        CommonUserData.shared.addUserClothing(clothingData)
-        print("now Adding Clothing Data : \(clothingData)")
-
-        let clotingData = UserClothingAPIData(style: 1, name: fashionName, color: "white", owner: 1, season: weatherIndex + 1, part: typeSegmentedControl.selectedSegmentIndex + 1, images: [1])
-        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
-            if errorType == nil {
-                print("clothing/ Post Succeed!!!")
-                // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
-                self.uploadClothingImage()
-            } else {
-                print("Clothing Post Error!!!")
-                DispatchQueue.main.async {
-                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.") {}
-                }
-            }
-        }
-
-        print(CommonUserData.shared.userClothingList)
-    }
-
-    @IBAction func editStyleButtonPressed(_: UIButton) {
-        let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
-        guard let styleSelectViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
-        styleSelectViewController.selectedStyle = selectedFashionData.style
-        print(selectedFashionData.style)
-        navigationController?.pushViewController(styleSelectViewController, animated: true)
+//        guard let fashionImage = selectedFashionData.image,
+//            let fashionName = nameTextField.text else { return }
+//        // 옷 타입, 스타일 셋팅
+//        let fashionType = selectedFashionData.typeIndex
+//        let fashionStyle = selectedFashionData.style
+//        let weatherIndex = weatherSegmentedControl.selectedSegmentIndex
+//
+//        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: fashionType, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
+//        CommonUserData.shared.addUserClothing(clothingData)
+//        print("now Adding Clothing Data : \(clothingData)")
+//
+//        let clotingData = UserClothingAPIData(style: 1, name: fashionName, color: "white", owner: 1, season: weatherIndex + 1, part: typeSegmentedControl.selectedSegmentIndex + 1, images: [1])
+//        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
+//            if errorType == nil {
+//                print("clothing/ Post Succeed!!!")
+//                // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
+//                self.uploadClothingImage()
+//            } else {
+//                print("Clothing Post Error!!!")
+//                DispatchQueue.main.async {
+//                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.") {}
+//                }
+//            }
+//        }
+//
+//        print(CommonUserData.shared.userClothingList)
     }
 
     @IBAction func cancelButton(_: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        selectedFashionData.typeIndex = sender.selectedSegmentIndex
-        print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
-    }
-
-    @IBAction func fashionWeatherSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        selectedFashionData.weatherIndex = sender.selectedSegmentIndex
-    }
-
-    @IBAction func nameTextFieldEditingChanged(_: UITextField) {
-        checkFillInData()
-    }
+//    @IBAction func editStyleButtonPressed(_: UIButton) {
+//        let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
+//        guard let styleSelectViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
+//        styleSelectViewController.selectedStyle = selectedFashionData.style
+//        print(selectedFashionData.style)
+//        navigationController?.pushViewController(styleSelectViewController, animated: true)
+//    }
+//
+//    @IBAction func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+//        selectedFashionData.typeIndex = sender.selectedSegmentIndex
+//        print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
+//    }
+//
+//    @IBAction func fashionWeatherSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+//        selectedFashionData.weatherIndex = sender.selectedSegmentIndex
+//    }
+//
+//    @IBAction func nameTextFieldEditingChanged(_: UITextField) {
+//        checkFillInData()
+//    }
 }
 
-extension AddFashionViewController: UIPickerViewDataSource {
-    func numberOfComponents(in _: UIPickerView) -> Int {
-        return 1
-    }
+// extension AddFashionViewController: UITextFieldDelegate {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
+//        return checkCharacter(textField: textField, character: string)
+//    }
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+// }
 
-    func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-        return ViewData.Title.fashionType.count
-    }
-
-    func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-        return "\(ViewData.Title.fashionType[row])"
-    }
-}
-
-extension AddFashionViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
-        return checkCharacter(textField: textField, character: string)
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
+// extension AddFashionViewController: UIPickerViewDataSource {
+//    func numberOfComponents(in _: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
+//        return ViewData.Title.fashionType.count
+//    }
+//
+//    func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
+//        return "\(ViewData.Title.fashionType[row])"
+//    }
+// }
 
 extension AddFashionViewController: UIViewControllerSetting {
     func configureViewController() {
-        fashionTypeAlertController.fashionTypePickerView.dataSource = self
-        nameTextField.delegate = self
+//        fashionTypeAlertController.fashionTypePickerView.dataSource = self
+//        nameTextField.delegate = self
 
         navigationController?.navigationBar.isHidden = true
 
         clothingImageView.image = selectedFashionData.image
 
-        configureFashionTypeSegmentedControl()
+//        configureFashionTypeSegmentedControl()
     }
 }

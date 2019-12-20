@@ -70,6 +70,7 @@
 		07C5C5F923ACEC6300324B67 /* lockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C5F823ACEC6300324B67 /* lockIcon.png */; };
 		07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */; };
 		07C5C5FD23ACF5A700324B67 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FC23ACF5A700324B67 /* DateFormatter+.swift */; };
+		07C5C60023ACFE0200324B67 /* AddFashionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */; };
 		07C745A82392A41D0045AB56 /* FashionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* FashionType.swift */; };
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
@@ -176,6 +177,7 @@
 		07C5C5F823ACEC6300324B67 /* lockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockIcon.png; sourceTree = "<group>"; };
 		07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetIdentifier.swift; sourceTree = "<group>"; };
 		07C5C5FC23ACF5A700324B67 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
+		07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFashionTableViewCell.swift; sourceTree = "<group>"; };
 		07C745A72392A41D0045AB56 /* FashionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionType.swift; sourceTree = "<group>"; };
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 		07B6E0652382C05700D6A9E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				07C5C5FE23ACFDE300324B67 /* AddFashionView */,
 				07554FF823A67A2600691C5B /* PhotoAddView */,
 				07554FF623A67A0800691C5B /* ClosetListView */,
 				07554FF723A67A1400691C5B /* MyPageView */,
@@ -467,6 +470,14 @@
 				07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */,
 			);
 			path = CodiListView;
+			sourceTree = "<group>";
+		};
+		07C5C5FE23ACFDE300324B67 /* AddFashionView */ = {
+			isa = PBXGroup;
+			children = (
+				07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */,
+			);
+			path = AddFashionView;
 			sourceTree = "<group>";
 		};
 		07D5E9A2236E00BE00A27B28 /* SignUp */ = {
@@ -820,6 +831,7 @@
 				07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */,
 				07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */,
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
+				07C5C60023ACFE0200324B67 /* AddFashionTableViewCell.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
 				07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */,
 				07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */,
