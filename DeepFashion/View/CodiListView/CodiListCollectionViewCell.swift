@@ -52,10 +52,6 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         addConstraints()
     }
 
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-
     // MARK: Methods
 
     func configureCell(itemIndex _: Int, codiDataSet: CodiDataSet) {

@@ -25,6 +25,7 @@ struct UIIdentifier {
     struct Cell {
         struct CollectionView {
             static let closetList = "closetListCollectionViewCell"
+            static let recommend = "recommendCollectionViewCell"
             static let codiList = "codiListCollectionViewCell"
             static let styleTitle = "styleTitleCollectionViewCell"
         }
