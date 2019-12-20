@@ -15,7 +15,7 @@ struct UIIdentifier {
     static let mainStoryboard = "Main"
     struct ViewController {
         static let addFashion = "AddFashionViewController"
-        static let editStyle = "StyleSelectViewController"
+        static let editStyle = "EditStyleViewController"
     }
 
     struct NibName {

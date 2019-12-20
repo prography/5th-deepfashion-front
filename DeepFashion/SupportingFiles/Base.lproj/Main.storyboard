@@ -1049,7 +1049,7 @@
         <!--Edit Style View Controller-->
         <scene sceneID="OCR-gI-jes">
             <objects>
-                <viewController storyboardIdentifier="StyleSelectViewController" modalPresentationStyle="fullScreen" id="W1j-sd-euh" customClass="EditStyleViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditStyleViewController" modalPresentationStyle="fullScreen" id="W1j-sd-euh" customClass="EditStyleViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hIx-xR-y2v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

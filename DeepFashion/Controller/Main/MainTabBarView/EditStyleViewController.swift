@@ -123,7 +123,8 @@ extension EditStyleViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? FashionStyleSelectCollectionViewCell else { return UICollectionViewCell() }
-        styleTitleCell.configureCell(style: selectedStyle[indexPath.item])
+
+//        styleTitleCell.configureCell(style: selectedStyle[indexPath.item])
 
         return styleTitleCell
     }

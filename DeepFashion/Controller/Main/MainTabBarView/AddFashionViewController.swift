@@ -43,34 +43,25 @@ class AddFashionViewController: UIViewController {
         registrationButton.isEnabled = false
     }
 
-    /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
-//    private func isNameTextFieldEmpty() -> Bool {
-//        guard let nameText = nameTextField.text else { return false }
-//        return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
-//    }
-
     /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
     private func checkStyleButtonSetting() -> Bool {
         return selectedFashionData.style.count != 0
     }
 
-//    private func configureFashionStyleButton() {
-//        if selectedFashionData.style.count == 0 { return }
-//        var fashionStyleButtonTitle = ""
-//        for i in selectedFashionData.style.indices {
-//            if selectedFashionData.style[i].1 == 1 {
-//                fashionStyleButtonTitle += "\(selectedFashionData.style[i].0)"
-//                if i != selectedFashionData.style.count - 1 { fashionStyleButtonTitle += " " }
-//            }
-//        }
-//
-//        styleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
-//    }
-//
-//    private func configureFashionTypeSegmentedControl() {
-//        // 초기 선택 인덱스를 설정
-//        typeSegmentedControl.selectedSegmentIndex = 0
-//    }
+    private func configureFashionStyleButton() {
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+
+        if selectedFashionData.style.count == 0 { return }
+        var fashionStyleButtonTitle = ""
+        for i in selectedFashionData.style.indices {
+            if selectedFashionData.style[i].1 == 1 {
+                fashionStyleButtonTitle += "\(selectedFashionData.style[i].0)"
+                if i != selectedFashionData.style.count - 1 { fashionStyleButtonTitle += " " }
+            }
+        }
+
+        addFashionTableCell.styleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
+    }
 
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
         let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
@@ -80,11 +71,13 @@ class AddFashionViewController: UIViewController {
     }
 
     private func checkFillInData() {
-//        if checkStyleButtonSetting(), isNameTextFieldEmpty() {
-//            makeRegistrationButtonEnabled()
-//        } else {
-//            makeRegistrationButtonDisabled()
-//        }
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+
+        if checkStyleButtonSetting(), addFashionTableCell.isNameTextFieldEmpty() {
+            makeRegistrationButtonEnabled()
+        } else {
+            makeRegistrationButtonDisabled()
+        }
     }
 
     private func makeRegistrationButtonDisabled() {
@@ -160,6 +153,13 @@ class AddFashionViewController: UIViewController {
     @objc func nameTextFieldEditingChanged(_: UITextField) {
         checkFillInData()
     }
+
+    @objc func styleButtonPressed(_: UIButton) {
+        let storyBoard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
+        guard let editStyleViewController = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
+
+        navigationController?.pushViewController(editStyleViewController, animated: true)
+    }
 }
 
 extension AddFashionViewController: UITextFieldDelegate {
@@ -190,6 +190,7 @@ extension AddFashionViewController: UITableViewDataSource {
         addFashionTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
         addFashionTableCell.weatherSegmentedControl.addTarget(self, action: #selector(fashionWeatherSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(fashionTypeSegmentedControlValueChanged), for: .valueChanged)
+        addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
         return addFashionTableCell
     }
 }
