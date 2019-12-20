@@ -33,6 +33,7 @@ struct UIIdentifier {
         struct TableView {
             static let closetList = "closetListTableViewCell"
             static let myPage = "myPageTableViewCell"
+            static let addFashion = "addFashionTableViewCell"
         }
     }
 

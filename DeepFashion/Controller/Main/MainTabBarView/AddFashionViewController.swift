@@ -11,6 +11,7 @@ import UIKit
 class AddFashionViewController: UIViewController {
     // MARK: IBOutlet
 
+    @IBOutlet var addFashionTableView: UITableView!
     @IBOutlet var clothingImageView: UIImageView!
     @IBOutlet var registrationButton: UIButton!
 
@@ -180,25 +181,32 @@ class AddFashionViewController: UIViewController {
 //    }
 // }
 
-// extension AddFashionViewController: UIPickerViewDataSource {
-//    func numberOfComponents(in _: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-//        return ViewData.Title.fashionType.count
-//    }
-//
-//    func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-//        return "\(ViewData.Title.fashionType[row])"
-//    }
-// }
+extension AddFashionViewController: UITableViewDelegate {
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        return 600
+    }
+}
+
+extension AddFashionViewController: UITableViewDataSource {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.addFashion, for: indexPath) as? AddFashionTableViewCell else { return UITableViewCell() }
+
+        return addFashionTableCell
+    }
+}
 
 extension AddFashionViewController: UIViewControllerSetting {
     func configureViewController() {
 //        fashionTypeAlertController.fashionTypePickerView.dataSource = self
 //        nameTextField.delegate = self
 
+        addFashionTableView.delegate = self
+        addFashionTableView.dataSource = self
+        addFashionTableView.allowsSelection = false
         navigationController?.navigationBar.isHidden = true
 
         clothingImageView.image = selectedFashionData.image
