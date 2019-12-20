@@ -156,15 +156,14 @@ class AddFashionViewController: UIViewController {
 //        navigationController?.pushViewController(styleSelectViewController, animated: true)
 //    }
 //
-//    @IBAction func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-//        selectedFashionData.typeIndex = sender.selectedSegmentIndex
-//        print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
-//    }
-//
-//    @IBAction func fashionWeatherSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-//        selectedFashionData.weatherIndex = sender.selectedSegmentIndex
-//    }
-//
+    @objc func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        selectedFashionData.typeIndex = sender.selectedSegmentIndex
+        print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
+    }
+
+    @objc func fashionWeatherSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        selectedFashionData.weatherIndex = sender.selectedSegmentIndex
+    }
 
     @objc func nameTextFieldEditingChanged(_: UITextField) {
         checkFillInData()
@@ -197,6 +196,8 @@ extension AddFashionViewController: UITableViewDataSource {
         guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.addFashion, for: indexPath) as? AddFashionTableViewCell else { return UITableViewCell() }
         addFashionTableCell.nameTextField.delegate = self
         addFashionTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
+        addFashionTableCell.weatherSegmentedControl.addTarget(self, action: #selector(fashionWeatherSegmentedControlValueChanged), for: .valueChanged)
+        addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(fashionTypeSegmentedControlValueChanged), for: .valueChanged)
         return addFashionTableCell
     }
 }
