@@ -38,7 +38,7 @@ extension UIViewController {
                 UIApplication.shared.open(appSettings, options: [:], completionHandler: nil)
             }
         }
-        let denyAuthAction = UIAlertAction(title: "싫습니다", style: .cancel, handler: nil)
+        let denyAuthAction = UIAlertAction(title: "아니오", style: .default, handler: nil)
         alertController.addAction(getAuthAction)
         alertController.addAction(denyAuthAction)
         present(alertController, animated: true, completion: nil)
@@ -60,11 +60,11 @@ extension UIViewController {
         let getAuthAction = UIAlertAction(title: "네", style: .default) { _ in
             completion(true)
         }
-        alertController.addAction(getAuthAction)
 
-        let denyAuthAction = UIAlertAction(title: "싫습니다", style: .cancel) { _ in
+        let denyAuthAction = UIAlertAction(title: "아니오", style: .default) { _ in
             completion(false)
         }
+        alertController.addAction(getAuthAction)
         alertController.addAction(denyAuthAction)
 
         present(alertController, animated: true, completion: nil)

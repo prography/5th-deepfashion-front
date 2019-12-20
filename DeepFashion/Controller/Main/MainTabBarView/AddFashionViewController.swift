@@ -148,14 +148,6 @@ class AddFashionViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-//    @IBAction func editStyleButtonPressed(_: UIButton) {
-//        let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
-//        guard let styleSelectViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
-//        styleSelectViewController.selectedStyle = selectedFashionData.style
-//        print(selectedFashionData.style)
-//        navigationController?.pushViewController(styleSelectViewController, animated: true)
-//    }
-//
     @objc func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         selectedFashionData.typeIndex = sender.selectedSegmentIndex
         print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
