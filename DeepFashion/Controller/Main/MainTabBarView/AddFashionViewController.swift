@@ -165,21 +165,22 @@ class AddFashionViewController: UIViewController {
 //        selectedFashionData.weatherIndex = sender.selectedSegmentIndex
 //    }
 //
-//    @IBAction func nameTextFieldEditingChanged(_: UITextField) {
-//        checkFillInData()
-//    }
+
+    @objc func nameTextFieldEditingChanged(_: UITextField) {
+        checkFillInData()
+    }
 }
 
-// extension AddFashionViewController: UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
-//        return checkCharacter(textField: textField, character: string)
-//    }
-//
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-// }
+extension AddFashionViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
+        return checkCharacter(textField: textField, character: string)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
 
 extension AddFashionViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
@@ -194,16 +195,14 @@ extension AddFashionViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.addFashion, for: indexPath) as? AddFashionTableViewCell else { return UITableViewCell() }
-
+        addFashionTableCell.nameTextField.delegate = self
+        addFashionTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
         return addFashionTableCell
     }
 }
 
 extension AddFashionViewController: UIViewControllerSetting {
     func configureViewController() {
-//        fashionTypeAlertController.fashionTypePickerView.dataSource = self
-//        nameTextField.delegate = self
-
         addFashionTableView.delegate = self
         addFashionTableView.dataSource = self
         addFashionTableView.allowsSelection = false
