@@ -24,6 +24,13 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
         return selectEffectView
     }()
 
+    private var lockImageView: UIImageView = {
+        let lockImageView = UIImageView()
+        lockImageView.image = UIImage(named: AssetIdentifier.Image.lockIcon)
+        lockImageView.contentMode = .scaleAspectFill
+        return lockImageView
+    }()
+
     override var isSelected: Bool {
         didSet {
             self.selectEffectView.isHidden = !isSelected
@@ -35,11 +42,36 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .lightGray
+        addSubviews()
+        makeConstraints()
     }
 
     // MARK: Methods
 
     func configureCell(title: String) {
         titleLabel.text = " \(title)"
+    }
+
+    private func addSubviews() {
+        addSubview(selectEffectView)
+        selectEffectView.addSubview(lockImageView)
+    }
+
+    private func makeConstraints() {
+        selectEffectView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.selectEffectView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+            self.selectEffectView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            self.selectEffectView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            self.selectEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+        ])
+
+        lockImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lockImageView.topAnchor.constraint(equalTo: selectEffectView.topAnchor, constant: 5),
+            lockImageView.rightAnchor.constraint(equalTo: selectEffectView.rightAnchor, constant: -5),
+            lockImageView.widthAnchor.constraint(equalToConstant: 30),
+            lockImageView.heightAnchor.constraint(equalToConstant: 30),
+        ])
     }
 }

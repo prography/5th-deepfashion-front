@@ -9,8 +9,8 @@
 import UIKit
 
 enum FashionType: Int {
-    case outer = 0
-    case top = 1
+    case top = 0
+    case outer = 1
     case bottom = 2
     case shoes = 3
 

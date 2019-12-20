@@ -16,7 +16,7 @@ class CodiRecommendCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         guard let collectionView = self.collectionView else { return }
-        sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
 
         let interItemSpacing: CGFloat = 20
         var newItemSize = itemSize
@@ -24,7 +24,7 @@ class CodiRecommendCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let totalSpacing = interItemSpacing * CGFloat(itemsPerRow - 1)
         let newWidth = (collectionView.bounds.size.width - sectionInset.left - sectionInset.right - totalSpacing) / CGFloat(itemsPerRow)
         newItemSize.width = max(newItemSize.width, newWidth)
-        newItemSize.height = newItemSize.width * 1.1
+        newItemSize.height = newItemSize.width
         itemSize = newItemSize
     }
 }

@@ -61,7 +61,15 @@ class CodiRecommendViewController: UIViewController {
     }
 }
 
-extension CodiRecommendViewController: UICollectionViewDelegate {}
+extension CodiRecommendViewController: UICollectionViewDelegate {
+    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
+        print("didSelect!!")
+    }
+
+    func collectionView(_: UICollectionView, didDeselectItemAt _: IndexPath) {
+        print("diddeSelect!!")
+    }
+}
 
 extension CodiRecommendViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
@@ -81,5 +89,6 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureCodiListSaveButton()
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
+        recommendCollectionView.allowsMultipleSelection = true
     }
 }

@@ -67,6 +67,8 @@
 		07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5EE23ABA08900324B67 /* CodiData.swift */; };
 		07C5C5F323ACB26100324B67 /* CodiRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5F223ACB26100324B67 /* CodiRecommendCollectionViewCell.swift */; };
 		07C5C5F523ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5F423ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift */; };
+		07C5C5F923ACEC6300324B67 /* lockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C5F823ACEC6300324B67 /* lockIcon.png */; };
+		07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */; };
 		07C745A82392A41D0045AB56 /* FashionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* FashionType.swift */; };
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
@@ -170,6 +172,8 @@
 		07C5C5EE23ABA08900324B67 /* CodiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiData.swift; sourceTree = "<group>"; };
 		07C5C5F223ACB26100324B67 /* CodiRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		07C5C5F423ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		07C5C5F823ACEC6300324B67 /* lockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockIcon.png; sourceTree = "<group>"; };
+		07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetIdentifier.swift; sourceTree = "<group>"; };
 		07C745A72392A41D0045AB56 /* FashionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionType.swift; sourceTree = "<group>"; };
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
@@ -485,6 +489,7 @@
 			children = (
 				0733A6BB2365D99800E26B38 /* Main.storyboard */,
 				0733A6BE2365D99900E26B38 /* Assets.xcassets */,
+				07C5C5F823ACEC6300324B67 /* lockIcon.png */,
 				0733A6C02365D99900E26B38 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
@@ -523,6 +528,7 @@
 			children = (
 				07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */,
 				07B6E0632382B64A00D6A9E1 /* ViewData.swift */,
+				07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */,
 				07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */,
 				07D5E9B4236EF98D00A27B28 /* SegueIdentifier.swift */,
 				07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */,
@@ -667,6 +673,7 @@
 				07554FF023A63D7300691C5B /* Fashionclass.pt in Resources */,
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
 				0788543C239E703000B31331 /* norm_seg_model.pt in Resources */,
+				07C5C5F923ACEC6300324B67 /* lockIcon.png in Resources */,
 				07885436239E53B000B31331 /* yjLight.pt in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				0703845C239F91C700924B98 /* yjWords.txt in Resources */,
@@ -774,6 +781,7 @@
 				07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */,
 				07A3B0C4239108BF0028DC6B /* FashionStyleSelectCollectionViewCell.swift in Sources */,
 				07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */,
+				07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */,
 				07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */,
 				07AB242623AA52F70076ABF5 /* UserClothingUploadAPIData.swift in Sources */,
 				07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */,

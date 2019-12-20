@@ -44,25 +44,25 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         titleLabel.numberOfLines = 2
         for i in codiImageViewList.indices {
             codiImageViewList[i].backgroundColor = .lightGray
-            codiImageViewList[i].image = UIImage(named: "longJacket.jpg")
+            codiImageViewList[i].image = UIImage(named: AssetIdentifier.Image.longJacket)
         }
 
         selectEffectView.bounds = bounds
         selectEffectView.center = center
-        addConstraints()
+        makeConstraints()
     }
 
     // MARK: Methods
 
     func configureCell(itemIndex _: Int, codiDataSet: CodiDataSet) {
-        titleLabel.text = "# \(codiDataSet.dataSet[0].codiId)id codiDataSet"
+        titleLabel.text = "# \(codiDataSet.dataSet[0].codiId) Id codiDataSet"
     }
 
-    func addSubviews() {
+    private func addSubviews() {
         addSubview(selectEffectView)
     }
 
-    func addConstraints() {
+    private func makeConstraints() {
         selectEffectView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             selectEffectView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
