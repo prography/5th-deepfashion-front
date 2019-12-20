@@ -39,15 +39,17 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func addCodiDataSet() {
-//        var codiDataSet = [CodiData]()
-//        for i in clothingInfoView.indices {
-//            let codiData = CodiData(codiImage: clothingInfoView[i].clothingImageView.image, codiId: codiIdCount)
-//            codiDataSet.append(codiData)
-//            if codiDataSet.count == 4 { break }
-//        }
-//        CommonUserData.shared.addCodiData(codiDataSet)
-//        print("codiDataSet Added!!")
-//        codiIdCount += 1
+        var codiDataSet = [CodiData]()
+        for i in 0 ..< 4 {
+            let nowIndexPath = IndexPath(item: i, section: 0)
+            guard let nowCell = recommendCollectionView.cellForItem(at: nowIndexPath) as? CodiRecommendCollectionViewCell else { return }
+            let codiData = CodiData(codiImage: nowCell.imageView.image, codiId: codiIdCount)
+            codiDataSet.append(codiData)
+            if codiDataSet.count == 4 { break }
+        }
+        CommonUserData.shared.addCodiData(codiDataSet)
+        print("codiDataSet Added!!")
+        codiIdCount += 1
     }
 
     // MARK: - IBAction

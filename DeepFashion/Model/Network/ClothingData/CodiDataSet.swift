@@ -9,6 +9,7 @@
 import Foundation
 
 struct CodiDataSet {
+    var timeStamp: Double
     private(set) var dataSet = [CodiData]()
 
     mutating func configureData(dataSet codiDataList: [CodiData]) {

@@ -66,7 +66,8 @@ final class CommonUserData {
     }
 
     func addCodiData(_ codiData: [CodiData]) {
-        var codiDataSet = CodiDataSet()
+        let nowTimeStamp = Date().timeIntervalSince1970
+        var codiDataSet = CodiDataSet(timeStamp: nowTimeStamp)
         codiDataSet.configureData(dataSet: codiData)
         codiDataList.append(codiDataSet)
     }

@@ -55,7 +55,10 @@ class CodiListCollectionViewCell: UICollectionViewCell {
     // MARK: Methods
 
     func configureCell(itemIndex _: Int, codiDataSet: CodiDataSet) {
-        titleLabel.text = "# \(codiDataSet.dataSet[0].codiId) Id codiDataSet"
+        let basicDateFormatter = DateFormatter()
+        let nowDateText = basicDateFormatter.basicFormatString(timeStamp: codiDataSet.timeStamp)
+
+        titleLabel.text = "\(nowDateText) \n # \(codiDataSet.dataSet[0].codiId) Id codiDataSet"
     }
 
     private func addSubviews() {
