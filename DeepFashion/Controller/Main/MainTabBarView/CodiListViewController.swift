@@ -108,13 +108,7 @@ class CodiListViewController: UIViewController {
         codiListCollectionView.allowsMultipleSelection = false
     }
 
-    @objc func editBarButtonItemPressed(_: UIButton) {
-        print("editBarButtonItemPressed!")
-        viewMode = viewMode == .view ? .edit : .view
-    }
-
-    @objc func deleteBarButtonItemPressed(_: UIButton) {
-        print("deleteBarButtonItemPressed")
+    private func deleteSelectedCells() {
         var originCodiDataList = CommonUserData.shared.codiDataList
         selectedIndexPath.forEach {
             originCodiDataList[$0.item] = nil
@@ -127,6 +121,20 @@ class CodiListViewController: UIViewController {
             self.codiListCollectionView.reloadData()
         }
         selectedIndexPath = Set<IndexPath>()
+    }
+
+    @objc func editBarButtonItemPressed(_: UIButton) {
+        print("editBarButtonItemPressed!")
+        viewMode = viewMode == .view ? .edit : .view
+    }
+
+    @objc func deleteBarButtonItemPressed(_: UIButton) {
+        print("deleteBarButtonItemPressed")
+        presentBasicTwoButtonAlertController(title: "코디 삭제", message: "선택한 코디목록을 삭제하시겠습니까?") { isApproved in
+            if isApproved {
+                self.deleteSelectedCells()
+            }
+        }
     }
 }
 
