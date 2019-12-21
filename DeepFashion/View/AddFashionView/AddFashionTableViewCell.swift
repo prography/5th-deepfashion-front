@@ -21,7 +21,7 @@ class AddFashionTableViewCell: UITableViewCell {
     }
 
     /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
-    func isNameTextFieldEmpty() -> Bool {
+    func checkNameTextFieldContents() -> Bool {
         guard let nameText = nameTextField.text else { return false }
         return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
     }

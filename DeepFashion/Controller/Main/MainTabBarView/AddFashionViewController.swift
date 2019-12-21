@@ -37,6 +37,13 @@ class AddFashionViewController: UIViewController {
         checkFillInData()
     }
 
+    override func viewDidAppear(_: Bool) {
+        super.viewDidAppear(true)
+        DispatchQueue.main.async {
+            self.addFashionTableView.reloadData()
+        }
+    }
+
     // MARK: Methods
 
     private func configureRegistrationButton() {
@@ -73,7 +80,7 @@ class AddFashionViewController: UIViewController {
     private func checkFillInData() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
 
-        if checkStyleButtonSetting(), addFashionTableCell.isNameTextFieldEmpty() {
+        if checkStyleButtonSetting(), addFashionTableCell.checkNameTextFieldContents() {
             makeRegistrationButtonEnabled()
         } else {
             makeRegistrationButtonDisabled()
@@ -108,33 +115,37 @@ class AddFashionViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func addFashionButton(_: UIButton) {
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+
         // 이미지, 이름 셋팅
-//        guard let fashionImage = selectedFashionData.image,
-//            let fashionName = nameTextField.text else { return }
-//        // 옷 타입, 스타일 셋팅
-//        let fashionType = selectedFashionData.typeIndex
-//        let fashionStyle = selectedFashionData.style
-//        let weatherIndex = weatherSegmentedControl.selectedSegmentIndex
-//
-//        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: fashionType, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
-//        CommonUserData.shared.addUserClothing(clothingData)
-//        print("now Adding Clothing Data : \(clothingData)")
-//
-//        let clotingData = UserClothingAPIData(style: 1, name: fashionName, color: "white", owner: 1, season: weatherIndex + 1, part: typeSegmentedControl.selectedSegmentIndex + 1, images: [1])
-//        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
-//            if errorType == nil {
-//                print("clothing/ Post Succeed!!!")
-//                // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
-//                self.uploadClothingImage()
-//            } else {
-//                print("Clothing Post Error!!!")
-//                DispatchQueue.main.async {
-//                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.") {}
-//                }
-//            }
-//        }
-//
-//        print(CommonUserData.shared.userClothingList)
+        guard let fashionImage = selectedFashionData.image,
+            addFashionTableCell.checkNameTextFieldContents(),
+            let fashionName = addFashionTableCell.nameTextField.text else { return }
+        // 옷 타입, 스타일 셋팅
+
+        let typeIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
+        let fashionStyle = selectedFashionData.style
+        let weatherIndex = addFashionTableCell.weatherSegmentedControl.selectedSegmentIndex
+
+        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: typeIndex, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
+        CommonUserData.shared.addUserClothing(clothingData)
+        print("now Adding Clothing Data : \(clothingData)")
+
+        let clotingData = UserClothingAPIData(style: 1, name: fashionName, color: "white", owner: 1, season: weatherIndex + 1, part: typeIndex + 1, images: [1])
+        RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
+            if errorType == nil {
+                print("clothing/ Post Succeed!!!")
+                // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
+                self.uploadClothingImage()
+            } else {
+                print("Clothing Post Error!!!")
+                DispatchQueue.main.async {
+                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.") {}
+                }
+            }
+        }
+
+        print(CommonUserData.shared.userClothingList)
     }
 
     @IBAction func cancelButton(_: UIButton) {
@@ -158,6 +169,7 @@ class AddFashionViewController: UIViewController {
         let storyBoard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
         guard let editStyleViewController = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
 
+        editStyleViewController.selectedStyleIndex = selectedFashionData.style
         navigationController?.pushViewController(editStyleViewController, animated: true)
     }
 }
@@ -191,6 +203,15 @@ extension AddFashionViewController: UITableViewDataSource {
         addFashionTableCell.weatherSegmentedControl.addTarget(self, action: #selector(fashionWeatherSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(fashionTypeSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
+
+        var styleButtonText = ""
+        for i in selectedFashionData.style.indices {
+            if selectedFashionData.style[i].1 == 1 {
+                styleButtonText.append("\(selectedFashionData.style[i].0) ")
+            }
+        }
+        addFashionTableCell.styleButton.setTitle(styleButtonText, for: .normal)
+
         return addFashionTableCell
     }
 }
@@ -203,7 +224,5 @@ extension AddFashionViewController: UIViewControllerSetting {
         navigationController?.navigationBar.isHidden = true
 
         clothingImageView.image = selectedFashionData.image
-
-//        configureFashionTypeSegmentedControl()
     }
 }

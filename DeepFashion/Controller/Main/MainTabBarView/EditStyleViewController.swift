@@ -23,7 +23,7 @@ class EditStyleViewController: UIViewController {
         return fashionStyles
     }()
 
-    var selectedStyle: [(String, Int)] = []
+    var selectedStyleIndex: [(String, Int)] = []
 
     private var selectedStyleCount: Int = 0 {
         willSet {
@@ -40,23 +40,31 @@ class EditStyleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         styleCollectionView.allowsMultipleSelection = true
-        configureSelectedStyleCount()
         styleCollectionView.delegate = self
         styleCollectionView.dataSource = self
+        configureFashionStyleIndex()
+        configureSelectedStyleCount()
     }
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
         guard let navigationController = self.navigationController,
             let addFashionViewController = self.navigationController?.viewControllers[navigationController.viewControllers.count - 2] as? AddFashionViewController else { return }
-        addFashionViewController.selectedFashionData.style = selectedStyle
+        addFashionViewController.selectedFashionData.style = selectedStyleIndex
     }
 
     // MARK: Methods
 
     private func configureSelectedStyleCount() {
-        for i in selectedStyle.indices {
-            if selectedStyle[i].1 == 1 { selectedStyleCount += 1 }
+        for i in selectedStyleIndex.indices {
+            if selectedStyleIndex[i].1 == 1 { selectedStyleCount += 1 }
+        }
+    }
+
+    private func configureFashionStyleIndex() {
+        for i in fashionStyles.indices {
+            selectedStyleIndex.append((fashionStyles[i], 0))
+            if i == 0 { selectedStyleIndex[i].1 = 1 }
         }
     }
 
@@ -67,7 +75,7 @@ class EditStyleViewController: UIViewController {
         CommonUserData.shared.resetStyleData()
         guard let viewControllers = navigationController?.viewControllers,
             let addFashionViewControlller = navigationController?.viewControllers[viewControllers.count - 2] as? AddFashionViewController else { return }
-        addFashionViewControlller.selectedFashionData.style = selectedStyle
+        addFashionViewControlller.selectedFashionData.style = selectedStyleIndex
         navigationController?.popViewController(animated: true)
     }
 
@@ -86,7 +94,7 @@ extension EditStyleViewController: UICollectionViewDelegate {
         guard let styleTitleCell = styleCollectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? FashionStyleSelectCollectionViewCell else { return }
         if styleTitleCell.styleTitleLabel.text == "" { return }
 
-        if styleTitleCell.toggleCell(styles: &selectedStyle, itemIndex: indexPath.item) {
+        if styleTitleCell.toggleCell(styles: &selectedStyleIndex, itemIndex: indexPath.item) {
             selectedStyleCount += 1
         } else {
             selectedStyleCount -= 1
@@ -97,21 +105,18 @@ extension EditStyleViewController: UICollectionViewDelegate {
         }
 
         print(selectedStyleCount)
+        print(selectedStyleIndex)
     }
 
 //    func collectionView(_: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
 //        guard let styleTitleCell = styleCollectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? FashionStyleSelectCollectionViewCell else { return }
 //        if styleTitleCell.styleTitleLabel.text == "" { return }
 //
-//        styleTitleCell.toggleCell(styles: &selectedStyle, itemIndex: indexPath.item)
-//
 //        DispatchQueue.main.async {
 //            self.styleCollectionView.reloadItems(at: [indexPath])
 //        }
-//        selectedStyleCount -= 1
 //
-//
-//        print(selectedStyle)
+//        print(selectedStyleIndex)
 //        print("selectedStyleCount : \(selectedStyleCount)")
 //    }
 }
@@ -124,7 +129,7 @@ extension EditStyleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? FashionStyleSelectCollectionViewCell else { return UICollectionViewCell() }
 
-//        styleTitleCell.configureCell(style: selectedStyle[indexPath.item])
+        styleTitleCell.configureCell(style: selectedStyleIndex[indexPath.item])
 
         return styleTitleCell
     }
