@@ -28,6 +28,7 @@ struct UIIdentifier {
             static let recommend = "recommendCollectionViewCell"
             static let codiList = "codiListCollectionViewCell"
             static let styleTitle = "styleTitleCollectionViewCell"
+            static let styleColor = "styleColorSelectCollectionViewCell"
         }
 
         struct TableView {

@@ -49,14 +49,13 @@ class PhotoAddViewController: UIViewController {
         }
     }
 
+    // MARK: - Add DeepLearning Module
+
     /*
-
-     // MARK: - Add DeepLearning Module
-
      // pt파일을 불러와 TorchModule을 준비한다.
      private let yjModule: TorchModule = {
          // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "Fashionclass", ofType: "pt"),
+         if let filePath = Bundle.main.path(forResource: "yjModel", ofType: "pt"),
              let module = TorchModule(fileAtPath: filePath) {
              return module
          } else {
@@ -68,7 +67,7 @@ class PhotoAddViewController: UIViewController {
      // txt데이터를 불러와 문자열 배열로 준비한다.
      private let yjData: [String] = {
          // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 txt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "words", ofType: "txt"),
+         if let filePath = Bundle.main.path(forResource: "yjWords", ofType: "txt"),
              let labels = try? String(contentsOfFile: filePath) {
              return labels.components(separatedBy: .newlines)
          } else {
@@ -76,7 +75,6 @@ class PhotoAddViewController: UIViewController {
              fatalError("Can't find the text file!")
          }
      }()
-
      */
 
     // MARK: Life Cycle
@@ -102,7 +100,6 @@ class PhotoAddViewController: UIViewController {
     private func classificateImage(_:
         UIImage, completion: @escaping () -> Void) {
         /*
-
          // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
          let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
          // 224x224 크기의 리사이즈 된 이미지를 Float32 배열로 변환하여 pixelBuffer에 저장한다.
@@ -115,6 +112,7 @@ class PhotoAddViewController: UIViewController {
          guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
              return
          }
+
          let zippedResults = zip(yjData.indices, outputs)
          let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
          print("sortedResults: \(sortedResults)")
