@@ -49,7 +49,7 @@ enum APIPostMode: String {
 }
 
 struct APIURL {
-    static let base = "http://127.0.0.1:8000/"
+    static let base = "http://deepfashion-dev.us-west-2.elasticbeanstalk.com/"
     struct SubURL {
         struct Get {}
 
