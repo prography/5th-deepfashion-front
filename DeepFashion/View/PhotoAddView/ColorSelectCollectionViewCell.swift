@@ -19,23 +19,26 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        backgroundColor = .white
         addSubviews()
         makeConstraints()
     }
 
-    private func addSubviews() {
-        addSubview(colorImageView)
+    func configureCell(color: UIColor) {
+        backgroundColor = color
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 3
+        layer.cornerRadius = 10
     }
 
+    private func addSubviews() {}
+
     private func makeConstraints() {
-        colorImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            colorImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
-            colorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
-            colorImageView.heightAnchor.constraint(equalToConstant: 20),
-            colorImageView.widthAnchor.constraint(equalToConstant: 20),
-        ])
+//        colorImageView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            colorImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
+//            colorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
+//            colorImageView.heightAnchor.constraint(equalToConstant: 20),
+//            colorImageView.widthAnchor.constraint(equalToConstant: 20),
+//        ])
     }
 }

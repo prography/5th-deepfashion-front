@@ -45,6 +45,7 @@ class AddFashionTableViewCell: UITableViewCell {
         colorSelectStackView.addArrangedSubview(colorSelectTitleLabel)
         colorSelectStackView.addArrangedSubview(colorSelectCollectionView)
         editStackView.addArrangedSubview(colorSelectStackView)
+        colorSelectCollectionView.allowsSelection = true
         colorSelectCollectionView.delegate = self
         colorSelectCollectionView.dataSource = self
         colorSelectCollectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect)
@@ -96,7 +97,8 @@ extension AddFashionTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect, for: indexPath) as? ColorSelectCollectionViewCell else { return UICollectionViewCell() }
-        colorCell.backgroundColor = UIColor(rgb: UIIdentifier.colorHexaCode[indexPath.item], alpha: 1.0)
+        let cellColor = UIColor(rgb: UIIdentifier.colorHexaCode[indexPath.item], alpha: 1.0)
+        colorCell.configureCell(color: cellColor)
         return colorCell
     }
 }
