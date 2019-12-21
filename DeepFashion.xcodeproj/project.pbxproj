@@ -70,7 +70,6 @@
 		07C5C60323ADF65F00324B67 /* yjModel.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C60123ADF65F00324B67 /* yjModel.pt */; };
 		07C5C60623ADF6DA00324B67 /* yjWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C60523ADF6DA00324B67 /* yjWords.txt */; };
 		07C5C60D23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C60B23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift */; };
-		07C5C61223ADFEE400324B67 /* ColorSelectCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C61123ADFEE400324B67 /* ColorSelectCollectionView.xib */; };
 		07C5C61423AE009300324B67 /* ColorSelectCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C61323AE009300324B67 /* ColorSelectCollectionViewFlowLayout.swift */; };
 		07C5C61623AE0C0500324B67 /* ColorSelectCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C61523AE0C0500324B67 /* ColorSelectCollectionView.swift */; };
 		07C745A82392A41D0045AB56 /* FashionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* FashionType.swift */; };
@@ -179,7 +178,6 @@
 		07C5C60123ADF65F00324B67 /* yjModel.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = yjModel.pt; sourceTree = "<group>"; };
 		07C5C60523ADF6DA00324B67 /* yjWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yjWords.txt; sourceTree = "<group>"; };
 		07C5C60B23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectCollectionViewCell.swift; sourceTree = "<group>"; };
-		07C5C61123ADFEE400324B67 /* ColorSelectCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorSelectCollectionView.xib; sourceTree = "<group>"; };
 		07C5C61323AE009300324B67 /* ColorSelectCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		07C5C61523AE0C0500324B67 /* ColorSelectCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectCollectionView.swift; sourceTree = "<group>"; };
 		07C745A72392A41D0045AB56 /* FashionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionType.swift; sourceTree = "<group>"; };
@@ -337,8 +335,6 @@
 				07C5C5FE23ACFDE300324B67 /* AddFashionView */,
 				07A3B0C3239108BF0028DC6B /* StyleSelectCollectionViewCell.swift */,
 				07C5C60B23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift */,
-				07C5C61523AE0C0500324B67 /* ColorSelectCollectionView.swift */,
-				07C5C61123ADFEE400324B67 /* ColorSelectCollectionView.xib */,
 			);
 			path = PhotoAddView;
 			sourceTree = "<group>";
@@ -482,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */,
+				07C5C61523AE0C0500324B67 /* ColorSelectCollectionView.swift */,
 			);
 			path = AddFashionView;
 			sourceTree = "<group>";
@@ -694,7 +691,6 @@
 				07C5C5F923ACEC6300324B67 /* lockIcon.png in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
-				07C5C61223ADFEE400324B67 /* ColorSelectCollectionView.xib in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
 				07C5C60323ADF65F00324B67 /* yjModel.pt in Resources */,
 				07B5AE9023992D04000C215E /* words.txt in Resources */,

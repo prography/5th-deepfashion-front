@@ -6,7 +6,7 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct ViewData {
     struct Title {
@@ -19,6 +19,10 @@ struct ViewData {
             static let codiListView = "마이 코디 리스트"
             static let myPageView = "마이 페이지"
         }
+    }
+
+    struct Color {
+        static let colorList: [UIColor] = [UIColor()]
     }
 
     struct Section {

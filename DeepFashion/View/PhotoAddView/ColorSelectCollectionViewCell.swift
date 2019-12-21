@@ -11,6 +11,7 @@ import UIKit
 class ColorSelectCollectionViewCell: UICollectionViewCell {
     private let colorImageView: UIImageView = {
         let colorImageView = UIImageView()
+        colorImageView.backgroundColor = .darkGray
         colorImageView.image = UIImage(named: AssetIdentifier.Image.longJacket)
         colorImageView.contentMode = .scaleAspectFill
         return colorImageView
@@ -19,6 +20,7 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        backgroundColor = .white
         addSubviews()
         makeConstraints()
     }
@@ -30,10 +32,10 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
     private func makeConstraints() {
         colorImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            colorImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 5),
-            colorImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -5),
-            colorImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            colorImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            colorImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
+            colorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
+            colorImageView.heightAnchor.constraint(equalToConstant: 20),
+            colorImageView.widthAnchor.constraint(equalToConstant: 20),
         ])
     }
 }
