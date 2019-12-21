@@ -24,6 +24,8 @@ class AddFashionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         configureFashionTypeSegmentedControl()
+        editStackView.addArrangedSubview(colorSelectCollectionView)
+        makeConstraint()
     }
 
     /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
@@ -35,5 +37,14 @@ class AddFashionTableViewCell: UITableViewCell {
     private func configureFashionTypeSegmentedControl() {
         // 초기 선택 인덱스를 설정
         typeSegmentedControl.selectedSegmentIndex = 0
+    }
+
+    private func makeConstraint() {
+        colorSelectCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.colorSelectCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+            self.colorSelectCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: 100),
+        ])
     }
 }
