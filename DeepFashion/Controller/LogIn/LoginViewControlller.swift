@@ -44,6 +44,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         configureTextField()
         configureLoginButton()
+        RequestAPI.shared.delegate = self
     }
 
     // MARK: Methods
@@ -97,17 +98,20 @@ class LoginViewController: UIViewController {
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text else { return }
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
+        loginButton.isEnabled = false
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { errorType in
             // 테스트용 조건 설정 중)
             if errorType == nil {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
+                    self.loginButton.isEnabled = true
                 }
             } else {
                 // * ISSUE : 네트워킹 or 로그인 오입력에 따른 AlertController 띄울 예정
                 DispatchQueue.main.async {
                     self.presentBasicOneButtonAlertController(title: errorType?.errorTitle ?? "로그인 에러", message: errorType?.errorMessage ?? "로그인 중 에러가 발생했습니다.") {
                         print("Dismiss the presentBasicOneButtonAlertController")
+                        self.loginButton.isEnabled = true
                     }
                 }
             }
