@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FashionStyleSelectCollectionViewCell: UICollectionViewCell {
+class StyleSelectCollectionViewCell: UICollectionViewCell {
     @IBOutlet var styleTitleLabel: UILabel!
 
     override class func awakeFromNib() {

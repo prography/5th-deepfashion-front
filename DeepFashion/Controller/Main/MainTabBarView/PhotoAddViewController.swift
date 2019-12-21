@@ -119,6 +119,7 @@ class PhotoAddViewController: UIViewController {
          for (key, result) in sortedResults.enumerated() {
              classificationLabel[key].text = yjData[result.0]
          }
+
          */
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
         completion()

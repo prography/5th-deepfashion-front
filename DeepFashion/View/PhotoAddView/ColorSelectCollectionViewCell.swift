@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FashionColorSelectCollectionViewCell: UICollectionViewCell {
+class ColorSelectCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

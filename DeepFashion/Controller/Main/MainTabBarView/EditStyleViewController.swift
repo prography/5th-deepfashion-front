@@ -11,9 +11,9 @@ import UIKit
 class EditStyleViewController: UIViewController {
     // MARK: UIs
 
-    @IBOutlet var styleCollectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
 
-    @IBOutlet var styleSubscriptionButton: UIButton!
+    @IBOutlet var subscriptionButton: UIButton!
 
     // MARK: Properties
 
@@ -28,9 +28,9 @@ class EditStyleViewController: UIViewController {
     private var selectedStyleCount: Int = 0 {
         willSet {
             if newValue == 0 {
-                styleSubscriptionButton.isEnabled = false
+                subscriptionButton.isEnabled = false
             } else {
-                styleSubscriptionButton.isEnabled = true
+                subscriptionButton.isEnabled = true
             }
         }
     }
@@ -39,9 +39,9 @@ class EditStyleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        styleCollectionView.allowsMultipleSelection = true
-        styleCollectionView.delegate = self
-        styleCollectionView.dataSource = self
+        collectionView.allowsMultipleSelection = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
         configureFashionStyleIndex()
         configureSelectedStyleCount()
     }
@@ -91,7 +91,7 @@ extension EditStyleViewController: UICollectionViewDelegateFlowLayout {}
 extension EditStyleViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.item)th Item Cell Pressed!!")
-        guard let styleTitleCell = styleCollectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? FashionStyleSelectCollectionViewCell else { return }
+        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? StyleSelectCollectionViewCell else { return }
         if styleTitleCell.styleTitleLabel.text == "" { return }
 
         if styleTitleCell.toggleCell(styles: &selectedStyleIndex, itemIndex: indexPath.item) {
@@ -101,7 +101,7 @@ extension EditStyleViewController: UICollectionViewDelegate {
         }
 
         DispatchQueue.main.async {
-            self.styleCollectionView.reloadItems(at: [indexPath])
+            self.collectionView.reloadItems(at: [indexPath])
         }
 
         print(selectedStyleCount)
@@ -127,7 +127,7 @@ extension EditStyleViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? FashionStyleSelectCollectionViewCell else { return UICollectionViewCell() }
+        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? StyleSelectCollectionViewCell else { return UICollectionViewCell() }
 
         styleTitleCell.configureCell(style: selectedStyleIndex[indexPath.item])
 

@@ -1002,6 +1002,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="editStackView" destination="ajD-M0-ZFg" id="uEi-lm-dIe"/>
                                             <outlet property="nameTextField" destination="f0v-hs-9lF" id="JoU-C4-d0h"/>
                                             <outlet property="styleButton" destination="lbQ-UA-1hn" id="pXc-Mj-wrc"/>
                                             <outlet property="typeSegmentedControl" destination="Ngo-Xz-Mzn" id="Ien-dd-eeA"/>
@@ -1072,7 +1073,7 @@
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewLayout key="collectionViewLayout" id="H2V-jg-HLu" customClass="EditStyleCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="styleTitleCollectionViewCell" id="ig6-6b-oju" customClass="FashionStyleSelectCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="styleTitleCollectionViewCell" id="ig6-6b-oju" customClass="StyleSelectCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hWq-vz-DjQ">
@@ -1148,8 +1149,8 @@
                         <viewLayoutGuide key="safeArea" id="a9u-1L-EbF"/>
                     </view>
                     <connections>
-                        <outlet property="styleCollectionView" destination="tca-3f-cQO" id="kPD-Go-qo4"/>
-                        <outlet property="styleSubscriptionButton" destination="LrQ-Vg-NVv" id="cRb-j2-tNL"/>
+                        <outlet property="collectionView" destination="tca-3f-cQO" id="kPD-Go-qo4"/>
+                        <outlet property="subscriptionButton" destination="LrQ-Vg-NVv" id="cRb-j2-tNL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8I-dG-em0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,12 @@ class AddFashionTableViewCell: UITableViewCell {
     @IBOutlet var styleButton: UIButton!
     @IBOutlet var typeSegmentedControl: UISegmentedControl!
     @IBOutlet var weatherSegmentedControl: UISegmentedControl!
+    @IBOutlet var editStackView: UIStackView!
+    private var colorSelectCollectionView: ColorSelectCollectionView = {
+        let collectionViewLayout = ColorSelectCollectionViewFlowLayout()
+        let colorSelectCollectionView = ColorSelectCollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: collectionViewLayout)
+        return colorSelectCollectionView
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
