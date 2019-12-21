@@ -9,13 +9,18 @@
 import UIKit
 
 class ColorSelectCollectionViewCell: UICollectionViewCell {
-    private let colorImageView: UIImageView = {
-        let colorImageView = UIImageView()
-        colorImageView.backgroundColor = .darkGray
-        colorImageView.image = UIImage(named: AssetIdentifier.Image.longJacket)
-        colorImageView.contentMode = .scaleAspectFill
-        return colorImageView
+    private let selectImageView: UIImageView = {
+        let selectImageView = UIImageView()
+        selectImageView.image = UIImage(named: AssetIdentifier.Image.longJacket)
+        selectImageView.contentMode = .scaleAspectFill
+        return selectImageView
     }()
+
+    override var isSelected: Bool {
+        willSet {
+            toggleCell(isSelected: newValue)
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,19 +31,29 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
     func configureCell(color: UIColor) {
         backgroundColor = color
         layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 3
         layer.cornerRadius = 10
+        layer.borderWidth = 1
     }
 
-    private func addSubviews() {}
+    private func toggleCell(isSelected: Bool) {
+        if isSelected {
+            layer.borderWidth = 3
+        } else {
+            layer.borderWidth = 1
+        }
+    }
+
+    private func addSubviews() {
+        addSubview(selectImageView)
+    }
 
     private func makeConstraints() {
-//        colorImageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            colorImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor, constant: 0),
-//            colorImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0),
-//            colorImageView.heightAnchor.constraint(equalToConstant: 20),
-//            colorImageView.widthAnchor.constraint(equalToConstant: 20),
-//        ])
+        selectImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            selectImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+            selectImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            selectImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            selectImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+        ])
     }
 }
