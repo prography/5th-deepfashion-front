@@ -21,10 +21,6 @@ struct ViewData {
         }
     }
 
-    struct Color {
-        static let colorList: [UIColor] = [UIColor()]
-    }
-
     struct Section {
         struct Count {
             static let myPageTableView = 1

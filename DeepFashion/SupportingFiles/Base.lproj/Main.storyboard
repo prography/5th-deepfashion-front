@@ -830,8 +830,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-M0-ZFg">
-                                                    <rect key="frame" x="0.0" y="46" width="320" height="245"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-M0-ZFg">
+                                                    <rect key="frame" x="0.0" y="46" width="320" height="260"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QN5-E0-Xud">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
@@ -864,7 +864,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-y0-Iy1">
-                                                            <rect key="frame" x="0.0" y="65" width="320" height="50"/>
+                                                            <rect key="frame" x="0.0" y="70" width="320" height="50"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
                                                                     <rect key="frame" x="10" y="0.0" width="300" height="10"/>
@@ -896,7 +896,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Sv-vk-Cyb">
-                                                            <rect key="frame" x="0.0" y="130" width="320" height="50"/>
+                                                            <rect key="frame" x="0.0" y="140" width="320" height="50"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입는 계절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-Mv-KCi">
                                                                     <rect key="frame" x="10" y="0.0" width="300" height="10"/>
@@ -928,7 +928,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-qU-mAk">
-                                                            <rect key="frame" x="0.0" y="195" width="320" height="50"/>
+                                                            <rect key="frame" x="0.0" y="210" width="320" height="50"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bks-kG-fpX">
                                                                     <rect key="frame" x="10" y="0.0" width="300" height="10"/>

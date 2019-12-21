@@ -14,16 +14,37 @@ class AddFashionTableViewCell: UITableViewCell {
     @IBOutlet var typeSegmentedControl: UISegmentedControl!
     @IBOutlet var weatherSegmentedControl: UISegmentedControl!
     @IBOutlet var editStackView: UIStackView!
+
+    private var colorSelectStackView: UIStackView = {
+        let colorSelectStackView = UIStackView()
+        colorSelectStackView.spacing = 5
+        colorSelectStackView.axis = .vertical
+        colorSelectStackView.alignment = .center
+        colorSelectStackView.distribution = .fillProportionally
+        return colorSelectStackView
+    }()
+
     private var colorSelectCollectionView: ColorSelectCollectionView = {
         let collectionViewLayout = ColorSelectCollectionViewFlowLayout()
         let colorSelectCollectionView = ColorSelectCollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: collectionViewLayout)
         return colorSelectCollectionView
     }()
 
+    private var colorSelectTitleLabel: UILabel = {
+        let colorSelectTitleLabel = UILabel()
+        colorSelectTitleLabel.text = "옷 색상"
+        colorSelectTitleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
+        colorSelectTitleLabel.textColor = .white
+        colorSelectTitleLabel.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        return colorSelectTitleLabel
+    }()
+
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        editStackView.addArrangedSubview(colorSelectCollectionView)
+        colorSelectStackView.addArrangedSubview(colorSelectTitleLabel)
+        colorSelectStackView.addArrangedSubview(colorSelectCollectionView)
+        editStackView.addArrangedSubview(colorSelectStackView)
         colorSelectCollectionView.delegate = self
         colorSelectCollectionView.dataSource = self
         colorSelectCollectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect)
@@ -43,11 +64,24 @@ class AddFashionTableViewCell: UITableViewCell {
     }
 
     private func makeConstraint() {
+        colorSelectStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.colorSelectStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+            self.colorSelectStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+        ])
+
         colorSelectCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.colorSelectCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-            self.colorSelectCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            self.colorSelectCollectionView.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 0),
+            self.colorSelectCollectionView.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
             self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: 160),
+        ])
+
+        colorSelectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.colorSelectTitleLabel.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 10),
+            self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
+            self.heightAnchor.constraint(equalToConstant: 10),
         ])
     }
 }
@@ -57,12 +91,12 @@ extension AddFashionTableViewCell: UICollectionViewDelegate {}
 extension AddFashionTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         // colorType.count 들어갈 예정
-        return 32
+        return UIIdentifier.colorHexaCode.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect, for: indexPath) as? ColorSelectCollectionViewCell else { return UICollectionViewCell() }
-        colorCell.backgroundColor = .black
+        colorCell.backgroundColor = UIColor(rgb: UIIdentifier.colorHexaCode[indexPath.item], alpha: 1.0)
         return colorCell
     }
 }
