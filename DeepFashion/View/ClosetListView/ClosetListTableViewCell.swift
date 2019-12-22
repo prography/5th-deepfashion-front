@@ -57,6 +57,14 @@ extension ClosetListTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let closetListCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.closetList, for: indexPath) as? ClosetListCollectionViewCell else { return UICollectionViewCell() }
         closetListCollectionViewCell.configureCell(clothingData: closetListData[indexPath.item])
+        closetListCollectionViewCell.delegate = self
         return closetListCollectionViewCell
+    }
+}
+
+extension ClosetListTableViewCell: UICollectionViewCellDelegate {
+    func collectinoViewCellItemSelected(_ collectionViewCell: UICollectionViewCell) {
+        guard let collectionCell = collectionViewCell as? ClosetListCollectionViewCell else { return }
+        print("선택 된 셀 정보 : \(String(describing: collectionCell.clothingData))")
     }
 }
