@@ -130,7 +130,13 @@ class ClosetListViewController: UIViewController {
         }
     }
 
-    @objc func deleteBarButtonItemPressed(_: UIButton) {}
+    @objc func deleteBarButtonItemPressed(_: UIButton) {
+        presentBasicTwoButtonAlertController(title: "선택 옷 삭제", message: "선택한 옷을 삭제하시겠습니까?") { isApproved in
+            if isApproved {
+                // 선택 된 옷 삭제 코드 구현 예정
+            }
+        }
+    }
 }
 
 extension ClosetListViewController: UITableViewDelegate {
