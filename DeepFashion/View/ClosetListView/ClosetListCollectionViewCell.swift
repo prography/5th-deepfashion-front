@@ -13,6 +13,10 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var fashionImageView: UIImageView!
 
+    // MARK: Properties
+
+    weak var delegate: UICollectionViewCellDelegate?
+
     private(set) var clothingData: UserClothingData?
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
@@ -29,6 +33,7 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             selectEffectView.isHidden = !isSelected
+            delegate?.collectinoViewCellItemSelected(self)
         }
     }
 
