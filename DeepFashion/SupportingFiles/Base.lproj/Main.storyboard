@@ -637,7 +637,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJJ-Gy-1Pj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="옷장 리스트" selectedImage="doc.text.fill" catalog="system" id="R4f-aN-H9e">
+                    <tabBarItem key="tabBarItem" title="옷장 리스트" id="R4f-aN-H9e">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -699,7 +699,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ukZ-jQ-0He"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이 페이지" selectedImage="person.crop.circle" catalog="system" id="uhi-T6-xoe">
+                    <tabBarItem key="tabBarItem" title="마이 페이지" id="uhi-T6-xoe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
@@ -771,7 +771,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="옷 추가하기" selectedImage="plus.square" catalog="system" id="q3p-tE-foQ">
+                    <tabBarItem key="tabBarItem" title="옷 추가하기" id="q3p-tE-foQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -1244,7 +1244,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QW0-Wo-UzZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="코디 리스트" selectedImage="square.stack.3d.down.right" catalog="system" id="99N-QG-aOe">
+                    <tabBarItem key="tabBarItem" title="코디 리스트" id="99N-QG-aOe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="thirdView" id="TYo-Nj-8DF"/>
@@ -1434,7 +1434,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DhY-gW-9gC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="코디 추천" selectedImage="star.lefthalf.fill" catalog="system" id="cbF-Up-1aj">
+                    <tabBarItem key="tabBarItem" title="코디 추천" id="cbF-Up-1aj">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -1498,12 +1498,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="doc.text.fill" catalog="system" width="56" height="64"/>
         <image name="longJacket" width="526" height="304"/>
-        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
-        <image name="plus.square" catalog="system" width="64" height="56"/>
-        <image name="square.stack.3d.down.right" catalog="system" width="62" height="64"/>
-        <image name="star.lefthalf.fill" catalog="system" width="64" height="58"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

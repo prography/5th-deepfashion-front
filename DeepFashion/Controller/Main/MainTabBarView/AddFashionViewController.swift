@@ -127,7 +127,7 @@ class AddFashionViewController: UIViewController {
         let fashionStyle = selectedFashionData.style
         let weatherIndex = addFashionTableCell.weatherSegmentedControl.selectedSegmentIndex
 
-        let clothingData = UserClothingData(image: fashionImage, name: fashionName, fashionType: typeIndex, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
+        let clothingData = UserClothingData(image: fashionImage, name: fashionName, id: 1, fashionType: typeIndex, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
         CommonUserData.shared.addUserClothing(clothingData)
         print("now Adding Clothing Data : \(clothingData)")
 
@@ -145,7 +145,7 @@ class AddFashionViewController: UIViewController {
             }
         }
 
-        print(CommonUserData.shared.userClothingList)
+        print(CommonUserData.shared.clothingList)
     }
 
     @IBAction func cancelButton(_: UIButton) {

@@ -9,10 +9,11 @@
 import UIKit
 
 class ClosetListCollectionViewCell: UICollectionViewCell {
-    
     // MARK: UIs
-    
+
     @IBOutlet var fashionImageView: UIImageView!
+
+    private(set) var clothingData: UserClothingData?
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
         selectEffectView.backgroundColor = .white
@@ -22,41 +23,42 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
         selectEffectView.isHidden = true
         return selectEffectView
     }()
-    
+
     // MARK: Properties
-    
+
     override var isSelected: Bool {
         didSet {
             selectEffectView.isHidden = !isSelected
         }
     }
-    
+
     // MARK: Life Cycle
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .lightGray
         addSubviews()
         makeConstraints()
     }
-    
+
     // MARK: Methods
-    
-    func configureCell(image: UIImage) {
-        fashionImageView.image = image
+
+    func configureCell(clothingData: UserClothingData) {
+        self.clothingData = clothingData
+        fashionImageView.image = clothingData.image
     }
-    
+
     func addSubviews() {
         addSubview(selectEffectView)
     }
-    
+
     func makeConstraints() {
         selectEffectView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             selectEffectView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
             selectEffectView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
             selectEffectView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            selectEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
+            selectEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
         ])
     }
 }

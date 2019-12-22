@@ -56,7 +56,7 @@ extension ClosetListTableViewCell: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let closetListCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.closetList, for: indexPath) as? ClosetListCollectionViewCell else { return UICollectionViewCell() }
-        closetListCollectionViewCell.configureCell(image: closetListData[indexPath.item].image)
+        closetListCollectionViewCell.configureCell(clothingData: closetListData[indexPath.item])
         return closetListCollectionViewCell
     }
 }

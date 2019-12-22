@@ -45,7 +45,6 @@ class ClosetListViewController: UIViewController {
             case .edit:
                 activateDeleteBarButtonItem()
                 editBarButtonItem.title = "취소"
-                // removeAll()
             }
         }
     }
@@ -83,14 +82,14 @@ class ClosetListViewController: UIViewController {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.rightBarButtonItem = editBarButtonItem
         editBarButtonItem.isEnabled = true
-//        editBarButtonItem.addTargetForAction(target: self, action: #selector(editBarButtonItemPressed(_:)))
+        editBarButtonItem.addTargetForAction(target: self, action: #selector(editBarButtonItemPressed(_:)))
     }
 
     private func activateDeleteBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.leftBarButtonItem = deleteBarButtonItem
 
-//        deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
+        deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
 
         for section in 0 ..< 4 {
             guard let closetTableCell = closetListTableView.cellForRow(at: IndexPath(row: 0, section: section)) as? ClosetListTableViewCell else { return }
@@ -112,6 +111,16 @@ class ClosetListViewController: UIViewController {
             closetTableCell.collectionView.allowsSelection = false
         }
     }
+
+    @objc func editBarButtonItemPressed(_: UIButton) {
+        if viewMode == .view {
+            viewMode = .edit
+        } else {
+            viewMode = .view
+        }
+    }
+
+    @objc func deleteBarButtonItemPressed(_: UIButton) {}
 }
 
 extension ClosetListViewController: UITableViewDelegate {
@@ -148,7 +157,7 @@ extension ClosetListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
-        let clothingData = CommonUserData.shared.userClothingList.filter { $0.fashionType == indexPath.section }
+        let clothingData = CommonUserData.shared.clothingList.filter { $0.fashionType == indexPath.section }
         closetListTableViewCell.configureCell(clothingData: clothingData)
         return closetListTableViewCell
     }
