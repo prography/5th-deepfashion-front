@@ -11,7 +11,7 @@ import UIKit
 class ClosetListTableViewCell: UITableViewCell {
     // MARK: UIs
 
-    @IBOutlet var closetListCollectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
 
     // MARK: Properties
 
@@ -22,8 +22,8 @@ class ClosetListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        closetListCollectionView.delegate = self
-        closetListCollectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,7 +36,7 @@ class ClosetListTableViewCell: UITableViewCell {
     func configureCell(clothingData: [UserClothingData]) {
         closetListData = clothingData
         DispatchQueue.main.async {
-            self.closetListCollectionView.reloadData()
+            self.collectionView.reloadData()
         }
     }
 }

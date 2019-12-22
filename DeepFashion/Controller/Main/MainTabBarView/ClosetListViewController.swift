@@ -15,6 +15,41 @@ class ClosetListViewController: UIViewController {
 
     @IBOutlet var closetListTableView: UITableView!
 
+    private var editBarButtonItem: UIBarButtonItem = {
+        let editBarButtonItem = UIBarButtonItem()
+        editBarButtonItem.title = "편집"
+        return editBarButtonItem
+    }()
+
+    private var deleteBarButtonItem: UIBarButtonItem = {
+        let deleteBarButtonItem = UIBarButtonItem()
+        deleteBarButtonItem.isEnabled = false
+        deleteBarButtonItem.title = "삭제"
+        return deleteBarButtonItem
+    }()
+
+    // MARK: Properties
+
+    enum ViewMode {
+        case view
+        case edit
+    }
+
+    var viewMode: ViewMode = .view {
+        didSet {
+            switch viewMode {
+            case .view:
+                inactivateDeleteBarButtonItem()
+                activateEditBarButtonItem()
+                editBarButtonItem.title = "편집"
+            case .edit:
+                activateDeleteBarButtonItem()
+                editBarButtonItem.title = "취소"
+                // removeAll()
+            }
+        }
+    }
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -25,9 +60,56 @@ class ClosetListViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureViewController()
+    }
 
+    override func viewDidAppear(_: Bool) {
+        super.viewDidAppear(true)
+
+        viewMode = .view
         DispatchQueue.main.async {
             self.closetListTableView.reloadData()
+        }
+    }
+
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+        inactivateEditBarButtonItem()
+        inactivateDeleteBarButtonItem()
+    }
+
+    // MARK: Methods
+
+    private func activateEditBarButtonItem() {
+        guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
+        mainTabBarController.navigationItem.rightBarButtonItem = editBarButtonItem
+        editBarButtonItem.isEnabled = true
+//        editBarButtonItem.addTargetForAction(target: self, action: #selector(editBarButtonItemPressed(_:)))
+    }
+
+    private func activateDeleteBarButtonItem() {
+        guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
+        mainTabBarController.navigationItem.leftBarButtonItem = deleteBarButtonItem
+
+//        deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
+
+        for section in 0 ..< 4 {
+            guard let closetTableCell = closetListTableView.cellForRow(at: IndexPath(row: 0, section: section)) as? ClosetListTableViewCell else { return }
+            closetTableCell.collectionView.allowsMultipleSelection = true
+        }
+    }
+
+    private func inactivateEditBarButtonItem() {
+        guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
+        mainTabBarController.navigationItem.rightBarButtonItem = nil
+    }
+
+    private func inactivateDeleteBarButtonItem() {
+        guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
+        mainTabBarController.navigationItem.leftBarButtonItem = nil
+
+        for section in 0 ..< 4 {
+            guard let closetTableCell = closetListTableView.cellForRow(at: IndexPath(row: 0, section: section)) as? ClosetListTableViewCell else { return }
+            closetTableCell.collectionView.allowsSelection = false
         }
     }
 }
