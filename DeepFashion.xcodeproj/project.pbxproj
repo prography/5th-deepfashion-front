@@ -37,7 +37,8 @@
 		07885438239E690400B31331 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07885437239E690400B31331 /* MyPageTableViewCell.swift */; };
 		0788543A239E6B6700B31331 /* MyPageTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07885439239E6B6700B31331 /* MyPageTableHeaderView.swift */; };
 		078E583D23684281000A960B /* SecondSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* SecondSignUpViewController.swift */; };
-		07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */; };
+		07952A3623B012CB00124E97 /* ClosetListCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3523B012CB00124E97 /* ClosetListCollectionViewCellDelegate.swift */; };
+		07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */; };
 		07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */; };
 		07A3B0C4239108BF0028DC6B /* StyleSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C3239108BF0028DC6B /* StyleSelectCollectionViewCell.swift */; };
 		07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */; };
@@ -145,7 +146,8 @@
 		07885437239E690400B31331 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		07885439239E6B6700B31331 /* MyPageTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableHeaderView.swift; sourceTree = "<group>"; };
 		078E583C23684281000A960B /* SecondSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignUpViewController.swift; sourceTree = "<group>"; };
-		07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellDelegate.swift; sourceTree = "<group>"; };
+		07952A3523B012CB00124E97 /* ClosetListCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
+		07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableviewCellDelegate.swift; sourceTree = "<group>"; };
 		07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleViewController.swift; sourceTree = "<group>"; };
 		07A3B0C3239108BF0028DC6B /* StyleSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectCollectionViewCell.swift; sourceTree = "<group>"; };
 		07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -367,7 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */,
-				07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */,
+				07952A3523B012CB00124E97 /* ClosetListCollectionViewCellDelegate.swift */,
+				07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */,
 				07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */,
 			);
 			path = Protocol;
@@ -844,9 +847,10 @@
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
 				07C5C60023ACFE0200324B67 /* AddFashionTableViewCell.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
-				07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */,
+				07952A3623B012CB00124E97 /* ClosetListCollectionViewCellDelegate.swift in Sources */,
 				07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */,
 				07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */,
+				07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */,
 				07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */,
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,

@@ -12,6 +12,7 @@ class ClosetListTableViewCell: UITableViewCell {
     // MARK: UIs
 
     @IBOutlet var collectionView: UICollectionView!
+    weak var delegate: ClosetListTableViewCellDelegate?
 
     // MARK: Properties
 
@@ -62,9 +63,8 @@ extension ClosetListTableViewCell: UICollectionViewDataSource {
     }
 }
 
-extension ClosetListTableViewCell: UICollectionViewCellDelegate {
-    func collectinoViewCellItemSelected(_ collectionViewCell: UICollectionViewCell) {
-        guard let collectionCell = collectionViewCell as? ClosetListCollectionViewCell else { return }
-        print("선택 된 셀 정보 : \(String(describing: collectionCell.clothingData))")
+extension ClosetListTableViewCell: ClosetListCollectionViewCellDelegate {
+    func collectinoViewCellItemSelected(_ collectionViewCell: ClosetListCollectionViewCell) {
+        delegate?.subCollectionViewCellSelected(collectionView: collectionViewCell)
     }
 }

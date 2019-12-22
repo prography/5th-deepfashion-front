@@ -28,6 +28,16 @@ class ClosetListViewController: UIViewController {
         return deleteBarButtonItem
     }()
 
+    private var selectedClothingData = Set<UserClothingData>() {
+        didSet {
+            if !selectedClothingData.isEmpty {
+                deleteBarButtonItem.isEnabled = true
+            } else {
+                deleteBarButtonItem.isEnabled = false
+            }
+        }
+    }
+
     // MARK: Properties
 
     enum ViewMode {
@@ -158,8 +168,23 @@ extension ClosetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
         let clothingData = CommonUserData.shared.clothingList.filter { $0.fashionType == indexPath.section }
+        closetListTableViewCell.delegate = self
         closetListTableViewCell.configureCell(clothingData: clothingData)
         return closetListTableViewCell
+    }
+}
+
+extension ClosetListViewController: ClosetListTableViewCellDelegate {
+    func subCollectionViewCellSelected(collectionView: ClosetListCollectionViewCell) {
+        guard let cellClothingData = collectionView.clothingData else { return }
+        if collectionView.isSelected {
+            print("선택 됨 ^-^")
+            selectedClothingData.insert(cellClothingData)
+        } else {
+            print("선택 해제 됨 x_x")
+            selectedClothingData.remove(cellClothingData)
+        }
+        print(selectedClothingData)
     }
 }
 

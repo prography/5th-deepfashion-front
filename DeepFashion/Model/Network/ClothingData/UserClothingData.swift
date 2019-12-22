@@ -8,7 +8,16 @@
 
 import UIKit
 
-struct UserClothingData {
+struct UserClothingData: Hashable {
+    static func == (lhs: UserClothingData, rhs: UserClothingData) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.fashionType == rhs.fashionType
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+    }
+
     var image: UIImage
     var name: String
     var id: Int

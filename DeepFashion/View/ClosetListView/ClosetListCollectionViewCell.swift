@@ -15,9 +15,10 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
 
     // MARK: Properties
 
-    weak var delegate: UICollectionViewCellDelegate?
+    weak var delegate: ClosetListCollectionViewCellDelegate?
 
     private(set) var clothingData: UserClothingData?
+
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
         selectEffectView.backgroundColor = .white

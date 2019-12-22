@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol UIViewControllerSetting {
+protocol UIViewControllerSetting: class {
     func configureViewController()
 }
