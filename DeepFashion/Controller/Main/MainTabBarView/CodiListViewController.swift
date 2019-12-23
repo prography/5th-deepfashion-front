@@ -119,18 +119,23 @@ class CodiListViewController: UIViewController {
         originCodiDataList = originCodiDataList.filter { $0 != nil }
         guard let codiDataList = originCodiDataList as? [CodiDataSet] else { return }
         UserCommonData.shared.configureCodiDataList(codiDataList)
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
         selectedIndexPath = Set<IndexPath>()
+
+        guard let selectedIndexPath = collectionView.indexPathsForSelectedItems else { return }
+
+        if !selectedIndexPath.isEmpty {
+            collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: selectedIndexPath)
+            }, completion: nil)
+        }
     }
 
-    @objc func editBarButtonItemPressed(_: Any) {
+    @objc func editBarButtonItemPressed(_: UIButton) {
         print("editBarButtonItemPressed!")
         viewMode = viewMode == .view ? .edit : .view
     }
 
-    @objc func deleteBarButtonItemPressed(_: Any) {
+    @objc func deleteBarButtonItemPressed(_: UIButton) {
         print("deleteBarButtonItemPressed")
         presentBasicTwoButtonAlertController(title: "코디 삭제", message: "선택한 코디목록을 삭제하시겠습니까?") { isApproved in
             if isApproved {
