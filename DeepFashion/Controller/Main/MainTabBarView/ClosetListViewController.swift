@@ -131,13 +131,15 @@ class ClosetListViewController: UIViewController {
 
     @objc func closetListDeleteBarButtonItemPressed(_: UIButton) {
         presentBasicTwoButtonAlertController(title: "선택 옷 삭제", message: "선택한 옷을 삭제하시겠습니까?") { isApproved in
+
             if isApproved {
-                // 선택 된 옷 삭제 코드 구현 예정
+                for i in 0 ... 3 {
+                    guard let closetListTableCell = self.closetListTableView.cellForRow(at: IndexPath(row: 0, section: i)) as? ClosetListTableViewCell else { return }
+                    closetListTableCell.removeSelectedCollectionViewCell()
+                }
+
                 if !UserCommonData.shared.removeClothingData(selectedData: self.selectedClothingData) {
                     self.deleteBarButtonItem.isEnabled = false
-                }
-                DispatchQueue.main.async {
-                    self.closetListTableView.reloadData()
                 }
             }
         }
@@ -189,10 +191,8 @@ extension ClosetListViewController: ClosetListTableViewCellDelegate {
     func subCollectionViewCellSelected(collectionView: ClosetListCollectionViewCell) {
         guard let cellClothingData = collectionView.clothingData else { return }
         if collectionView.isSelected {
-            print("선택 됨 ^-^")
             selectedClothingData.insert(cellClothingData)
         } else {
-            print("선택 해제 됨 x_x")
             selectedClothingData.remove(cellClothingData)
         }
         print(selectedClothingData)

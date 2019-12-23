@@ -16,7 +16,13 @@ class ClosetListTableViewCell: UITableViewCell {
 
     // MARK: Properties
 
-    private var closetListData: [UserClothingData] = []
+    private var closetListData: [UserClothingData] = [] {
+        didSet {
+            closetListDataCount = closetListData.count
+        }
+    }
+
+    private(set) var closetListDataCount = 0
 
     // MARK: Life Cycle
 
@@ -25,6 +31,7 @@ class ClosetListTableViewCell: UITableViewCell {
         // Initialization code
         collectionView.delegate = self
         collectionView.dataSource = self
+        closetListDataCount = closetListData.count
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,6 +47,17 @@ class ClosetListTableViewCell: UITableViewCell {
             self.collectionView.reloadData()
         }
     }
+
+    func removeSelectedCollectionViewCell() {
+        guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
+
+        if !selectedIndexPaths.isEmpty {
+            collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: selectedIndexPaths)
+                closetListDataCount -= selectedIndexPaths.count
+            })
+        }
+    }
 }
 
 extension ClosetListTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -52,7 +70,7 @@ extension ClosetListTableViewCell: UICollectionViewDelegate {}
 
 extension ClosetListTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return closetListData.count
+        return closetListDataCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
