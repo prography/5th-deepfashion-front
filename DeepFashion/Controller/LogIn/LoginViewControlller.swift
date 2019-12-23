@@ -44,6 +44,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         configureTextField()
         configureLoginButton()
+    }
+
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
         RequestAPI.shared.delegate = self
     }
 
@@ -152,7 +156,5 @@ extension LoginViewController: RequestAPIDelegate {
 }
 
 extension LoginViewController: UIViewControllerSetting {
-    func configureViewController() {
-        RequestAPI.shared.delegate = self
-    }
+    func configureViewController() {}
 }

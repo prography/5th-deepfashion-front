@@ -49,9 +49,13 @@ class SecondSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        RequestAPI.shared.delegate = self
         configureStyleSelectButton()
         configureSignUpFinishButton()
+    }
+
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        RequestAPI.shared.delegate = self
     }
 
     override func viewWillDisappear(_: Bool) {

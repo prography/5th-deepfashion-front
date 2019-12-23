@@ -104,7 +104,7 @@
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="Ye5-FE-TJQ"/>
                             </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="R5u-wh-hcu">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="R5u-wh-hcu">
                                 <rect key="frame" x="135" y="237" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PPD-jg-Nfg"/>
@@ -513,8 +513,9 @@
                                     <action selector="signUpFinishedButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="3Jg-S7-vpW"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="j4Z-KG-2HO">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="j4Z-KG-2HO">
                                 <rect key="frame" x="135" y="259" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kJq-bQ-l4R"/>
                                     <constraint firstAttribute="width" constant="50" id="neM-l8-W8S"/>
@@ -794,10 +795,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
-                                <rect key="frame" x="0.0" y="498" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="518" width="320" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3u8-yu-lvO">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
                                         <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="등록하기"/>
                                         <connections>
@@ -805,7 +806,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
-                                        <rect key="frame" x="160" y="0.0" width="160" height="50"/>
+                                        <rect key="frame" x="160" y="0.0" width="160" height="30"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="취소하기"/>
                                         <connections>
@@ -813,9 +814,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="GPo-Ry-TaY"/>
-                                </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-rD-P5A">
                                 <rect key="frame" x="0.0" y="150" width="320" height="348"/>
@@ -1017,19 +1015,25 @@
                                     <constraint firstAttribute="height" constant="150" id="Yet-UP-B5L"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="YNE-qX-swM">
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YNE-qX-swM" firstAttribute="centerY" secondItem="IKm-vE-afn" secondAttribute="centerY" id="1wx-gW-a0O"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="MXX-DH-Yhc" secondAttribute="trailing" id="3TQ-R3-AIW"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="bottom" secondItem="hQe-oS-nZg" secondAttribute="bottom" constant="20" id="4ck-Ff-E5r"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="tPS-rD-P5A" secondAttribute="trailing" id="5Pw-vC-QgS"/>
+                            <constraint firstItem="hQe-oS-nZg" firstAttribute="top" secondItem="tPS-rD-P5A" secondAttribute="bottom" constant="20" id="6IG-14-P6u"/>
+                            <constraint firstItem="YNE-qX-swM" firstAttribute="centerX" secondItem="IKm-vE-afn" secondAttribute="centerX" id="K9U-Mb-2X8"/>
                             <constraint firstItem="tPS-rD-P5A" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="Knn-qx-pdo"/>
                             <constraint firstItem="MXX-DH-Yhc" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="MRt-Ak-jL2"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="bottom" secondItem="hQe-oS-nZg" secondAttribute="bottom" constant="20" id="Nny-hV-WUI"/>
                             <constraint firstItem="MXX-DH-Yhc" firstAttribute="top" secondItem="b84-4g-Hlw" secondAttribute="top" id="SPp-uW-xAY"/>
                             <constraint firstItem="hQe-oS-nZg" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="XZS-x4-3se"/>
-                            <constraint firstItem="hQe-oS-nZg" firstAttribute="top" secondItem="tPS-rD-P5A" secondAttribute="bottom" id="abt-Tz-lZB"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="hQe-oS-nZg" secondAttribute="trailing" id="eba-uA-B8l"/>
                             <constraint firstItem="tPS-rD-P5A" firstAttribute="top" secondItem="MXX-DH-Yhc" secondAttribute="bottom" id="fyJ-A5-PPc"/>
                         </constraints>
@@ -1037,6 +1041,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="YNE-qX-swM" id="fqn-i7-SuD"/>
                         <outlet property="addFashionTableView" destination="tPS-rD-P5A" id="W0g-iH-KaH"/>
                         <outlet property="clothingImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
                         <outlet property="registrationButton" destination="3u8-yu-lvO" id="rMZ-OE-tbf"/>

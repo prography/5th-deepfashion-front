@@ -14,10 +14,16 @@ class AddFashionViewController: UIViewController {
     @IBOutlet var addFashionTableView: UITableView!
     @IBOutlet var clothingImageView: UIImageView!
     @IBOutlet var registrationButton: UIButton!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     // MARK: Properties
 
     var selectedFashionData = FashionData()
+    private var isRequestAPI = false {
+        willSet {
+            activityIndicator.checkIndicatorView(newValue)
+        }
+    }
 
     private let fashionTypeAlertController: TypeAlertController = {
         let fashionAlertController = TypeAlertController(title: "패션분류 선택", message: "패션 분류를 선택해주세요.", preferredStyle: .actionSheet)
@@ -33,7 +39,7 @@ class AddFashionViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-//        configureFashionStyleButton()
+        RequestAPI.shared.delegate = self
         checkFillInData()
     }
 
@@ -209,6 +215,20 @@ extension AddFashionViewController: UITableViewDataSource {
         addFashionTableCell.styleButton.setTitle(styleButtonText, for: .normal)
 
         return addFashionTableCell
+    }
+}
+
+extension AddFashionViewController: RequestAPIDelegate {
+    func requestAPIDidBegin() {
+        isRequestAPI = true
+    }
+
+    func requestAPIDidFinished() {
+        isRequestAPI = false
+    }
+
+    func requestAPIDidError() {
+        isRequestAPI = false
     }
 }
 

@@ -204,5 +204,6 @@ extension ClosetListViewController: UIViewControllerSetting {
     func configureViewController() {
         closetListTableView.delegate = self
         closetListTableView.dataSource = self
+        closetListTableView.allowsSelection = false
     }
 }

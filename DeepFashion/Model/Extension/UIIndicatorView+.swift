@@ -12,10 +12,8 @@ extension UIActivityIndicatorView {
     func checkIndicatorView(_ isRunning: Bool) {
         DispatchQueue.main.async {
             if isRunning {
-                self.isHidden = false
                 self.startAnimating()
             } else {
-                self.isHidden = true
                 self.stopAnimating()
             }
         }
