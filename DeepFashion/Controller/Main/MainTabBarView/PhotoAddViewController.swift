@@ -81,15 +81,13 @@ class PhotoAddViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoPickerViewController.delegate = self
         configureViewController()
-        configurePhotoSelectAlertController()
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.isHidden = false
-        configureViewController()
+        configureBasicTitle(ViewData.Title.MainTabBarView.photoAddView)
     }
 
     // MARK: Methods
@@ -236,6 +234,7 @@ extension PhotoAddViewController: UINavigationControllerDelegate {}
 
 extension PhotoAddViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureBasicTitle(ViewData.Title.MainTabBarView.photoAddView)
+        configurePhotoSelectAlertController()
+        photoPickerViewController.delegate = self
     }
 }

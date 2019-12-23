@@ -549,10 +549,10 @@
             </objects>
             <point key="canvasLocation" x="2255.625" y="-154.22535211267606"/>
         </scene>
-        <!--SecondView-->
+        <!--옷장 리스트-->
         <scene sceneID="ERn-qo-GpZ">
             <objects>
-                <viewController title="SecondView" id="wfz-52-Igo" customClass="ClosetListViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="옷장 리스트" id="wfz-52-Igo" customClass="ClosetListViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILb-48-Kcd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1256,10 +1256,10 @@
             </objects>
             <point key="canvasLocation" x="2615.625" y="1381.6901408450703"/>
         </scene>
-        <!--Favorite-->
+        <!--코디 추천 리스트-->
         <scene sceneID="8Bq-3q-DU9">
             <objects>
-                <viewController title="Favorite" id="abK-qW-sZg" customClass="CodiRecommendViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="코디 추천 리스트" id="abK-qW-sZg" customClass="CodiRecommendViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2t-dv-yFB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

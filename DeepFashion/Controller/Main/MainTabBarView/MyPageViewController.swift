@@ -15,14 +15,12 @@ class MyPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        myPageTableView.delegate = self
-        myPageTableView.dataSource = self
         configureViewController()
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureViewController()
+        configureBasicTitle(ViewData.Title.MainTabBarView.myPageView)
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -37,12 +35,6 @@ class MyPageViewController: UIViewController {
                 }
             }
         }
-    }
-}
-
-extension MyPageViewController: UIViewControllerSetting {
-    func configureViewController() {
-        configureBasicTitle(ViewData.Title.MainTabBarView.myPageView)
     }
 }
 
@@ -100,5 +92,12 @@ extension MyPageViewController: UITableViewDataSource {
         guard let myPageCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.myPage, for: indexPath) as? MyPageTableViewCell else { return UITableViewCell() }
         myPageCell.configureCell(title: ViewData.Section.Row.myPageTableView[indexPath.row])
         return myPageCell
+    }
+}
+
+extension MyPageViewController: UIViewControllerSetting {
+    func configureViewController() {
+        myPageTableView.delegate = self
+        myPageTableView.dataSource = self
     }
 }

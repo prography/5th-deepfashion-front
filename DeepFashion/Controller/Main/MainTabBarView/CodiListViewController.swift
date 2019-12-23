@@ -70,6 +70,7 @@ class CodiListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        configureBasicTitle(ViewData.Title.MainTabBarView.codiListView)
     }
 
     override func viewDidAppear(_: Bool) {
@@ -167,7 +168,6 @@ extension CodiListViewController: UICollectionViewDataSource {
 
 extension CodiListViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureBasicTitle(ViewData.Title.MainTabBarView.codiListView)
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
     }
 }

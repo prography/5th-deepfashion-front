@@ -68,6 +68,7 @@ class ClosetListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        configureBasicTitle(ViewData.Title.MainTabBarView.closetListView)
     }
 
     override func viewDidAppear(_: Bool) {
@@ -201,7 +202,6 @@ extension ClosetListViewController: ClosetListTableViewCellDelegate {
 
 extension ClosetListViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureBasicTitle(ViewData.Title.MainTabBarView.closetListView)
         closetListTableView.delegate = self
         closetListTableView.dataSource = self
     }

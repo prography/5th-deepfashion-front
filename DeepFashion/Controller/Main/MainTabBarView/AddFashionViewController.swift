@@ -218,7 +218,6 @@ extension AddFashionViewController: UIViewControllerSetting {
         addFashionTableView.dataSource = self
         addFashionTableView.allowsSelection = false
         navigationController?.navigationBar.isHidden = true
-
         clothingImageView.image = selectedFashionData.image
     }
 }
