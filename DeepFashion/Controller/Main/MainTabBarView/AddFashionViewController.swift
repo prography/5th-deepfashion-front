@@ -123,6 +123,14 @@ class AddFashionViewController: UIViewController {
         }
     }
 
+    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    @objc func addFashionTableViewTouched(_: UITableView) {
+        view.endEditing(true)
+    }
+
     // MARK: - IBActions
 
     @IBAction func addFashionButton(_: UIButton) {
@@ -244,5 +252,7 @@ extension AddFashionViewController: UIViewControllerSetting {
         addFashionTableView.allowsSelection = false
         navigationController?.navigationBar.isHidden = true
         clothingImageView.image = selectedFashionData.image
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addFashionTableViewTouched(_:)))
+        addFashionTableView.addGestureRecognizer(tapGestureRecognizer)
     }
 }
