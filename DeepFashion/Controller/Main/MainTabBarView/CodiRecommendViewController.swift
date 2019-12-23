@@ -47,7 +47,7 @@ class CodiRecommendViewController: UIViewController {
             codiDataSet.append(codiData)
             if codiDataSet.count == 4 { break }
         }
-        CommonUserData.shared.addCodiData(codiDataSet)
+        UserCommonData.shared.addCodiData(codiDataSet)
         print("codiDataSet Added!!")
         codiIdCount += 1
     }

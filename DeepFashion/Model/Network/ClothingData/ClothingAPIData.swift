@@ -10,10 +10,10 @@
 
 import UIKit
 
-struct UserClothingAPIData: Encodable {
+struct ClothingAPIData: Codable {
     let style: Int
     let name: String
-    let color: String
+    let color: Int
     let owner: Int
     let season: Int
     let part: Int

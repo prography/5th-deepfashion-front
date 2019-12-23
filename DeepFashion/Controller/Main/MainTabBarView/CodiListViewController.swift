@@ -11,7 +11,7 @@ import UIKit
 class CodiListViewController: UIViewController {
     // MARK: UIs
 
-    @IBOutlet var codiListCollectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
 
     private var editBarButtonItem: UIBarButtonItem = {
         let editBarButtonItem = UIBarButtonItem()
@@ -43,7 +43,6 @@ class CodiListViewController: UIViewController {
             case .edit:
                 activateDeleteBarButtonItem()
                 editBarButtonItem.title = "취소"
-                // removeAll()
             }
         }
     }
@@ -63,11 +62,14 @@ class CodiListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        editBarButtonItem.addTargetForAction(target: self, action: #selector(CodiListViewController.editBarButtonItemPressed(_:)))
+        deleteBarButtonItem.addTargetForAction(target: self, action: #selector(CodiListViewController.deleteBarButtonItemPressed(_:)))
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureViewController()
     }
 
     override func viewDidAppear(_: Bool) {
@@ -80,7 +82,7 @@ class CodiListViewController: UIViewController {
         inactivateEditBarButtonItem()
         inactivateDeleteBarButtonItem()
         DispatchQueue.main.async {
-            self.codiListCollectionView.reloadData()
+            self.collectionView.reloadData()
         }
     }
 
@@ -88,16 +90,12 @@ class CodiListViewController: UIViewController {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.rightBarButtonItem = editBarButtonItem
         editBarButtonItem.isEnabled = true
-        editBarButtonItem.addTargetForAction(target: self, action: #selector(editBarButtonItemPressed(_:)))
     }
 
     private func activateDeleteBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.leftBarButtonItem = deleteBarButtonItem
-
-        deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
-        codiListCollectionView.allowsSelection = false
-        codiListCollectionView.allowsMultipleSelection = true
+        collectionView.allowsMultipleSelection = true
     }
 
     private func inactivateEditBarButtonItem() {
@@ -108,31 +106,30 @@ class CodiListViewController: UIViewController {
     private func inactivateDeleteBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.leftBarButtonItem = nil
-        codiListCollectionView.allowsSelection = false
-        codiListCollectionView.allowsMultipleSelection = false
+        collectionView.allowsSelection = false
     }
 
     private func deleteSelectedCells() {
-        var originCodiDataList = CommonUserData.shared.codiDataList
+        var originCodiDataList = UserCommonData.shared.codiDataList
         selectedIndexPath.forEach {
             originCodiDataList[$0.item] = nil
         }
 
         originCodiDataList = originCodiDataList.filter { $0 != nil }
         guard let codiDataList = originCodiDataList as? [CodiDataSet] else { return }
-        CommonUserData.shared.configureCodiDataList(codiDataList)
+        UserCommonData.shared.configureCodiDataList(codiDataList)
         DispatchQueue.main.async {
-            self.codiListCollectionView.reloadData()
+            self.collectionView.reloadData()
         }
         selectedIndexPath = Set<IndexPath>()
     }
 
-    @objc func editBarButtonItemPressed(_: UIButton) {
+    @objc func editBarButtonItemPressed(_: Any) {
         print("editBarButtonItemPressed!")
         viewMode = viewMode == .view ? .edit : .view
     }
 
-    @objc func deleteBarButtonItemPressed(_: UIButton) {
+    @objc func deleteBarButtonItemPressed(_: Any) {
         print("deleteBarButtonItemPressed")
         presentBasicTwoButtonAlertController(title: "코디 삭제", message: "선택한 코디목록을 삭제하시겠습니까?") { isApproved in
             if isApproved {
@@ -144,36 +141,32 @@ class CodiListViewController: UIViewController {
 
 extension CodiListViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("now item: \(indexPath.item)")
         selectedIndexPath.insert(indexPath)
         print(selectedIndexPath)
     }
 
     func collectionView(_: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         selectedIndexPath.remove(indexPath)
-        if selectedIndexPath.isEmpty {}
         print(selectedIndexPath)
     }
 }
 
 extension CodiListViewController: UICollectionViewDataSource {
-    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return CommonUserData.shared.codiDataList.count
-    }
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let codiListCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.codiList, for: indexPath) as? CodiListCollectionViewCell,
-            let codiDataSet = CommonUserData.shared.codiDataList[indexPath.item] else { return UICollectionViewCell() }
+            let codiDataSet = UserCommonData.shared.codiDataList[indexPath.item] else { return UICollectionViewCell() }
 
         codiListCell.configureCell(itemIndex: indexPath.item, codiDataSet: codiDataSet)
         return codiListCell
+    }
+
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        return UserCommonData.shared.codiDataList.count
     }
 }
 
 extension CodiListViewController: UIViewControllerSetting {
     func configureViewController() {
-        codiListCollectionView.delegate = self
-        codiListCollectionView.dataSource = self
         configureBasicTitle(ViewData.Title.MainTabBarView.codiListView)
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
     }

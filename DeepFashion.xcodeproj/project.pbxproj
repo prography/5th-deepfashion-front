@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07020DF7237FD506000CFAC2 /* UIIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */; };
 		071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */; };
+		0716E0FB23B0D2B800F3E820 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716E0FA23B0D2B800F3E820 /* Array+.swift */; };
 		0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B52365D99800E26B38 /* AppDelegate.swift */; };
 		0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B92365D99800E26B38 /* LoginViewControlller.swift */; };
 		0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6BB2365D99800E26B38 /* Main.storyboard */; };
@@ -59,7 +60,7 @@
 		07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */; };
 		07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0632382B64A00D6A9E1 /* ViewData.swift */; };
 		07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */; };
-		07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */; };
+		07B7F6BE238EE4FD00EA9C10 /* ClothingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6BD238EE4FD00EA9C10 /* ClothingAPIData.swift */; };
 		07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */; };
 		07C5C5EA23AB549000324B67 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */; };
 		07C5C5ED23AB9AD000324B67 /* CodiDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */; };
@@ -79,7 +80,7 @@
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
 		07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */; };
-		07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */; };
+		07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */; };
 		07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* TextField+.swift */; };
 		07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */; };
 		07D5E9B5236EF98D00A27B28 /* SegueIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B4236EF98D00A27B28 /* SegueIdentifier.swift */; };
@@ -112,6 +113,7 @@
 /* Begin PBXFileReference section */
 		07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIIndicatorView+.swift"; sourceTree = "<group>"; };
 		071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewCell.swift; sourceTree = "<group>"; };
+		0716E0FA23B0D2B800F3E820 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		0733A6B22365D99800E26B38 /* DeepFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0733A6B52365D99800E26B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0733A6B92365D99800E26B38 /* LoginViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControlller.swift; sourceTree = "<group>"; };
@@ -170,7 +172,7 @@
 		07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		07B6E0632382B64A00D6A9E1 /* ViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewData.swift; sourceTree = "<group>"; };
 		07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFashionViewController.swift; sourceTree = "<group>"; };
-		07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingAPIData.swift; sourceTree = "<group>"; };
+		07B7F6BD238EE4FD00EA9C10 /* ClothingAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingAPIData.swift; sourceTree = "<group>"; };
 		07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlertController.swift; sourceTree = "<group>"; };
 		07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
 		07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiDataSet.swift; sourceTree = "<group>"; };
@@ -190,7 +192,7 @@
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
 		07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableHeaderView.swift; sourceTree = "<group>"; };
-		07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserData.swift; sourceTree = "<group>"; };
+		07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommonData.swift; sourceTree = "<group>"; };
 		07D5E9AE236EE6A800A27B28 /* TextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+.swift"; sourceTree = "<group>"; };
 		07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifier.swift; sourceTree = "<group>"; };
 		07D5E9B4236EF98D00A27B28 /* SegueIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueIdentifier.swift; sourceTree = "<group>"; };
@@ -390,7 +392,7 @@
 		07ADBD88237D0D59004222CB /* SingleTon */ = {
 			isa = PBXGroup;
 			children = (
-				07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */,
+				07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */,
 			);
 			path = SingleTon;
 			sourceTree = "<group>";
@@ -463,7 +465,7 @@
 		07B7F6BC238EE4E200EA9C10 /* ClothingData */ = {
 			isa = PBXGroup;
 			children = (
-				07B7F6BD238EE4FD00EA9C10 /* UserClothingAPIData.swift */,
+				07B7F6BD238EE4FD00EA9C10 /* ClothingAPIData.swift */,
 				07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */,
 				07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */,
 				07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */,
@@ -537,6 +539,7 @@
 			children = (
 				07D5E9AE236EE6A800A27B28 /* TextField+.swift */,
 				07B1046923AE9EAC00C8286D /* UIColor+.swift */,
+				0716E0FA23B0D2B800F3E820 /* Array+.swift */,
 				07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */,
 				07B5AE792399035B000C215E /* UIImage+.swift */,
 				07D5E9BC236EFADE00A27B28 /* UIButton+.swift */,
@@ -830,7 +833,7 @@
 				0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */,
 				076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */,
 				07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */,
-				07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */,
+				07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */,
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,
@@ -849,7 +852,7 @@
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
 				07952A3623B012CB00124E97 /* ClosetListCollectionViewCellDelegate.swift in Sources */,
 				07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */,
-				07B7F6BE238EE4FD00EA9C10 /* UserClothingAPIData.swift in Sources */,
+				07B7F6BE238EE4FD00EA9C10 /* ClothingAPIData.swift in Sources */,
 				07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */,
 				07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */,
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
@@ -867,6 +870,7 @@
 				07AB242823AA57D10076ABF5 /* UserClothingUploadData.swift in Sources */,
 				07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */,
 				0788543A239E6B6700B31331 /* MyPageTableHeaderView.swift in Sources */,
+				0716E0FB23B0D2B800F3E820 /* Array+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -972,7 +976,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1027,7 +1031,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1043,15 +1047,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NF9G85TZ2T;
+				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = DeepFashion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = OurTrees.DeepFashion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/PyTorch/DeepFashion-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1065,15 +1071,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NF9G85TZ2T;
+				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = DeepFashion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = OurTrees.DeepFashion;
+				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/PyTorch/DeepFashion-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

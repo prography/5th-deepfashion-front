@@ -149,11 +149,10 @@ final class RequestAPI {
 
                 // MARK: - Token Check
 
-                CommonUserData.shared.setUserPrivateData(token: userData.token, pk: userData.pk)
+                UserCommonData.shared.setUserPrivateData(token: userData.token, pk: userData.pk)
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
-                        print("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
                         completion(nil)
                     } else {
@@ -214,7 +213,7 @@ final class RequestAPI {
 
         case .clothingPost:
 
-            guard let userData = userData as? UserClothingAPIData else {
+            guard let userData = userData as? ClothingAPIData else {
                 delegate?.requestAPIDidError()
                 completion(NetworkError.wrongType)
                 return
@@ -223,7 +222,7 @@ final class RequestAPI {
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.clothing)"
             print("userDataPostURLString : \(userDataPostURLString)")
 
-            let userDataToPost = UserClothingAPIData(style: userData.style, name: userData.name, color: userData.color, owner: userData.owner, season: userData.season, part: userData.part, images: userData.images)
+            let userDataToPost = ClothingAPIData(style: userData.style, name: userData.name, color: userData.color, owner: userData.owner, season: userData.season, part: userData.part, images: userData.images)
 
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
@@ -233,13 +232,13 @@ final class RequestAPI {
             }
 
             var urlRequest = URLRequest(url: postURL)
-            urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
             urlRequest.httpMethod = "POST"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: userAPIData) {
-                resultData, response, error in
+                _, response, error in
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
@@ -248,19 +247,19 @@ final class RequestAPI {
                     completion(errorType)
                 }
 
-                guard let postAPIResultData = resultData else {
-                    completion(errorType)
-                    return
-                }
+//                guard let postAPIResultData = resultData else {
+//                    completion(errorType)
+//                    return
+//                }
 
-                guard let postResultData = try? JSONDecoder().decode(UserClothingPostAPIResultData.self, from: postAPIResultData) else {
-                    print("UserClothingPostAPIResultData Decode Error")
-                    completion(errorType)
-                    return
-                }
+//                guard let postResultData = try? JSONDecoder().decode(UserClothingPostAPIResultData.self, from: postAPIResultData) else {
+//                    print("UserClothingPostAPIResultData Decode Error")
+//                    completion(errorType)
+//                    return
+//                }
 
                 //                print("postResultData is.. \(postResultData)")
-                CommonUserData.shared.setClothingCode(postResultData.images[0].clothing)
+//                UserCommonData.shared.setClothingCode(postResultData.images[0].clothing)
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {

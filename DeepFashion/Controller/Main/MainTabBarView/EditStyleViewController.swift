@@ -19,7 +19,7 @@ class EditStyleViewController: UIViewController {
 
     private var fashionStyles: [String] = {
         var fashionStyles = [String]()
-        fashionStyles = CommonUserData.shared.gender == 0 ? FashionStyle.male : FashionStyle.female
+        fashionStyles = UserCommonData.shared.gender == 0 ? FashionStyle.male : FashionStyle.female
         return fashionStyles
     }()
 
@@ -72,7 +72,7 @@ class EditStyleViewController: UIViewController {
 
     @IBAction func finishButtonPressed(_: UIButton) {
         print("Finish Button Pressed!!")
-        CommonUserData.shared.resetStyleData()
+        UserCommonData.shared.resetStyleData()
         guard let viewControllers = navigationController?.viewControllers,
             let addFashionViewControlller = navigationController?.viewControllers[viewControllers.count - 2] as? AddFashionViewController else { return }
         addFashionViewControlller.selectedFashionData.style = selectedStyleIndex

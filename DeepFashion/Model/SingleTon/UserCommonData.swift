@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class CommonUserData {
-    static let shared = CommonUserData()
+final class UserCommonData {
+    static let shared = UserCommonData()
 
     private(set) var userData: UserData?
     private(set) var id: String = ""
@@ -17,10 +17,10 @@ final class CommonUserData {
     private(set) var userToken: String = ""
     private(set) var password: String = ""
     private(set) var gender: Int = 0
-    private(set) var codiDataList = [CodiDataSet?]()
     private(set) var selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
     private(set) var nowClothingCode: Int = 0
 
+    private(set) var codiDataList = [CodiDataSet?]()
     private(set) var clothingList = [UserClothingData]()
 
     private init() {}
@@ -63,6 +63,20 @@ final class CommonUserData {
 
     func resetClothingData() {
         clothingList = [UserClothingData]()
+    }
+
+    func removeClothingData(selectedData: Set<UserClothingData>) -> Bool {
+        clothingList.sort {
+            $0.name < $1.name
+        }
+
+        for i in selectedData.indices {
+            if let idx = clothingList.binarySearch(searchData: selectedData[i]) {
+                clothingList.remove(at: idx)
+            }
+        }
+
+        return !clothingList.isEmpty
     }
 
     func addCodiData(_ codiData: [CodiData]) {

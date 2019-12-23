@@ -68,7 +68,6 @@ class ClosetListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureViewController()
     }
 
     override func viewDidAppear(_: Bool) {
@@ -92,14 +91,14 @@ class ClosetListViewController: UIViewController {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.rightBarButtonItem = editBarButtonItem
         editBarButtonItem.isEnabled = true
-        editBarButtonItem.addTargetForAction(target: self, action: #selector(editBarButtonItemPressed(_:)))
+        editBarButtonItem.addTargetForAction(target: self, action: #selector(closetListEditBarButtonItemPressed(_:)))
     }
 
     private func activateDeleteBarButtonItem() {
         guard let mainTabBarController = self.tabBarController as? MainTabBarController else { return }
         mainTabBarController.navigationItem.leftBarButtonItem = deleteBarButtonItem
 
-        deleteBarButtonItem.addTargetForAction(target: self, action: #selector(deleteBarButtonItemPressed(_:)))
+        deleteBarButtonItem.addTargetForAction(target: self, action: #selector(closetListDeleteBarButtonItemPressed(_:)))
 
         for section in 0 ..< 4 {
             guard let closetTableCell = closetListTableView.cellForRow(at: IndexPath(row: 0, section: section)) as? ClosetListTableViewCell else { return }
@@ -122,7 +121,7 @@ class ClosetListViewController: UIViewController {
         }
     }
 
-    @objc func editBarButtonItemPressed(_: UIButton) {
+    @objc func closetListEditBarButtonItemPressed(_: UIButton) {
         if viewMode == .view {
             viewMode = .edit
         } else {
@@ -130,10 +129,16 @@ class ClosetListViewController: UIViewController {
         }
     }
 
-    @objc func deleteBarButtonItemPressed(_: UIButton) {
+    @objc func closetListDeleteBarButtonItemPressed(_: UIButton) {
         presentBasicTwoButtonAlertController(title: "선택 옷 삭제", message: "선택한 옷을 삭제하시겠습니까?") { isApproved in
             if isApproved {
                 // 선택 된 옷 삭제 코드 구현 예정
+                if !UserCommonData.shared.removeClothingData(selectedData: self.selectedClothingData) {
+                    self.deleteBarButtonItem.isEnabled = false
+                }
+                DispatchQueue.main.async {
+                    self.closetListTableView.reloadData()
+                }
             }
         }
     }
@@ -173,7 +178,7 @@ extension ClosetListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
-        let clothingData = CommonUserData.shared.clothingList.filter { $0.fashionType == indexPath.section }
+        let clothingData = UserCommonData.shared.clothingList.filter { $0.fashionType == indexPath.section }
         closetListTableViewCell.delegate = self
         closetListTableViewCell.configureCell(clothingData: clothingData)
         return closetListTableViewCell

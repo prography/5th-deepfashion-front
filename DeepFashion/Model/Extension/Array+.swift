@@ -1,0 +1,28 @@
+//
+//  Array+.swift
+//  DeepFashion
+//
+//  Created by MinKyeongTae on 2019/12/23.
+//  Copyright © 2019 MinKyeongTae. All rights reserved.
+//
+
+import UIKit
+
+extension Array where Element == UserClothingData {
+    mutating func binarySearch(searchData: UserClothingData) -> Int? {
+        var left = 0, right = count - 1
+        while left <= right {
+            let mid = (left + right) / 2
+            if mid >= count { return nil }
+            if self[mid].name == searchData.name {
+                return mid
+            }
+            if self[mid].name < searchData.name {
+                left = mid + 1
+            } else {
+                right = mid - 1
+            }
+        }
+        return nil
+    }
+}

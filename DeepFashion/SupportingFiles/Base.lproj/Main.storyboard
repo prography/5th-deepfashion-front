@@ -879,8 +879,8 @@
                                                                         <constraint firstAttribute="height" constant="30" id="lkJ-87-kCt"/>
                                                                     </constraints>
                                                                     <segments>
-                                                                        <segment title="Outer"/>
                                                                         <segment title="Top"/>
+                                                                        <segment title="Outer"/>
                                                                         <segment title="Bottom"/>
                                                                         <segment title="Shoes"/>
                                                                     </segments>
@@ -1226,10 +1226,10 @@
                                         <size key="customSize" width="126" height="143"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="Luf-UL-dre" id="a3u-Bu-zT1"/>
-                                            <outletCollection property="codiImageViewList" destination="MxY-Bf-qf6" collectionClass="NSMutableArray" id="6WX-Ru-dYa"/>
-                                            <outletCollection property="codiImageViewList" destination="dmB-C8-lsn" collectionClass="NSMutableArray" id="g9y-qS-lJM"/>
-                                            <outletCollection property="codiImageViewList" destination="OoY-fk-Yms" collectionClass="NSMutableArray" id="m3A-3c-0HH"/>
-                                            <outletCollection property="codiImageViewList" destination="qaK-2t-LIB" collectionClass="NSMutableArray" id="dOe-CB-0BN"/>
+                                            <outletCollection property="imageViewList" destination="MxY-Bf-qf6" collectionClass="NSMutableArray" id="6WX-Ru-dYa"/>
+                                            <outletCollection property="imageViewList" destination="dmB-C8-lsn" collectionClass="NSMutableArray" id="g9y-qS-lJM"/>
+                                            <outletCollection property="imageViewList" destination="OoY-fk-Yms" collectionClass="NSMutableArray" id="m3A-3c-0HH"/>
+                                            <outletCollection property="imageViewList" destination="qaK-2t-LIB" collectionClass="NSMutableArray" id="dOe-CB-0BN"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1249,7 +1249,7 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="thirdView" id="TYo-Nj-8DF"/>
                     <connections>
-                        <outlet property="codiListCollectionView" destination="7t0-Dp-PJJ" id="vIG-uZ-S6q"/>
+                        <outlet property="collectionView" destination="7t0-Dp-PJJ" id="BeI-E2-Fr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uN4-CX-qln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -81,8 +81,7 @@ class AddFashionTableViewCell: UITableViewCell {
         colorSelectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.colorSelectTitleLabel.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 10),
-            self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
-            self.heightAnchor.constraint(equalToConstant: 10),
+            self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: -10),
         ])
     }
 }

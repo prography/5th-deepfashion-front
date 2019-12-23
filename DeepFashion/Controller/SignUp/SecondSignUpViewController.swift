@@ -56,7 +56,7 @@ class SecondSignUpViewController: UIViewController {
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
-        CommonUserData.shared.resetStyleData()
+        UserCommonData.shared.resetStyleData()
         styleSelectionCount = 0
     }
 
@@ -104,7 +104,7 @@ class SecondSignUpViewController: UIViewController {
 
     @IBAction func signUpFinishedButtonPressed(_: UIButton) {
         /// Data Check Test
-        guard let userData = CommonUserData.shared.userData else { return }
+        guard let userData = UserCommonData.shared.userData else { return }
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
         RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.userDataPost) { errorType in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
@@ -122,7 +122,7 @@ class SecondSignUpViewController: UIViewController {
     @IBAction func styleSelectButtonPressed(_ sender: UIButton) {
         guard let styleName = sender.titleLabel?.text else { return }
 
-        let flag = CommonUserData.shared.toggleStyleData(styleName: styleName)
+        let flag = UserCommonData.shared.toggleStyleData(styleName: styleName)
 
         if flag == 0 {
             configureStyleButtonDisabled(styleButton: sender)

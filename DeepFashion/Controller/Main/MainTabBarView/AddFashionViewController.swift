@@ -100,7 +100,7 @@ class AddFashionViewController: UIViewController {
     private func uploadClothingImage() {
         // clothingUploadAPIData 를 정의 후 사용하자.
         DispatchQueue.main.async {
-            let clothingUploadData = UserClothingUploadData(clothingCode: CommonUserData.shared.nowClothingCode, clothingImage: self.clothingImageView.image, ownerPK: CommonUserData.shared.pk)
+            let clothingUploadData = UserClothingUploadData(clothingCode: UserCommonData.shared.nowClothingCode, clothingImage: self.clothingImageView.image, ownerPK: UserCommonData.shared.pk)
             RequestAPI.shared.postAPIData(userData: clothingUploadData, APIMode: .clothingUploadPost) { errorType in
 
                 if errorType == nil {
@@ -126,26 +126,22 @@ class AddFashionViewController: UIViewController {
         let typeIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
         let fashionStyle = selectedFashionData.style
         let weatherIndex = addFashionTableCell.weatherSegmentedControl.selectedSegmentIndex
-
+        let ownerIndex = UserCommonData.shared.pk
         let clothingData = UserClothingData(image: fashionImage, name: fashionName, id: 1, fashionType: typeIndex, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
-        CommonUserData.shared.addUserClothing(clothingData)
-        print("now Adding Clothing Data : \(clothingData)")
+        UserCommonData.shared.addUserClothing(clothingData)
 
-        let clotingData = UserClothingAPIData(style: 1, name: fashionName, color: "white", owner: 1, season: weatherIndex + 1, part: typeIndex + 1, images: [1])
+        let clotingData = ClothingAPIData(style: 1, name: fashionName, color: 1, owner: ownerIndex, season: weatherIndex + 1, part: typeIndex + 1, images: [])
+
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
             if errorType == nil {
-                print("clothing/ Post Succeed!!!")
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
                 self.uploadClothingImage()
             } else {
-                print("Clothing Post Error!!!")
                 DispatchQueue.main.async {
                     self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.") {}
                 }
             }
         }
-
-        print(CommonUserData.shared.clothingList)
     }
 
     @IBAction func cancelButton(_: UIButton) {

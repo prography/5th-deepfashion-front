@@ -13,7 +13,7 @@ struct FashionData {
     var style: [(String, Int)] = []
     var typeIndex = 0
     var weatherIndex = 0
-    var gender = CommonUserData.shared.gender
+    var gender = UserCommonData.shared.gender
     init() {
         var styleName: [String] = []
         if gender == 0 {

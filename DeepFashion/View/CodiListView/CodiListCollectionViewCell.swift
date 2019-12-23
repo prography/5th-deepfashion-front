@@ -11,7 +11,7 @@ import UIKit
 class CodiListCollectionViewCell: UICollectionViewCell {
     // MARK: UIs
 
-    @IBOutlet var codiImageViewList: [UIImageView]!
+    @IBOutlet var imageViewList: [UIImageView]!
     @IBOutlet var titleLabel: UILabel!
 
     // MARK: Properties
@@ -39,12 +39,11 @@ class CodiListCollectionViewCell: UICollectionViewCell {
 
         addSubviews()
         titleLabel.text = "# CodiList Title"
-        titleLabel.font = UIFont().withSize(10)
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.numberOfLines = 2
-        for i in codiImageViewList.indices {
-            codiImageViewList[i].backgroundColor = .lightGray
-            codiImageViewList[i].image = UIImage(named: AssetIdentifier.Image.longJacket)
+        for i in imageViewList.indices {
+            imageViewList[i].backgroundColor = .lightGray
+            imageViewList[i].image = UIImage(named: AssetIdentifier.Image.longJacket)
         }
 
         selectEffectView.bounds = bounds
