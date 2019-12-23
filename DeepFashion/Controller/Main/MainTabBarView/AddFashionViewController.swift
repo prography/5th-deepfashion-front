@@ -14,6 +14,7 @@ class AddFashionViewController: UIViewController {
     @IBOutlet var addFashionTableView: UITableView!
     @IBOutlet var clothingImageView: UIImageView!
     @IBOutlet var registrationButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     // MARK: Properties
@@ -21,7 +22,11 @@ class AddFashionViewController: UIViewController {
     var selectedFashionData = FashionData()
     private var isRequestAPI = false {
         willSet {
-            activityIndicator.checkIndicatorView(newValue)
+            DispatchQueue.main.async {
+                self.registrationButton.isEnabled = !newValue
+                self.cancelButton.isEnabled = !newValue
+                self.activityIndicator.checkIndicatorView(newValue)
+            }
         }
     }
 
@@ -150,7 +155,7 @@ class AddFashionViewController: UIViewController {
         }
     }
 
-    @IBAction func cancelButton(_: UIButton) {
+    @IBAction func cancelButtonPressed(_: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 

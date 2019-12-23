@@ -21,7 +21,10 @@ class SecondSignUpViewController: UIViewController {
     var isGenderMan = true
     private var isAPIDataRequested = false {
         willSet {
-            indicatorView.checkIndicatorView(newValue)
+            DispatchQueue.main.async {
+                self.signUpFinishButton.isEnabled = !newValue
+                self.indicatorView.checkIndicatorView(newValue)
+            }
         }
     }
 

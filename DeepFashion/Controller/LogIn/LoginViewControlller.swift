@@ -24,7 +24,11 @@ class LoginViewController: UIViewController {
 
     private var isAPIDataRequested = false {
         willSet {
-            indicatorView.checkIndicatorView(newValue)
+            DispatchQueue.main.async {
+                self.loginButton.isEnabled = !newValue
+                self.signUpButton.isEnabled = !newValue
+                self.indicatorView.checkIndicatorView(newValue)
+            }
         }
     }
 
@@ -102,13 +106,12 @@ class LoginViewController: UIViewController {
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text else { return }
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
-        loginButton.isEnabled = false
+
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { errorType in
             // 테스트용 조건 설정 중)
             if errorType == nil {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
-                    self.loginButton.isEnabled = true
                 }
             } else {
                 // * ISSUE : 네트워킹 or 로그인 오입력에 따른 AlertController 띄울 예정

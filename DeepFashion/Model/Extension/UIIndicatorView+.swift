@@ -10,12 +10,10 @@ import UIKit
 
 extension UIActivityIndicatorView {
     func checkIndicatorView(_ isRunning: Bool) {
-        DispatchQueue.main.async {
-            if isRunning {
-                self.startAnimating()
-            } else {
-                self.stopAnimating()
-            }
+        if isRunning {
+            startAnimating()
+        } else {
+            stopAnimating()
         }
     }
 }

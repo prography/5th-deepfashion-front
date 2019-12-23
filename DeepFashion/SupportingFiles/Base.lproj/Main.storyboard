@@ -810,7 +810,7 @@
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="취소하기"/>
                                         <connections>
-                                            <action selector="cancelButton:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="NZl-uE-wuc"/>
+                                            <action selector="cancelButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="lwc-Gf-Jii"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1043,6 +1043,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="YNE-qX-swM" id="fqn-i7-SuD"/>
                         <outlet property="addFashionTableView" destination="tPS-rD-P5A" id="W0g-iH-KaH"/>
+                        <outlet property="cancelButton" destination="vIs-YW-h5X" id="nVj-Ao-HiF"/>
                         <outlet property="clothingImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
                         <outlet property="registrationButton" destination="3u8-yu-lvO" id="rMZ-OE-tbf"/>
                     </connections>
