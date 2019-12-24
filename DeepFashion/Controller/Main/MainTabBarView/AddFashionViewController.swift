@@ -64,10 +64,10 @@ class AddFashionViewController: UIViewController {
         addFashionButton.isEnabled = false
     }
 
-//    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
-//    private func checkStyleButtonSetting() -> Bool {
-//        return selectedFashionData.style.count != 0
-//    }
+    //    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
+    //    private func checkStyleButtonSetting() -> Bool {
+    //        return selectedFashionData.style.count != 0
+    //    }
 
     private func configureFashionStyleButton() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
@@ -204,10 +204,6 @@ extension AddFashionViewController: UITableViewDelegate {
 
     func tableView(_: UITableView, shouldHighlightRowAt _: IndexPath) -> Bool {
         view.endEditing(true)
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell,
-            let selectedColorCell = addFashionTableCell.colorSelectCollectionView.indexPathsForSelectedItems else { return false }
-        isColorSelected = selectedColorCell.isEmpty ? false : true
-        checkFillInData()
         return false
     }
 }
@@ -226,14 +222,15 @@ extension AddFashionViewController: UITableViewDataSource {
         addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
 
         addFashionTableCell.styleButton.setTitle(selectedFashionData.style.0, for: .normal)
+        addFashionTableCell.colorSelectCollectionView.delegate = self
 
         return addFashionTableCell
     }
 }
 
-extension AddFashionViewController: UICollectionViewCellDelegate {
-    func collectinoViewCellItemSelected(_: UICollectionViewCell) {
-        print("선택이대엇ㄷ따")
+extension AddFashionViewController: UICollectionViewDelegate {
+    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
+        isColorSelected = true
     }
 }
 

@@ -50,7 +50,6 @@ class AddFashionTableViewCell: UITableViewCell {
         colorSelectStackView.addArrangedSubview(colorSelectCollectionView)
         editStackView.addArrangedSubview(colorSelectStackView)
         colorSelectCollectionView.dataSource = self
-        colorSelectCollectionView.delegate = self
         colorSelectCollectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect)
         configureFashionTypeSegmentedControl()
         makeConstraint()
@@ -96,8 +95,6 @@ class AddFashionTableViewCell: UITableViewCell {
         ])
     }
 }
-
-extension AddFashionTableViewCell: UICollectionViewDelegate {}
 
 extension AddFashionTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
