@@ -37,7 +37,7 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
 
     private func toggleCell(isSelected: Bool) {
         if isSelected {
-            layer.borderWidth = 3
+            layer.borderWidth = 5
         } else {
             layer.borderWidth = 1
         }

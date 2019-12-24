@@ -25,16 +25,6 @@ class EditStyleViewController: UIViewController {
 
     var selectedStyle: (String, Int) = ("", 0)
 
-    private var selectedStyleCount: Int = 0 {
-        willSet {
-            if newValue == 0 {
-                subscriptionButton.isEnabled = false
-            } else {
-                subscriptionButton.isEnabled = true
-            }
-        }
-    }
-
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -43,6 +33,7 @@ class EditStyleViewController: UIViewController {
         collectionView.allowsMultipleSelection = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        subscriptionButton.isEnabled = false
         configureFashionStyleIndex()
         configureSelectedStyleCount()
     }
@@ -83,9 +74,8 @@ extension EditStyleViewController: UICollectionViewDelegateFlowLayout {}
 extension EditStyleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.item)th Item Cell Pressed!!")
-        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? editStyleCollectionViewCell,
-            let selectedItem = collectionView.indexPathsForSelectedItems else { return }
-        subscriptionButton.isEnabled = !selectedItem.isEmpty
+        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? editStyleCollectionViewCell else { return }
+        subscriptionButton.isEnabled = true
         if styleTitleCell.styleTitleLabel.text == "" { return }
         selectedStyle = (fashionStyles[indexPath.item], indexPath.item)
     }
@@ -93,11 +83,11 @@ extension EditStyleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         let item = collectionView.cellForItem(at: indexPath)
         if item?.isSelected ?? false {
-            collectionView.deselectItem(at: indexPath, animated: true)
+            return false
         } else {
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
         }
-        return false
+        return true
     }
 }
 

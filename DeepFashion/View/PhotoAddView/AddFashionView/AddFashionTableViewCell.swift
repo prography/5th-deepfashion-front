@@ -75,7 +75,7 @@ class AddFashionTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             self.colorSelectCollectionView.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 0),
             self.colorSelectCollectionView.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
-            self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: 160),
+            self.colorSelectCollectionView.heightAnchor.constraint(equalTo: self.colorSelectCollectionView.widthAnchor, multiplier: 0.5),
         ])
 
         colorSelectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,11 +86,14 @@ class AddFashionTableViewCell: UITableViewCell {
     }
 }
 
-extension AddFashionTableViewCell: UICollectionViewDelegate {}
+extension AddFashionTableViewCell: UICollectionViewDelegate {
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selection \(indexPath.item)")
+    }
+}
 
 extension AddFashionTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        // colorType.count 들어갈 예정
         return UIIdentifier.colorHexaCode.count
     }
 
