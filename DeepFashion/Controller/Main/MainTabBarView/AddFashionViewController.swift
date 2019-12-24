@@ -13,17 +13,24 @@ class AddFashionViewController: UIViewController {
 
     @IBOutlet var addFashionTableView: UITableView!
     @IBOutlet var clothingImageView: UIImageView!
-    @IBOutlet var registrationButton: UIButton!
+    @IBOutlet var addFashionButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     // MARK: Properties
 
     var selectedFashionData = FashionData()
+
+    private var isColorSelected = false {
+        didSet {
+            checkFillInData()
+        }
+    }
+
     private var isRequestAPI = false {
         willSet {
             DispatchQueue.main.async {
-                self.registrationButton.isEnabled = !newValue
+                self.addFashionButton.isEnabled = !newValue
                 self.cancelButton.isEnabled = !newValue
                 self.activityIndicator.checkIndicatorView(newValue)
             }
@@ -45,7 +52,6 @@ class AddFashionViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         RequestAPI.shared.delegate = self
-        checkFillInData()
     }
 
     override func viewDidAppear(_: Bool) {
@@ -55,7 +61,7 @@ class AddFashionViewController: UIViewController {
     // MARK: Methods
 
     private func configureRegistrationButton() {
-        registrationButton.isEnabled = false
+        addFashionButton.isEnabled = false
     }
 
 //    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
@@ -79,7 +85,7 @@ class AddFashionViewController: UIViewController {
     private func checkFillInData() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
 
-        if addFashionTableCell.checkNameTextFieldContents() {
+        if isColorSelected, addFashionTableCell.checkNameTextFieldContents() {
             makeRegistrationButtonEnabled()
         } else {
             makeRegistrationButtonDisabled()
@@ -87,11 +93,11 @@ class AddFashionViewController: UIViewController {
     }
 
     private func makeRegistrationButtonDisabled() {
-        registrationButton.isEnabled = false
+        addFashionButton.isEnabled = false
     }
 
     private func makeRegistrationButtonEnabled() {
-        registrationButton.isEnabled = true
+        addFashionButton.isEnabled = true
     }
 
     private func uploadClothingImage() {
@@ -122,13 +128,13 @@ class AddFashionViewController: UIViewController {
 
     // MARK: - IBActions
 
-    @IBAction func addFashionButton(_: UIButton) {
+    @IBAction func addFashionButtonPressed(_: UIButton) {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
 
         // 이미지, 이름 셋팅
         guard let fashionImage = selectedFashionData.image,
-            addFashionTableCell.checkNameTextFieldContents(),
-            let fashionName = addFashionTableCell.nameTextField.text else { return }
+            let fashionName = addFashionTableCell.nameTextField.text,
+            let selectedColorIndex = addFashionTableCell.getColorSelectCollectionCellSelectedIndex() else { return }
         // 옷 타입, 스타일 셋팅
 
         let typeIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
@@ -138,8 +144,9 @@ class AddFashionViewController: UIViewController {
         let clothingData = UserClothingData(image: fashionImage, name: fashionName, id: 1, fashionType: typeIndex, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
         UserCommonData.shared.addUserClothing(clothingData)
 
-        let clotingData = ClothingAPIData(style: 1, name: fashionName, color: 1, owner: ownerIndex, season: weatherIndex + 1, part: typeIndex + 1, images: [])
+        let clotingData = ClothingAPIData(style: fashionStyle.1 + 1, name: fashionName, color: selectedColorIndex.item + 1, owner: ownerIndex, season: weatherIndex + 1, part: typeIndex + 1, images: [])
 
+        print("now Adding clothingData : \(clotingData)")
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
             if errorType == nil {
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
@@ -185,6 +192,7 @@ extension AddFashionViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        checkFillInData()
         return true
     }
 }
@@ -192,6 +200,15 @@ extension AddFashionViewController: UITextFieldDelegate {
 extension AddFashionViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return 600
+    }
+
+    func tableView(_: UITableView, shouldHighlightRowAt _: IndexPath) -> Bool {
+        view.endEditing(true)
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell,
+            let selectedColorCell = addFashionTableCell.colorSelectCollectionView.indexPathsForSelectedItems else { return false }
+        isColorSelected = selectedColorCell.isEmpty ? false : true
+        checkFillInData()
+        return false
     }
 }
 
@@ -214,6 +231,12 @@ extension AddFashionViewController: UITableViewDataSource {
     }
 }
 
+extension AddFashionViewController: UICollectionViewCellDelegate {
+    func collectinoViewCellItemSelected(_: UICollectionViewCell) {
+        print("선택이대엇ㄷ따")
+    }
+}
+
 extension AddFashionViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         isRequestAPI = true
@@ -232,10 +255,7 @@ extension AddFashionViewController: UIViewControllerSetting {
     func configureViewController() {
         addFashionTableView.delegate = self
         addFashionTableView.dataSource = self
-        addFashionTableView.allowsSelection = false
         navigationController?.navigationBar.isHidden = true
         clothingImageView.image = selectedFashionData.image
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addFashionTableViewTouched(_:)))
-        addFashionTableView.addGestureRecognizer(tapGestureRecognizer)
     }
 }

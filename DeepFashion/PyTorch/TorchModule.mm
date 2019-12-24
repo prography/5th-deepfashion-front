@@ -32,13 +32,21 @@
 //        at::Tensor tensor = torch::from_blob(imageBuffer, {1, 3, 224, 224}, at::kFloat);
 //        torch::autograd::AutoGradMode guard(false);
 //        at::AutoNonVariableTypeMode non_var_type_mode(true);
-//        auto outputTensor = _impl.forward({tensor}).toTensor();
-//        float* floatBuffer = outputTensor.data_ptr<float>();
-//        NSMutableArray* results = [[NSMutableArray alloc] init];
-//        for (int i = 0; i < 1000; i++) {
-//            [results addObject:@(floatBuffer[i])];
-//        }
-//        return [results copy];
+//        
+//        // toTensor의 output이 1차원 배열로 반환된다
+//        
+//        
+//        auto outputTensor = _impl.forward({tensor}).toTensorList(); //	.toTensor()
+////        float* floatBuffer = outputTensor.data_ptr<float>();
+////        NSMutableArray* results = [[NSMutableArray alloc] init];
+////        for (int i = 0; i < 1000; i++) {
+////            [results addObject:@(floatBuffer[i])];
+////        }
+////        at::Tensor output = _impl.forward({tensor}).toTensor();
+//        
+////        std::cout << output.slice(/*dim=*/1, /*start=*/0, /*end=*/5) << '\n';
+//        // 집합이 있는 변수 4개의 배열
+//        return {0};
 //    } catch (const std::exception& exception) {
 //        NSLog(@"%s", exception.what());
 //    }

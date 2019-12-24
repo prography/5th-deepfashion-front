@@ -15,7 +15,7 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
 
     // MARK: Properties
 
-    weak var delegate: ClosetListCollectionViewCellDelegate?
+    weak var delegate: UICollectionViewCellDelegate?
 
     private(set) var clothingData: UserClothingData?
 

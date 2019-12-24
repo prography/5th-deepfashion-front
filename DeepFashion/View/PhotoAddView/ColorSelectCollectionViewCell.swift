@@ -9,6 +9,8 @@
 import UIKit
 
 class ColorSelectCollectionViewCell: UICollectionViewCell {
+    // MARK: UIs
+
     private let selectImageView: UIImageView = {
         let selectImageView = UIImageView()
         selectImageView.image = UIImage(named: AssetIdentifier.Image.longJacket)
@@ -16,11 +18,15 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
         return selectImageView
     }()
 
+    // MARK: Properties
+
     override var isSelected: Bool {
-        willSet {
-            toggleCell(isSelected: newValue)
+        didSet {
+            layer.borderWidth = isSelected ? 5 : 1
         }
     }
+
+    // MARK: Life Cycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,19 +34,13 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
         makeConstraints()
     }
 
+    // MARK: Methodss
+
     func configureCell(color: UIColor) {
         backgroundColor = color
         layer.borderColor = UIColor.black.cgColor
         layer.cornerRadius = 10
         layer.borderWidth = 1
-    }
-
-    private func toggleCell(isSelected: Bool) {
-        if isSelected {
-            layer.borderWidth = 5
-        } else {
-            layer.borderWidth = 1
-        }
     }
 
     private func addSubviews() {

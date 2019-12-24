@@ -81,8 +81,9 @@ extension ClosetListTableViewCell: UICollectionViewDataSource {
     }
 }
 
-extension ClosetListTableViewCell: ClosetListCollectionViewCellDelegate {
-    func collectinoViewCellItemSelected(_ collectionViewCell: ClosetListCollectionViewCell) {
+extension ClosetListTableViewCell: UICollectionViewCellDelegate {
+    func collectinoViewCellItemSelected(_ collectionViewCell: UICollectionViewCell) {
+        guard let collectionViewCell = collectionViewCell as? ClosetListCollectionViewCell else { return }
         delegate?.subCollectionViewCellSelected(collectionView: collectionViewCell)
     }
 }

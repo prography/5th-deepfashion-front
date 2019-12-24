@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol ClosetListCollectionViewCellDelegate: class {
-    func collectinoViewCellItemSelected(_ collectionViewCell: ClosetListCollectionViewCell)
+protocol UICollectionViewCellDelegate: class {
+    func collectinoViewCellItemSelected(_ collectionViewCell: UICollectionViewCell)
 }

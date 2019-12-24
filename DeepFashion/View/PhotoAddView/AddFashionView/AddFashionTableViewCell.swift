@@ -9,6 +9,8 @@
 import UIKit
 
 class AddFashionTableViewCell: UITableViewCell {
+    // MARK: UIs
+
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var styleButton: UIButton!
     @IBOutlet var typeSegmentedControl: UISegmentedControl!
@@ -24,7 +26,7 @@ class AddFashionTableViewCell: UITableViewCell {
         return colorSelectStackView
     }()
 
-    private var colorSelectCollectionView: ColorSelectCollectionView = {
+    var colorSelectCollectionView: ColorSelectCollectionView = {
         let collectionViewLayout = ColorSelectCollectionViewFlowLayout()
         let colorSelectCollectionView = ColorSelectCollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: collectionViewLayout)
         return colorSelectCollectionView
@@ -39,18 +41,27 @@ class AddFashionTableViewCell: UITableViewCell {
         return colorSelectTitleLabel
     }()
 
+    // MARK: Life Cycle
+
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         colorSelectStackView.addArrangedSubview(colorSelectTitleLabel)
         colorSelectStackView.addArrangedSubview(colorSelectCollectionView)
         editStackView.addArrangedSubview(colorSelectStackView)
-        colorSelectCollectionView.allowsSelection = true
-        colorSelectCollectionView.delegate = self
         colorSelectCollectionView.dataSource = self
+        colorSelectCollectionView.delegate = self
         colorSelectCollectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect)
         configureFashionTypeSegmentedControl()
         makeConstraint()
+        colorSelectCollectionView.allowsSelection = true
+    }
+
+    // MARK: Methods
+
+    func getColorSelectCollectionCellSelectedIndex() -> IndexPath? {
+        guard let selectedIndex = self.colorSelectCollectionView.indexPathsForSelectedItems else { return nil }
+        return selectedIndex.isEmpty ? nil : selectedIndex.first!
     }
 
     /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
@@ -75,7 +86,7 @@ class AddFashionTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             self.colorSelectCollectionView.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 0),
             self.colorSelectCollectionView.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
-            self.colorSelectCollectionView.heightAnchor.constraint(equalTo: self.colorSelectCollectionView.widthAnchor, multiplier: 0.5),
+            self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
         ])
 
         colorSelectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,11 +97,7 @@ class AddFashionTableViewCell: UITableViewCell {
     }
 }
 
-extension AddFashionTableViewCell: UICollectionViewDelegate {
-    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selection \(indexPath.item)")
-    }
-}
+extension AddFashionTableViewCell: UICollectionViewDelegate {}
 
 extension AddFashionTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
