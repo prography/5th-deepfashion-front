@@ -10,7 +10,7 @@ import UIKit
 
 struct FashionData {
     var image: UIImage?
-    var style: [(String, Int)] = []
+    var style: (String, Int)
     var typeIndex = 0
     var weatherIndex = 0
     var gender = UserCommonData.shared.gender
@@ -22,10 +22,6 @@ struct FashionData {
             styleName = FashionStyle.female
         }
 
-        for i in styleName.indices {
-            style.append((styleName[i], 0))
-        }
-
-        style[0].1 = 1
+        style = (styleName[0], 0)
     }
 }

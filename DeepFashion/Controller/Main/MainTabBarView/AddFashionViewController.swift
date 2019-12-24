@@ -50,9 +50,6 @@ class AddFashionViewController: UIViewController {
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
-        DispatchQueue.main.async {
-            self.addFashionTableView.reloadData()
-        }
     }
 
     // MARK: Methods
@@ -61,24 +58,15 @@ class AddFashionViewController: UIViewController {
         registrationButton.isEnabled = false
     }
 
-    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
-    private func checkStyleButtonSetting() -> Bool {
-        return selectedFashionData.style.count != 0
-    }
+//    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
+//    private func checkStyleButtonSetting() -> Bool {
+//        return selectedFashionData.style.count != 0
+//    }
 
     private func configureFashionStyleButton() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
 
-        if selectedFashionData.style.count == 0 { return }
-        var fashionStyleButtonTitle = ""
-        for i in selectedFashionData.style.indices {
-            if selectedFashionData.style[i].1 == 1 {
-                fashionStyleButtonTitle += "\(selectedFashionData.style[i].0)"
-                if i != selectedFashionData.style.count - 1 { fashionStyleButtonTitle += " " }
-            }
-        }
-
-        addFashionTableCell.styleButton.setTitle("\(fashionStyleButtonTitle)", for: .normal)
+        addFashionTableCell.styleButton.setTitle("\(selectedFashionData.style.0)", for: .normal)
     }
 
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
@@ -91,7 +79,7 @@ class AddFashionViewController: UIViewController {
     private func checkFillInData() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
 
-        if checkStyleButtonSetting(), addFashionTableCell.checkNameTextFieldContents() {
+        if addFashionTableCell.checkNameTextFieldContents() {
             makeRegistrationButtonEnabled()
         } else {
             makeRegistrationButtonDisabled()
@@ -100,12 +88,10 @@ class AddFashionViewController: UIViewController {
 
     private func makeRegistrationButtonDisabled() {
         registrationButton.isEnabled = false
-        registrationButton.alpha = 0.7
     }
 
     private func makeRegistrationButtonEnabled() {
         registrationButton.isEnabled = true
-        registrationButton.alpha = 1.0
     }
 
     private func uploadClothingImage() {
@@ -123,8 +109,11 @@ class AddFashionViewController: UIViewController {
         }
     }
 
-    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
-        view.endEditing(true)
+    func refreshStyleButton() {
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+        DispatchQueue.main.async {
+            addFashionTableCell.styleButton.setTitle(self.selectedFashionData.style.0, for: .normal)
+        }
     }
 
     @objc func addFashionTableViewTouched(_: UITableView) {
@@ -184,7 +173,7 @@ class AddFashionViewController: UIViewController {
         let storyBoard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
         guard let editStyleViewController = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
 
-        editStyleViewController.selectedStyleIndex = selectedFashionData.style
+        editStyleViewController.selectedStyle = selectedFashionData.style
         navigationController?.pushViewController(editStyleViewController, animated: true)
     }
 }
@@ -219,13 +208,7 @@ extension AddFashionViewController: UITableViewDataSource {
         addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(fashionTypeSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
 
-        var styleButtonText = ""
-        for i in selectedFashionData.style.indices {
-            if selectedFashionData.style[i].1 == 1 {
-                styleButtonText.append("\(selectedFashionData.style[i].0) ")
-            }
-        }
-        addFashionTableCell.styleButton.setTitle(styleButtonText, for: .normal)
+        addFashionTableCell.styleButton.setTitle(selectedFashionData.style.0, for: .normal)
 
         return addFashionTableCell
     }
