@@ -58,6 +58,11 @@ class AddFashionViewController: UIViewController {
         super.viewDidAppear(true)
     }
 
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+        view.endEditing(true)
+    }
+
     // MARK: Methods
 
     private func configureRegistrationButton() {
@@ -165,7 +170,6 @@ class AddFashionViewController: UIViewController {
 
     @objc func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         selectedFashionData.typeIndex = sender.selectedSegmentIndex
-        print("now SelectedTypeIndex : \(selectedFashionData.typeIndex)")
     }
 
     @objc func fashionWeatherSegmentedControlValueChanged(_ sender: UISegmentedControl) {

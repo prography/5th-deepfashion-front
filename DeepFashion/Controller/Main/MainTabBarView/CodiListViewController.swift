@@ -12,6 +12,7 @@ class CodiListViewController: UIViewController {
     // MARK: UIs
 
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var emptyInfoLabel: UILabel!
 
     private var editBarButtonItem: UIBarButtonItem = {
         let editBarButtonItem = UIBarButtonItem()
@@ -167,6 +168,14 @@ extension CodiListViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        if UserCommonData.shared.codiDataList.isEmpty {
+            UIView.animate(withDuration: 0.6) { [weak self] in
+                self?.emptyInfoLabel.alpha = 1
+            }
+        } else {
+            emptyInfoLabel.alpha = 0
+        }
+
         return UserCommonData.shared.codiDataList.count
     }
 }

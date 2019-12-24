@@ -115,13 +115,13 @@ class SecondSignUpViewController: UIViewController {
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
         RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.userDataPost) { errorType in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
-            if errorType == nil {
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                if errorType == nil {
                     self.performSegue(withIdentifier: SegueIdentifier.unwindToLogin, sender: nil)
+                } else {
+                    // * ISSUE : 네트워킹 or 회원가입 오입력에 따른 AlertController 띄울 예정
+                    self.presentBasicOneButtonAlertController(title: "회원가입 오류", message: "회원가입에 실패했습니다.") {}
                 }
-            } else {
-                // * ISSUE : 네트워킹 or 회원가입 오입력에 따른 AlertController 띄울 예정
-                print("회원가입 에러 났음 ㅠㅠ...")
             }
         }
     }

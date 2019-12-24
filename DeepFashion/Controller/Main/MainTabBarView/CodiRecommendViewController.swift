@@ -48,7 +48,6 @@ class CodiRecommendViewController: UIViewController {
             if codiDataSet.count == 4 { break }
         }
         UserCommonData.shared.addCodiData(codiDataSet)
-        print("codiDataSet Added!!")
         codiIdCount += 1
     }
 
@@ -64,13 +63,9 @@ class CodiRecommendViewController: UIViewController {
 }
 
 extension CodiRecommendViewController: UICollectionViewDelegate {
-    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
-        print("didSelect!!")
-    }
+    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {}
 
-    func collectionView(_: UICollectionView, didDeselectItemAt _: IndexPath) {
-        print("diddeSelect!!")
-    }
+    func collectionView(_: UICollectionView, didDeselectItemAt _: IndexPath) {}
 }
 
 extension CodiRecommendViewController: UICollectionViewDataSource {
