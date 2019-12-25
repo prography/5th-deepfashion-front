@@ -573,39 +573,32 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3dd-CD-GKy">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                                     <color key="backgroundColor" red="0.8181639825405429" green="0.82187902254908962" blue="0.96851998567581177" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2Yv-09-1Um">
-                                                        <size key="itemSize" width="60" height="60"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
+                                                    <collectionViewLayout key="collectionViewLayout" id="3bR-3s-aOE" customClass="ClosetListCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="closetListCollectionViewCell" id="PDy-I8-pUd" customClass="ClosetListCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="3.5" width="91" height="69"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="79" height="69"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4DG-86-uqv">
-                                                                <rect key="frame" x="0.0" y="0.0" width="91" height="69"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="79" height="69"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="longJacket" translatesAutoresizingMaskIntoConstraints="NO" id="hpL-d7-qBl">
-                                                                        <rect key="frame" x="5" y="5" width="81" height="59"/>
+                                                                        <rect key="frame" x="10" y="10" width="59" height="49"/>
                                                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="80" id="GS0-8V-7Zv"/>
-                                                                            <constraint firstAttribute="height" constant="80" id="UAj-gm-2DF"/>
-                                                                        </constraints>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstItem="hpL-d7-qBl" firstAttribute="leading" secondItem="4DG-86-uqv" secondAttribute="leading" constant="5" id="OcJ-1i-fOj"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="hpL-d7-qBl" secondAttribute="trailing" constant="5" id="fYt-lp-PJQ"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="hpL-d7-qBl" secondAttribute="bottom" constant="5" id="mMq-4c-BBq"/>
-                                                                    <constraint firstItem="hpL-d7-qBl" firstAttribute="top" secondItem="4DG-86-uqv" secondAttribute="top" constant="5" id="o0T-zZ-gre"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="hpL-d7-qBl" secondAttribute="bottom" constant="10" id="2vE-fv-pB9"/>
+                                                                    <constraint firstItem="hpL-d7-qBl" firstAttribute="leading" secondItem="4DG-86-uqv" secondAttribute="leading" constant="10" id="9Sp-5b-Ynb"/>
+                                                                    <constraint firstItem="hpL-d7-qBl" firstAttribute="top" secondItem="4DG-86-uqv" secondAttribute="top" constant="10" id="FN2-GB-9wZ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="hpL-d7-qBl" secondAttribute="trailing" constant="10" id="V0F-cd-JzC"/>
+                                                                    <constraint firstItem="hpL-d7-qBl" firstAttribute="centerY" secondItem="4DG-86-uqv" secondAttribute="centerY" id="wkI-ge-5Zo"/>
+                                                                    <constraint firstItem="hpL-d7-qBl" firstAttribute="centerX" secondItem="4DG-86-uqv" secondAttribute="centerX" id="yxa-iL-ZTO"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="customSize" width="91" height="69"/>
+                                                            <size key="customSize" width="79" height="69"/>
                                                             <connections>
                                                                 <outlet property="fashionImageView" destination="hpL-d7-qBl" id="Qm5-Cv-B4v"/>
                                                             </connections>
@@ -647,7 +640,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoQ-tG-ule" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858.75" y="1381.6901408450703"/>
+            <point key="canvasLocation" x="857.97101449275374" y="1381.4732142857142"/>
         </scene>
         <!--FourthView-->
         <scene sceneID="AyH-Jc-bPg">
@@ -1468,8 +1461,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DhY-gW-9gC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="코디 추천" id="cbF-Up-1aj">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <tabBarItem key="tabBarItem" title="코디 추천" image=" " id="cbF-Up-1aj">
+                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="codiListSaveButton" destination="afC-Ei-APJ" id="IGC-6l-t2e"/>
@@ -1508,14 +1501,14 @@
         <!--My 추천 리스트-->
         <scene sceneID="JBE-vc-0hX">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My 추천 리스트" id="x34-lN-e5E"/>
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" itemSpacing="50" itemWidth="50" id="ZF9-44-la4">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="ZF9-44-la4">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -1532,6 +1525,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name=" " width="16" height="16"/>
         <image name="longJacket" width="526" height="304"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -33,4 +33,12 @@ extension UIButton {
             configureDisabledButton()
         }
     }
+
+    func configureBasicButton(title: String, fontSize: CGFloat) {
+        backgroundColor = .black
+        layer.borderWidth = 10
+        setTitle(title, for: .normal)
+        setTitleColor(.white, for: .normal)
+        titleLabel?.font = UIFont.mainFont(displaySize: fontSize)
+    }
 }

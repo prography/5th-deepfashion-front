@@ -11,6 +11,8 @@ import UIKit
 class MainTabBarController: UITabBarController {
     // MARK: - Properties
 
+    private var tabBarHeight: CGFloat = 60
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -22,6 +24,12 @@ class MainTabBarController: UITabBarController {
         navigationItem.setHidesBackButton(true, animated: false)
         delegate = self
         configureEditBarButtonItem()
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tabBar.frame.size.height = tabBarHeight
+        tabBar.frame.origin.y = view.frame.height - tabBarHeight
     }
 
     private func configureEditBarButtonItem() {}

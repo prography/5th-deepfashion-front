@@ -42,11 +42,18 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .lightGray
+        configureTitleLabel()
         addSubviews()
         makeConstraints()
     }
 
     // MARK: Methods
+
+    private func configureTitleLabel() {
+        titleLabel.font = UIFont.subFont(displaySize: 18)
+        titleLabel.textColor = .white
+        titleLabel.backgroundColor = .black
+    }
 
     func configureCell(title: String) {
         titleLabel.text = " \(title)"

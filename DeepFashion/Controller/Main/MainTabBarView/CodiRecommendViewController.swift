@@ -36,6 +36,7 @@ class CodiRecommendViewController: UIViewController {
 
     private func configureCodiListSaveButton() {
         codiListSaveButton.isEnabled = true
+        codiListSaveButton.configureBasicButton(title: "코디 저장하기", fontSize: 18)
     }
 
     private func addCodiDataSet() {

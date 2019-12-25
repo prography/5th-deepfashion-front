@@ -65,7 +65,7 @@ final class UserCommonData {
         clothingList = [UserClothingData]()
     }
 
-    func removeClothingData(selectedData: Set<UserClothingData>) -> Bool {
+    func removeClothingData(selectedData: Set<UserClothingData>) {
         clothingList.sort {
             $0.name < $1.name
         }
@@ -75,8 +75,6 @@ final class UserCommonData {
                 clothingList.remove(at: idx)
             }
         }
-
-        return !clothingList.isEmpty
     }
 
     func addCodiData(_ codiData: [CodiData]) {

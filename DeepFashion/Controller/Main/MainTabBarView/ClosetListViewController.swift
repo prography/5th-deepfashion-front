@@ -139,9 +139,8 @@ class ClosetListViewController: UIViewController {
                     closetListTableCell.removeSelectedCollectionViewCell()
                 }
 
-                if !UserCommonData.shared.removeClothingData(selectedData: self.selectedClothingData) {
-                    self.deleteBarButtonItem.isEnabled = false
-                }
+                UserCommonData.shared.removeClothingData(selectedData: self.selectedClothingData)
+                self.deleteBarButtonItem.isEnabled = false
             }
         }
     }
@@ -149,7 +148,7 @@ class ClosetListViewController: UIViewController {
 
 extension ClosetListViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 120
+        return ViewData.Row.Height.closetList
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {

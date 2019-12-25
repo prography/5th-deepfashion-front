@@ -27,6 +27,13 @@
 		07598532237E93E500C48EE7 /* PhotoAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598531237E93E500C48EE7 /* PhotoAddViewController.swift */; };
 		07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598535237E96F000C48EE7 /* MainTabBarController.swift */; };
 		07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598537237EABA800C48EE7 /* UIViewController+.swift */; };
+		076DADB023B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DADAF23B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift */; };
+		076DADB723B3696900B3FF46 /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB223B3696800B3FF46 /* SCDream3.otf */; };
+		076DADB823B3696900B3FF46 /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB323B3696800B3FF46 /* SCDream2.otf */; };
+		076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB423B3696800B3FF46 /* SCDream5.otf */; };
+		076DADBA23B3696900B3FF46 /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB523B3696800B3FF46 /* SCDream4.otf */; };
+		076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB623B3696800B3FF46 /* SSShinb7.ttf */; };
+		076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DADBC23B369CF00B3FF46 /* UIFont+.swift */; };
 		076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */; };
 		076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */; };
 		076F6BCC237BFEA800A2CBB4 /* UserLoginAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */; };
@@ -137,6 +144,13 @@
 		07598531237E93E500C48EE7 /* PhotoAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddViewController.swift; sourceTree = "<group>"; };
 		07598535237E96F000C48EE7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		07598537237EABA800C48EE7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		076DADAF23B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		076DADB223B3696800B3FF46 /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
+		076DADB323B3696800B3FF46 /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
+		076DADB423B3696800B3FF46 /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
+		076DADB523B3696800B3FF46 /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
+		076DADB623B3696800B3FF46 /* SSShinb7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SSShinb7.ttf; sourceTree = "<group>"; };
+		076DADBC23B369CF00B3FF46 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIData.swift; sourceTree = "<group>"; };
 		076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIPostData.swift; sourceTree = "<group>"; };
 		076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginAPIData.swift; sourceTree = "<group>"; };
@@ -285,6 +299,7 @@
 				07B6E0652382C05700D6A9E1 /* View */,
 				0758941323699B3B00B59A28 /* Controller */,
 				0733A6C32365D99900E26B38 /* Info.plist */,
+				076DADB123B3696800B3FF46 /* Font */,
 				07D5E9A4236E00E200A27B28 /* SupportingFiles */,
 			);
 			path = DeepFashion;
@@ -367,6 +382,18 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		076DADB123B3696800B3FF46 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				076DADB223B3696800B3FF46 /* SCDream3.otf */,
+				076DADB323B3696800B3FF46 /* SCDream2.otf */,
+				076DADB423B3696800B3FF46 /* SCDream5.otf */,
+				076DADB523B3696800B3FF46 /* SCDream4.otf */,
+				076DADB623B3696800B3FF46 /* SSShinb7.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		077C77B42378149F0088B151 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,6 +410,7 @@
 			children = (
 				07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */,
 				07554FFB23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift */,
+				076DADAF23B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift */,
 				07C5C5F423ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift */,
 				07C5C61323AE009300324B67 /* ColorSelectCollectionViewFlowLayout.swift */,
 			);
@@ -543,6 +571,7 @@
 				07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */,
 				07B5AE792399035B000C215E /* UIImage+.swift */,
 				07D5E9BC236EFADE00A27B28 /* UIButton+.swift */,
+				076DADBC23B369CF00B3FF46 /* UIFont+.swift */,
 				07AA4784237046780074DE76 /* String+.swift */,
 				07598537237EABA800C48EE7 /* UIViewController+.swift */,
 				07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */,
@@ -702,10 +731,15 @@
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
 				07C5C5F923ACEC6300324B67 /* lockIcon.png in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
+				076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */,
 				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
+				076DADBA23B3696900B3FF46 /* SCDream4.otf in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
+				076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */,
+				076DADB723B3696900B3FF46 /* SCDream3.otf in Resources */,
 				07C5C60323ADF65F00324B67 /* yjModel.pt in Resources */,
 				07B5AE9023992D04000C215E /* words.txt in Resources */,
+				076DADB823B3696900B3FF46 /* SCDream2.otf in Resources */,
 				07C5C60623ADF6DA00324B67 /* yjWords.txt in Resources */,
 				07B5AE8F23992D04000C215E /* model.pt in Resources */,
 			);
@@ -828,6 +862,7 @@
 				07598532237E93E500C48EE7 /* PhotoAddViewController.swift in Sources */,
 				07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */,
 				07C5C61623AE0C0500324B67 /* ColorSelectCollectionView.swift in Sources */,
+				076DADB023B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift in Sources */,
 				07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */,
 				07D5E9B5236EF98D00A27B28 /* SegueIdentifier.swift in Sources */,
 				0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */,
@@ -864,6 +899,7 @@
 				07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
+				076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */,
 				07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */,
 				07AA4785237046780074DE76 /* String+.swift in Sources */,
 				07C5C5F323ACB26100324B67 /* CodiRecommendCollectionViewCell.swift in Sources */,

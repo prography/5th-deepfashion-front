@@ -10,7 +10,7 @@ import UIKit
 
 struct ViewData {
     struct Title {
-        static let fashionType = ["Top", "Outer", "Bottom", "Shoes"]
+        static let fashionType = ["상의", "아우터", "하의", "신발"]
 
         struct MainTabBarView {
             static let homeView = "마이 추천 리스트"
@@ -36,6 +36,12 @@ struct ViewData {
             case modifyStyle = 2
             case rule = 3
             case logout = 4
+        }
+    }
+
+    struct Row {
+        struct Height {
+            static let closetList: CGFloat = 120
         }
     }
 }

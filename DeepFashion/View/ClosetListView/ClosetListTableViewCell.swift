@@ -60,12 +60,6 @@ class ClosetListTableViewCell: UITableViewCell {
     }
 }
 
-extension ClosetListTableViewCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
-    }
-}
-
 extension ClosetListTableViewCell: UICollectionViewDelegate {}
 
 extension ClosetListTableViewCell: UICollectionViewDataSource {
