@@ -24,7 +24,7 @@ class ClosetListViewController: UIViewController {
     private var deleteBarButtonItem: UIBarButtonItem = {
         let deleteBarButtonItem = UIBarButtonItem()
         deleteBarButtonItem.isEnabled = false
-        deleteBarButtonItem.title = "삭제"
+        deleteBarButtonItem.image = UIImage(named: "delete")
         return deleteBarButtonItem
     }()
 
@@ -51,10 +51,10 @@ class ClosetListViewController: UIViewController {
             case .view:
                 inactivateDeleteBarButtonItem()
                 activateEditBarButtonItem()
-                editBarButtonItem.title = "편집"
+                editBarButtonItem.image = UIImage(named: "edit")
             case .edit:
                 activateDeleteBarButtonItem()
-                editBarButtonItem.title = "취소"
+                editBarButtonItem.image = UIImage(named: "cancel")
             }
         }
     }

@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1.02</string>
+	<string>1.03</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,6 +29,14 @@
 	<string>카메라 사용을 위해선 접근권한이 필요합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>앨범 사용을 위해선 접근권한이 필요합니다. </string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SSShinb7.ttf</string>
+		<string>SCDream4.otf</string>
+		<string>SCDream5.otf</string>
+		<string>SCDream2.otf</string>
+		<string>SCDream3.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -55,14 +63,6 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>SSShinb7.ttf</string>
-		<string>SCDream4.otf</string>
-		<string>SCDream5.otf</string>
-		<string>SCDream2.otf</string>
-		<string>SCDream3.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
