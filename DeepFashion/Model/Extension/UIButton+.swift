@@ -36,7 +36,7 @@ extension UIButton {
 
     func configureBasicButton(title: String, fontSize: CGFloat) {
         backgroundColor = .black
-        layer.borderWidth = 10
+        layer.cornerRadius = 5
         setTitle(title, for: .normal)
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont.mainFont(displaySize: fontSize)

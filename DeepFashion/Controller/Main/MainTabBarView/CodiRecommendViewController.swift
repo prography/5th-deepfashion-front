@@ -13,6 +13,11 @@ class CodiRecommendViewController: UIViewController {
 
     @IBOutlet var codiListSaveButton: UIButton!
     @IBOutlet var recommendCollectionView: UICollectionView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var weatherImageView: UIImageView!
+    @IBOutlet var celsiusLabel: UILabel!
+    @IBOutlet var refreshCodiButton: UIButton!
+    @IBOutlet var leftTitleView: UIView!
 
     // MARK: Properties
 
@@ -37,6 +42,13 @@ class CodiRecommendViewController: UIViewController {
     private func configureCodiListSaveButton() {
         codiListSaveButton.isEnabled = true
         codiListSaveButton.configureBasicButton(title: "코디 저장하기", fontSize: 18)
+    }
+
+    private func configureRefreshCodiButton() {
+        refreshCodiButton.backgroundColor = #colorLiteral(red: 0.8339611292, green: 0.8674666286, blue: 1, alpha: 1)
+        refreshCodiButton.setTitleColor(.black, for: .normal)
+        refreshCodiButton.setTitle("다른 코디 보기", for: .normal)
+        refreshCodiButton.titleLabel?.font = UIFont.mainFont(displaySize: 16)
     }
 
     private func addCodiDataSet() {
@@ -89,5 +101,12 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
         recommendCollectionView.allowsMultipleSelection = true
+        leftTitleView.backgroundColor = #colorLiteral(red: 0.9127517343, green: 1, blue: 0.9195751548, alpha: 1)
+
+        configureRefreshCodiButton()
+
+        titleLabel.font = UIFont.subFont(displaySize: 12)
+        celsiusLabel.font = UIFont.mainFont(displaySize: 18)
+        celsiusLabel.adjustsFontSizeToFitWidth = true
     }
 }

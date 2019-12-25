@@ -73,5 +73,6 @@ extension UIViewController {
     func configureBasicTitle(_ title: String) {
         tabBarController?.title = title
         navigationController?.title = title
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.subFont(displaySize: 18)]
     }
 }

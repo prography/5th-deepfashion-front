@@ -16,10 +16,10 @@ enum FashionType: Int {
 
     var title: String {
         switch self {
-        case .outer: return "Outer"
-        case .top: return "Top"
-        case .bottom: return "Bottom"
-        case .shoes: return "Shoes"
+        case .outer: return "아우터"
+        case .top: return "상희"
+        case .bottom: return "하의"
+        case .shoes: return "신발"
         }
     }
 }
