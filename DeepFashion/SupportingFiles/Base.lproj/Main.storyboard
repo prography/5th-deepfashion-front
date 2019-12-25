@@ -1466,16 +1466,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DhY-gW-9gC"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="코디 추천" image=" " id="cbF-Up-1aj">
-                        <color key="badgeColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <tabBarItem key="tabBarItem" title="코디 추천" image="home" selectedImage="home" id="cbF-Up-1aj">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
                         <outlet property="celsiusLabel" destination="dtF-bn-O1x" id="Or3-zi-JFK"/>
                         <outlet property="codiListSaveButton" destination="afC-Ei-APJ" id="IGC-6l-t2e"/>
+                        <outlet property="leftTitleLabel" destination="eQx-3o-lOW" id="X9H-zS-Ba6"/>
                         <outlet property="leftTitleView" destination="bsG-bF-zrX" id="q8X-P9-hZZ"/>
                         <outlet property="recommendCollectionView" destination="UWn-7u-RIA" id="7ZA-uT-R1L"/>
                         <outlet property="refreshCodiButton" destination="hu5-Jd-hH3" id="p0k-nk-rxH"/>
-                        <outlet property="titleLabel" destination="eQx-3o-lOW" id="X9H-zS-Ba6"/>
                         <outlet property="weatherImageView" destination="dzC-jR-PIH" id="YZ7-fF-hw0"/>
                     </connections>
                 </viewController>
@@ -1518,8 +1518,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.37863142765281393" green="0.40078566204517463" blue="0.84267407655715942" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="abK-qW-sZg" kind="relationship" relationship="viewControllers" id="738-YM-4cJ"/>
@@ -1535,8 +1536,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name=" " width="16" height="16"/>
         <image name="clear-day" width="128" height="128"/>
+        <image name="home" width="29.5" height="29.5"/>
         <image name="longJacket" width="526" height="304"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

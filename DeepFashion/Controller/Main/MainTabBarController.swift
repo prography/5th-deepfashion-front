@@ -11,13 +11,14 @@ import UIKit
 class MainTabBarController: UITabBarController {
     // MARK: - Properties
 
-    private var tabBarHeight: CGFloat = 60
+    private var tabBarHeight: CGFloat = 70
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBarController()
+        self.tabBar.items?[0].image = UIImage(named: "home.png")
     }
 
     private func configureTabBarController() {

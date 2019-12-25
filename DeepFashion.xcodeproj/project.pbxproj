@@ -13,7 +13,6 @@
 		0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B52365D99800E26B38 /* AppDelegate.swift */; };
 		0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B92365D99800E26B38 /* LoginViewControlller.swift */; };
 		0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6BB2365D99800E26B38 /* Main.storyboard */; };
-		0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6BE2365D99900E26B38 /* Assets.xcassets */; };
 		0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6C02365D99900E26B38 /* LaunchScreen.storyboard */; };
 		0733A6CD2365D99900E26B38 /* DeepFashionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6CC2365D99900E26B38 /* DeepFashionTests.swift */; };
 		0733A6D82365D99900E26B38 /* DeepFashionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */; };
@@ -34,6 +33,7 @@
 		076DADBA23B3696900B3FF46 /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB523B3696800B3FF46 /* SCDream4.otf */; };
 		076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB623B3696800B3FF46 /* SSShinb7.ttf */; };
 		076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DADBC23B369CF00B3FF46 /* UIFont+.swift */; };
+		076DADBF23B3879C00B3FF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 076DADBE23B3879B00B3FF46 /* Assets.xcassets */; };
 		076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */; };
 		076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */; };
 		076F6BCC237BFEA800A2CBB4 /* UserLoginAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */; };
@@ -74,7 +74,6 @@
 		07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5EE23ABA08900324B67 /* CodiData.swift */; };
 		07C5C5F323ACB26100324B67 /* CodiRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5F223ACB26100324B67 /* CodiRecommendCollectionViewCell.swift */; };
 		07C5C5F523ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5F423ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift */; };
-		07C5C5F923ACEC6300324B67 /* lockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C5F823ACEC6300324B67 /* lockIcon.png */; };
 		07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */; };
 		07C5C5FD23ACF5A700324B67 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FC23ACF5A700324B67 /* DateFormatter+.swift */; };
 		07C5C60023ACFE0200324B67 /* AddFashionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */; };
@@ -125,7 +124,6 @@
 		0733A6B52365D99800E26B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0733A6B92365D99800E26B38 /* LoginViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControlller.swift; sourceTree = "<group>"; };
 		0733A6BC2365D99800E26B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0733A6BE2365D99900E26B38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0733A6C12365D99900E26B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0733A6C32365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6C82365D99900E26B38 /* DeepFashionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepFashionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +149,7 @@
 		076DADB523B3696800B3FF46 /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
 		076DADB623B3696800B3FF46 /* SSShinb7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SSShinb7.ttf; sourceTree = "<group>"; };
 		076DADBC23B369CF00B3FF46 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		076DADBE23B3879B00B3FF46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIData.swift; sourceTree = "<group>"; };
 		076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIPostData.swift; sourceTree = "<group>"; };
 		076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginAPIData.swift; sourceTree = "<group>"; };
@@ -193,7 +192,6 @@
 		07C5C5EE23ABA08900324B67 /* CodiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiData.swift; sourceTree = "<group>"; };
 		07C5C5F223ACB26100324B67 /* CodiRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		07C5C5F423ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		07C5C5F823ACEC6300324B67 /* lockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockIcon.png; sourceTree = "<group>"; };
 		07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetIdentifier.swift; sourceTree = "<group>"; };
 		07C5C5FC23ACF5A700324B67 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFashionTableViewCell.swift; sourceTree = "<group>"; };
@@ -541,9 +539,8 @@
 		07D5E9A4236E00E200A27B28 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				076DADBE23B3879B00B3FF46 /* Assets.xcassets */,
 				0733A6BB2365D99800E26B38 /* Main.storyboard */,
-				0733A6BE2365D99900E26B38 /* Assets.xcassets */,
-				07C5C5F823ACEC6300324B67 /* lockIcon.png */,
 				0733A6C02365D99900E26B38 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
@@ -729,10 +726,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
-				07C5C5F923ACEC6300324B67 /* lockIcon.png in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */,
-				0733A6BF2365D99900E26B38 /* Assets.xcassets in Resources */,
+				076DADBF23B3879C00B3FF46 /* Assets.xcassets in Resources */,
 				076DADBA23B3696900B3FF46 /* SCDream4.otf in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
 				076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */,

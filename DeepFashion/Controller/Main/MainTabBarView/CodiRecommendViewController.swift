@@ -13,7 +13,7 @@ class CodiRecommendViewController: UIViewController {
 
     @IBOutlet var codiListSaveButton: UIButton!
     @IBOutlet var recommendCollectionView: UICollectionView!
-    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var leftTitleLabel: UILabel!
     @IBOutlet var weatherImageView: UIImageView!
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var refreshCodiButton: UIButton!
@@ -47,8 +47,9 @@ class CodiRecommendViewController: UIViewController {
     private func configureRefreshCodiButton() {
         refreshCodiButton.backgroundColor = #colorLiteral(red: 0.8339611292, green: 0.8674666286, blue: 1, alpha: 1)
         refreshCodiButton.setTitleColor(.black, for: .normal)
-        refreshCodiButton.setTitle("다른 코디 보기", for: .normal)
-        refreshCodiButton.titleLabel?.font = UIFont.mainFont(displaySize: 16)
+        refreshCodiButton.setTitle(" 코디 새로고침", for: .normal)
+        refreshCodiButton.titleLabel?.font = UIFont.mainFont(displaySize: 12)
+        refreshCodiButton.setImage(UIImage(named: "refresh"), for: .normal)
     }
 
     private func addCodiDataSet() {
@@ -105,7 +106,7 @@ extension CodiRecommendViewController: UIViewControllerSetting {
 
         configureRefreshCodiButton()
 
-        titleLabel.font = UIFont.subFont(displaySize: 12)
+        leftTitleLabel.font = UIFont.mainFont(displaySize: 12)
         celsiusLabel.font = UIFont.mainFont(displaySize: 18)
         celsiusLabel.adjustsFontSizeToFitWidth = true
     }
