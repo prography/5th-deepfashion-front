@@ -572,7 +572,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3dd-CD-GKy">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
-                                                    <color key="backgroundColor" red="0.8181639825405429" green="0.82187902254908962" blue="0.96851998567581177" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewLayout key="collectionViewLayout" id="3bR-3s-aOE" customClass="ClosetListCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="closetListCollectionViewCell" id="PDy-I8-pUd" customClass="ClosetListCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
@@ -1248,7 +1248,7 @@
                                                 <constraint firstItem="VS0-SN-eZt" firstAttribute="top" secondItem="gGq-tc-rtf" secondAttribute="top" constant="5" id="qcw-6S-CRX"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" red="0.88331724950000001" green="0.98363072569999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="126" height="143"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="Luf-UL-dre" id="a3u-Bu-zT1"/>
@@ -1354,7 +1354,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu5-Jd-hH3">
                                         <rect key="frame" x="207" y="0.0" width="207" height="60"/>
-                                        <color key="backgroundColor" red="0.86511325319081134" green="0.96851998567581177" blue="0.89753162264709163" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.9305680004852197" green="0.96851998567581177" blue="0.9273055507485507" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="다른 코디 추천받기">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>

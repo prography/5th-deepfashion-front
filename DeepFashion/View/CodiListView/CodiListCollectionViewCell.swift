@@ -38,12 +38,18 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         addSubviews()
+        layer.borderColor = UIColor.black.cgColor
+        layer.cornerRadius = 10
+        layer.borderWidth = 3
+
         titleLabel.text = "# CodiList Title"
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.numberOfLines = 2
         for i in imageViewList.indices {
             imageViewList[i].backgroundColor = .lightGray
             imageViewList[i].image = UIImage(named: AssetIdentifier.Image.longJacket)
+            imageViewList[i].clipsToBounds = true
+            imageViewList[i].layer.cornerRadius = 5
         }
 
         selectEffectView.bounds = bounds

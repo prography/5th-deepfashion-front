@@ -482,8 +482,8 @@
 				07554FF623A67A0800691C5B /* ClosetListView */,
 				07554FF723A67A1400691C5B /* MyPageView */,
 				07554FF523A679F600691C5B /* CodiRecommendView */,
-				07A3B0C7239126940028DC6B /* Layout */,
 				07C5C5EB23AB64CB00324B67 /* CodiListView */,
+				07A3B0C7239126940028DC6B /* Layout */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1087,7 +1087,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.03;
+				MARKETING_VERSION = 1.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1112,7 +1112,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.03;
+				MARKETING_VERSION = 1.04;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
