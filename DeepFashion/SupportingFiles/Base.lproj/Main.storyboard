@@ -560,7 +560,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ifp-0n-4P3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                                <color key="backgroundColor" red="0.90777360797604645" green="0.89783483193230862" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="closetListTableViewCell" rowHeight="76" id="PFl-Ih-0Bt" customClass="ClosetListTableViewCell" customModule="DeepFashion" customModuleProvider="target">
@@ -631,7 +631,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJJ-Gy-1Pj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="옷장 리스트" id="R4f-aN-H9e">
+                    <tabBarItem key="tabBarItem" title="옷장 리스트" image="closet" selectedImage="closet" id="R4f-aN-H9e">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -652,7 +652,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2ZT-c4-n4M">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPageTableViewCell" rowHeight="66" id="1zF-4q-yhx" customClass="MyPageTableViewCell" customModule="DeepFashion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="66"/>
@@ -693,7 +693,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ukZ-jQ-0He"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이 페이지" id="uhi-T6-xoe">
+                    <tabBarItem key="tabBarItem" title="마이 페이지" image="myPage" selectedImage="myPage" id="uhi-T6-xoe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
@@ -774,7 +774,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.98368232531511557" blue="0.93876354726193079" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qka-CT-ApO" firstAttribute="top" secondItem="vdl-x6-2sl" secondAttribute="top" constant="20" id="MVf-6Y-6z2"/>
                             <constraint firstItem="vdl-x6-2sl" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qka-CT-ApO" secondAttribute="bottom" constant="60" id="U2w-rc-w0J"/>
@@ -783,7 +783,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="옷 추가하기" id="q3p-tE-foQ">
+                    <tabBarItem key="tabBarItem" title="옷 추가하기" image="plus" selectedImage="plus" id="q3p-tE-foQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -1183,9 +1183,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7t0-Dp-PJJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7t0-Dp-PJJ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-                                <color key="backgroundColor" red="0.95806336879756238" green="1" blue="0.97690897205913274" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewLayout key="collectionViewLayout" id="C4b-PU-VZe" customClass="CodiListCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
                                 <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 저장된 코디리스트가 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c0Y-KX-jqt">
@@ -1270,7 +1270,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QW0-Wo-UzZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="코디 리스트" id="99N-QG-aOe">
+                    <tabBarItem key="tabBarItem" title="코디 리스트" image="codiList" selectedImage="codiList" id="99N-QG-aOe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="thirdView" id="TYo-Nj-8DF"/>
@@ -1444,7 +1444,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="top" secondItem="BDW-CI-BlR" secondAttribute="top" constant="20" id="6Sj-dT-Z40"/>
                                     <constraint firstAttribute="trailing" secondItem="jYq-fT-66a" secondAttribute="trailing" constant="20" id="7Rj-C3-fmR"/>
@@ -1493,8 +1493,6 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -1519,7 +1517,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.37863142765281393" green="0.40078566204517463" blue="0.84267407655715942" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
@@ -1537,8 +1535,12 @@
     </scenes>
     <resources>
         <image name="clear-day" width="128" height="128"/>
+        <image name="closet" width="29.5" height="29.5"/>
+        <image name="codiList" width="29.5" height="29.5"/>
         <image name="home" width="29.5" height="29.5"/>
         <image name="longJacket" width="526" height="304"/>
+        <image name="myPage" width="29.5" height="29.5"/>
+        <image name="plus" width="29.5" height="29.5"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

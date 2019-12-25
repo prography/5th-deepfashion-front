@@ -18,7 +18,6 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBarController()
-        self.tabBar.items?[0].image = UIImage(named: "home.png")
     }
 
     private func configureTabBarController() {
