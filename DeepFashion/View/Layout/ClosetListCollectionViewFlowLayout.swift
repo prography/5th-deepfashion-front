@@ -14,7 +14,7 @@ class ClosetListCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         guard let collectionViewHeight = self.collectionView?.layer.bounds.height else { return }
-        sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: -10, right: -10)
+        sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 30)
 
         var newItemSize = itemSize
         newItemSize.height = CGFloat(collectionViewHeight) * 0.8

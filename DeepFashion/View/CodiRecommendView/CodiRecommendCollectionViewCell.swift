@@ -42,6 +42,9 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .lightGray
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 3
+        layer.cornerRadius = 10
         configureTitleLabel()
         addSubviews()
         makeConstraints()

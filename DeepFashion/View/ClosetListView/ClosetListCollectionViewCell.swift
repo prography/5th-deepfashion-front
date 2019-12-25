@@ -43,6 +43,9 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .lightGray
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 10
         addSubviews()
         makeConstraints()
     }
@@ -52,6 +55,7 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
     func configureCell(clothingData: UserClothingData) {
         self.clothingData = clothingData
         fashionImageView.image = clothingData.image
+        fashionImageView.layer.cornerRadius = 10
     }
 
     func addSubviews() {
