@@ -46,8 +46,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTextField()
-        configureLoginButton()
+        configureViewController()
     }
 
     override func viewWillAppear(_: Bool) {
@@ -159,5 +158,9 @@ extension LoginViewController: RequestAPIDelegate {
 }
 
 extension LoginViewController: UIViewControllerSetting {
-    func configureViewController() {}
+    func configureViewController() {
+        configureBasicTitle("Fash")
+        configureTextField()
+        configureLoginButton()
+    }
 }

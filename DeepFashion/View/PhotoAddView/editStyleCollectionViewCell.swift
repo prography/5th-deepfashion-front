@@ -29,8 +29,11 @@ class editStyleCollectionViewCell: UICollectionViewCell {
 
     // MARK: Life Cycle
 
-    override class func awakeFromNib() {
+    override func awakeFromNib() {
         super.awakeFromNib()
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 3
+        layer.cornerRadius = 10
     }
 
     // MARK: Methods

@@ -89,6 +89,10 @@ class SecondSignUpViewController: UIViewController {
             guard let styleButton = self.view.viewWithTag(buttonIndex) as? UIButton else { return }
             configureStyleButtonDisabled(styleButton: styleButton)
 
+            styleButton.layer.borderColor = UIColor.black.cgColor
+            styleButton.layer.borderWidth = 3
+            styleButton.layer.cornerRadius = 10
+
             var nowButtonText = ""
             if isGenderMan {
                 if buttonIndex <= UIIdentifier.StyleButton.endManTagIndex {
