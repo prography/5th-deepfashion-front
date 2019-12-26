@@ -70,11 +70,13 @@ class SecondSignUpViewController: UIViewController {
     // MARK: Methods
 
     private func configureSignUpFinishButton() {
+        signUpFinishButton.configureBasicButton(title: "가입 완료", fontSize: 18)
         signUpFinishButton.configureDisabledButton()
     }
 
     private func configureStyleButtonDisabled(styleButton: UIButton) {
         styleButton.configureDisabledButton()
+        styleButton.isEnabled = true
         styleButton.backgroundColor = .white
     }
 

@@ -13,12 +13,14 @@ extension UIButton {
         layer.borderColor = UIColor.darkGray.cgColor
         setTitleColor(.black, for: .normal)
         backgroundColor = .gray
+        isEnabled = false
     }
 
     func configureSelectedButton() {
         layer.borderColor = UIColor.darkGray.cgColor
         setTitleColor(.white, for: .normal)
         backgroundColor = .black
+        isEnabled = true
     }
 
     func configureButtonByStatus(_ isEnabled: Bool) {
