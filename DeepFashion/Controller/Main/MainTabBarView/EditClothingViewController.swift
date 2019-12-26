@@ -77,7 +77,7 @@ class EditClothingViewController: UIViewController {
     private func configureFashionStyleButton() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
 
-        addFashionTableCell.styleButton.setTitle("\(selectedFashionData.style.0)", for: .normal)
+        addFashionTableCell.styleButton.setTitle("  \(selectedFashionData.style.0)", for: .normal)
     }
 
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
@@ -126,7 +126,7 @@ class EditClothingViewController: UIViewController {
     func refreshStyleButton() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
         DispatchQueue.main.async {
-            addFashionTableCell.styleButton.setTitle(self.selectedFashionData.style.0, for: .normal)
+            addFashionTableCell.styleButton.setTitle("  \(self.selectedFashionData.style.0)", for: .normal)
         }
     }
 
@@ -224,7 +224,7 @@ extension EditClothingViewController: UITableViewDataSource {
         addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(fashionTypeSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
 
-        addFashionTableCell.styleButton.setTitle(selectedFashionData.style.0, for: .normal)
+        addFashionTableCell.styleButton.setTitle("  \(selectedFashionData.style.0)", for: .normal)
         addFashionTableCell.colorSelectCollectionView.delegate = self
 
         return addFashionTableCell
