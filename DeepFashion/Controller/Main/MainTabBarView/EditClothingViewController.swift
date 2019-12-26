@@ -90,7 +90,7 @@ class EditClothingViewController: UIViewController {
     private func checkFillInData() {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
 
-        if addFashionTableCell.checkNameTextFieldContents() {
+        if isColorSelected, addFashionTableCell.checkNameTextFieldContents() {
             makeRegistrationButtonEnabled()
         } else {
             makeRegistrationButtonDisabled()
