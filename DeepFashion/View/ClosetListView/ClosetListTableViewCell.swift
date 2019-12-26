@@ -48,14 +48,20 @@ class ClosetListTableViewCell: UITableViewCell {
         }
     }
 
-    func removeSelectedCollectionViewCell() {
+    func removeSelectedCollectionViewCell(_ completion: @escaping (Bool) -> Void) {
         guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
 
         if !selectedIndexPaths.isEmpty {
             collectionView.performBatchUpdates({
                 self.collectionView.deleteItems(at: selectedIndexPaths)
                 closetListDataCount -= selectedIndexPaths.count
-            })
+            }) { isSucceed in
+                if isSucceed {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
         }
     }
 }
