@@ -87,7 +87,6 @@
 <div>
   <img width=200 src="https://user-images.githubusercontent.com/4410021/71447152-b254a900-276e-11ea-997b-3739cec7f49e.jpeg"> &nbsp;
 <img width=200 src="https://user-images.githubusercontent.com/4410021/71447153-b254a900-276e-11ea-9704-c30d04124f4c.jpeg"> &nbsp;
-<img width=200 src="https://user-images.githubusercontent.com/4410021/71447154-b254a900-276e-11ea-85f6-0c98c213286d.jpeg"> &nbsp;
 <img width=200 src="https://user-images.githubusercontent.com/4410021/71479224-cd8aeb80-2836-11ea-8594-36207635a9f6.jpeg"> &nbsp;
 <img width=200 src="https://user-images.githubusercontent.com/4410021/71479302-1d69b280-2837-11ea-82bc-81ac37ec9ff9.jpeg"> &nbsp;    
 <img width=200 src="https://user-images.githubusercontent.com/4410021/71479225-cd8aeb80-2836-11ea-9ea5-b6a68ed1369a.jpeg"> &nbsp;  
