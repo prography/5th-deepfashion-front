@@ -16,6 +16,13 @@ extension UIFont {
         return UIFont()
     }
 
+    static func titleFont(displaySize: CGFloat) -> UIFont {
+        if let titleFont = UIFont(name: "S-CoreDream-2ExtraLight", size: displaySize) {
+            return titleFont
+        }
+        return UIFont()
+    }
+
     static func subFont(displaySize: CGFloat) -> UIFont {
         if let mainFont = UIFont(name: "S-CoreDream-3Light", size: displaySize) {
             return mainFont

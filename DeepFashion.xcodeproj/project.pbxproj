@@ -38,6 +38,7 @@
 		076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */; };
 		076F6BCC237BFEA800A2CBB4 /* UserLoginAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */; };
 		076F6BCE237BFF8100A2CBB4 /* LoginUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */; };
+		0777D45123B51B0400385E68 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45023B51B0400385E68 /* ColorList.swift */; };
 		077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIPostData.swift */; };
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
@@ -155,6 +156,7 @@
 		076F6BC9237BDFFE00A2CBB4 /* LoginAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIPostData.swift; sourceTree = "<group>"; };
 		076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginAPIData.swift; sourceTree = "<group>"; };
 		076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserData.swift; sourceTree = "<group>"; };
+		0777D45023B51B0400385E68 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
 		077C77B0237812570088B151 /* UserAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPostData.swift; sourceTree = "<group>"; };
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */,
+				0777D45023B51B0400385E68 /* ColorList.swift */,
 				07B6E0632382B64A00D6A9E1 /* ViewData.swift */,
 				07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */,
 				07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */,
@@ -875,6 +878,7 @@
 				07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */,
 				07554FFC23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
+				0777D45123B51B0400385E68 /* ColorList.swift in Sources */,
 				07C5C5ED23AB9AD000324B67 /* CodiDataSet.swift in Sources */,
 				07B6E05A2382AD9600D6A9E1 /* CodiRecommendViewController.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,

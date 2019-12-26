@@ -19,5 +19,6 @@ struct AssetIdentifier {
         static let cancel = "cancel"
         static let mixedColor = "mixedColor"
         static let check = "check"
+        static let appIcon = "appIcon"
     }
 }

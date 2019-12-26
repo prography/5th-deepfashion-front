@@ -20,6 +20,27 @@ class LoginViewController: UIViewController {
     @IBOutlet var forgotPasswordButton: UIButton!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
 
+    let navigationTitleStackView: UIStackView = {
+        let navigationItemStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        navigationItemStackView.alignment = .center
+        navigationItemStackView.axis = .vertical
+        navigationItemStackView.spacing = 1
+        return navigationItemStackView
+    }()
+
+    let titleImageView: UIImageView = {
+        let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        titleImageView.image = UIImage(named: AssetIdentifier.Image.appIcon)
+        titleImageView.contentMode = .scaleAspectFit
+        return titleImageView
+    }()
+
+    let titleLabel: UILabel = {
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        titleLabel.font = UIFont.titleFont(displaySize: 10)
+        return titleLabel
+    }()
+
     // MARK: Properties
 
     private var isAPIDataRequested = false {
@@ -159,7 +180,6 @@ extension LoginViewController: RequestAPIDelegate {
 
 extension LoginViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureBasicTitle("Fash")
         configureTextField()
         configureLoginButton()
     }
