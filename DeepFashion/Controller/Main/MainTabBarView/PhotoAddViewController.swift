@@ -15,9 +15,9 @@ class PhotoAddViewController: UIViewController {
 
     // MARK: - IBOutlet
 
-    @IBOutlet var selectedPhotoImageView: UIImageView!
-
+    @IBOutlet var clothingImageView: UIImageView!
     @IBOutlet var classificationLabel: [UILabel]!
+    @IBOutlet var saveClothingButton: UIButton!
 
     // MARK: - Properties
 
@@ -122,6 +122,19 @@ class PhotoAddViewController: UIViewController {
         completion()
     }
 
+    private func configureImageView() {
+        let imageTapGestureRecognizer = UITapGestureRecognizer()
+        imageTapGestureRecognizer.addTarget(self, action: #selector(clothingImageViewPressed(_:)))
+        clothingImageView.addGestureRecognizer(imageTapGestureRecognizer)
+        clothingImageView.layer.borderWidth = 3
+        clothingImageView.layer.borderColor = UIColor.black.cgColor
+        clothingImageView.layer.cornerRadius = 10
+    }
+
+    private func configureSaveClothingButton() {
+        saveClothingButton.configureBasicButton(title: "옷 추가하기", fontSize: 18)
+    }
+
     private func configurePhotoSelectAlertController() {
         let takePictureAlertAction = UIAlertAction(title: "사진 찍기", style: .default) { _ in
             print("사진 찍기 클릭")
@@ -192,7 +205,7 @@ class PhotoAddViewController: UIViewController {
         photoSelectAlertController.addAction(cancelAlertAction)
     }
 
-    func presentPhotoSelectAlertController() {
+    private func presentPhotoSelectAlertController() {
         present(photoSelectAlertController, animated: true, completion: nil)
     }
 
@@ -218,13 +231,17 @@ class PhotoAddViewController: UIViewController {
     }
 
     func checkAlbumAuthority(alertAction _: UIAlertAction) {}
+
+    @objc func clothingImageViewPressed(_: UIImageView) {
+        presentPhotoSelectAlertController()
+    }
 }
 
 extension PhotoAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
 
-        selectedPhotoImageView.image = selectedImage
+        clothingImageView.image = selectedImage
         selectedClothingImage = selectedImage
     }
 }
@@ -234,6 +251,8 @@ extension PhotoAddViewController: UINavigationControllerDelegate {}
 extension PhotoAddViewController: UIViewControllerSetting {
     func configureViewController() {
         configurePhotoSelectAlertController()
+        configureImageView()
+        configureSaveClothingButton()
         photoPickerViewController.delegate = self
     }
 }

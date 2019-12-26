@@ -36,8 +36,8 @@ class MainTabBarController: UITabBarController {
 }
 
 extension MainTabBarController: UITabBarControllerDelegate {
-    func tabBarController(_: UITabBarController, didSelect viewController: UIViewController) {
-        guard let photoAddViewController = viewController as? PhotoAddViewController else { return }
-        photoAddViewController.presentPhotoSelectAlertController()
+    func tabBarController(_: UITabBarController, didSelect _: UIViewController) {
+//        guard let photoAddViewController = viewController as? PhotoAddViewController else { return }
+//        photoAddViewController.presentPhotoSelectAlertController()
     }
 }

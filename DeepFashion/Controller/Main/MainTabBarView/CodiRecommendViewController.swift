@@ -13,7 +13,6 @@ class CodiRecommendViewController: UIViewController {
 
     @IBOutlet var codiListSaveButton: UIButton!
     @IBOutlet var recommendCollectionView: UICollectionView!
-    @IBOutlet var leftTitleLabel: UILabel!
     @IBOutlet var weatherImageView: UIImageView!
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var refreshCodiButton: UIButton!
@@ -105,8 +104,6 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         leftTitleView.backgroundColor = #colorLiteral(red: 0.9127517343, green: 1, blue: 0.9195751548, alpha: 1)
 
         configureRefreshCodiButton()
-
-        leftTitleLabel.font = UIFont.mainFont(displaySize: 12)
         celsiusLabel.font = UIFont.mainFont(displaySize: 18)
         celsiusLabel.adjustsFontSizeToFitWidth = true
     }
