@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondSignUpViewController: UIViewController {
+class LastSignUpViewController: UIViewController {
     // MARK: UIs
 
     // MARK: - IBOutlet
@@ -147,7 +147,7 @@ class SecondSignUpViewController: UIViewController {
     }
 }
 
-extension SecondSignUpViewController: RequestAPIDelegate {
+extension LastSignUpViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         // 인디케이터 동작
         isAPIDataRequested = true

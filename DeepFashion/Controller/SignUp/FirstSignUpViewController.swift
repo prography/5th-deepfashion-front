@@ -87,7 +87,7 @@ class FirstSignUpViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        guard let nextViewController = segue.destination as? SecondSignUpViewController else { return }
+        guard let nextViewController = segue.destination as? LastSignUpViewController else { return }
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text,
             let genderIndex = self.genderSegmentedControl?.selectedSegmentIndex else { return }

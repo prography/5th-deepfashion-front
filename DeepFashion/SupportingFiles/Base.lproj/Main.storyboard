@@ -285,7 +285,7 @@
         <!--패션 스타일 선택-->
         <scene sceneID="IY2-8o-4Ka">
             <objects>
-                <viewController title="패션 스타일 선택" modalPresentationStyle="fullScreen" id="L8J-ZO-A7u" customClass="SecondSignUpViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="패션 스타일 선택" modalPresentationStyle="fullScreen" id="L8J-ZO-A7u" customClass="LastSignUpViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ol-59-VJR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
