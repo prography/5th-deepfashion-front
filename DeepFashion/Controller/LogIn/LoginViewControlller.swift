@@ -166,7 +166,17 @@ class LoginViewController: UIViewController {
 
     // MARK: - Unwind
 
-    @IBAction func prepareForUnwind(segue _: UIStoryboardSegue) {}
+    @IBAction func prepareForUnwind(segue nowSegue: UIStoryboardSegue) {
+        if let _ = nowSegue.source as? MyPageViewController,
+            let navigationController = self.navigationController {
+            ToastView.shared.presentShortMessage(navigationController.view, message: "로그아웃 되었습니다.")
+        }
+
+        if let _ = nowSegue.source as? LastSignUpViewController,
+            let navigationController = self.navigationController {
+            ToastView.shared.presentShortMessage(navigationController.view, message: "성공적으로 가입되었습니다.")
+        }
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {

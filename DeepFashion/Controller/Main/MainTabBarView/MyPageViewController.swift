@@ -90,6 +90,7 @@ extension MyPageViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let myPageCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.myPage, for: indexPath) as? MyPageTableViewCell else { return UITableViewCell() }
+
         myPageCell.configureCell(title: ViewData.Section.Row.myPageTableView[indexPath.row])
         return myPageCell
     }
@@ -99,5 +100,8 @@ extension MyPageViewController: UIViewControllerSetting {
     func configureViewController() {
         myPageTableView.delegate = self
         myPageTableView.dataSource = self
+        myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        myPageTableView.separatorColor = ColorList.newBrown
+        myPageTableView.tableFooterView?.isHidden = true
     }
 }

@@ -45,13 +45,13 @@ final class ToastView: UILabel {
         configureToastView(view, message: message)
 
         // Perform Toast Animation
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.7, animations: {
             self.overlayView.alpha = 0.8
         }) { _ in
-            UIView.animate(withDuration: 0.8, delay: 0.5, animations: {
+            UIView.animate(withDuration: 0.6, delay: 0.5, animations: {
                 self.overlayView.alpha = 0
             }) { _ in
-                UIView.animate(withDuration: 0.8, animations: {
+                UIView.animate(withDuration: 0.3, animations: {
                     DispatchQueue.main.async {
                         self.overlayView.alpha = 0
                         self.textLabel.removeFromSuperview()
