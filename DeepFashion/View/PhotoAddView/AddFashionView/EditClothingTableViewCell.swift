@@ -121,7 +121,7 @@ class EditClothingTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             self.colorSelectCollectionView.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 0),
             self.colorSelectCollectionView.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
-            self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
+            self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2 - colorSelectCollectionView.contentInset.left * 3),
         ])
 
         colorSelectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
