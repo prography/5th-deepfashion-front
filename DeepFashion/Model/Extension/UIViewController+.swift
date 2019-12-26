@@ -10,6 +10,8 @@ import Photos
 import UIKit
 
 extension UIViewController {
+    typealias completionHandler = () -> Void
+
     func openPhotoAlbum(_ imagePickerController: UIImagePickerController) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
@@ -44,11 +46,11 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func presentBasicOneButtonAlertController(title: String, message: String, completion: @escaping () -> Void) {
+    func presentBasicOneButtonAlertController(title: String, message: String, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let getAuthAction = UIAlertAction(title: "네", style: .default) { _ in
-            completion()
+            completion?()
         }
         alertController.addAction(getAuthAction)
         present(alertController, animated: true, completion: nil)

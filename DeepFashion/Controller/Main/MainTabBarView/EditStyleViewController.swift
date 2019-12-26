@@ -54,7 +54,7 @@ class EditStyleViewController: UIViewController {
         print("Finish Button Pressed!!")
         UserCommonData.shared.resetStyleData()
         guard let navigationController = self.navigationController,
-            let addFashionViewController = self.navigationController?.viewControllers[navigationController.viewControllers.count - 2] as? AddFashionViewController,
+            let addFashionViewController = self.navigationController?.viewControllers[navigationController.viewControllers.count - 2] as? EditClothingViewController,
             let selectedItem = collectionView.indexPathsForSelectedItems else { return }
         addFashionViewController.selectedFashionData.style = (fashionStyles[selectedItem[0].item], selectedItem[0].item)
         addFashionViewController.refreshStyleButton()

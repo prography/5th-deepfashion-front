@@ -268,7 +268,7 @@ class ClothingAddViewController: UIViewController {
 
     private func presentAddFashionViewController(selectedImage: UIImage) {
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.addFashion) as? AddFashionViewController else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editClothing) as? EditClothingViewController else {
             return
         }
 

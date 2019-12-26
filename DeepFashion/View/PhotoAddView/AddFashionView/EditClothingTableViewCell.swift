@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFashionTableViewCell: UITableViewCell {
+class EditClothingTableViewCell: UITableViewCell {
     // MARK: UIs
 
     @IBOutlet var nameTextField: UITextField!
@@ -16,6 +16,7 @@ class AddFashionTableViewCell: UITableViewCell {
     @IBOutlet var typeSegmentedControl: UISegmentedControl!
     @IBOutlet var weatherSegmentedControl: UISegmentedControl!
     @IBOutlet var editStackView: UIStackView!
+    @IBOutlet var subTitleLabelList: [UILabel]!
 
     private var colorSelectStackView: UIStackView = {
         let colorSelectStackView = UIStackView()
@@ -35,9 +36,9 @@ class AddFashionTableViewCell: UITableViewCell {
     private var colorSelectTitleLabel: UILabel = {
         let colorSelectTitleLabel = UILabel()
         colorSelectTitleLabel.text = "옷 색상"
-        colorSelectTitleLabel.font = UIFont(name: "HelveticaNeue-Bold", size: 17.0)
-        colorSelectTitleLabel.textColor = .white
-        colorSelectTitleLabel.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        colorSelectTitleLabel.font = UIFont.mainFont(displaySize: 16)
+        colorSelectTitleLabel.textColor = .black
+        colorSelectTitleLabel.backgroundColor = ViewData.Color.clothingAddView
         return colorSelectTitleLabel
     }()
 
@@ -45,13 +46,16 @@ class AddFashionTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+        backgroundColor = ViewData.Color.clothingAddView
         colorSelectStackView.addArrangedSubview(colorSelectTitleLabel)
         colorSelectStackView.addArrangedSubview(colorSelectCollectionView)
         editStackView.addArrangedSubview(colorSelectStackView)
         colorSelectCollectionView.dataSource = self
         colorSelectCollectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect)
-        configureFashionTypeSegmentedControl()
+        configureSubTitleLabelList()
+        configureSegmentedControl()
+        configureStyleButton()
+        configureNameTextField()
         makeConstraint()
         colorSelectCollectionView.allowsSelection = true
     }
@@ -69,9 +73,41 @@ class AddFashionTableViewCell: UITableViewCell {
         return nameText.trimmingCharacters(in: .whitespaces).isEmpty ? false : true
     }
 
-    private func configureFashionTypeSegmentedControl() {
+    private func configureStyleButton() {
+        styleButton.layer.cornerRadius = 10
+        styleButton.layer.borderColor = UIColor.black.cgColor
+        styleButton.layer.borderWidth = 1
+        styleButton.clipsToBounds = true
+    }
+
+    private func configureNameTextField() {
+        nameTextField.layer.cornerRadius = 10
+        nameTextField.layer.borderColor = UIColor.black.cgColor
+        nameTextField.layer.borderWidth = 1
+        nameTextField.clipsToBounds = true
+    }
+
+    private func configureSubTitleLabelList() {
+        for i in subTitleLabelList.indices {
+            if i == 0 {
+                subTitleLabelList[i].font = UIFont.subFont(displaySize: 16)
+            } else {
+                subTitleLabelList[i].font = UIFont.mainFont(displaySize: 16)
+            }
+        }
+    }
+
+    private func configureSegmentedControl() {
         // 초기 선택 인덱스를 설정
         typeSegmentedControl.selectedSegmentIndex = 0
+        typeSegmentedControl.layer.cornerRadius = 10
+        typeSegmentedControl.layer.borderWidth = 1
+        typeSegmentedControl.clipsToBounds = true
+
+        weatherSegmentedControl.selectedSegmentIndex = 0
+        weatherSegmentedControl.layer.cornerRadius = 10
+        weatherSegmentedControl.clipsToBounds = true
+        weatherSegmentedControl.layer.borderWidth = 1
     }
 
     private func makeConstraint() {
@@ -92,11 +128,12 @@ class AddFashionTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             self.colorSelectTitleLabel.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 10),
             self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: -10),
+            self.colorSelectTitleLabel.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
 }
 
-extension AddFashionTableViewCell: UICollectionViewDataSource {
+extension EditClothingTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return UIIdentifier.colorHexaCode.count
     }

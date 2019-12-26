@@ -10,14 +10,10 @@ import Foundation
 
 struct UIIdentifier {
     static let colorHexaCode: [UInt64] = [
-        0x000000, 0x704301, 0xEE220C, 0x7B1624,
-        0x7A4ADA, 0x1B4872, 0x056F94, 0x424242,
-        0xB46A22, 0xFF5700, 0xEE2370, 0x863C9C,
-        0x1C7ED6, 0x444930, 0xA9A9A9, 0xDAA652,
-        0xE88D00, 0xF783AD, 0xE0AFE8, 0x00B0FF,
-        0x708238, 0x3BB143, 0xFFFFFA, 0xF7F1E0,
-        0xFFD700, 0xFFDED0, 0xC2DAD9, 0xD0EBFF,
-        0x047949, 0xC7EA46,
+        0xFFFFFA, 0xF7F1E0, 0xFFD700, 0xFFDED0, 0xD0EBFF, 0x3BB143, 0xFFFFFF,
+        0xE0AFE8, 0xA9A9A9, 0xDAA652, 0xE88D00, 0xF783AD, 0x00B0FF, 0x047949, 0xC7EA46,
+        0x863C9C, 0x424242, 0xB46A22, 0xFF5700, 0xEE2370, 0x1C7ED6, 0x708238, 0xC2DAD9,
+        0x7A4ADA, 0x000000, 0x704301, 0xEE220C, 0x7B1624, 0x1B4872, 0x444930, 0x056F94,
     ]
 
     static let mainView = "mainView"
@@ -25,7 +21,7 @@ struct UIIdentifier {
 
     static let mainStoryboard = "Main"
     struct ViewController {
-        static let addFashion = "AddFashionViewController"
+        static let editClothing = "AddFashionViewController"
         static let editStyle = "EditStyleViewController"
     }
 
@@ -46,7 +42,7 @@ struct UIIdentifier {
         struct TableView {
             static let closetList = "closetListTableViewCell"
             static let myPage = "myPageTableViewCell"
-            static let addFashion = "addFashionTableViewCell"
+            static let editClothing = "addFashionTableViewCell"
         }
     }
 

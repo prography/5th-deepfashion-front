@@ -66,7 +66,7 @@
 		07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */; };
 		07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */; };
 		07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0632382B64A00D6A9E1 /* ViewData.swift */; };
-		07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */; };
+		07B7F6AF238E774900EA9C10 /* EditClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6AE238E774900EA9C10 /* EditClothingViewController.swift */; };
 		07B7F6BE238EE4FD00EA9C10 /* ClothingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6BD238EE4FD00EA9C10 /* ClothingAPIData.swift */; };
 		07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */; };
 		07C5C5EA23AB549000324B67 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */; };
@@ -76,7 +76,7 @@
 		07C5C5F523ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5F423ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift */; };
 		07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */; };
 		07C5C5FD23ACF5A700324B67 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FC23ACF5A700324B67 /* DateFormatter+.swift */; };
-		07C5C60023ACFE0200324B67 /* AddFashionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */; };
+		07C5C60023ACFE0200324B67 /* EditClothingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5FF23ACFE0200324B67 /* EditClothingTableViewCell.swift */; };
 		07C5C60323ADF65F00324B67 /* yjModel.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C60123ADF65F00324B67 /* yjModel.pt */; };
 		07C5C60623ADF6DA00324B67 /* yjWords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07C5C60523ADF6DA00324B67 /* yjWords.txt */; };
 		07C5C60D23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C60B23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift */; };
@@ -184,7 +184,7 @@
 		07B6E05F2382AEDF00D6A9E1 /* UIViewControllerSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerSetting.swift; sourceTree = "<group>"; };
 		07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		07B6E0632382B64A00D6A9E1 /* ViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewData.swift; sourceTree = "<group>"; };
-		07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFashionViewController.swift; sourceTree = "<group>"; };
+		07B7F6AE238E774900EA9C10 /* EditClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClothingViewController.swift; sourceTree = "<group>"; };
 		07B7F6BD238EE4FD00EA9C10 /* ClothingAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingAPIData.swift; sourceTree = "<group>"; };
 		07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlertController.swift; sourceTree = "<group>"; };
 		07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 		07C5C5F423ACB69F00324B67 /* CodiRecommendCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetIdentifier.swift; sourceTree = "<group>"; };
 		07C5C5FC23ACF5A700324B67 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
-		07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFashionTableViewCell.swift; sourceTree = "<group>"; };
+		07C5C5FF23ACFE0200324B67 /* EditClothingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClothingTableViewCell.swift; sourceTree = "<group>"; };
 		07C5C60123ADF65F00324B67 /* yjModel.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = yjModel.pt; sourceTree = "<group>"; };
 		07C5C60523ADF6DA00324B67 /* yjWords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yjWords.txt; sourceTree = "<group>"; };
 		07C5C60B23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 				07598531237E93E500C48EE7 /* ClothingAddViewController.swift */,
 				07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */,
 				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
-				07B7F6AE238E774900EA9C10 /* AddFashionViewController.swift */,
+				07B7F6AE238E774900EA9C10 /* EditClothingViewController.swift */,
 				07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */,
 			);
 			path = MainTabBarView;
@@ -513,7 +513,7 @@
 		07C5C5FE23ACFDE300324B67 /* AddFashionView */ = {
 			isa = PBXGroup;
 			children = (
-				07C5C5FF23ACFE0200324B67 /* AddFashionTableViewCell.swift */,
+				07C5C5FF23ACFE0200324B67 /* EditClothingTableViewCell.swift */,
 				07C5C61523AE0C0500324B67 /* ColorSelectCollectionView.swift */,
 			);
 			path = AddFashionView;
@@ -839,7 +839,7 @@
 				07A3B0C4239108BF0028DC6B /* editStyleCollectionViewCell.swift in Sources */,
 				07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */,
 				07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */,
-				07B7F6AF238E774900EA9C10 /* AddFashionViewController.swift in Sources */,
+				07B7F6AF238E774900EA9C10 /* EditClothingViewController.swift in Sources */,
 				07AB242623AA52F70076ABF5 /* UserClothingUploadAPIData.swift in Sources */,
 				07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */,
 				07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */,
@@ -879,7 +879,7 @@
 				07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */,
 				07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */,
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
-				07C5C60023ACFE0200324B67 /* AddFashionTableViewCell.swift in Sources */,
+				07C5C60023ACFE0200324B67 /* EditClothingTableViewCell.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
 				07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */,
 				07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */,

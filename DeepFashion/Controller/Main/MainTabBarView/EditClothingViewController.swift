@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFashionViewController: UIViewController {
+class EditClothingViewController: UIViewController {
     // MARK: IBOutlet
 
     @IBOutlet var addFashionTableView: UITableView!
@@ -75,7 +75,7 @@ class AddFashionViewController: UIViewController {
     //    }
 
     private func configureFashionStyleButton() {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
 
         addFashionTableCell.styleButton.setTitle("\(selectedFashionData.style.0)", for: .normal)
     }
@@ -88,9 +88,9 @@ class AddFashionViewController: UIViewController {
     }
 
     private func checkFillInData() {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
 
-        if isColorSelected, addFashionTableCell.checkNameTextFieldContents() {
+        if addFashionTableCell.checkNameTextFieldContents() {
             makeRegistrationButtonEnabled()
         } else {
             makeRegistrationButtonDisabled()
@@ -117,26 +117,23 @@ class AddFashionViewController: UIViewController {
                     }
                 } else {
                     // Present Error AlertController
+                    self.presentBasicOneButtonAlertController(title: "옷 저장 에러", message: "옷 저장에 실패했습니다.")
                 }
             }
         }
     }
 
     func refreshStyleButton() {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
         DispatchQueue.main.async {
             addFashionTableCell.styleButton.setTitle(self.selectedFashionData.style.0, for: .normal)
         }
     }
 
-    @objc func addFashionTableViewTouched(_: UITableView) {
-        view.endEditing(true)
-    }
-
     // MARK: - IBActions
 
     @IBAction func addFashionButtonPressed(_: UIButton) {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? AddFashionTableViewCell else { return }
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
 
         // 이미지, 이름 셋팅
         guard let fashionImage = selectedFashionData.image,
@@ -160,7 +157,7 @@ class AddFashionViewController: UIViewController {
                 self.uploadClothingImage()
             } else {
                 DispatchQueue.main.async {
-                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.") {}
+                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.")
                 }
             }
         }
@@ -191,7 +188,7 @@ class AddFashionViewController: UIViewController {
     }
 }
 
-extension AddFashionViewController: UITextFieldDelegate {
+extension EditClothingViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
         return checkCharacter(textField: textField, character: string)
     }
@@ -203,9 +200,9 @@ extension AddFashionViewController: UITextFieldDelegate {
     }
 }
 
-extension AddFashionViewController: UITableViewDelegate {
+extension EditClothingViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 600
+        return 700
     }
 
     func tableView(_: UITableView, shouldHighlightRowAt _: IndexPath) -> Bool {
@@ -214,13 +211,13 @@ extension AddFashionViewController: UITableViewDelegate {
     }
 }
 
-extension AddFashionViewController: UITableViewDataSource {
+extension EditClothingViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.addFashion, for: indexPath) as? AddFashionTableViewCell else { return UITableViewCell() }
+        guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
         addFashionTableCell.nameTextField.delegate = self
         addFashionTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
         addFashionTableCell.weatherSegmentedControl.addTarget(self, action: #selector(fashionWeatherSegmentedControlValueChanged), for: .valueChanged)
@@ -234,13 +231,13 @@ extension AddFashionViewController: UITableViewDataSource {
     }
 }
 
-extension AddFashionViewController: UICollectionViewDelegate {
+extension EditClothingViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
         isColorSelected = true
     }
 }
 
-extension AddFashionViewController: RequestAPIDelegate {
+extension EditClothingViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         isRequestAPI = true
     }
@@ -254,11 +251,13 @@ extension AddFashionViewController: RequestAPIDelegate {
     }
 }
 
-extension AddFashionViewController: UIViewControllerSetting {
+extension EditClothingViewController: UIViewControllerSetting {
     func configureViewController() {
         addFashionTableView.delegate = self
         addFashionTableView.dataSource = self
         navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = ViewData.Color.clothingAddView
         clothingImageView.image = selectedFashionData.image
+        clothingImageView.backgroundColor = .black
     }
 }
