@@ -126,8 +126,8 @@ class EditClothingTableViewCell: UITableViewCell {
 
         colorSelectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.colorSelectTitleLabel.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 10),
-            self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: -10),
+            self.colorSelectTitleLabel.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 20),
+            self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: -20),
             self.colorSelectTitleLabel.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
@@ -135,13 +135,13 @@ class EditClothingTableViewCell: UITableViewCell {
 
 extension EditClothingTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return UIIdentifier.colorHexaCode.count
+        return UIIdentifier.Color.colorHexaCode.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect, for: indexPath) as? ColorSelectCollectionViewCell else { return UICollectionViewCell() }
-        let cellColor = UIColor(rgb: UIIdentifier.colorHexaCode[indexPath.item], alpha: 1.0)
-        colorCell.configureCell(color: cellColor)
+
+        colorCell.configureCell(rgb: UIIdentifier.Color.colorHexaCode[indexPath.item])
         return colorCell
     }
 }

@@ -17,5 +17,6 @@ struct AssetIdentifier {
         static let refresh = "refresh"
         static let edit = "edit"
         static let cancel = "cancel"
+        static let mixedColor = "mixedColor"
     }
 }
