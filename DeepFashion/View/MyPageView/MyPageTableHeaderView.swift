@@ -13,13 +13,13 @@ class MyPageTableHeaderView: UIView {
         let titleLabel = UILabel()
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        titleLabel.textColor = .black
+        titleLabel.textColor = .white
         return titleLabel
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = ColorList.newBrown
         addSubviews()
         configureConstraint()
     }

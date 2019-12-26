@@ -20,7 +20,7 @@ class ClosetListTableHeaderView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .black
+        backgroundColor = ColorList.newBrown
         addSubviews()
         configureConstraint()
     }

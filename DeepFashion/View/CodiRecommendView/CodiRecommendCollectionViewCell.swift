@@ -55,7 +55,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     private func configureTitleLabel() {
         titleLabel.font = UIFont.subFont(displaySize: 18)
         titleLabel.textColor = .white
-        titleLabel.backgroundColor = .black
+        titleLabel.backgroundColor = ColorList.newBrown
     }
 
     func configureCell(title: String) {

@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     let navigationTitleStackView: UIStackView = {
-        let navigationItemStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let navigationItemStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         navigationItemStackView.alignment = .center
         navigationItemStackView.axis = .vertical
         navigationItemStackView.spacing = 1
@@ -144,16 +144,18 @@ class LoginViewController: UIViewController {
             let passwordText = self.passwordTextField.text,
             let navigationController = self.navigationController else { return }
 
+        view.endEditing(true)
+
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
 
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { errorType in
             // 테스트용 조건 설정 중)
             if errorType == nil {
                 DispatchQueue.main.async {
+                    ToastView.shared.presentShortMessage(navigationController.view, message: "로그인에 성공했습니다.")
                     self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
                 }
             } else {
-                // * ISSUE : 네트워킹 or 로그인 오입력에 따른 AlertController 띄울 예정
                 DispatchQueue.main.async {
                     ToastView.shared.presentShortMessage(navigationController.view, message: "로그인에 실패했습니다.")
                     self.loginButton.isEnabled = true
@@ -200,7 +202,7 @@ extension LoginViewController: UIViewControllerSetting {
         makeNavigationTitle()
         configureTextField()
         configureLoginButton()
-        signUpButton.layer.cornerRadius = 5
+        signUpButton.layer.cornerRadius = 10
         signUpButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 }

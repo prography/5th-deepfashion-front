@@ -13,7 +13,9 @@ class MyPageTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        titleLabel.textColor = ColorList.brownishGray
+        backgroundColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

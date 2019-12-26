@@ -25,7 +25,7 @@ final class ToastView: UILabel {
 
         overlayView.frame = CGRect(x: 0, y: 0, width: view.frame.width - 60, height: 50)
         overlayView.center = CGPoint(x: view.bounds.width / 2, y: view.bounds.height - 100)
-        overlayView.backgroundColor = .black
+        overlayView.backgroundColor = ColorList.brownishGray
         overlayView.clipsToBounds = true
         overlayView.layer.cornerRadius = 10
         overlayView.alpha = 0

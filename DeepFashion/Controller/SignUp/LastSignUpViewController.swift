@@ -80,7 +80,7 @@ class LastSignUpViewController: UIViewController {
     }
 
     private func configureStyleButtonSelected(styleButton: UIButton) {
-        styleButton.configureSelectedButton()
+        styleButton.configureEnabledButton()
     }
 
     private func configureStyleSelectButton() {

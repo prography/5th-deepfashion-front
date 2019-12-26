@@ -148,7 +148,7 @@ class ClothingAddViewController: UIViewController {
         for i in classificationLabel.indices {
             classificationLabel[i].adjustsFontSizeToFitWidth = true
             classificationLabel[i].font = UIFont.mainFont(displaySize: 13)
-            classificationLabel[i].textColor = .black
+            classificationLabel[i].textColor = ColorList.brownish
             classificationLabel[i].isHidden = true
         }
 
@@ -156,7 +156,9 @@ class ClothingAddViewController: UIViewController {
     }
 
     private func configureSaveClothingButton() {
-        saveClothingButton.configureBasicButton(title: "옷 추가하기", fontSize: 18)
+        saveClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+        saveClothingButton.setTitle("옷 추가하기", for: .normal)
+        saveClothingButton.configureDisabledButton()
     }
 
     private func configurePhotoSelectAlertController() {
@@ -257,7 +259,7 @@ class ClothingAddViewController: UIViewController {
         classificationLabel[0].text = "옷 이름 : XXX"
         classificationLabel[1].text = "옷 분류 : XXX"
         classificationLabel[2].text = "#xxx #xxx #xxx"
-        saveClothingButton.isEnabled = true
+        saveClothingButton.configureEnabledButton()
     }
 
     private func presentCameraAuthRequestAlertController() {

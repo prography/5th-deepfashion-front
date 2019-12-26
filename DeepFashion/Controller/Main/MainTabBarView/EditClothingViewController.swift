@@ -66,7 +66,7 @@ class EditClothingViewController: UIViewController {
     // MARK: Methods
 
     private func configureRegistrationButton() {
-        addFashionButton.isEnabled = false
+        makeRegistrationButtonDisabled()
     }
 
     //    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
@@ -98,15 +98,17 @@ class EditClothingViewController: UIViewController {
     }
 
     private func makeRegistrationButtonDisabled() {
-        addFashionButton.isEnabled = false
+        addFashionButton.configureDisabledButton()
+        addFashionButton.layer.cornerRadius = 0
     }
 
     private func makeRegistrationButtonEnabled() {
-        addFashionButton.isEnabled = true
+        addFashionButton.configureEnabledButton()
+        addFashionButton.layer.cornerRadius = 0
     }
 
     private func uploadClothingImage() {
-        guard let tabBarController = self.tabBarController else { return }
+        guard let navigationController = self.navigationController else { return }
         // clothingUploadAPIData 를 정의 후 사용하자.
         DispatchQueue.main.async {
             let clothingUploadData = UserClothingUploadData(clothingCode: UserCommonData.shared.nowClothingCode, clothingImage: self.clothingImageView.image, ownerPK: UserCommonData.shared.pk)
@@ -118,7 +120,7 @@ class EditClothingViewController: UIViewController {
                     }
                 } else {
                     // Present Error AlertController
-                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 저장에 실패했습니다.")
+                    ToastView.shared.presentShortMessage(navigationController.view, message: "옷 저장에 실패했습니다.")
                 }
             }
         }
@@ -135,7 +137,7 @@ class EditClothingViewController: UIViewController {
 
     @IBAction func addFashionButtonPressed(_: UIButton) {
         guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell,
-            let tabBarController = self.tabBarController else { return }
+            let navigationController = self.navigationController else { return }
 
         // 이미지, 이름 셋팅
         guard let fashionImage = selectedFashionData.image,
@@ -159,7 +161,7 @@ class EditClothingViewController: UIViewController {
                 self.uploadClothingImage()
             } else {
                 DispatchQueue.main.async {
-                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 저장에 실패했습니다.")
+                    ToastView.shared.presentShortMessage(navigationController.view, message: "옷 저장에 실패했습니다.")
                 }
             }
         }
@@ -260,6 +262,7 @@ extension EditClothingViewController: UIViewControllerSetting {
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = ViewData.Color.clothingAddView
         clothingImageView.image = selectedFashionData.image
-        clothingImageView.backgroundColor = .black
+        clothingImageView.backgroundColor = ColorList.beige
+        addFashionButton.configureEnabledButton()
     }
 }

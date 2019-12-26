@@ -13,12 +13,12 @@ extension UIButton {
         layer.borderColor = ColorList.beige?.cgColor
         setTitleColor(.white, for: .normal)
         backgroundColor = ColorList.lightPeach
-        alpha = 0.7
+        alpha = 0.77
         layer.cornerRadius = 10
         isEnabled = false
     }
 
-    func configureSelectedButton() {
+    func configureEnabledButton() {
         layer.borderColor = ColorList.brownish?.cgColor
         setTitleColor(.white, for: .normal)
         backgroundColor = ColorList.newBrown
@@ -30,7 +30,7 @@ extension UIButton {
     func configureButtonByStatus(_ isEnabled: Bool) {
         self.isEnabled = isEnabled
         if isEnabled {
-            configureSelectedButton()
+            configureEnabledButton()
         } else {
             configureDisabledButton()
         }
