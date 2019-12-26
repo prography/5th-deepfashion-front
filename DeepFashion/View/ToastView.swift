@@ -48,7 +48,7 @@ final class ToastView: UILabel {
         UIView.animate(withDuration: 1, animations: {
             self.overlayView.alpha = 0.8
         }) { _ in
-            UIView.animate(withDuration: 0.8, delay: 0.6, animations: {
+            UIView.animate(withDuration: 0.8, delay: 0.5, animations: {
                 self.overlayView.alpha = 0
             }) { _ in
                 UIView.animate(withDuration: 0.8, animations: {

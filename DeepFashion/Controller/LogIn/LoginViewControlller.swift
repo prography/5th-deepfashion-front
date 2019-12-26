@@ -103,7 +103,9 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonPressed(_: UIButton) {
         guard let idText = self.idTextField.text,
-            let passwordText = self.passwordTextField.text else { return }
+            let passwordText = self.passwordTextField.text,
+            let tabBarController = self.tabBarController else { return }
+
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
 
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { errorType in
@@ -115,10 +117,8 @@ class LoginViewController: UIViewController {
             } else {
                 // * ISSUE : 네트워킹 or 로그인 오입력에 따른 AlertController 띄울 예정
                 DispatchQueue.main.async {
-                    self.presentBasicOneButtonAlertController(title: errorType?.errorTitle ?? "로그인 에러", message: errorType?.errorMessage ?? "로그인 중 에러가 발생했습니다.") {
-                        print("Dismiss the presentBasicOneButtonAlertController")
-                        self.loginButton.isEnabled = true
-                    }
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "로그인에 실패했습니다.")
+                    self.loginButton.isEnabled = true
                 }
             }
         }

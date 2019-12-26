@@ -117,7 +117,9 @@ class LastSignUpViewController: UIViewController {
 
     @IBAction func signUpFinishedButtonPressed(_: UIButton) {
         /// Data Check Test
-        guard let userData = UserCommonData.shared.userData else { return }
+        guard let userData = UserCommonData.shared.userData,
+            let navigationController = self.navigationController else { return }
+
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
         RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.userDataPost) { errorType in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
@@ -126,7 +128,7 @@ class LastSignUpViewController: UIViewController {
                     self.performSegue(withIdentifier: SegueIdentifier.unwindToLogin, sender: nil)
                 } else {
                     // * ISSUE : 네트워킹 or 회원가입 오입력에 따른 AlertController 띄울 예정
-                    self.presentBasicOneButtonAlertController(title: "회원가입 오류", message: "회원가입에 실패했습니다.", completion: nil)
+                    ToastView.shared.presentShortMessage(navigationController.view, message: "회원가입에 실패했습니다.")
                 }
             }
         }

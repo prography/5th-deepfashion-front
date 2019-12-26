@@ -106,6 +106,7 @@ class EditClothingViewController: UIViewController {
     }
 
     private func uploadClothingImage() {
+        guard let tabBarController = self.tabBarController else { return }
         // clothingUploadAPIData 를 정의 후 사용하자.
         DispatchQueue.main.async {
             let clothingUploadData = UserClothingUploadData(clothingCode: UserCommonData.shared.nowClothingCode, clothingImage: self.clothingImageView.image, ownerPK: UserCommonData.shared.pk)
@@ -117,7 +118,7 @@ class EditClothingViewController: UIViewController {
                     }
                 } else {
                     // Present Error AlertController
-                    self.presentBasicOneButtonAlertController(title: "옷 저장 에러", message: "옷 저장에 실패했습니다.")
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 저장에 실패했습니다.")
                 }
             }
         }
@@ -133,7 +134,8 @@ class EditClothingViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func addFashionButtonPressed(_: UIButton) {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell,
+            let tabBarController = self.tabBarController else { return }
 
         // 이미지, 이름 셋팅
         guard let fashionImage = selectedFashionData.image,
@@ -157,7 +159,7 @@ class EditClothingViewController: UIViewController {
                 self.uploadClothingImage()
             } else {
                 DispatchQueue.main.async {
-                    self.presentBasicOneButtonAlertController(title: "이미지 등록 실패", message: "이미지 등록에 실패했습니다.")
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 저장에 실패했습니다.")
                 }
             }
         }
