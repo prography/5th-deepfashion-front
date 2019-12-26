@@ -19,7 +19,7 @@ class CodiListCollectionViewCell: UICollectionViewCell {
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
         selectEffectView.backgroundColor = .white
-        selectEffectView.layer.borderColor = UIColor.black.cgColor
+        selectEffectView.layer.borderColor = ViewData.Color.borderColor
         selectEffectView.layer.borderWidth = 1
         selectEffectView.alpha = 0.7
         selectEffectView.isHidden = true
@@ -38,7 +38,7 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         addSubviews()
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = ViewData.Color.borderColor
         layer.cornerRadius = 10
         layer.borderWidth = 3
 

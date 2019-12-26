@@ -57,6 +57,6 @@ extension UITextField {
         borderStyle = .roundedRect
         layer.borderWidth = 1
         layer.cornerRadius = 3
-        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderColor = ViewData.Color.borderColor
     }
 }

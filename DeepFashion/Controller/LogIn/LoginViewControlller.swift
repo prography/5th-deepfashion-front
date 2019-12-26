@@ -25,12 +25,14 @@ class LoginViewController: UIViewController {
         navigationItemStackView.alignment = .center
         navigationItemStackView.axis = .vertical
         navigationItemStackView.spacing = 1
+        navigationItemStackView.backgroundColor = .white
+        navigationItemStackView.distribution = .fillProportionally
         return navigationItemStackView
     }()
 
     let titleImageView: UIImageView = {
-        let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        titleImageView.image = UIImage(named: AssetIdentifier.Image.appIcon)
+        let titleImageView = UIImageView()
+        titleImageView.image = UIImage(named: AssetIdentifier.Image.test)
         titleImageView.contentMode = .scaleAspectFit
         return titleImageView
     }()
@@ -38,6 +40,8 @@ class LoginViewController: UIViewController {
     let titleLabel: UILabel = {
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         titleLabel.font = UIFont.titleFont(displaySize: 10)
+        titleLabel.tintColor = ColorList.greyishBrown
+        titleLabel.text = "Fash"
         return titleLabel
     }()
 
@@ -79,11 +83,14 @@ class LoginViewController: UIViewController {
 
     private func configureLoginButton() {
         loginButton.configureDisabledButton()
+        loginButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 
     private func configureTextField() {
         idTextField.configureBasicTextField()
+        idTextField.layer.cornerRadius = 5
         passwordTextField.configureBasicTextField()
+        passwordTextField.layer.cornerRadius = 5
         idTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
@@ -99,6 +106,16 @@ class LoginViewController: UIViewController {
         let idStatus = idTextField.checkValidId()
         let passwordStatus = passwordTextField.checkValidPassword()
         isFillInData = idStatus && passwordStatus
+    }
+
+    private func makeNavigationTitle() {
+        guard let navigationController = navigationController else { return }
+        let navigationBarBounds = navigationController.navigationBar.bounds
+        navigationController.navigationBar.frame = CGRect(x: 0, y: 0, width: navigationBarBounds.width, height: navigationBarBounds.height + 100)
+        titleImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        navigationTitleStackView.addArrangedSubview(titleImageView)
+//        self.navigationTitleStackView.addArrangedSubview(self.titleLabel)
+        navigationItem.titleView = navigationTitleStackView
     }
 
     override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
@@ -125,7 +142,7 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_: UIButton) {
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text,
-            let tabBarController = self.tabBarController else { return }
+            let navigationController = self.navigationController else { return }
 
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
 
@@ -138,7 +155,7 @@ class LoginViewController: UIViewController {
             } else {
                 // * ISSUE : 네트워킹 or 로그인 오입력에 따른 AlertController 띄울 예정
                 DispatchQueue.main.async {
-                    ToastView.shared.presentShortMessage(tabBarController.view, message: "로그인에 실패했습니다.")
+                    ToastView.shared.presentShortMessage(navigationController.view, message: "로그인에 실패했습니다.")
                     self.loginButton.isEnabled = true
                 }
             }
@@ -180,7 +197,10 @@ extension LoginViewController: RequestAPIDelegate {
 
 extension LoginViewController: UIViewControllerSetting {
     func configureViewController() {
+        makeNavigationTitle()
         configureTextField()
         configureLoginButton()
+        signUpButton.layer.cornerRadius = 5
+        signUpButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 }

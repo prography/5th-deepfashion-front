@@ -75,14 +75,14 @@ class EditClothingTableViewCell: UITableViewCell {
 
     private func configureStyleButton() {
         styleButton.layer.cornerRadius = 10
-        styleButton.layer.borderColor = UIColor.black.cgColor
+        styleButton.layer.borderColor = ViewData.Color.borderColor
         styleButton.layer.borderWidth = 1
         styleButton.clipsToBounds = true
     }
 
     private func configureNameTextField() {
         nameTextField.layer.cornerRadius = 10
-        nameTextField.layer.borderColor = UIColor.black.cgColor
+        nameTextField.layer.borderColor = ViewData.Color.borderColor
         nameTextField.layer.borderWidth = 1
         nameTextField.clipsToBounds = true
     }

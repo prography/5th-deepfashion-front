@@ -31,7 +31,7 @@ class editStyleCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = ViewData.Color.borderColor
         layer.borderWidth = 3
         layer.cornerRadius = 10
     }

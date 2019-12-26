@@ -56,9 +56,8 @@ class FirstSignUpViewController: UIViewController {
     // MARK: Methods
 
     private func configureSignUpButton() {
-        nextPageButton.configureBasicButton(title: "다음", fontSize: 18)
-        nextPageButton.isEnabled = false
         nextPageButton.configureDisabledButton()
+        nextPageButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 
     private func configureTextField() {

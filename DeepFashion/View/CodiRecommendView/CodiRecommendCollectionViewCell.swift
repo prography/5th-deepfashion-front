@@ -17,7 +17,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
         selectEffectView.backgroundColor = .white
-        selectEffectView.layer.borderColor = UIColor.black.cgColor
+        selectEffectView.layer.borderColor = ColorList.brownish?.cgColor
         selectEffectView.layer.borderWidth = 1
         selectEffectView.alpha = 0.7
         selectEffectView.isHidden = true
@@ -42,7 +42,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .lightGray
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = ViewData.Color.borderColor
         layer.borderWidth = 3
         layer.cornerRadius = 10
         configureTitleLabel()

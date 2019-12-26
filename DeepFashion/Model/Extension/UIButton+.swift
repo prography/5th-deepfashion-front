@@ -10,16 +10,20 @@ import UIKit
 
 extension UIButton {
     func configureDisabledButton() {
-        layer.borderColor = UIColor.darkGray.cgColor
-        setTitleColor(.black, for: .normal)
-        backgroundColor = .gray
+        layer.borderColor = ColorList.beige?.cgColor
+        setTitleColor(.white, for: .normal)
+        backgroundColor = ColorList.lightPeach
+        alpha = 0.7
+        layer.cornerRadius = 10
         isEnabled = false
     }
 
     func configureSelectedButton() {
-        layer.borderColor = UIColor.darkGray.cgColor
+        layer.borderColor = ColorList.brownish?.cgColor
         setTitleColor(.white, for: .normal)
-        backgroundColor = .black
+        backgroundColor = ColorList.newBrown
+        layer.cornerRadius = 10
+        alpha = 1.0
         isEnabled = true
     }
 
@@ -33,8 +37,9 @@ extension UIButton {
     }
 
     func configureBasicButton(title: String, fontSize: CGFloat) {
-        backgroundColor = .black
-        layer.cornerRadius = 5
+        layer.borderColor = ColorList.beige?.cgColor
+        backgroundColor = .white
+        layer.cornerRadius = 10
         setTitle(title, for: .normal)
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont.mainFont(displaySize: fontSize)

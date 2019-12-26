@@ -77,7 +77,6 @@ class LastSignUpViewController: UIViewController {
     private func configureStyleButtonDisabled(styleButton: UIButton) {
         styleButton.configureDisabledButton()
         styleButton.isEnabled = true
-        styleButton.backgroundColor = .white
     }
 
     private func configureStyleButtonSelected(styleButton: UIButton) {
@@ -91,9 +90,8 @@ class LastSignUpViewController: UIViewController {
             guard let styleButton = self.view.viewWithTag(buttonIndex) as? UIButton else { return }
             configureStyleButtonDisabled(styleButton: styleButton)
 
-            styleButton.layer.borderColor = UIColor.black.cgColor
-            styleButton.layer.borderWidth = 3
-            styleButton.layer.cornerRadius = 10
+            styleButton.configureDisabledButton()
+            styleButton.isEnabled = true
 
             var nowButtonText = ""
             if isGenderMan {
