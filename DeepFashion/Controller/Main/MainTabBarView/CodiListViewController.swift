@@ -132,14 +132,14 @@ class CodiListViewController: UIViewController {
     }
 
     @objc func editBarButtonItemPressed(_: UIButton) {
-        print("editBarButtonItemPressed!")
         viewMode = viewMode == .view ? .edit : .view
     }
 
     @objc func deleteBarButtonItemPressed(_: UIButton) {
-        print("deleteBarButtonItemPressed")
+        guard let tabBarController = self.tabBarController else { return }
         presentBasicTwoButtonAlertController(title: "코디 삭제", message: "선택한 코디목록을 삭제하시겠습니까?") { isApproved in
             if isApproved {
+                ToastView.shared.presentShortMessage(tabBarController.view, message: "선택한 코디목록이 삭제되었습니다!")
                 self.deleteSelectedCells()
             }
         }

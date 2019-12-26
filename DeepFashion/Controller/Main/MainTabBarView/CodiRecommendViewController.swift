@@ -69,6 +69,8 @@ class CodiRecommendViewController: UIViewController {
     @IBAction func saveButtonPressed(_: UIButton) {
         presentBasicTwoButtonAlertController(title: "코디 저장", message: "해당 코디를 저장하시겠습니까?") { isApproved in
             if isApproved {
+                guard let tabBar = self.tabBarController else { return }
+                ToastView.shared.presentShortMessage(tabBar.view, message: "해당 코디가 저장되었습니다!")
                 self.addCodiDataSet()
             }
         }
