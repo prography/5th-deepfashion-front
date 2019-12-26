@@ -44,14 +44,14 @@ final class ToastView: UILabel {
     func presentShortMessage(_ view: UIView, message: String) {
         configureToastView(view, message: message)
 
-        // Perform Animation
-        UIView.animate(withDuration: 0.8, animations: {
-            self.overlayView.alpha = 1
+        // Perform Toast Animation
+        UIView.animate(withDuration: 1, animations: {
+            self.overlayView.alpha = 0.8
         }) { _ in
-            UIView.animate(withDuration: 0.6, animations: {
+            UIView.animate(withDuration: 0.8, animations: {
                 self.overlayView.alpha = 0
             }) { _ in
-                UIView.animate(withDuration: 0.6, animations: {
+                UIView.animate(withDuration: 0.8, animations: {
                     DispatchQueue.main.async {
                         self.overlayView.alpha = 0
                         self.textLabel.removeFromSuperview()
