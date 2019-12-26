@@ -41,11 +41,18 @@ class PhotoAddViewController: UIViewController {
                 DispatchQueue.main.async { [weak self] in
                     // 3) 이미지를 분석, 분석 결과를 저장한다.
                     self?.classificateImage(newImage) { [weak self] in
-                        // 4)  커스텀 패션 설정 창을 띄운다.
-                        self?.presentAddFashionViewController(selectedImage: newImage)
+                        // 라벨을 변화 시킨다.
+                        print("이미지 선택, 라벨을 변화시킨다. ")
+                        self?.isImageSelected = true
                     }
                 }
             }
+        }
+    }
+
+    private var isImageSelected = false {
+        didSet {
+            saveClothingButton.isEnabled = isImageSelected
         }
     }
 
@@ -129,6 +136,13 @@ class PhotoAddViewController: UIViewController {
         clothingImageView.layer.borderWidth = 3
         clothingImageView.layer.borderColor = UIColor.black.cgColor
         clothingImageView.layer.cornerRadius = 10
+    }
+
+    private func configureClassificationLabel() {
+        for i in classificationLabel.indices {
+            classificationLabel[i].adjustsFontSizeToFitWidth = true
+            classificationLabel[i].font = UIFont.mainFont(displaySize: 13)
+        }
     }
 
     private func configureSaveClothingButton() {
@@ -230,10 +244,17 @@ class PhotoAddViewController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
 
-    func checkAlbumAuthority(alertAction _: UIAlertAction) {}
+    private func checkAlbumAuthority(alertAction _: UIAlertAction) {}
 
     @objc func clothingImageViewPressed(_: UIImageView) {
         presentPhotoSelectAlertController()
+    }
+
+    @IBAction func saveClothingButtonPressed(_: UIButton) {
+        // 커스텀 패션 설정 창을 띄운다.
+        guard let clothingImage = clothingImageView.image else { return }
+
+        presentAddFashionViewController(selectedImage: clothingImage)
     }
 }
 
@@ -253,6 +274,7 @@ extension PhotoAddViewController: UIViewControllerSetting {
         configurePhotoSelectAlertController()
         configureImageView()
         configureSaveClothingButton()
+        configureClassificationLabel()
         photoPickerViewController.delegate = self
     }
 }

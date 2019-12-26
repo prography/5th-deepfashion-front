@@ -718,52 +718,58 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cz6-GV-QQG">
                                 <rect key="frame" x="0.0" y="5" width="414" height="715"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v75-ik-fEG">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v75-ik-fEG">
                                         <rect key="frame" x="20" y="615" width="374" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="ZkO-vh-fZO"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="옷 추가하기"/>
+                                        <state key="disabled" title="옷 추가하기">
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveClothingButtonPressed:" destination="k0I-cA-kpf" eventType="touchUpInside" id="ECy-q9-jcb"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Rv-IL-z1u">
                                         <rect key="frame" x="20" y="20" width="374" height="429"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addClothing" translatesAutoresizingMaskIntoConstraints="NO" id="Tm7-3M-jEU">
-                                                <rect key="frame" x="7.5" y="0.0" width="359" height="359"/>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addClothing" translatesAutoresizingMaskIntoConstraints="NO" id="Tm7-3M-jEU">
+                                                <rect key="frame" x="38" y="0.0" width="298" height="298"/>
                                                 <color key="backgroundColor" red="0.92560279187817263" green="0.92560279187817263" blue="0.92560279187817263" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Tm7-3M-jEU" secondAttribute="height" multiplier="1:1" id="JiL-0p-2Hp"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zOr-EH-W5b">
-                                                <rect key="frame" x="20" y="369" width="334" height="0.0"/>
+                                                <rect key="frame" x="20" y="308" width="334" height="1"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="Vmn-ve-fn4"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상단 이미지를 탭해서 옷을 추가하세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-jr-JJa">
-                                                <rect key="frame" x="20" y="379" width="334" height="10"/>
+                                                <rect key="frame" x="20" y="319" width="334" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="10" id="fQl-PQ-ONM"/>
+                                                    <constraint firstAttribute="height" constant="30" id="fQl-PQ-ONM"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-uD-GWq">
-                                                <rect key="frame" x="20" y="399" width="334" height="10"/>
+                                                <rect key="frame" x="20" y="359" width="334" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="10" id="jGr-6n-nJb"/>
+                                                    <constraint firstAttribute="height" constant="30" id="jGr-6n-nJb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z65-hN-uCp">
-                                                <rect key="frame" x="20" y="419" width="334" height="10"/>
+                                                <rect key="frame" x="20" y="399" width="334" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -772,8 +778,8 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Z65-hN-uCp" secondAttribute="trailing" constant="20" symbolic="YES" id="1qX-gs-Bod"/>
                                             <constraint firstAttribute="trailing" secondItem="zOr-EH-W5b" secondAttribute="trailing" constant="20" symbolic="YES" id="2YV-V1-V3h"/>
-                                            <constraint firstItem="Tm7-3M-jEU" firstAttribute="width" relation="greaterThanOrEqual" secondItem="7Rv-IL-z1u" secondAttribute="width" multiplier="0.7" id="5sn-wP-JRN"/>
                                             <constraint firstItem="zOr-EH-W5b" firstAttribute="leading" secondItem="7Rv-IL-z1u" secondAttribute="leading" constant="20" symbolic="YES" id="63w-cG-gSL"/>
+                                            <constraint firstItem="zf9-uD-GWq" firstAttribute="height" secondItem="Yc7-jr-JJa" secondAttribute="height" id="ECF-SQ-JAH"/>
                                             <constraint firstItem="Yc7-jr-JJa" firstAttribute="leading" secondItem="7Rv-IL-z1u" secondAttribute="leading" constant="20" symbolic="YES" id="PD7-RC-e56"/>
                                             <constraint firstItem="zf9-uD-GWq" firstAttribute="leading" secondItem="7Rv-IL-z1u" secondAttribute="leading" constant="20" symbolic="YES" id="ReZ-ye-hBV"/>
                                             <constraint firstItem="Z65-hN-uCp" firstAttribute="height" secondItem="Yc7-jr-JJa" secondAttribute="height" id="Z9v-Sv-SXf"/>
@@ -791,7 +797,7 @@
                                     <constraint firstItem="7Rv-IL-z1u" firstAttribute="leading" secondItem="cz6-GV-QQG" secondAttribute="leading" constant="20" id="bDh-ah-CiA"/>
                                     <constraint firstAttribute="bottom" secondItem="v75-ik-fEG" secondAttribute="bottom" constant="50" id="bha-a7-1cq"/>
                                     <constraint firstItem="v75-ik-fEG" firstAttribute="leading" secondItem="cz6-GV-QQG" secondAttribute="leading" constant="20" id="h5G-zW-khq"/>
-                                    <constraint firstItem="7Rv-IL-z1u" firstAttribute="height" relation="greaterThanOrEqual" secondItem="cz6-GV-QQG" secondAttribute="height" multiplier="0.6" id="w5T-yQ-CMV"/>
+                                    <constraint firstItem="7Rv-IL-z1u" firstAttribute="height" secondItem="cz6-GV-QQG" secondAttribute="height" multiplier="0.6" id="w5T-yQ-CMV"/>
                                 </constraints>
                             </view>
                         </subviews>
