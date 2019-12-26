@@ -48,7 +48,7 @@ class CodiRecommendViewController: UIViewController {
         refreshCodiButton.setTitleColor(.black, for: .normal)
         refreshCodiButton.setTitle(" 코디 새로고침", for: .normal)
         refreshCodiButton.titleLabel?.font = UIFont.mainFont(displaySize: 12)
-        refreshCodiButton.setImage(UIImage(named: "refresh"), for: .normal)
+        refreshCodiButton.setImage(UIImage(named: AssetIdentifier.Image.refresh), for: .normal)
     }
 
     private func addCodiDataSet() {

@@ -23,7 +23,7 @@ class CodiListViewController: UIViewController {
     private var deleteBarButtonItem: UIBarButtonItem = {
         let deleteBarButtonItem = UIBarButtonItem()
         deleteBarButtonItem.isEnabled = false
-        deleteBarButtonItem.image = UIImage(named: "delete")
+        deleteBarButtonItem.image = UIImage(named: AssetIdentifier.Image.delete)
         return deleteBarButtonItem
     }()
 
@@ -40,10 +40,10 @@ class CodiListViewController: UIViewController {
             case .view:
                 inactivateDeleteBarButtonItem()
                 activateEditBarButtonItem()
-                editBarButtonItem.image = UIImage(named: "edit")
+                editBarButtonItem.image = UIImage(named: AssetIdentifier.Image.edit)
             case .edit:
                 activateDeleteBarButtonItem()
-                editBarButtonItem.image = UIImage(named: "cancel")
+                editBarButtonItem.image = UIImage(named: AssetIdentifier.Image.cancel)
             }
         }
     }

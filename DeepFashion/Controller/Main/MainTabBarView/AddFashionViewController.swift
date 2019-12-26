@@ -112,7 +112,9 @@ class AddFashionViewController: UIViewController {
             RequestAPI.shared.postAPIData(userData: clothingUploadData, APIMode: .clothingUploadPost) { errorType in
 
                 if errorType == nil {
-                    self.navigationController?.popViewController(animated: true)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: SegueIdentifier.unwindToClothingAdd, sender: nil)
+                    }
                 } else {
                     // Present Error AlertController
                 }

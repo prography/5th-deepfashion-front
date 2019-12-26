@@ -13,4 +13,5 @@ struct SegueIdentifier {
     static let goToFirstSignUp = "goToFirstSignUp"
     static let goToSecondSignUp = "goToSecondSignUp"
     static let unwindToLogin = "unwindToLogin"
+    static let unwindToClothingAdd = "unwindToClothingAddView"
 }

@@ -12,5 +12,10 @@ struct AssetIdentifier {
     struct Image {
         static let longJacket = "longJacket.jpg"
         static let lockIcon = "lockIcon.png"
+        static let addClothing = "addClothing"
+        static let delete = "delete"
+        static let refresh = "refresh"
+        static let edit = "edit"
+        static let cancel = "cancel"
     }
 }

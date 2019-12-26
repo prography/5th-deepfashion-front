@@ -710,7 +710,7 @@
         <!--옷 추가하기-->
         <scene sceneID="yPN-H7-C6S">
             <objects>
-                <viewController id="k0I-cA-kpf" customClass="PhotoAddViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k0I-cA-kpf" customClass="ClothingAddViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UzU-Z3-DGI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -759,19 +759,16 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-uD-GWq">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="옷 분류 : XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zf9-uD-GWq">
                                                 <rect key="frame" x="20" y="359" width="334" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="jGr-6n-nJb"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z65-hN-uCp">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#xxx #xxxxx #xxxx" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z65-hN-uCp">
                                                 <rect key="frame" x="20" y="399" width="334" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -785,6 +782,7 @@
                                             <constraint firstItem="Z65-hN-uCp" firstAttribute="height" secondItem="Yc7-jr-JJa" secondAttribute="height" id="Z9v-Sv-SXf"/>
                                             <constraint firstAttribute="trailing" secondItem="zf9-uD-GWq" secondAttribute="trailing" constant="20" symbolic="YES" id="at0-wu-ax0"/>
                                             <constraint firstAttribute="trailing" secondItem="Yc7-jr-JJa" secondAttribute="trailing" constant="20" symbolic="YES" id="pgr-2r-vtj"/>
+                                            <constraint firstItem="Z65-hN-uCp" firstAttribute="height" secondItem="zf9-uD-GWq" secondAttribute="height" id="uFt-CV-rtN"/>
                                             <constraint firstItem="Z65-hN-uCp" firstAttribute="leading" secondItem="7Rv-IL-z1u" secondAttribute="leading" constant="20" symbolic="YES" id="ub3-6H-gEl"/>
                                         </constraints>
                                     </stackView>
@@ -835,7 +833,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-rD-P5A">
                                 <rect key="frame" x="0.0" y="194" width="414" height="668"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFashionTableViewCell" rowHeight="312" id="6CM-XT-gAI" customClass="AddFashionTableViewCell" customModule="DeepFashion" customModuleProvider="target">
@@ -1087,9 +1085,11 @@
                         <outlet property="addFashionTableView" destination="tPS-rD-P5A" id="W0g-iH-KaH"/>
                         <outlet property="cancelButton" destination="vIs-YW-h5X" id="nVj-Ao-HiF"/>
                         <outlet property="clothingImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
+                        <segue destination="gch-em-YpB" kind="unwind" identifier="unwindToClothingAddView" unwindAction="unwindToClothingAddView:" id="El0-uZ-keY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ev-yl-kLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gch-em-YpB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1751.25" y="2153.8732394366198"/>
         </scene>

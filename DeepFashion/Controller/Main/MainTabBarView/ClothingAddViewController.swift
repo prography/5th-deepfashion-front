@@ -10,7 +10,7 @@ import AVFoundation
 import Photos
 import UIKit
 
-class PhotoAddViewController: UIViewController {
+class ClothingAddViewController: UIViewController {
     // MARK: UIs
 
     // MARK: - IBOutlet
@@ -53,6 +53,12 @@ class PhotoAddViewController: UIViewController {
     private var isImageSelected = false {
         didSet {
             saveClothingButton.isEnabled = isImageSelected
+
+            if isImageSelected {
+                configureLayoutWithDeepLearningStatus()
+            } else {
+                configureLayoutWithInitStatus()
+            }
         }
     }
 
@@ -142,7 +148,11 @@ class PhotoAddViewController: UIViewController {
         for i in classificationLabel.indices {
             classificationLabel[i].adjustsFontSizeToFitWidth = true
             classificationLabel[i].font = UIFont.mainFont(displaySize: 13)
+            classificationLabel[i].textColor = .black
+            classificationLabel[i].isHidden = true
         }
+
+        classificationLabel[0].isHidden = false
     }
 
     private func configureSaveClothingButton() {
@@ -227,6 +237,29 @@ class PhotoAddViewController: UIViewController {
         presentAuthRequestAlertController(title: "사진첩 접근권한 필요", message: "사진첩을 실행하려면 접근권한 설정이 필요합니다.")
     }
 
+    func configureLayoutWithInitStatus() {
+        for i in classificationLabel.indices {
+            classificationLabel[i].isHidden = true
+        }
+
+        classificationLabel[0].text = "상단 이미지를 탭해서 옷을 추가하세요"
+        classificationLabel[0].isHidden = false
+        saveClothingButton.isEnabled = false
+        clothingImageView.image = UIImage(named: AssetIdentifier.Image.addClothing)
+    }
+
+    private func configureLayoutWithDeepLearningStatus() {
+        for i in classificationLabel.indices {
+            classificationLabel[i].isHidden = false
+        }
+
+        // 추출한 딥러닝 결과를 라벨로 보여준다.
+        classificationLabel[0].text = "옷 이름 : XXX"
+        classificationLabel[1].text = "옷 분류 : XXX"
+        classificationLabel[2].text = "#xxx #xxx #xxx"
+        saveClothingButton.isEnabled = true
+    }
+
     private func presentCameraAuthRequestAlertController() {
         presentAuthRequestAlertController(title: "카메라 접근권한 필요", message: "카메라를 실행하려면 접근권한 설정이 필요합니다.")
     }
@@ -256,9 +289,13 @@ class PhotoAddViewController: UIViewController {
 
         presentAddFashionViewController(selectedImage: clothingImage)
     }
+
+    @IBAction func unwindToClothingAddView(_: UIStoryboardSegue) {
+        configureLayoutWithInitStatus()
+    }
 }
 
-extension PhotoAddViewController: UIImagePickerControllerDelegate {
+extension ClothingAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
 
@@ -267,9 +304,9 @@ extension PhotoAddViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension PhotoAddViewController: UINavigationControllerDelegate {}
+extension ClothingAddViewController: UINavigationControllerDelegate {}
 
-extension PhotoAddViewController: UIViewControllerSetting {
+extension ClothingAddViewController: UIViewControllerSetting {
     func configureViewController() {
         configurePhotoSelectAlertController()
         configureImageView()
