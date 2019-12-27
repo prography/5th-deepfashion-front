@@ -36,6 +36,8 @@ class editStyleCollectionViewCell: UICollectionViewCell {
         layer.borderColor = ViewData.Color.borderColor
         layer.borderWidth = 3
         layer.cornerRadius = 10
+        styleTitleLabel.font = UIFont.subFont(displaySize: 18)
+        styleTitleLabel.textColor = ColorList.brownish
     }
 
     // MARK: Methods

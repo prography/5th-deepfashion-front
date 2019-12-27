@@ -32,7 +32,6 @@ class EditStyleCollectionViewFlowLayout: UICollectionViewFlowLayout {
         guard let collectionView = self.collectionView else { return }
 
         sectionInset = UIEdgeInsets(top: 30, left: 20, bottom: 50, right: 20)
-
         var newItemSize = itemSize
         let itemsPerRow = numberOfItemsPerRow
         let totalSpacing = minimumInteritemSpacing * CGFloat(itemsPerRow - 1)

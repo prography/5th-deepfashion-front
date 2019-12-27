@@ -124,7 +124,7 @@ class LoginViewController: UIViewController {
     // MARK: - Transition
 
     @IBAction func SignUpButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: SegueIdentifier.goToFirstSignUp, sender: nil)
+        performSegue(withIdentifier: UIIdentifier.Segue.goToFirstSignUp, sender: nil)
     }
 
     @IBAction func loginButtonPressed(_: UIButton) {
@@ -141,7 +141,7 @@ class LoginViewController: UIViewController {
             if errorType == nil {
                 DispatchQueue.main.async {
                     ToastView.shared.presentShortMessage(navigationController.view, message: "로그인에 성공했습니다.")
-                    self.performSegue(withIdentifier: SegueIdentifier.goToMain, sender: nil)
+                    self.performSegue(withIdentifier: UIIdentifier.Segue.goToMain, sender: nil)
                 }
             } else {
                 DispatchQueue.main.async {

@@ -122,7 +122,7 @@ class LastSignUpViewController: UIViewController {
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
             DispatchQueue.main.async {
                 if errorType == nil {
-                    self.performSegue(withIdentifier: SegueIdentifier.unwindToLogin, sender: nil)
+                    self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToLogin, sender: nil)
                 } else {
                     // * ISSUE : 네트워킹 or 회원가입 오입력에 따른 AlertController 띄울 예정
                     ToastView.shared.presentShortMessage(navigationController.view, message: "회원가입에 실패했습니다.")

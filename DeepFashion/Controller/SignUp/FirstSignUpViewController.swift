@@ -106,7 +106,7 @@ class FirstSignUpViewController: UIViewController {
     }
 
     @IBAction func goToNextButtonPressed(_: UIButton) {
-        performSegue(withIdentifier: SegueIdentifier.goToSecondSignUp, sender: nil)
+        performSegue(withIdentifier: UIIdentifier.Segue.goToSecondSignUp, sender: nil)
     }
 }
 

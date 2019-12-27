@@ -27,11 +27,15 @@ class MyPageViewController: UIViewController {
         super.viewDidDisappear(true)
     }
 
+    private func presentPrivacyViewController() {
+        performSegue(withIdentifier: UIIdentifier.Segue.goToPrivacy, sender: nil)
+    }
+
     private func presentLogoutAlertController() {
         presentBasicTwoButtonAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?") { isApproved in
             if isApproved {
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: SegueIdentifier.unwindToLogin, sender: nil)
+                    self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToLogin, sender: nil)
                 }
             }
         }
@@ -76,7 +80,7 @@ extension MyPageViewController: UITableViewDataSource {
         case .notice:
             break
         case .privacy:
-            break
+            presentPrivacyViewController()
         case .modifyStyle:
             break
         case .rule:

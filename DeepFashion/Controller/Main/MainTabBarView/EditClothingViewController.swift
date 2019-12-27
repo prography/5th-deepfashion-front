@@ -116,7 +116,7 @@ class EditClothingViewController: UIViewController {
 
                 if errorType == nil {
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: SegueIdentifier.unwindToClothingAdd, sender: nil)
+                        self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
                     }
                 } else {
                     // Present Error AlertController

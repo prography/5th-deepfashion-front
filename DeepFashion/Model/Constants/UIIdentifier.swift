@@ -49,6 +49,15 @@ struct UIIdentifier {
         }
     }
 
+    struct Segue {
+        static let goToMain = "goToMainView"
+        static let goToFirstSignUp = "goToFirstSignUp"
+        static let goToSecondSignUp = "goToSecondSignUp"
+        static let unwindToLogin = "unwindToLogin"
+        static let unwindToClothingAdd = "unwindToClothingAddView"
+        static let goToPrivacy = "goToPrivacyView"
+    }
+
     struct StyleButton {
         static let startTagIndex = 101
         static let endWomenTagIndex = 110

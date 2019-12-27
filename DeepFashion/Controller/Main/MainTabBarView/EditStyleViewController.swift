@@ -12,7 +12,7 @@ class EditStyleViewController: UIViewController {
     // MARK: UIs
 
     @IBOutlet var collectionView: UICollectionView!
-
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subscriptionButton: UIButton!
 
     // MARK: Properties
@@ -29,13 +29,7 @@ class EditStyleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.allowsSelection = true
-        collectionView.allowsMultipleSelection = false
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        subscriptionButton.isEnabled = false
-        configureFashionStyleIndex()
-        configureSelectedStyleCount()
+        configureViewController()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -47,6 +41,11 @@ class EditStyleViewController: UIViewController {
     private func configureSelectedStyleCount() {}
 
     private func configureFashionStyleIndex() {}
+
+    private func configureTitleLabel() {
+        titleLabel.font = UIFont.subFont(displaySize: 18)
+        titleLabel.textColor = ColorList.brownish
+    }
 
     // MARK: - IBActions
 
@@ -103,5 +102,18 @@ extension EditStyleViewController: UICollectionViewDataSource {
         styleTitleCell.configureCell(style: (fashionStyles[indexPath.item], indexPath.item), isSelected: isSelected)
 
         return styleTitleCell
+    }
+}
+
+extension EditStyleViewController: UIViewControllerSetting {
+    func configureViewController() {
+        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        subscriptionButton.isEnabled = false
+        configureFashionStyleIndex()
+        configureSelectedStyleCount()
+        configureTitleLabel()
     }
 }

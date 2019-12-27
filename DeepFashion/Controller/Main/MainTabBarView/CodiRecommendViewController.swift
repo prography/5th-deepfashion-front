@@ -32,7 +32,6 @@ class CodiRecommendViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureViewController()
     }
 
     // MARK: Methods
@@ -50,7 +49,6 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func configureCodiListSaveButton() {
-        codiListSaveButton.isEnabled = true
         codiListSaveButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
         codiListSaveButton.setTitle("코디 저장하기", for: .normal)
         codiListSaveButton.configureEnabledButton()
@@ -112,11 +110,10 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
         configureBasicTitle(ViewData.Title.MainTabBarView.homeView)
-        configureCodiListSaveButton()
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
         recommendCollectionView.allowsMultipleSelection = true
-
+        configureCodiListSaveButton()
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
