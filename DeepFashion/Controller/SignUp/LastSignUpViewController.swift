@@ -52,8 +52,7 @@ class LastSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureStyleSelectButton()
-        configureSignUpFinishButton()
+        configureViewController()
     }
 
     override func viewWillAppear(_: Bool) {
@@ -162,5 +161,13 @@ extension LastSignUpViewController: RequestAPIDelegate {
         // 에러 발생 시 동작 실행
         isAPIDataRequested = false
         // 에러 발생 AlertController를 띄운다.
+    }
+}
+
+extension LastSignUpViewController: UIViewControllerSetting {
+    func configureViewController() {
+        configureStyleSelectButton()
+        configureSignUpFinishButton()
+        configureBasicTitle("회원가입")
     }
 }

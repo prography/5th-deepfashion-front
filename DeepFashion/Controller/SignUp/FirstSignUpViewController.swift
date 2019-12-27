@@ -49,8 +49,7 @@ class FirstSignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTextField()
-        configureSignUpButton()
+        configureViewController()
     }
 
     // MARK: Methods
@@ -119,5 +118,13 @@ extension FirstSignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension FirstSignUpViewController: UIViewControllerSetting {
+    func configureViewController() {
+        configureTextField()
+        configureSignUpButton()
+        configureBasicTitle("회원가입")
     }
 }

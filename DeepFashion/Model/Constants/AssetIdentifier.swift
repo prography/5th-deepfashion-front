@@ -20,6 +20,6 @@ struct AssetIdentifier {
         static let mixedColor = "mixedColor"
         static let check = "check"
         static let appIcon = "AppIcon"
-        static let test = "logo"
+        static let appLogo = "appLogo"
     }
 }

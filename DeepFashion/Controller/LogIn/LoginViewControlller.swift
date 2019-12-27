@@ -32,17 +32,10 @@ class LoginViewController: UIViewController {
 
     let titleImageView: UIImageView = {
         let titleImageView = UIImageView()
-        titleImageView.image = UIImage(named: AssetIdentifier.Image.test)
+        titleImageView.image = UIImage(named: AssetIdentifier.Image.appLogo)
         titleImageView.contentMode = .scaleAspectFit
+        titleImageView.alpha = 0.6
         return titleImageView
-    }()
-
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
-        titleLabel.font = UIFont.titleFont(displaySize: 10)
-        titleLabel.tintColor = ColorList.greyishBrown
-        titleLabel.text = "Fash"
-        return titleLabel
     }()
 
     // MARK: Properties
@@ -109,12 +102,7 @@ class LoginViewController: UIViewController {
     }
 
     private func makeNavigationTitle() {
-        guard let navigationController = navigationController else { return }
-        let navigationBarBounds = navigationController.navigationBar.bounds
-        navigationController.navigationBar.frame = CGRect(x: 0, y: 0, width: navigationBarBounds.width, height: navigationBarBounds.height + 100)
-        titleImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         navigationTitleStackView.addArrangedSubview(titleImageView)
-//        self.navigationTitleStackView.addArrangedSubview(self.titleLabel)
         navigationItem.titleView = navigationTitleStackView
     }
 

@@ -39,6 +39,7 @@
 		076F6BCC237BFEA800A2CBB4 /* UserLoginAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */; };
 		076F6BCE237BFF8100A2CBB4 /* LoginUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */; };
 		0777D45123B51B0400385E68 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45023B51B0400385E68 /* ColorList.swift */; };
+		0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45623B6121500385E68 /* UINavigationBar+.swift */; };
 		077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIPostData.swift */; };
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
@@ -157,6 +158,7 @@
 		076F6BCB237BFEA800A2CBB4 /* UserLoginAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginAPIData.swift; sourceTree = "<group>"; };
 		076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserData.swift; sourceTree = "<group>"; };
 		0777D45023B51B0400385E68 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
+		0777D45623B6121500385E68 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
 		077C77B0237812570088B151 /* UserAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPostData.swift; sourceTree = "<group>"; };
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				07D5E9AE236EE6A800A27B28 /* TextField+.swift */,
+				0777D45623B6121500385E68 /* UINavigationBar+.swift */,
 				07B1046923AE9EAC00C8286D /* UIColor+.swift */,
 				0716E0FA23B0D2B800F3E820 /* Array+.swift */,
 				07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */,
@@ -885,6 +888,7 @@
 				071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */,
 				07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */,
 				07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */,
+				0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */,
 				07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */,
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
 				07C5C60023ACFE0200324B67 /* EditClothingTableViewCell.swift in Sources */,
@@ -1095,7 +1099,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.06;
+				MARKETING_VERSION = 1.07;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1120,7 +1124,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.06;
+				MARKETING_VERSION = 1.07;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

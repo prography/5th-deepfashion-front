@@ -11,7 +11,7 @@ import UIKit
 class MainTabBarController: UITabBarController {
     // MARK: - Properties
 
-    private var tabBarHeight: CGFloat = 70
+    private var tabBarHeight: CGFloat = 60
 
     // MARK: - Life Cycle
 

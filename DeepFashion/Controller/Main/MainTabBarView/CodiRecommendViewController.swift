@@ -28,7 +28,6 @@ class CodiRecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        // configureClothingInfoViewTitle()
     }
 
     override func viewWillAppear(_: Bool) {
@@ -37,6 +36,18 @@ class CodiRecommendViewController: UIViewController {
     }
 
     // MARK: Methods
+
+    private func configureWeatherImageView() {
+        guard let weatherImage = UIImage(named: "clear-day") else { return }
+        weatherImageView.image = weatherImage.withRenderingMode(.alwaysTemplate)
+        weatherImageView.tintColor = .white
+    }
+
+    private func configureLabel() {
+        celsiusLabel.textColor = .white
+        celsiusLabel.font = UIFont.mainFont(displaySize: 18)
+        celsiusLabel.adjustsFontSizeToFitWidth = true
+    }
 
     private func configureCodiListSaveButton() {
         codiListSaveButton.isEnabled = true
@@ -106,8 +117,8 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         recommendCollectionView.delegate = self
         recommendCollectionView.allowsMultipleSelection = true
 
+        configureWeatherImageView()
+        configureLabel()
         configureRefreshCodiButton()
-        celsiusLabel.font = UIFont.mainFont(displaySize: 18)
-        celsiusLabel.adjustsFontSizeToFitWidth = true
     }
 }
