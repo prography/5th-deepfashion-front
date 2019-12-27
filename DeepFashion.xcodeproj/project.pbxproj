@@ -98,6 +98,7 @@
 		07D5E9B9236EF9A900A27B28 /* UserDataRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */; };
 		07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BA236EF9C000A27B28 /* FashionStyle.swift */; };
 		07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BC236EFADE00A27B28 /* UIButton+.swift */; };
+		07E5B39323B64D8000F5ACCC /* DeleteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */; };
 		07F8DE7323B4EA8500066677 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F8DE7223B4EA8500066677 /* ToastView.swift */; };
 		9C6530313BA91902888C5D6F /* Pods_DeepFashion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5CB424E36348009ECEDDD7 /* Pods_DeepFashion.framework */; };
 		B3B65F60FA47B028109B97C2 /* Pods_DeepFashionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E4017DEBBEEAF6AA853027 /* Pods_DeepFashionUITests.framework */; };
@@ -221,6 +222,7 @@
 		07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRule.swift; sourceTree = "<group>"; };
 		07D5E9BA236EF9C000A27B28 /* FashionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionStyle.swift; sourceTree = "<group>"; };
 		07D5E9BC236EFADE00A27B28 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
 		07F8DE7223B4EA8500066677 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		313AC84D5098FCF94AB95C71 /* Pods_DeepFashionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepFashionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E8E8838A93ADACE533B286 /* Pods-DeepFashionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashionTests.debug.xcconfig"; path = "Target Support Files/Pods-DeepFashionTests/Pods-DeepFashionTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				0777D45923B62F3A00385E68 /* PrivacyViewController.swift */,
+				07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */,
 			);
 			path = MyPageViewController;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				07B7F6BE238EE4FD00EA9C10 /* ClothingAPIData.swift in Sources */,
 				07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */,
 				07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */,
+				07E5B39323B64D8000F5ACCC /* DeleteUserViewController.swift in Sources */,
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
 				07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */,
