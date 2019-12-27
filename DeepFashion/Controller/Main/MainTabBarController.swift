@@ -14,6 +14,29 @@ class MainTabBarController: UITabBarController {
     private var tabBarHeight: CGFloat = 60
     private(set) var selectedPreviousIndex = 0
 
+    private enum TabBarIndex {
+        case codiRecommend
+        case closetList
+        case clothingAdd
+        case codiList
+        case myPage
+
+        var index: Int {
+            switch self {
+            case .codiRecommend:
+                return 0
+            case .closetList:
+                return 1
+            case .clothingAdd:
+                return 2
+            case .codiList:
+                return 3
+            case .myPage:
+                return 4
+            }
+        }
+    }
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -38,6 +61,10 @@ class MainTabBarController: UITabBarController {
     override func tabBar(_: UITabBar, didSelect _: UITabBarItem) {
         guard let previousViewController = self.viewControllers?[selectedPreviousIndex] as? UINavigationController else { return }
         previousViewController.popToRootViewController(animated: false)
+
+        if selectedPreviousIndex == TabBarIndex.myPage.index {
+            tabBarController?.navigationController?.popViewController(animated: false)
+        }
     }
 }
 

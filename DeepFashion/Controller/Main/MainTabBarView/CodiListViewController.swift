@@ -71,12 +71,6 @@ class CodiListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        navigationController?.navigationItem.leftBarButtonItem = nil
-        tabBarController?.navigationController?.navigationItem.leftBarButtonItem = nil
-        navigationItem.leftBarButtonItem = nil
-        navigationItem.hidesBackButton = true
-        navigationController?.navigationItem.hidesBackButton = true
-        tabBarController?.navigationController?.navigationItem.hidesBackButton = true
         configureBasicTitle(ViewData.Title.MainTabBarView.codiListView)
     }
 
