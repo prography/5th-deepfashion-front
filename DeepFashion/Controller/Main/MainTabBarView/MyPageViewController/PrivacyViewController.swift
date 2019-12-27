@@ -24,6 +24,10 @@ class PrivacyViewController: UIViewController {
         configureBackButton()
     }
 
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+    }
+
     // MARK: Methods
 
     private func configureBackButton() {

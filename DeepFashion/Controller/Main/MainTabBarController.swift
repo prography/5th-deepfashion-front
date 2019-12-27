@@ -37,12 +37,13 @@ class MainTabBarController: UITabBarController {
 
     override func tabBar(_: UITabBar, didSelect _: UITabBarItem) {
         guard let previousViewController = self.viewControllers?[selectedPreviousIndex] as? UINavigationController else { return }
-        previousViewController.popToRootViewController(animated: true)
+        previousViewController.popToRootViewController(animated: false)
     }
 }
 
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect _: UIViewController) {
         selectedPreviousIndex = tabBarController.selectedIndex
+        tabBarController.removeBackButton()
     }
 }

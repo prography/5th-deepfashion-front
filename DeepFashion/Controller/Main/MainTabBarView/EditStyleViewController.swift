@@ -74,7 +74,7 @@ extension EditStyleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("\(indexPath.item)th Item Cell Pressed!!")
         guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? editStyleCollectionViewCell else { return }
-        subscriptionButton.isEnabled = true
+        subscriptionButton.configureEnabledButton()
         if styleTitleCell.styleTitleLabel.text == "" { return }
         selectedStyle = (fashionStyles[indexPath.item], indexPath.item)
     }
