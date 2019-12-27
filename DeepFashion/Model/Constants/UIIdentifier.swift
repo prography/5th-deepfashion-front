@@ -21,7 +21,7 @@ struct UIIdentifier {
 
     static let mainView = "mainView"
     static let mainNavigationController = "MainNavigationController"
-
+    static let mainTabBarController = "MainTabBarController"
     static let mainStoryboard = "Main"
     struct ViewController {
         static let editClothing = "AddFashionViewController"
@@ -58,6 +58,7 @@ struct UIIdentifier {
         static let unwindToLogin = "unwindToLogin"
         static let unwindToClothingAdd = "unwindToClothingAddView"
         static let goToPrivacy = "goToPrivacyView"
+        static let goToDeleteUser = "goToDeleteUserView"
     }
 
     struct StyleButton {

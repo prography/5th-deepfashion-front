@@ -19,6 +19,13 @@ class PrivacyViewController: UIViewController {
         configureViewController()
     }
 
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        configureBackButton()
+    }
+
+    // MARK: Methods
+
     private func configureBackButton() {
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50.0, height: 50.0))
         backButton.setTitleColor(.white, for: .normal)
@@ -28,6 +35,10 @@ class PrivacyViewController: UIViewController {
         backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
         let backBarButton = UIBarButtonItem(customView: backButton)
         tabBarController?.navigationItem.leftBarButtonItem = backBarButton
+    }
+
+    private func presentDeleteUserViewController() {
+        performSegue(withIdentifier: UIIdentifier.Segue.goToDeleteUser, sender: nil)
     }
 
     @objc func backButtonPressed(_: UIButton) {
@@ -51,6 +62,21 @@ extension PrivacyViewController: UITableViewDelegate {
         headerView.configureTitleLabel("개인정보/보안")
         return headerView
     }
+
+    func tableView(_: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let privacyRow = ViewData.Section.Row.Privacy(rawValue: indexPath.row) else {
+            return nil
+        }
+
+        switch privacyRow {
+        case .password:
+            break
+        case .deleteUser:
+            presentDeleteUserViewController()
+        }
+
+        return nil
+    }
 }
 
 extension PrivacyViewController: UITableViewDataSource {
@@ -70,9 +96,8 @@ extension PrivacyViewController: UINavigationControllerDelegate {}
 
 extension PrivacyViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureBasicTitle("개인정보/보안")
-        configureBackButton()
         privacyTableView.delegate = self
         privacyTableView.dataSource = self
+        configureBasicTitle("개인정보/보안")
     }
 }

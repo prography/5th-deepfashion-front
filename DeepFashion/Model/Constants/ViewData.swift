@@ -33,14 +33,19 @@ struct ViewData {
 
         struct Row {
             static let myPageTableView = ["공지사항", "개인/보안", "스타일수정", "이용약관", "로그아웃"]
-        }
 
-        enum MyPageRow: Int {
-            case notice = 0
-            case privacy = 1
-            case modifyStyle = 2
-            case rule = 3
-            case logout = 4
+            enum MyPage: Int {
+                case notice = 0
+                case privacy = 1
+                case modifyStyle = 2
+                case rule = 3
+                case logout = 4
+            }
+
+            enum Privacy: Int {
+                case password = 0
+                case deleteUser = 1
+            }
         }
     }
 

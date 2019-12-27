@@ -72,7 +72,7 @@ extension MyPageViewController: UITableViewDataSource {
     }
 
     func tableView(_: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        guard let myPageRow = ViewData.Section.MyPageRow(rawValue: indexPath.row) else {
+        guard let myPageRow = ViewData.Section.Row.MyPage(rawValue: indexPath.row) else {
             return nil
         }
 

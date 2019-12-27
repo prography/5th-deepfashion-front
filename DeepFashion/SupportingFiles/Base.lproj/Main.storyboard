@@ -762,7 +762,7 @@
                     <navigationItem key="navigationItem" title="개인정보/보안" id="Erl-yr-i6A"/>
                     <connections>
                         <outlet property="privacyTableView" destination="rRB-Gk-G43" id="1Zh-Cg-mic"/>
-                        <segue destination="K1b-dd-den" kind="show" id="7Z6-bA-Oux"/>
+                        <segue destination="K1b-dd-den" kind="show" identifier="goToDeleteUserView" id="7Z6-bA-Oux"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEs-VX-GLs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -778,16 +778,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회원탈퇴를 위해 비밀번호를 입력해주세요. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyv-zD-t1x">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Zla-Qp-8bL"/>
+                                    <constraint firstAttribute="height" constant="60" id="Zla-Qp-8bL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XMx-ZB-DCr">
-                                <rect key="frame" x="20" y="102" width="374" height="229.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="XMx-ZB-DCr">
+                                <rect key="frame" x="20" y="134" width="374" height="230.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vnI-Rq-J3G">
                                         <rect key="frame" x="20" y="0.0" width="334" height="75"/>
@@ -812,7 +812,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="46S-MB-xNc">
-                                        <rect key="frame" x="20" y="95" width="334" height="64.5"/>
+                                        <rect key="frame" x="20" y="90" width="334" height="75.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-0W-hZC">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -825,10 +825,17 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9f-mN-jFt">
+                                                <rect key="frame" x="0.0" y="74.5" width="334" height="1"/>
+                                                <color key="backgroundColor" name="Beige"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="FfC-vM-NPR"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3V-jT-R4P">
-                                        <rect key="frame" x="20" y="179.5" width="334" height="50"/>
+                                        <rect key="frame" x="20" y="180.5" width="334" height="50"/>
                                         <color key="backgroundColor" name="NewYellow"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gnq-Ph-Ubh"/>
@@ -859,7 +866,7 @@
                             <constraint firstItem="Vy0-LX-M4W" firstAttribute="trailing" secondItem="lyv-zD-t1x" secondAttribute="trailing" id="buy-Pf-UkA"/>
                             <constraint firstItem="lyv-zD-t1x" firstAttribute="top" secondItem="Vy0-LX-M4W" secondAttribute="top" id="ggt-0g-XVq"/>
                             <constraint firstItem="XMx-ZB-DCr" firstAttribute="leading" secondItem="Vy0-LX-M4W" secondAttribute="leading" constant="20" id="thR-2n-78G"/>
-                            <constraint firstItem="XMx-ZB-DCr" firstAttribute="top" secondItem="lyv-zD-t1x" secondAttribute="bottom" constant="8" symbolic="YES" id="z9L-Rc-e3b"/>
+                            <constraint firstItem="XMx-ZB-DCr" firstAttribute="top" secondItem="lyv-zD-t1x" secondAttribute="bottom" constant="30" id="z9L-Rc-e3b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vy0-LX-M4W"/>
                     </view>
@@ -1727,7 +1734,7 @@
         <!--My 추천 리스트-->
         <scene sceneID="JBE-vc-0hX">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My 추천 리스트" id="x34-lN-e5E"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="ZF9-44-la4">
