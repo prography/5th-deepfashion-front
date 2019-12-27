@@ -769,10 +769,10 @@
             </objects>
             <point key="canvasLocation" x="5334.7826086956529" y="1380.8035714285713"/>
         </scene>
-        <!--View Controller-->
+        <!--Delete User View Controller-->
         <scene sceneID="03b-qa-bnG">
             <objects>
-                <viewController id="K1b-dd-den" sceneMemberID="viewController">
+                <viewController id="K1b-dd-den" customClass="DeleteUserViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Nb-ec-6fD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -782,7 +782,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Zla-Qp-8bL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -837,6 +837,9 @@
                                         <state key="normal" title="회원 탈퇴">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="deleteUserButtonPressed:" destination="K1b-dd-den" eventType="touchUpInside" id="4IU-Va-603"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -861,6 +864,14 @@
                         <viewLayoutGuide key="safeArea" id="Vy0-LX-M4W"/>
                     </view>
                     <navigationItem key="navigationItem" id="aGg-K4-mjP"/>
+                    <connections>
+                        <outlet property="deleteUserButton" destination="f3V-jT-R4P" id="YWY-Dt-PXw"/>
+                        <outletCollection property="titleLabelList" destination="lyv-zD-t1x" collectionClass="NSMutableArray" id="mz9-Jh-SCB"/>
+                        <outletCollection property="titleLabelList" destination="sKt-3g-TCI" collectionClass="NSMutableArray" id="uOP-Ie-MMF"/>
+                        <outletCollection property="titleLabelList" destination="ieK-0W-hZC" collectionClass="NSMutableArray" id="C3T-9T-NkC"/>
+                        <outletCollection property="passwordTextFieldList" destination="bTu-cl-WkK" collectionClass="NSMutableArray" id="5MF-zp-W7q"/>
+                        <outletCollection property="passwordTextFieldList" destination="4mi-0w-YIu" collectionClass="NSMutableArray" id="drE-tL-nju"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsv-SX-l0u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,10 +9,16 @@
 import UIKit
 
 class DeleteUserViewController: UIViewController {
+    @IBOutlet var titleLabelList: [UILabel]!
+    @IBOutlet var passwordTextFieldList: [UITextField]!
+    @IBOutlet var deleteUserButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
     }
+
+    @IBAction func deleteUserButtonPressed(_: UIButton) {}
 }
 
 extension DeleteUserViewController: UIViewControllerSetting {
