@@ -787,10 +787,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="XMx-ZB-DCr">
-                                <rect key="frame" x="20" y="134" width="374" height="230.5"/>
+                                <rect key="frame" x="20" y="134" width="374" height="261.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vnI-Rq-J3G">
-                                        <rect key="frame" x="20" y="0.0" width="334" height="75"/>
+                                        <rect key="frame" x="20" y="0.0" width="334" height="90"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKt-3g-TCI">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="30"/>
@@ -802,17 +802,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bTu-cl-WkK">
-                                                <rect key="frame" x="0.0" y="40" width="334" height="35"/>
+                                                <rect key="frame" x="0.0" y="40" width="334" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="35" id="dVL-1D-u3s"/>
+                                                    <constraint firstAttribute="height" constant="50" id="dVL-1D-u3s"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="password"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingValueChanged:" destination="K1b-dd-den" eventType="editingChanged" id="CpE-Y2-J8G"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="46S-MB-xNc">
-                                        <rect key="frame" x="20" y="90" width="334" height="75.5"/>
+                                        <rect key="frame" x="20" y="105" width="334" height="91.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-0W-hZC">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
@@ -821,12 +824,15 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4mi-0w-YIu">
-                                                <rect key="frame" x="0.0" y="30.5" width="334" height="34"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="334" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="password"/>
+                                                <connections>
+                                                    <action selector="textFieldEditingValueChanged:" destination="K1b-dd-den" eventType="editingChanged" id="ON2-Dz-C6D"/>
+                                                </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9f-mN-jFt">
-                                                <rect key="frame" x="0.0" y="74.5" width="334" height="1"/>
+                                                <rect key="frame" x="0.0" y="90.5" width="334" height="1"/>
                                                 <color key="backgroundColor" name="Beige"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="FfC-vM-NPR"/>
@@ -835,7 +841,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3V-jT-R4P">
-                                        <rect key="frame" x="20" y="180.5" width="334" height="50"/>
+                                        <rect key="frame" x="20" y="211.5" width="334" height="50"/>
                                         <color key="backgroundColor" name="NewYellow"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gnq-Ph-Ubh"/>
@@ -852,6 +858,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="46S-MB-xNc" secondAttribute="trailing" constant="20" symbolic="YES" id="VMZ-cB-Eek"/>
                                     <constraint firstItem="46S-MB-xNc" firstAttribute="leading" secondItem="XMx-ZB-DCr" secondAttribute="leading" constant="20" symbolic="YES" id="b92-Q0-ag7"/>
+                                    <constraint firstItem="4mi-0w-YIu" firstAttribute="height" secondItem="bTu-cl-WkK" secondAttribute="height" id="dVX-qe-jAD"/>
                                     <constraint firstItem="vnI-Rq-J3G" firstAttribute="leading" secondItem="XMx-ZB-DCr" secondAttribute="leading" constant="20" symbolic="YES" id="k12-zH-n5f"/>
                                     <constraint firstItem="f3V-jT-R4P" firstAttribute="leading" secondItem="XMx-ZB-DCr" secondAttribute="leading" constant="20" symbolic="YES" id="uwK-sC-xAQ"/>
                                     <constraint firstAttribute="trailing" secondItem="f3V-jT-R4P" secondAttribute="trailing" constant="20" symbolic="YES" id="vVG-Ll-z9s"/>
