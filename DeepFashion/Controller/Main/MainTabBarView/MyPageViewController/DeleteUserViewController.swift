@@ -57,7 +57,11 @@ class DeleteUserViewController: UIViewController {
         checkFillInData()
     }
 
-    @IBAction func deleteUserButtonPressed(_: UIButton) {}
+    @IBAction func deleteUserButtonPressed(_: UIButton) {
+        // pk값과 비밀번호 값으로 delete요청을 날려 탈퇴가능한지를 확인한다.
+        // 1) 탈퇴가 가능하면 탈퇴처리를 하고 탈퇴되었음을 띄우고 로그아웃 처리한다.
+        // 2) 탈퇴가 실패하면 실패 문구를 띄운다.
+    }
 }
 
 extension DeleteUserViewController: UITextFieldDelegate {
@@ -81,13 +85,13 @@ extension DeleteUserViewController: UIViewControllerSetting {
         configureTitleLabeList()
     }
 
-    func configureDeleteUserButton() {
+    private func configureDeleteUserButton() {
         deleteUserButton.configureDisabledButton()
         deleteUserButton.titleLabel?.font = UIFont.mainFont(displaySize: 13)
         deleteUserButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
-    func configureTitleLabeList() {
+    private func configureTitleLabeList() {
         for i in titleLabelList.indices {
             if i == 0 {
                 titleLabelList[i].font = UIFont.subFont(displaySize: 18)
@@ -101,7 +105,7 @@ extension DeleteUserViewController: UIViewControllerSetting {
         }
     }
 
-    func configurePasswordTextFieldList() {
+    private func configurePasswordTextFieldList() {
         for i in passwordTextFieldList.indices {
             passwordTextFieldList[i].configureBasicTextField()
             passwordTextFieldList[i].delegate = self
