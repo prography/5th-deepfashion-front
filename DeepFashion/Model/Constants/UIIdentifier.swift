@@ -26,6 +26,7 @@ struct UIIdentifier {
     struct ViewController {
         static let editClothing = "AddFashionViewController"
         static let editStyle = "EditStyleViewController"
+        static let privacy = "PrivacyViewController"
     }
 
     struct NibName {
@@ -46,6 +47,7 @@ struct UIIdentifier {
             static let closetList = "closetListTableViewCell"
             static let myPage = "myPageTableViewCell"
             static let editClothing = "addFashionTableViewCell"
+            static let privacy = "privacyTableViewCell"
         }
     }
 

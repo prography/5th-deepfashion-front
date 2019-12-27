@@ -650,11 +650,11 @@
             <objects>
                 <viewController title="마이페이지" id="qJ7-0X-wOs" customClass="MyPageViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pqs-Mh-jUn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2ZT-c4-n4M">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPageTableViewCell" rowHeight="66" id="1zF-4q-yhx" customClass="MyPageTableViewCell" customModule="DeepFashion" customModuleProvider="target">
@@ -696,35 +696,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ukZ-jQ-0He"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이 페이지" image="myPage" selectedImage="myPage" id="uhi-T6-xoe">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
                     <connections>
                         <outlet property="myPageTableView" destination="2ZT-c4-n4M" id="k62-WL-T5L"/>
                         <segue destination="XZC-Qk-3ha" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="CQZ-f4-BtO"/>
-                        <segue destination="Zfq-4z-PmF" kind="show" identifier="goToPrivacyView" id="EKY-Oq-Ole"/>
+                        <segue destination="Zfq-4z-PmF" kind="show" identifier="goToPrivacyView" id="SkC-VN-13Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-2F-Fa8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="XZC-Qk-3ha" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3474.375" y="1381.6901408450703"/>
+            <point key="canvasLocation" x="4384.057971014493" y="1381.4732142857142"/>
         </scene>
         <!--개인정보/보안-->
         <scene sceneID="q83-75-aeI">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Zfq-4z-PmF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyViewController" modalPresentationStyle="fullScreen" id="Zfq-4z-PmF" customClass="PrivacyViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gmj-JK-yNx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rRB-Gk-G43">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="rRB-Gk-G43">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="108" id="MJR-aj-rbf">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="108"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="privacyTableViewCell" rowHeight="108" id="MJR-aj-rbf" customClass="PrivacyTableViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MJR-aj-rbf" id="hfB-Kr-A37">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
@@ -732,7 +729,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7C5-x9-IQX">
                                                     <rect key="frame" x="30" y="16" width="354" height="76"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -745,6 +742,9 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="7C5-x9-IQX" secondAttribute="trailing" constant="10" id="zSA-Lz-Mbh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="7C5-x9-IQX" id="7Mo-2g-izx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -758,11 +758,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UgM-IX-c0G"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1BZ-Um-gig"/>
                     <navigationItem key="navigationItem" title="개인정보/보안" id="Erl-yr-i6A"/>
+                    <connections>
+                        <outlet property="privacyTableView" destination="rRB-Gk-G43" id="1Zh-Cg-mic"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEs-VX-GLs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4311.594202898551" y="1380.8035714285713"/>
+            <point key="canvasLocation" x="5334.7826086956529" y="1380.8035714285713"/>
         </scene>
         <!--옷 추가하기-->
         <scene sceneID="yPN-H7-C6S">
@@ -1630,12 +1634,35 @@
                         <segue destination="wfz-52-Igo" kind="relationship" relationship="viewControllers" id="Umb-uB-NW8"/>
                         <segue destination="k0I-cA-kpf" kind="relationship" relationship="viewControllers" id="eJc-DB-jWm"/>
                         <segue destination="MEW-gU-6r0" kind="relationship" relationship="viewControllers" id="58F-Sv-Bha"/>
-                        <segue destination="qJ7-0X-wOs" kind="relationship" relationship="viewControllers" id="OPO-lL-YVs"/>
+                        <segue destination="7pQ-Pu-MAt" kind="relationship" relationship="viewControllers" id="J8S-aH-hDF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgT-SL-0nN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1851" y="582"/>
+        </scene>
+        <!--마이 페이지-->
+        <scene sceneID="hTm-rF-dWn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7pQ-Pu-MAt" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="마이 페이지" image="myPage" selectedImage="myPage" id="uhi-T6-xoe">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="l21-aT-dqT"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mIL-UQ-HP6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qJ7-0X-wOs" kind="relationship" relationship="rootViewController" id="6YO-QD-Kov"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAg-kq-MqA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3473.913043478261" y="1381.4732142857142"/>
         </scene>
     </scenes>
     <resources>

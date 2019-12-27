@@ -40,8 +40,9 @@
 		076F6BCE237BFF8100A2CBB4 /* LoginUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */; };
 		0777D45123B51B0400385E68 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45023B51B0400385E68 /* ColorList.swift */; };
 		0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45623B6121500385E68 /* UINavigationBar+.swift */; };
-		0777D45A23B62F3A00385E68 /* PravacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45923B62F3A00385E68 /* PravacyViewController.swift */; };
+		0777D45A23B62F3A00385E68 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45923B62F3A00385E68 /* PrivacyViewController.swift */; };
 		0777D45C23B6312400385E68 /* PrivacyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45B23B6312400385E68 /* PrivacyTableViewCell.swift */; };
+		0777D45E23B6436400385E68 /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45D23B6436400385E68 /* UITabBarController+.swift */; };
 		077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIPostData.swift */; };
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
@@ -160,8 +161,9 @@
 		076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserData.swift; sourceTree = "<group>"; };
 		0777D45023B51B0400385E68 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
 		0777D45623B6121500385E68 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
-		0777D45923B62F3A00385E68 /* PravacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PravacyViewController.swift; sourceTree = "<group>"; };
+		0777D45923B62F3A00385E68 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		0777D45B23B6312400385E68 /* PrivacyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTableViewCell.swift; sourceTree = "<group>"; };
+		0777D45D23B6436400385E68 /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		077C77B0237812570088B151 /* UserAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPostData.swift; sourceTree = "<group>"; };
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
@@ -405,7 +407,7 @@
 		0777D45823B62F2900385E68 /* MyPageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0777D45923B62F3A00385E68 /* PravacyViewController.swift */,
+				0777D45923B62F3A00385E68 /* PrivacyViewController.swift */,
 			);
 			path = MyPageViewController;
 			sourceTree = "<group>";
@@ -582,6 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				07D5E9AE236EE6A800A27B28 /* TextField+.swift */,
+				0777D45D23B6436400385E68 /* UITabBarController+.swift */,
 				0777D45623B6121500385E68 /* UINavigationBar+.swift */,
 				07B1046923AE9EAC00C8286D /* UIColor+.swift */,
 				0716E0FA23B0D2B800F3E820 /* Array+.swift */,
@@ -878,7 +881,7 @@
 				07C5C5EA23AB549000324B67 /* UIBarButtonItem+.swift in Sources */,
 				07598532237E93E500C48EE7 /* ClothingAddViewController.swift in Sources */,
 				07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */,
-				0777D45A23B62F3A00385E68 /* PravacyViewController.swift in Sources */,
+				0777D45A23B62F3A00385E68 /* PrivacyViewController.swift in Sources */,
 				07C5C61623AE0C0500324B67 /* ColorSelectCollectionView.swift in Sources */,
 				076DADB023B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift in Sources */,
 				07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */,
@@ -894,6 +897,7 @@
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
 				0777D45123B51B0400385E68 /* ColorList.swift in Sources */,
 				07C5C5ED23AB9AD000324B67 /* CodiDataSet.swift in Sources */,
+				0777D45E23B6436400385E68 /* UITabBarController+.swift in Sources */,
 				0777D45C23B6312400385E68 /* PrivacyTableViewCell.swift in Sources */,
 				07B6E05A2382AD9600D6A9E1 /* CodiRecommendViewController.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,
