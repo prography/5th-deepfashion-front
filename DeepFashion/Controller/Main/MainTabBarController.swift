@@ -12,6 +12,7 @@ class MainTabBarController: UITabBarController {
     // MARK: - Properties
 
     private var tabBarHeight: CGFloat = 60
+    private(set) var selectedPreviousIndex = 0
 
     // MARK: - Life Cycle
 
@@ -33,11 +34,15 @@ class MainTabBarController: UITabBarController {
     }
 
     private func configureEditBarButtonItem() {}
+
+    override func tabBar(_: UITabBar, didSelect _: UITabBarItem) {
+        guard let previousViewController = self.viewControllers?[selectedPreviousIndex] as? UINavigationController else { return }
+        previousViewController.popToRootViewController(animated: true)
+    }
 }
 
 extension MainTabBarController: UITabBarControllerDelegate {
-    func tabBarController(_: UITabBarController, didSelect _: UIViewController) {
-//        guard let photoAddViewController = viewController as? PhotoAddViewController else { return }
-//        photoAddViewController.presentPhotoSelectAlertController()
+    func tabBarController(_ tabBarController: UITabBarController, didSelect _: UIViewController) {
+        selectedPreviousIndex = tabBarController.selectedIndex
     }
 }
