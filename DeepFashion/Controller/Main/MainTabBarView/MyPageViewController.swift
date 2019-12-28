@@ -20,7 +20,7 @@ class MyPageViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.MainTabBarView.myPageView)
+        configureBasicTitle(ViewData.Title.MainTabBarView.myPage)
     }
 
     override func viewWillDisappear(_: Bool) {

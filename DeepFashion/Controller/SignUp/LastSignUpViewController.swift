@@ -57,6 +57,7 @@ class LastSignUpViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        configureBasicTitle(ViewData.Title.SignUpView.lastSignUp)
         RequestAPI.shared.delegate = self
     }
 
@@ -168,6 +169,5 @@ extension LastSignUpViewController: UIViewControllerSetting {
     func configureViewController() {
         configureStyleSelectButton()
         configureSignUpFinishButton()
-        configureBasicTitle("회원가입")
     }
 }

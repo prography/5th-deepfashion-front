@@ -26,7 +26,7 @@ class DeleteUserViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle("회원탈퇴")
+        configureBasicTitle(ViewData.Title.MainTabBarView.deleteUser)
     }
 
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {

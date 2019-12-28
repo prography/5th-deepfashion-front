@@ -21,7 +21,7 @@ class PrivacyViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle("개인정보/보안")
+        configureBasicTitle(ViewData.Title.MainTabBarView.privacy)
         configureBackButton()
     }
 

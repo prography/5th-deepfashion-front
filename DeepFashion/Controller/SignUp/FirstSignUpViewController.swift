@@ -52,6 +52,11 @@ class FirstSignUpViewController: UIViewController {
         configureViewController()
     }
 
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        configureBasicTitle(ViewData.Title.SignUpView.firstSignUp)
+    }
+
     // MARK: Methods
 
     private func configureSignUpButton() {
@@ -125,6 +130,5 @@ extension FirstSignUpViewController: UIViewControllerSetting {
     func configureViewController() {
         configureTextField()
         configureSignUpButton()
-        configureBasicTitle("회원가입")
     }
 }

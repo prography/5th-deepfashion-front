@@ -109,7 +109,7 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
 
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureBasicTitle(ViewData.Title.MainTabBarView.homeView)
+        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
         recommendCollectionView.allowsMultipleSelection = true

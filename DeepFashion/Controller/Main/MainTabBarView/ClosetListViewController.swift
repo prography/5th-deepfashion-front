@@ -68,7 +68,7 @@ class ClosetListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.MainTabBarView.closetListView)
+        configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
     }
 
     override func viewDidAppear(_: Bool) {

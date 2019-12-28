@@ -71,7 +71,7 @@ class CodiListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.MainTabBarView.codiListView)
+        configureBasicTitle(ViewData.Title.MainTabBarView.codiList)
     }
 
     override func viewDidAppear(_: Bool) {
