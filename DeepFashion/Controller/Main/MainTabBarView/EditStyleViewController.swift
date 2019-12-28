@@ -50,7 +50,6 @@ class EditStyleViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func finishButtonPressed(_: UIButton) {
-        print("Finish Button Pressed!!")
         UserCommonData.shared.resetStyleData()
         guard let navigationController = self.navigationController,
             let addFashionViewController = self.navigationController?.viewControllers[navigationController.viewControllers.count - 2] as? EditClothingViewController,
@@ -62,7 +61,6 @@ class EditStyleViewController: UIViewController {
     }
 
     @IBAction func CancelButtonPressed(_: UIButton) {
-        print("Cancel Button Pressed!!")
         navigationController?.popViewController(animated: true)
     }
 }
@@ -72,7 +70,6 @@ extension EditStyleViewController: UICollectionViewDelegateFlowLayout {}
 
 extension EditStyleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath.item)th Item Cell Pressed!!")
         guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? editStyleCollectionViewCell else { return }
         subscriptionButton.configureEnabledButton()
         if styleTitleCell.styleTitleLabel.text == "" { return }

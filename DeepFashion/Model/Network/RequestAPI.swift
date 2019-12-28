@@ -173,7 +173,6 @@ final class RequestAPI {
             }
 
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.userData)"
-            print("userDataPostURLString : \(userDataPostURLString)")
             let userDataToPost = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.styles, password: userData.password)
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {

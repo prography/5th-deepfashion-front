@@ -24,6 +24,11 @@ class DeleteUserViewController: UIViewController {
         configureViewController()
     }
 
+    override func viewWillAppear(_: Bool) {
+        super.viewWillAppear(true)
+        configureBasicTitle("회원탈퇴")
+    }
+
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
         let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
         let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted

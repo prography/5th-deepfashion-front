@@ -149,12 +149,10 @@ class CodiListViewController: UIViewController {
 extension CodiListViewController: UICollectionViewDelegate {
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath.insert(indexPath)
-        print(selectedIndexPath)
     }
 
     func collectionView(_: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         selectedIndexPath.remove(indexPath)
-        print(selectedIndexPath)
     }
 }
 

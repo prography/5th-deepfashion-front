@@ -62,8 +62,6 @@
 		07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1046923AE9EAC00C8286D /* UIColor+.swift */; };
 		07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE792399035B000C215E /* UIImage+.swift */; };
 		07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE8A23992C0E000C215E /* TorchModule.mm */; };
-		07B5AE8F23992D04000C215E /* model.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07B5AE8D23992D04000C215E /* model.pt */; };
-		07B5AE9023992D04000C215E /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = 07B5AE8E23992D04000C215E /* words.txt */; };
 		07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE93239A4DEE000C215E /* FashionData.swift */; };
 		07B6E05A2382AD9600D6A9E1 /* CodiRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0592382AD9600D6A9E1 /* CodiRecommendViewController.swift */; };
 		07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */; };
@@ -760,10 +758,8 @@
 				076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */,
 				076DADB723B3696900B3FF46 /* SCDream3.otf in Resources */,
 				07C5C60323ADF65F00324B67 /* yjModel.pt in Resources */,
-				07B5AE9023992D04000C215E /* words.txt in Resources */,
 				076DADB823B3696900B3FF46 /* SCDream2.otf in Resources */,
 				07C5C60623ADF6DA00324B67 /* yjWords.txt in Resources */,
-				07B5AE8F23992D04000C215E /* model.pt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,7 +1116,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.08;
+				MARKETING_VERSION = 1.09;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1146,7 +1142,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.08;
+				MARKETING_VERSION = 1.09;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

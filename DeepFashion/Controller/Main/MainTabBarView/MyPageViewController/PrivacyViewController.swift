@@ -21,6 +21,7 @@ class PrivacyViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        configureBasicTitle("개인정보/보안")
         configureBackButton()
     }
 
@@ -102,6 +103,5 @@ extension PrivacyViewController: UIViewControllerSetting {
     func configureViewController() {
         privacyTableView.delegate = self
         privacyTableView.dataSource = self
-        configureBasicTitle("개인정보/보안")
     }
 }

@@ -42,7 +42,6 @@ class ClothingAddViewController: UIViewController {
                     // 3) 이미지를 분석, 분석 결과를 저장한다.
                     self?.classificateImage(newImage) { [weak self] in
                         // 라벨을 변화 시킨다.
-                        print("이미지 선택, 라벨을 변화시킨다. ")
                         self?.isImageSelected = true
                     }
                 }

@@ -26,9 +26,9 @@
 		<dict>
 			<key>deepfashion-dev.us-west-2.elasticbeanstalk.com</key>
 			<dict>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
 				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
 		</dict>
