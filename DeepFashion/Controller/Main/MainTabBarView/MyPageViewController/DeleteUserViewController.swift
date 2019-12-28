@@ -99,7 +99,7 @@ extension DeleteUserViewController: UIViewControllerSetting {
     private func configureTitleLabeList() {
         for i in titleLabelList.indices {
             if i == 0 {
-                titleLabelList[i].font = UIFont.subFont(displaySize: 18)
+                titleLabelList[i].font = UIFont.subFont(displaySize: 16)
                 titleLabelList[i].textColor = .white
                 titleLabelList[i].backgroundColor = ColorList.newBrown
             } else {

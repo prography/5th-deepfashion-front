@@ -12,7 +12,7 @@ class MyPageTableHeaderView: UIView {
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.textAlignment = .left
-        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        titleLabel.font = UIFont.subFont(displaySize: 18)
         titleLabel.textColor = .white
         return titleLabel
     }()

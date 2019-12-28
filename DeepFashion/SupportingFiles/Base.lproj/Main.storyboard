@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mainView" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="YbW-6A-pI4"/>
                     <connections>
                         <outlet property="forgotPasswordButton" destination="RnP-Hd-4ap" id="Qje-PW-4h2"/>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648.75" y="117.25352112676056"/>
+            <point key="canvasLocation" x="639" y="-152"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="Ht8-gY-tMD">
@@ -270,7 +270,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QJZ-rz-BRa"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="계정, 성별 설정" id="SeR-fv-GhW"/>
                     <connections>
                         <outlet property="genderSegmentedControl" destination="5hv-Tf-aWZ" id="92z-c2-6xp"/>
@@ -283,7 +283,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPr-Zs-Y4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488.8" y="-151.57421289355324"/>
+            <point key="canvasLocation" x="1461" y="-152"/>
         </scene>
         <!--패션 스타일 선택-->
         <scene sceneID="IY2-8o-4Ka">
@@ -540,7 +540,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xGA-aK-34u"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="선호스타일 설정" id="9JS-q7-19q"/>
                     <connections>
                         <outlet property="indicatorView" destination="j4Z-KG-2HO" id="hVU-Ji-OTa"/>
@@ -772,7 +772,7 @@
         <!--Delete User View Controller-->
         <scene sceneID="03b-qa-bnG">
             <objects>
-                <viewController id="K1b-dd-den" customClass="DeleteUserViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="K1b-dd-den" customClass="DeleteUserViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Nb-ec-6fD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1714,7 +1714,7 @@
         <!--Navigation Controller-->
         <scene sceneID="n2a-zH-s7j">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="urw-8l-13v" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="urw-8l-13v" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="IQo-gH-s2t">
@@ -1736,7 +1736,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkK-mg-pHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290.39999999999998" y="117.39130434782609"/>
+            <point key="canvasLocation" x="-230" y="-152"/>
         </scene>
         <!--My 추천 리스트-->
         <scene sceneID="JBE-vc-0hX">

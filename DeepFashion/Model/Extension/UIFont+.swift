@@ -24,8 +24,8 @@ extension UIFont {
     }
 
     static func subFont(displaySize: CGFloat) -> UIFont {
-        if let mainFont = UIFont(name: "S-CoreDream-3Light", size: displaySize) {
-            return mainFont
+        if let subFont = UIFont(name: "S-CoreDream-3Light", size: displaySize) {
+            return subFont
         }
         return UIFont()
     }
