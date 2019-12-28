@@ -11,9 +11,9 @@ import UIKit
 class EditClothingViewController: UIViewController {
     // MARK: IBOutlet
 
-    @IBOutlet var addFashionTableView: UITableView!
+    @IBOutlet var editClothingTableView: UITableView!
     @IBOutlet var clothingImageView: UIImageView!
-    @IBOutlet var addFashionButton: UIButton!
+    @IBOutlet var addClothingButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
@@ -30,7 +30,7 @@ class EditClothingViewController: UIViewController {
     private var isRequestAPI = false {
         willSet {
             DispatchQueue.main.async {
-                self.addFashionButton.isEnabled = !newValue
+                self.addClothingButton.isEnabled = !newValue
                 self.cancelButton.isEnabled = !newValue
                 self.activityIndicator.checkIndicatorView(newValue)
             }
@@ -75,7 +75,7 @@ class EditClothingViewController: UIViewController {
     //    }
 
     private func configureFashionStyleButton() {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+        guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
 
         addFashionTableCell.styleButton.setTitle("  \(selectedFashionData.style.0)", for: .normal)
     }
@@ -88,7 +88,7 @@ class EditClothingViewController: UIViewController {
     }
 
     private func checkFillInData() {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+        guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
 
         if isColorSelected, addFashionTableCell.checkNameTextFieldContents() {
             makeRegistrationButtonEnabled()
@@ -98,19 +98,23 @@ class EditClothingViewController: UIViewController {
     }
 
     private func makeRegistrationButtonDisabled() {
-        addFashionButton.configureDisabledButton()
-        addFashionButton.layer.cornerRadius = 0
+        addClothingButton.configureDisabledButton()
+        addClothingButton.backgroundColor = ColorList.beige
+        addClothingButton.layer.cornerRadius = 0
+        addClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 
     private func makeRegistrationButtonEnabled() {
-        addFashionButton.configureEnabledButton()
-        addFashionButton.layer.cornerRadius = 0
+        addClothingButton.configureEnabledButton()
+        addClothingButton.layer.cornerRadius = 0
+        addClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 
     private func uploadClothingImage() {
-        guard let navigationController = self.navigationController else { return }
-        // clothingUploadAPIData 를 정의 후 사용하자.
         DispatchQueue.main.async {
+            guard let navigationController = self.navigationController else { return }
+            // clothingUploadAPIData 를 정의 후 사용하자.
+
             let clothingUploadData = UserClothingUploadData(clothingCode: UserCommonData.shared.nowClothingCode, clothingImage: self.clothingImageView.image, ownerPK: UserCommonData.shared.pk)
             RequestAPI.shared.postAPIData(userData: clothingUploadData, APIMode: .clothingUploadPost) { errorType in
 
@@ -119,7 +123,6 @@ class EditClothingViewController: UIViewController {
                         self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
                     }
                 } else {
-                    // Present Error AlertController
                     ToastView.shared.presentShortMessage(navigationController.view, message: "옷 저장에 실패했습니다.")
                 }
             }
@@ -127,7 +130,7 @@ class EditClothingViewController: UIViewController {
     }
 
     func refreshStyleButton() {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+        guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
         DispatchQueue.main.async {
             addFashionTableCell.styleButton.setTitle("  \(self.selectedFashionData.style.0)", for: .normal)
         }
@@ -136,7 +139,7 @@ class EditClothingViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func addFashionButtonPressed(_: UIButton) {
-        guard let addFashionTableCell = addFashionTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell,
+        guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell,
             let navigationController = self.navigationController else { return }
 
         // 이미지, 이름 셋팅
@@ -257,12 +260,13 @@ extension EditClothingViewController: RequestAPIDelegate {
 
 extension EditClothingViewController: UIViewControllerSetting {
     func configureViewController() {
-        addFashionTableView.delegate = self
-        addFashionTableView.dataSource = self
+        editClothingTableView.delegate = self
+        editClothingTableView.dataSource = self
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = ViewData.Color.clothingAddView
         clothingImageView.image = selectedFashionData.image
         clothingImageView.backgroundColor = ColorList.beige
-        addFashionButton.configureEnabledButton()
+        makeRegistrationButtonDisabled()
+        cancelButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 }

@@ -29,7 +29,7 @@ struct ViewData {
     }
 
     struct Color {
-        static let clothingAddView = ColorList.lightPeach
+        static let clothingAddView = ColorList.pale
         static let borderColor = ColorList.lightPeach?.cgColor
     }
 

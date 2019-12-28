@@ -14,6 +14,7 @@ class EditStyleViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subscriptionButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
 
     // MARK: Properties
 
@@ -41,6 +42,19 @@ class EditStyleViewController: UIViewController {
     private func configureSelectedStyleCount() {}
 
     private func configureFashionStyleIndex() {}
+
+    private func configureSubscriptionButtonDisabled() {
+        subscriptionButton.configureDisabledButton()
+        subscriptionButton.backgroundColor = ColorList.beige
+        subscriptionButton.layer.cornerRadius = 0
+        subscriptionButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+    }
+
+    private func configureSubscriptionButtonEnabled() {
+        subscriptionButton.configureEnabledButton()
+        subscriptionButton.layer.cornerRadius = 0
+        subscriptionButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+    }
 
     private func configureTitleLabel() {
         titleLabel.font = UIFont.subFont(displaySize: 18)
@@ -71,7 +85,7 @@ extension EditStyleViewController: UICollectionViewDelegateFlowLayout {}
 extension EditStyleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? editStyleCollectionViewCell else { return }
-        subscriptionButton.configureEnabledButton()
+        configureSubscriptionButtonEnabled()
         if styleTitleCell.styleTitleLabel.text == "" { return }
         selectedStyle = (fashionStyles[indexPath.item], indexPath.item)
     }
@@ -108,7 +122,8 @@ extension EditStyleViewController: UIViewControllerSetting {
         collectionView.allowsMultipleSelection = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        subscriptionButton.isEnabled = false
+        configureSubscriptionButtonDisabled()
+        cancelButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
         configureFashionStyleIndex()
         configureSelectedStyleCount()
         configureTitleLabel()

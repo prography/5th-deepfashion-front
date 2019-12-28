@@ -18,12 +18,10 @@ class editStyleCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                backgroundColor = ColorList.newBrown
-                layer.borderColor = ColorList.lightPeach?.cgColor
+                backgroundColor = ColorList.brownish
                 styleTitleLabel.textColor = .white
             } else {
-                backgroundColor = ColorList.lightPeach
-                layer.borderColor = ColorList.beige?.cgColor
+                backgroundColor = ColorList.beige
                 styleTitleLabel.textColor = .white
             }
         }
@@ -43,8 +41,7 @@ class editStyleCollectionViewCell: UICollectionViewCell {
     // MARK: Methods
 
     func configureCell(style: (String, Int), isSelected _: Bool) {
-        backgroundColor = ColorList.lightPeach
-        layer.borderColor = ColorList.beige?.cgColor
+        isSelected = false
         styleTitleLabel.textColor = .white
         styleTitleLabel.text = style.0
     }

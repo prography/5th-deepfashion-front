@@ -1014,10 +1014,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-rD-P5A">
-                                <rect key="frame" x="0.0" y="194" width="414" height="608"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-rD-P5A">
+                                <rect key="frame" x="0.0" y="323" width="414" height="479"/>
+                                <color key="sectionIndexBackgroundColor" name="Pale"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFashionTableViewCell" rowHeight="445" id="6CM-XT-gAI" customClass="EditClothingTableViewCell" customModule="DeepFashion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="445"/>
@@ -1156,6 +1155,7 @@
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="xQj-y0-Iy1" secondAttribute="trailing" id="0oa-CF-FwH"/>
                                                         <constraint firstItem="1Sv-vk-Cyb" firstAttribute="leading" secondItem="ajD-M0-ZFg" secondAttribute="leading" id="1Kf-eK-uIO"/>
@@ -1189,6 +1189,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="CRb-DB-2f5" secondAttribute="trailing" id="5e8-Sj-gWd"/>
                                                 <constraint firstAttribute="trailing" secondItem="ajD-M0-ZFg" secondAttribute="trailing" id="9VZ-sS-HAN"/>
@@ -1198,7 +1199,7 @@
                                                 <constraint firstItem="CRb-DB-2f5" firstAttribute="top" secondItem="OQW-ha-8wr" secondAttribute="topMargin" id="zf6-Tg-6rA"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="editStackView" destination="ajD-M0-ZFg" id="uEi-lm-dIe"/>
                                             <outlet property="nameTextField" destination="f0v-hs-9lF" id="JoU-C4-d0h"/>
@@ -1242,31 +1243,29 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-DH-Yhc">
-                                <rect key="frame" x="0.0" y="44" width="414" height="150"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Yet-UP-B5L"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="414" height="269"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YNE-qX-swM">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Pale"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YNE-qX-swM" firstAttribute="centerY" secondItem="IKm-vE-afn" secondAttribute="centerY" id="1wx-gW-a0O"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="MXX-DH-Yhc" secondAttribute="trailing" id="3TQ-R3-AIW"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="bottom" secondItem="hQe-oS-nZg" secondAttribute="bottom" id="4ck-Ff-E5r"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="tPS-rD-P5A" secondAttribute="trailing" id="5Pw-vC-QgS"/>
+                            <constraint firstItem="MXX-DH-Yhc" firstAttribute="height" secondItem="IKm-vE-afn" secondAttribute="height" multiplier="0.3" id="5sS-BE-3xk"/>
                             <constraint firstItem="YNE-qX-swM" firstAttribute="centerX" secondItem="IKm-vE-afn" secondAttribute="centerX" id="K9U-Mb-2X8"/>
                             <constraint firstItem="tPS-rD-P5A" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="Knn-qx-pdo"/>
                             <constraint firstItem="MXX-DH-Yhc" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="MRt-Ak-jL2"/>
                             <constraint firstItem="MXX-DH-Yhc" firstAttribute="top" secondItem="b84-4g-Hlw" secondAttribute="top" id="SPp-uW-xAY"/>
                             <constraint firstItem="hQe-oS-nZg" firstAttribute="leading" secondItem="b84-4g-Hlw" secondAttribute="leading" id="XZS-x4-3se"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="hQe-oS-nZg" secondAttribute="trailing" id="eba-uA-B8l"/>
-                            <constraint firstItem="tPS-rD-P5A" firstAttribute="top" secondItem="MXX-DH-Yhc" secondAttribute="bottom" id="fyJ-A5-PPc"/>
+                            <constraint firstItem="tPS-rD-P5A" firstAttribute="top" secondItem="MXX-DH-Yhc" secondAttribute="bottom" constant="10" id="fyJ-A5-PPc"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="bottom" secondItem="tPS-rD-P5A" secondAttribute="bottom" constant="60" id="oR7-M8-5Vn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b84-4g-Hlw"/>
@@ -1274,10 +1273,10 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="activityIndicator" destination="YNE-qX-swM" id="fqn-i7-SuD"/>
-                        <outlet property="addFashionButton" destination="vIs-YW-h5X" id="iET-tT-yMj"/>
-                        <outlet property="addFashionTableView" destination="tPS-rD-P5A" id="bLO-5T-SPC"/>
+                        <outlet property="addClothingButton" destination="vIs-YW-h5X" id="iET-tT-yMj"/>
                         <outlet property="cancelButton" destination="dJL-ZK-HfT" id="cu2-Xp-cVZ"/>
                         <outlet property="clothingImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
+                        <outlet property="editClothingTableView" destination="tPS-rD-P5A" id="bLO-5T-SPC"/>
                         <segue destination="gch-em-YpB" kind="unwind" identifier="unwindToClothingAddView" unwindAction="unwindToClothingAddView:" id="El0-uZ-keY"/>
                     </connections>
                 </viewController>
@@ -1299,7 +1298,7 @@
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tca-3f-cQO">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="341"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewLayout key="collectionViewLayout" id="H2V-jg-HLu" customClass="EditStyleCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="styleTitleCollectionViewCell" id="ig6-6b-oju" customClass="editStyleCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
@@ -1337,7 +1336,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrQ-Vg-NVv">
                                                 <rect key="frame" x="0.0" y="0.0" width="197" height="50"/>
-                                                <color key="backgroundColor" name="LightPeach"/>
+                                                <color key="backgroundColor" name="Beige"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="t3Y-0O-hCm"/>
                                                 </constraints>
@@ -1381,7 +1380,7 @@
                                 <color key="backgroundColor" name="Beige"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Pale"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YQj-ta-bJx" firstAttribute="leading" secondItem="a9u-1L-EbF" secondAttribute="leading" constant="10" id="1j4-jc-6Dd"/>
@@ -1401,6 +1400,7 @@
                         <viewLayoutGuide key="safeArea" id="a9u-1L-EbF"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="MYQ-oh-ds6" id="bh0-ux-eNV"/>
                         <outlet property="collectionView" destination="tca-3f-cQO" id="kPD-Go-qo4"/>
                         <outlet property="subscriptionButton" destination="LrQ-Vg-NVv" id="cRb-j2-tNL"/>
                         <outlet property="titleLabel" destination="hR8-nK-NmD" id="41X-CY-M3z"/>
