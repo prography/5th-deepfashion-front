@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="urw-8l-13v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="urw-8l-13v">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4352" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -107,6 +107,7 @@
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="R5u-wh-hcu">
                                 <rect key="frame" x="182" y="379" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PPD-jg-Nfg"/>
                                     <constraint firstAttribute="width" constant="50" id="l08-qd-2gI"/>
@@ -545,7 +546,7 @@
                     <connections>
                         <outlet property="indicatorView" destination="j4Z-KG-2HO" id="hVU-Ji-OTa"/>
                         <outlet property="signUpFinishButton" destination="gZy-Na-5lf" id="TVo-Yg-nQy"/>
-                        <segue destination="BxI-ns-ITX" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="1lI-nm-xcF"/>
+                        <segue destination="BxI-ns-ITX" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindToLoginWithSegue:" id="Bim-Ai-QWK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yQe-aP-LlW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -865,13 +866,24 @@
                                     <constraint firstAttribute="trailing" secondItem="vnI-Rq-J3G" secondAttribute="trailing" constant="20" symbolic="YES" id="xMK-ZP-hgR"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PrQ-ah-XzD">
+                                <rect key="frame" x="182" y="403.5" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="942-1M-aKE"/>
+                                    <constraint firstAttribute="width" constant="50" id="c5O-dH-dKf"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Vy0-LX-M4W" firstAttribute="trailing" secondItem="XMx-ZB-DCr" secondAttribute="trailing" constant="10" id="10J-9G-vBa"/>
                             <constraint firstItem="lyv-zD-t1x" firstAttribute="leading" secondItem="Vy0-LX-M4W" secondAttribute="leading" id="BSN-tJ-GqN"/>
+                            <constraint firstItem="PrQ-ah-XzD" firstAttribute="centerY" secondItem="Vy0-LX-M4W" secondAttribute="centerY" id="WAW-pv-uoR"/>
                             <constraint firstItem="Vy0-LX-M4W" firstAttribute="trailing" secondItem="lyv-zD-t1x" secondAttribute="trailing" id="buy-Pf-UkA"/>
                             <constraint firstItem="lyv-zD-t1x" firstAttribute="top" secondItem="Vy0-LX-M4W" secondAttribute="top" id="ggt-0g-XVq"/>
+                            <constraint firstItem="PrQ-ah-XzD" firstAttribute="centerX" secondItem="Vy0-LX-M4W" secondAttribute="centerX" id="mMi-k1-YFa"/>
                             <constraint firstItem="XMx-ZB-DCr" firstAttribute="leading" secondItem="Vy0-LX-M4W" secondAttribute="leading" constant="10" id="thR-2n-78G"/>
                             <constraint firstItem="XMx-ZB-DCr" firstAttribute="top" secondItem="lyv-zD-t1x" secondAttribute="bottom" constant="30" id="z9L-Rc-e3b"/>
                         </constraints>
@@ -880,14 +892,17 @@
                     <navigationItem key="navigationItem" id="aGg-K4-mjP"/>
                     <connections>
                         <outlet property="deleteUserButton" destination="f3V-jT-R4P" id="YWY-Dt-PXw"/>
+                        <outlet property="indicatorView" destination="PrQ-ah-XzD" id="c5F-ZT-TfT"/>
                         <outletCollection property="titleLabelList" destination="lyv-zD-t1x" collectionClass="NSMutableArray" id="mz9-Jh-SCB"/>
                         <outletCollection property="titleLabelList" destination="sKt-3g-TCI" collectionClass="NSMutableArray" id="uOP-Ie-MMF"/>
                         <outletCollection property="titleLabelList" destination="ieK-0W-hZC" collectionClass="NSMutableArray" id="C3T-9T-NkC"/>
                         <outletCollection property="passwordTextFieldList" destination="bTu-cl-WkK" collectionClass="NSMutableArray" id="5MF-zp-W7q"/>
                         <outletCollection property="passwordTextFieldList" destination="4mi-0w-YIu" collectionClass="NSMutableArray" id="drE-tL-nju"/>
+                        <segue destination="GAq-sC-GdD" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindToLoginWithSegue:" id="mYX-Va-4Bd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsv-SX-l0u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="GAq-sC-GdD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6294" y="1381"/>
         </scene>

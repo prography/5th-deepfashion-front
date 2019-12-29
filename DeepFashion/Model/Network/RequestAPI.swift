@@ -48,9 +48,17 @@ enum APIPostMode: String {
     case clothingUploadPost
 }
 
+enum APIDeleteMode: String {
+    case deleteUser
+}
+
 struct APIURL {
     static let base = "http://deepfashion-dev.us-west-2.elasticbeanstalk.com/"
     struct SubURL {
+        struct Delete {
+            static let deleteUser = "accounts/"
+        }
+
         struct Get {}
 
         struct Post {
@@ -94,6 +102,50 @@ final class RequestAPI {
         body.appendString("--".appending(boundary.appending("--")))
 
         return body as Data
+    }
+
+    func deleteAPIData(APIMode: APIDeleteMode, completion: @escaping (NetworkError?) -> Void) {
+        var errorType: NetworkError = .unknown
+
+        delegate?.requestAPIDidBegin()
+
+        switch APIMode {
+        case .deleteUser:
+            let deleteUserURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.deleteUser)\(UserCommonData.shared.pk)/"
+            guard let deleteURL = URL(string: deleteUserURLString) else {
+                errorType = .client
+                delegate?.requestAPIDidError()
+                completion(errorType)
+                return
+            }
+
+            var urlRequest = URLRequest(url: deleteURL)
+            urlRequest.httpMethod = "DELETE"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+
+            urlSession.dataTask(with: urlRequest) { _, response, error in
+                if error != nil {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType)
+                    return
+                }
+
+                if let response = response as? HTTPURLResponse {
+                    if (200 ... 299).contains(response.statusCode) {
+                        self.delegate?.requestAPIDidFinished()
+                        completion(nil)
+                    } else {
+                        print("request failed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidError()
+                        self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
+                        completion(errorType)
+                    }
+                }
+
+            }.resume()
+        }
     }
 
     func postAPIData<T>(userData: T, APIMode: APIPostMode, completion: @escaping (NetworkError?) -> Void) {

@@ -119,9 +119,7 @@ class EditClothingViewController: UIViewController {
             RequestAPI.shared.postAPIData(userData: clothingUploadData, APIMode: .clothingUploadPost) { errorType in
 
                 if errorType == nil {
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
-                    }
+                    self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
                 } else {
                     ToastView.shared.presentShortMessage(navigationController.view, message: "옷 저장에 실패했습니다.")
                 }

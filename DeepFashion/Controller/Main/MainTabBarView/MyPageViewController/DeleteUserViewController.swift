@@ -12,10 +12,20 @@ class DeleteUserViewController: UIViewController {
     @IBOutlet var titleLabelList: [UILabel]!
     @IBOutlet var passwordTextFieldList: [UITextField]!
     @IBOutlet var deleteUserButton: UIButton!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     private var isFillInData = false {
         didSet {
-            self.deleteUserButton.configureButtonByStatus(isFillInData)
+            deleteUserButton.configureButtonByStatus(isFillInData)
+        }
+    }
+
+    private var isAPIDataRequested = false {
+        willSet {
+            DispatchQueue.main.async {
+                self.deleteUserButton.isEnabled = !newValue
+                self.indicatorView.checkIndicatorView(newValue)
+            }
         }
     }
 
@@ -66,6 +76,17 @@ class DeleteUserViewController: UIViewController {
         // pk값과 비밀번호 값으로 delete요청을 날려 탈퇴가능한지를 확인한다.
         // 1) 탈퇴가 가능하면 탈퇴처리를 하고 탈퇴되었음을 띄우고 로그아웃 처리한다.
         // 2) 탈퇴가 실패하면 실패 문구를 띄운다.
+        guard let tabBarController = self.tabBarController else { return }
+        RequestAPI.shared.deleteAPIData(APIMode: .deleteUser) { networkError in
+            DispatchQueue.main.async {
+                if networkError != nil {
+                    guard let errorMessage = networkError?.errorMessage else { return }
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: errorMessage)
+                } else {
+                    self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToLogin, sender: nil)
+                }
+            }
+        }
     }
 }
 
@@ -86,8 +107,8 @@ extension DeleteUserViewController: UIViewControllerSetting {
         configureTitleLabeList()
         configurePasswordTextFieldList()
         configureBackButton()
-        configurePasswordTextFieldList()
         configureTitleLabeList()
+        RequestAPI.shared.delegate = self
     }
 
     private func configureDeleteUserButton() {
@@ -126,5 +147,22 @@ extension DeleteUserViewController: UIViewControllerSetting {
         backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
         let backBarButton = UIBarButtonItem(customView: backButton)
         tabBarController?.navigationItem.leftBarButtonItem = backBarButton
+    }
+}
+
+extension DeleteUserViewController: RequestAPIDelegate {
+    func requestAPIDidBegin() {
+        // 인디케이터 동작
+        isAPIDataRequested = true
+    }
+
+    func requestAPIDidFinished() {
+        // 인디케이터 종료 및 세그 동작 실행
+        isAPIDataRequested = false
+    }
+
+    func requestAPIDidError() {
+        // 에러 발생 시 동작 실행
+        isAPIDataRequested = false
     }
 }
