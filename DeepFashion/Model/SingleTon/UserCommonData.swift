@@ -37,6 +37,10 @@ final class UserCommonData {
         clothingList.append(clothingData)
     }
 
+    func saveID(_ id: String) {
+        self.id = id
+    }
+
     func setUserPrivateData(token: String, pk: Int) {
         userToken = token
         self.pk = pk

@@ -72,10 +72,7 @@ class DeleteUserViewController: UIViewController {
         checkFillInData()
     }
 
-    @IBAction func deleteUserButtonPressed(_: UIButton) {
-        // pk값과 비밀번호 값으로 delete요청을 날려 탈퇴가능한지를 확인한다.
-        // 1) 탈퇴가 가능하면 탈퇴처리를 하고 탈퇴되었음을 띄우고 로그아웃 처리한다.
-        // 2) 탈퇴가 실패하면 실패 문구를 띄운다.
+    private func deleteUserData() {
         guard let tabBarController = self.tabBarController else { return }
         RequestAPI.shared.deleteAPIData(APIMode: .deleteUser) { networkError in
             DispatchQueue.main.async {
@@ -85,6 +82,28 @@ class DeleteUserViewController: UIViewController {
                 } else {
                     self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToLogin, sender: nil)
                 }
+            }
+        }
+    }
+
+    @IBAction func deleteUserButtonPressed(_: UIButton) {
+        // pk값과 비밀번호 값으로 delete요청을 날려 탈퇴가능한지를 확인한다.
+        // 1) 탈퇴가 가능하면 탈퇴처리를 하고 탈퇴되었음을 띄우고 로그아웃 처리한다.
+        // 2) 탈퇴가 실패하면 실패 문구를 띄운다.
+        view.endEditing(true)
+
+        guard let tabBarController = self.tabBarController,
+            let password = self.passwordTextFieldList[0].text else { return }
+
+        let userData = LoginAPIPostData(userName: UserCommonData.shared.id, password: password)
+
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { errorType in
+            if errorType != nil {
+                DispatchQueue.main.async {
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "비밀번호 혹은 네트워크상태를 확인해주세요.")
+                }
+            } else {
+                self.deleteUserData()
             }
         }
     }
