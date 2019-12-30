@@ -150,10 +150,6 @@ class EditClothingViewController: UIViewController {
         let clothingStyle = selectedFashionData.style
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
-//        guard let imageURL = URL(imageData) else { return }
-//        String(data: imageData, encoding: nil)
-//        let clothingData = UserClothingData(image: clothingImage, name: clothingName, id: 1, fashionType: typeIndex, fashionWeahter: seasonIndex, fashionStyle: clothingStyle)
-//        UserCommonData.shared.addUserClothing(clothingData)
 
         let clotingData = ClothingAPIData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex.item + 1, season: seasonIndex + 1, part: partIndex + 1, category: nil, image: clothingImage)
 
@@ -162,6 +158,9 @@ class EditClothingViewController: UIViewController {
             if errorType == nil {
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
                 self.uploadClothingImage()
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
+                }
             } else {
                 DispatchQueue.main.async {
                     ToastView.shared.presentShortMessage(navigationController.view, message: "옷 저장에 실패했습니다.")

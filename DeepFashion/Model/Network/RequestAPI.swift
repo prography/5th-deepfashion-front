@@ -85,7 +85,8 @@ final class RequestAPI {
                             boundary: String,
                             data: Data,
                             mimeType: String,
-                            filename: String) -> Data {
+                            fileKey _: String,
+                            imageName _: String) -> Data {
         let body = NSMutableData()
         let boundaryPrefix = "--\(boundary)\r\n"
         for (key, value) in parameters {
@@ -95,7 +96,7 @@ final class RequestAPI {
         }
 
         body.appendString(boundaryPrefix)
-        body.appendString("Content-Disposition: form-data; name=\"file\"; filename=\"\(filename)\"\r\n")
+        body.appendString("Content-Disposition: form-data; name=\"\("img")\"; filename=\"\("clothing.jpg")\"\r\n")
         body.appendString("Content-Type: \(mimeType)\r\n\r\n")
         body.append(data)
         body.appendString("\r\n")
@@ -274,14 +275,16 @@ final class RequestAPI {
             guard let postURL = URL(string: userDataPostURLString) else { return }
             print("userDataPostURLString : \(userDataPostURLString)")
 
+            let imageName = "clothing.jpg"
+            userData.image?.accessibilityIdentifier = imageName
             // post 처리 할 parameter를 정의한다.
             let parameter = [
-                "name": "pooClothing",
-                "style": "1",
-                "owner": "40",
-                "color": "1",
-                "season": "1",
-                "part": "1",
+                "name": "fuuCloth",
+                "style": "2",
+                "owner": "41",
+                "color": "2",
+                "season": "2",
+                "part": "2",
             ]
 
             // request 설정
@@ -293,9 +296,12 @@ final class RequestAPI {
             let boundary = "Boundary-\(UUID().uuidString)"
             urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
-            let imageData = userData.image!.pngData()!
+            let clothingMimeType = "image/jpg"
+            let clothingImageKey = "img"
 
-            urlRequest.httpBody = createBody(parameters: parameter, boundary: boundary, data: imageData, mimeType: mimeType(for: imageData), filename: "img")
+            let imageData = userData.image!.jpegData(compressionQuality: 1)!
+
+            urlRequest.httpBody = createBody(parameters: parameter, boundary: boundary, data: imageData, mimeType: clothingMimeType, fileKey: clothingImageKey, imageName: imageName)
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.dataTask(with: urlRequest) { _, response, _ in
                 if let response = response as? HTTPURLResponse {
