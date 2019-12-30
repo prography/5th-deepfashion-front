@@ -275,16 +275,17 @@ final class RequestAPI {
             guard let postURL = URL(string: userDataPostURLString) else { return }
             print("userDataPostURLString : \(userDataPostURLString)")
 
-            let imageName = "clothing.jpg"
+            let imageName = AssetIdentifier.Image.clothing
             userData.image?.accessibilityIdentifier = imageName
+
             // post 처리 할 parameter를 정의한다.
             let parameter = [
-                "name": "fuuCloth",
-                "style": "2",
-                "owner": "41",
-                "color": "2",
-                "season": "2",
-                "part": "2",
+                "name": "\(userData.name)",
+                "style": "\(userData.style)",
+                "owner": "\(UserCommonData.shared.pk)",
+                "color": "\(userData.color)",
+                "season": "\(userData.season)",
+                "part": "\(userData.part)",
             ]
 
             // request 설정

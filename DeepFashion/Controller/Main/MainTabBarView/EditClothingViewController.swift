@@ -173,11 +173,11 @@ class EditClothingViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    @objc func fashionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc func clothingTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         selectedFashionData.typeIndex = sender.selectedSegmentIndex
     }
 
-    @objc func fashionWeatherSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc func clothingSeasonSegmentedControlValueChanged(_ sender: UISegmentedControl) {
         selectedFashionData.weatherIndex = sender.selectedSegmentIndex
     }
 
@@ -226,8 +226,8 @@ extension EditClothingViewController: UITableViewDataSource {
         guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
         addFashionTableCell.nameTextField.delegate = self
         addFashionTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
-        addFashionTableCell.seasonSegmentedControl.addTarget(self, action: #selector(fashionWeatherSegmentedControlValueChanged), for: .valueChanged)
-        addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(fashionTypeSegmentedControlValueChanged), for: .valueChanged)
+        addFashionTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlValueChanged), for: .valueChanged)
+        addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(clothingTypeSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
 
         addFashionTableCell.styleButton.setTitle("  \(selectedFashionData.style.0)", for: .normal)

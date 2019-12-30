@@ -21,5 +21,6 @@ struct AssetIdentifier {
         static let check = "check"
         static let appIcon = "AppIcon"
         static let appLogo = "appLogo"
+        static let clothing = "clothing.jpg"
     }
 }
