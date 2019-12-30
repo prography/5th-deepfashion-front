@@ -141,19 +141,21 @@ class EditClothingViewController: UIViewController {
             let navigationController = self.navigationController else { return }
 
         // 이미지, 이름 셋팅
-        guard let fashionImage = selectedFashionData.image,
-            let fashionName = addFashionTableCell.nameTextField.text,
+        guard let clothingImage = selectedFashionData.image,
+            let clothingName = addFashionTableCell.nameTextField.text,
             let selectedColorIndex = addFashionTableCell.getColorSelectCollectionCellSelectedIndex() else { return }
         // 옷 타입, 스타일 셋팅
 
-        let typeIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
-        let fashionStyle = selectedFashionData.style
-        let weatherIndex = addFashionTableCell.weatherSegmentedControl.selectedSegmentIndex
-        let ownerIndex = UserCommonData.shared.pk
-        let clothingData = UserClothingData(image: fashionImage, name: fashionName, id: 1, fashionType: typeIndex, fashionWeahter: weatherIndex, fashionStyle: fashionStyle)
-        UserCommonData.shared.addUserClothing(clothingData)
+        let partIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
+        let clothingStyle = selectedFashionData.style
+        let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
+        let ownerPK = UserCommonData.shared.pk
+//        guard let imageURL = URL(imageData) else { return }
+//        String(data: imageData, encoding: nil)
+//        let clothingData = UserClothingData(image: clothingImage, name: clothingName, id: 1, fashionType: typeIndex, fashionWeahter: seasonIndex, fashionStyle: clothingStyle)
+//        UserCommonData.shared.addUserClothing(clothingData)
 
-        let clotingData = ClothingAPIData(style: fashionStyle.1 + 1, name: fashionName, color: selectedColorIndex.item + 1, owner: ownerIndex, season: weatherIndex + 1, part: typeIndex + 1, images: [])
+        let clotingData = ClothingAPIData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex.item + 1, season: seasonIndex + 1, part: partIndex + 1, category: nil, image: clothingImage)
 
         print("now Adding clothingData : \(clotingData)")
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
@@ -225,7 +227,7 @@ extension EditClothingViewController: UITableViewDataSource {
         guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
         addFashionTableCell.nameTextField.delegate = self
         addFashionTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
-        addFashionTableCell.weatherSegmentedControl.addTarget(self, action: #selector(fashionWeatherSegmentedControlValueChanged), for: .valueChanged)
+        addFashionTableCell.seasonSegmentedControl.addTarget(self, action: #selector(fashionWeatherSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(fashionTypeSegmentedControlValueChanged), for: .valueChanged)
         addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
 

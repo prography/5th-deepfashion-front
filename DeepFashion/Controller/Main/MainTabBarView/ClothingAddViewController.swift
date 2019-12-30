@@ -301,7 +301,7 @@ class ClothingAddViewController: UIViewController {
 extension ClothingAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
-
+        print(selectedImage.pngData()!)
         clothingImageView.image = selectedImage
         selectedClothingImage = selectedImage
     }

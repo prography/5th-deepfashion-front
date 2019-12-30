@@ -18,6 +18,7 @@
 		0733A6D82365D99900E26B38 /* DeepFashionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */; };
 		0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */; };
 		0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E923660F0500E26B38 /* SceneDelegate.swift */; };
+		073547AD23B9FE9000E45ADF /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547AC23B9FE9000E45ADF /* Data+.swift */; };
 		07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */; };
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
 		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
@@ -138,6 +139,7 @@
 		0733A6D92365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignUpViewController.swift; sourceTree = "<group>"; };
 		0733A6E923660F0500E26B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		073547AC23B9FE9000E45ADF /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingPostAPIResultData.swift; sourceTree = "<group>"; };
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
 		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 				07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */,
 				07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */,
 				07C5C5FC23ACF5A700324B67 /* DateFormatter+.swift */,
+				073547AC23B9FE9000E45ADF /* Data+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,
+				073547AD23B9FE9000E45ADF /* Data+.swift in Sources */,
 				07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */,
 				07554FFC23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
@@ -1116,7 +1120,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.09;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1142,7 +1146,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.09;
+				MARKETING_VERSION = 1.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

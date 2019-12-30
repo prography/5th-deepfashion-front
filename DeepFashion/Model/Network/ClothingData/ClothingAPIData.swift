@@ -10,15 +10,14 @@
 
 import UIKit
 
-struct ClothingAPIData: Codable {
-    let style: Int
+struct ClothingAPIData {
+    let id: Int?
     let name: String
-    let color: Int
+    let style: Int
     let owner: Int
+    let color: Int
     let season: Int
     let part: Int
-    let images: [Int]
-    enum CodingKeys: String, CodingKey {
-        case style, name, color, owner, season, part, images
-    }
+    let category: Int?
+    let image: UIImage?
 }

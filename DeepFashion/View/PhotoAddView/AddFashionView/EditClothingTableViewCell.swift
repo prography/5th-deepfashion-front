@@ -14,7 +14,7 @@ class EditClothingTableViewCell: UITableViewCell {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var styleButton: UIButton!
     @IBOutlet var typeSegmentedControl: UISegmentedControl!
-    @IBOutlet var weatherSegmentedControl: UISegmentedControl!
+    @IBOutlet var seasonSegmentedControl: UISegmentedControl!
     @IBOutlet var editStackView: UIStackView!
     @IBOutlet var subTitleLabelList: [UILabel]!
 
@@ -104,10 +104,10 @@ class EditClothingTableViewCell: UITableViewCell {
         typeSegmentedControl.layer.borderWidth = 1
         typeSegmentedControl.clipsToBounds = true
 
-        weatherSegmentedControl.selectedSegmentIndex = 0
-        weatherSegmentedControl.layer.cornerRadius = 10
-        weatherSegmentedControl.clipsToBounds = true
-        weatherSegmentedControl.layer.borderWidth = 1
+        seasonSegmentedControl.selectedSegmentIndex = 0
+        seasonSegmentedControl.layer.cornerRadius = 10
+        seasonSegmentedControl.clipsToBounds = true
+        seasonSegmentedControl.layer.borderWidth = 1
     }
 
     private func makeConstraint() {
