@@ -143,7 +143,7 @@ class EditClothingViewController: UIViewController {
         // 이미지, 이름 셋팅
         guard let clothingImage = selectedFashionData.image,
             let clothingName = addFashionTableCell.nameTextField.text,
-            let selectedColorIndex = addFashionTableCell.getColorSelectCollectionCellSelectedIndex() else { return }
+            let selectedColorIndex = addFashionTableCell.getSelectedColorIndex() else { return }
         // 옷 타입, 스타일 셋팅
 
         let partIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
@@ -151,7 +151,7 @@ class EditClothingViewController: UIViewController {
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
 
-        let clotingData = ClothingAPIData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex.item + 1, season: seasonIndex + 1, part: partIndex + 1, category: nil, image: clothingImage)
+        let clotingData = ClothingAPIData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partIndex + 1, category: nil, image: clothingImage)
 
         print("now Adding clothingData : \(clotingData)")
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in

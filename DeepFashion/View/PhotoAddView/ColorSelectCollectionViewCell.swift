@@ -11,6 +11,7 @@ import UIKit
 class ColorSelectCollectionViewCell: UICollectionViewCell {
     // MARK: UIs
 
+    var nowRGB: UInt64 = 0
     private let selectImageView: UIImageView = {
         let selectImageView = UIImageView()
         selectImageView.image = UIImage(named: AssetIdentifier.Image.check)
@@ -55,12 +56,13 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureCellColor(rgb: UInt64) {
-        if rgb == 0x181818 {
+        nowRGB = rgb
+        if nowRGB == 0x181818 {
             mixedColorImageView.isHidden = false
             mixedColorImageView.clipsToBounds = true
         } else {
             mixedColorImageView.isHidden = true
-            let cellColor = UIColor(rgb: rgb, alpha: 1.0)
+            let cellColor = UIColor(rgb: nowRGB, alpha: 1.0)
             backgroundColor = cellColor
         }
     }

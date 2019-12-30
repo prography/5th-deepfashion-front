@@ -62,9 +62,11 @@ class EditClothingTableViewCell: UITableViewCell {
 
     // MARK: Methods
 
-    func getColorSelectCollectionCellSelectedIndex() -> IndexPath? {
-        guard let selectedIndex = self.colorSelectCollectionView.indexPathsForSelectedItems else { return nil }
-        return selectedIndex.isEmpty ? nil : selectedIndex.first!
+    func getSelectedColorIndex() -> Int? {
+        guard let selectedIndex = self.colorSelectCollectionView.indexPathsForSelectedItems,
+            let selectedCell = colorSelectCollectionView.cellForItem(at: selectedIndex.first!) as? ColorSelectCollectionViewCell,
+            let colorIndex = UIIdentifier.Color.colorHexaCodeIndex[selectedCell.nowRGB] else { return nil }
+        return colorIndex
     }
 
     /// fashionNameTextField 값이 들어갔는지 확인하는 메서드
