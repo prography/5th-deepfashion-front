@@ -6,6 +6,7 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 class CodiRecommendViewController: UIViewController {
@@ -22,6 +23,8 @@ class CodiRecommendViewController: UIViewController {
 
     private let clothingPartTitle = [" Top", " Outer", " Bottom", " Shoes"]
     private var codiIdCount = 0
+    private var locationManager = CLLocationManager()
+    private var nowWeatherData: WeatherData?
 
     // MARK: Life Cycle
 
@@ -32,9 +35,39 @@ class CodiRecommendViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        requestLocationAuthority()
+        locationManager.startUpdatingLocation()
+    }
+
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+    }
+
+    override func viewDidAppear(_: Bool) {
+        super.viewDidAppear(true)
     }
 
     // MARK: Methods
+
+    private func requestLocationAuthority() {
+        // 현재 위치권한이 있는지 유무를 확인한다.
+        let locationAuthStatus = CLLocationManager.authorizationStatus()
+        switch locationAuthStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways,
+             .authorizedWhenInUse:
+            // location Update, get weatherData
+            break
+        default:
+            presentBasicTwoButtonAlertController(title: "위치 권한 요청", message: "현지 날씨정보를 받기 위해 위치권한이 필요합니다. 위치권한을 설정하시겠습니까?") { isApproved in
+                if isApproved {
+                    guard let appSettingURL = URL(string: UIApplication.openSettingsURLString) else { return }
+                    UIApplication.shared.open(appSettingURL, options: [:])
+                } else {}
+            }
+        }
+    }
 
     private func configureWeatherImageView() {
         guard let weatherImage = UIImage(named: "clear-day") else { return }
@@ -107,11 +140,61 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
     }
 }
 
+extension CodiRecommendViewController: CLLocationManagerDelegate {
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let nowCoordinator = locations.first?.coordinate else { return }
+        // 현지 위치정보를 얻었는데 만약 날씨 데이터가 존재하지 않는나면,
+        // 날씨 데이터를 요청해서 받아온다.
+        RequestAPI.shared.getAPIData(APIMode: .getWeather, type: [WeatherData].self) { error, data in
+            if error == nil {
+                // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
+                guard let weatherDataList = data else { return }
+
+                var minDiff: Double = 6e4
+                weatherDataList.forEach {
+                    guard let latitude = LocationData.coordinatorList[$0.id]?.1,
+                        let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
+                    let diff = abs(nowCoordinator.latitude - latitude) + abs(nowCoordinator.longitude - longitude)
+                    if diff < minDiff {
+                        minDiff = diff
+                        self.nowWeatherData = $0
+                    }
+                }
+
+                guard let nowTemparature = self.nowWeatherData?.temperature else { return }
+                DispatchQueue.main.async {
+                    self.celsiusLabel.text = "\(nowTemparature)도"
+                    self.locationManager.stopUpdatingLocation()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController else { return }
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "현지 날씨정보 불러오기에 실패했습니다.")
+                }
+            }
+        }
+    }
+
+    func locationManager(_: CLLocationManager, didChangeAuthorization _: CLAuthorizationStatus) {
+        let locationAuthStatus = CLLocationManager.authorizationStatus()
+        switch locationAuthStatus {
+        case .authorizedWhenInUse:
+            DispatchQueue.main.async {
+                guard let tabBarController = self.tabBarController else { return }
+                ToastView.shared.presentShortMessage(tabBarController.view, message: "현지기반 날씨 정보가 업데이트 됩니다.")
+            }
+        default:
+            break
+        }
+    }
+}
+
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
         configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
+        locationManager.delegate = self
         recommendCollectionView.allowsMultipleSelection = true
         configureCodiListSaveButton()
         configureWeatherImageView()

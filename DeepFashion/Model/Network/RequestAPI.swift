@@ -87,7 +87,7 @@ final class RequestAPI {
 
     weak var delegate: RequestAPIDelegate?
 
-    func getAPIData(APIMode: APIGetMode, completion: @escaping (NetworkError?) -> Void) {
+    func getAPIData<T: Codable>(APIMode: APIGetMode, type _: T.Type, completion: @escaping (NetworkError?, T?) -> Void) {
         var errorType: NetworkError = .unknown
         delegate?.requestAPIDidBegin()
 
@@ -99,33 +99,31 @@ final class RequestAPI {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlSession.dataTask(with: requestAPIURL) { data, response, error in
                 if error != nil {
-                    completion(self.configureError(.client))
+                    completion(self.configureError(.client), nil)
                     return
                 }
 
                 guard let weatherData = data else {
-                    completion(self.configureError(.client))
+                    completion(self.configureError(.client), nil)
                     return
                 }
 
-                guard let weatherAPIData = try? JSONDecoder().decode([WeatherData].self, from: weatherData) else {
+                guard let weatherAPIData = try? JSONDecoder().decode(T.self, from: weatherData) else {
                     errorType = .client
                     self.delegate?.requestAPIDidError()
-                    completion(errorType)
+                    completion(errorType, nil)
                     return
                 }
-
-                print("자라나라 날씨데이터여.. \(weatherAPIData)")
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
                         self.delegate?.requestAPIDidFinished()
-                        completion(nil)
+                        completion(nil, weatherAPIData)
                     } else {
                         print("request failed : \(response.statusCode)")
                         self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
-                        completion(errorType)
+                        completion(errorType, nil)
                     }
                 }
             }.resume()

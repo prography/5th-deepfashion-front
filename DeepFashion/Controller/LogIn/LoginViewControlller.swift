@@ -65,13 +65,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        RequestAPI.shared.getAPIData(APIMode: .getWeather) { error in
-            if error == nil {
-                print("^-^")
-            } else {
-                print("ㅠㅠ")
-            }
-        }
     }
 
     override func viewWillAppear(_: Bool) {
