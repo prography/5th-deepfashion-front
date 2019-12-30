@@ -43,7 +43,9 @@ class LoginViewController: UIViewController {
     private var isAPIDataRequested = false {
         willSet {
             DispatchQueue.main.async {
-                self.loginButton.isEnabled = !newValue
+                if self.isFillInData {
+                    self.loginButton.isEnabled = !newValue
+                }
                 self.signUpButton.isEnabled = !newValue
                 self.indicatorView.checkIndicatorView(newValue)
             }

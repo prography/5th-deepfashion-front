@@ -22,7 +22,9 @@ class LastSignUpViewController: UIViewController {
     private var isAPIDataRequested = false {
         willSet {
             DispatchQueue.main.async {
-                self.signUpFinishButton.isEnabled = !newValue
+                if self.isFillInData {
+                    self.signUpFinishButton.isEnabled = !newValue
+                }
                 self.indicatorView.checkIndicatorView(newValue)
             }
         }

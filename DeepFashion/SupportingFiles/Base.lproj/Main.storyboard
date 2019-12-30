@@ -852,7 +852,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="deleteUserButtonPressed:" destination="K1b-dd-den" eventType="touchUpInside" id="4IU-Va-603"/>
+                                            <action selector="deleteUserButtonPressed:" destination="K1b-dd-den" eventType="touchUpInside" id="vZV-wZ-o76"/>
                                         </connections>
                                     </button>
                                 </subviews>

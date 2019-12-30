@@ -16,15 +16,20 @@ class DeleteUserViewController: UIViewController {
 
     private var isFillInData = false {
         didSet {
-            deleteUserButton.configureButtonByStatus(isFillInData)
+            DispatchQueue.main.async {
+                self.deleteUserButton.isEnabled = self.isFillInData
+                self.deleteUserButton.configureButtonByStatus(self.isFillInData)
+            }
         }
     }
 
     private var isAPIDataRequested = false {
-        willSet {
+        didSet {
             DispatchQueue.main.async {
-                self.deleteUserButton.isEnabled = !newValue
-                self.indicatorView.checkIndicatorView(newValue)
+                if self.isFillInData {
+                    self.deleteUserButton.isEnabled = !self.isAPIDataRequested
+                }
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested)
             }
         }
     }
@@ -75,12 +80,12 @@ class DeleteUserViewController: UIViewController {
     private func deleteUserData() {
         guard let tabBarController = self.tabBarController else { return }
         RequestAPI.shared.deleteAPIData(APIMode: .deleteUser) { networkError in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
                 if networkError != nil {
                     guard let errorMessage = networkError?.errorMessage else { return }
                     ToastView.shared.presentShortMessage(tabBarController.view, message: errorMessage)
                 } else {
-                    self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToLogin, sender: nil)
+                    self?.performSegue(withIdentifier: UIIdentifier.Segue.unwindToLogin, sender: nil)
                 }
             }
         }
@@ -97,13 +102,13 @@ class DeleteUserViewController: UIViewController {
 
         let userData = LoginAPIPostData(userName: UserCommonData.shared.id, password: password)
 
-        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { errorType in
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { [weak self] errorType in
             if errorType != nil {
                 DispatchQueue.main.async {
                     ToastView.shared.presentShortMessage(tabBarController.view, message: "비밀번호 혹은 네트워크상태를 확인해주세요.")
                 }
             } else {
-                self.deleteUserData()
+                self?.deleteUserData()
             }
         }
     }
