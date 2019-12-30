@@ -52,6 +52,10 @@ enum APIDeleteMode: String {
     case deleteUser
 }
 
+enum APIGetMode: String {
+    case getWeather
+}
+
 struct APIURL {
     static let base = "http://deepfashion-dev.us-west-2.elasticbeanstalk.com/"
     struct SubURL {
@@ -59,7 +63,9 @@ struct APIURL {
             static let deleteUser = "accounts/"
         }
 
-        struct Get {}
+        struct Get {
+            static let currentWeather = "weather/current-weather/"
+        }
 
         struct Post {
             static let userData = "accounts/"
@@ -81,28 +87,49 @@ final class RequestAPI {
 
     weak var delegate: RequestAPIDelegate?
 
-    private func createBody(parameters: [String: String],
-                            boundary: String,
-                            data: Data,
-                            mimeType: String,
-                            fileKey _: String,
-                            imageName _: String) -> Data {
-        let body = NSMutableData()
-        let boundaryPrefix = "--\(boundary)\r\n"
-        for (key, value) in parameters {
-            body.appendString(boundaryPrefix)
-            body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-            body.appendString("\(value)\r\n")
+    func getAPIData(APIMode: APIGetMode, completion: @escaping (NetworkError?) -> Void) {
+        var errorType: NetworkError = .unknown
+        delegate?.requestAPIDidBegin()
+
+        switch APIMode {
+        case .getWeather:
+            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
+            guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
+            var urlRequest = URLRequest(url: requestAPIURL)
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlSession.dataTask(with: requestAPIURL) { data, response, error in
+                if error != nil {
+                    completion(self.configureError(.client))
+                    return
+                }
+
+                guard let weatherData = data else {
+                    completion(self.configureError(.client))
+                    return
+                }
+
+                guard let weatherAPIData = try? JSONDecoder().decode([WeatherData].self, from: weatherData) else {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType)
+                    return
+                }
+
+                print("자라나라 날씨데이터여.. \(weatherAPIData)")
+
+                if let response = response as? HTTPURLResponse {
+                    if (200 ... 299).contains(response.statusCode) {
+                        self.delegate?.requestAPIDidFinished()
+                        completion(nil)
+                    } else {
+                        print("request failed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidError()
+                        self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
+                        completion(errorType)
+                    }
+                }
+            }.resume()
         }
-
-        body.appendString(boundaryPrefix)
-        body.appendString("Content-Disposition: form-data; name=\"\("img")\"; filename=\"\("clothing.jpg")\"\r\n")
-        body.appendString("Content-Type: \(mimeType)\r\n\r\n")
-        body.append(data)
-        body.appendString("\r\n")
-        body.appendString("--".appending(boundary.appending("--")))
-
-        return body as Data
     }
 
     func deleteAPIData(APIMode: APIDeleteMode, completion: @escaping (NetworkError?) -> Void) {
@@ -114,9 +141,7 @@ final class RequestAPI {
         case .deleteUser:
             let deleteUserURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.deleteUser)\(UserCommonData.shared.pk)/"
             guard let deleteURL = URL(string: deleteUserURLString) else {
-                errorType = .client
-                delegate?.requestAPIDidError()
-                completion(errorType)
+                completion(configureError(.client))
                 return
             }
 
@@ -127,9 +152,7 @@ final class RequestAPI {
 
             urlSession.dataTask(with: urlRequest) { _, response, error in
                 if error != nil {
-                    errorType = .client
-                    self.delegate?.requestAPIDidError()
-                    completion(errorType)
+                    completion(self.configureError(.client))
                     return
                 }
 
@@ -192,9 +215,8 @@ final class RequestAPI {
 
                 guard let data = data,
                     let userData = try? JSONDecoder().decode(UserLoginAPIData.self, from: data) else {
-                    self.delegate?.requestAPIDidError()
                     self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
-                    completion(errorType)
+                    completion(self.configureError(errorType))
                     return
                 }
 
@@ -210,9 +232,8 @@ final class RequestAPI {
                         completion(nil)
                     } else {
                         print("request failed : \(response.statusCode)")
-                        self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
-                        completion(errorType)
+                        completion(self.configureError(errorType))
                     }
                 }
             }.resume()
@@ -229,8 +250,7 @@ final class RequestAPI {
             let userDataToPost = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.styles, password: userData.password)
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
-                delegate?.requestAPIDidError()
-                completion(NetworkError.unknown)
+                completion(configureError(.wrongType))
                 return
             }
 
@@ -244,9 +264,8 @@ final class RequestAPI {
 
                 if error != nil {
                     print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
-                    self.delegate?.requestAPIDidError()
                     self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
-                    completion(errorType)
+                    completion(self.configureError(.client))
                 }
 
                 if let response = response as? HTTPURLResponse {
@@ -256,9 +275,8 @@ final class RequestAPI {
                         completion(nil)
                     } else {
                         print("request failed : \(response.statusCode)")
-                        self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
-                        completion(errorType)
+                        completion(self.configureError(errorType))
                     }
                 }
             }.resume()
@@ -266,8 +284,7 @@ final class RequestAPI {
         case .clothingPost:
 
             guard let userData = userData as? ClothingAPIData else {
-                delegate?.requestAPIDidError()
-                completion(NetworkError.wrongType)
+                completion(configureError(.wrongType))
                 return
             }
 
@@ -323,9 +340,39 @@ final class RequestAPI {
         }
     }
 
+    private func createBody(parameters: [String: String],
+                            boundary: String,
+                            data: Data,
+                            mimeType: String,
+                            fileKey _: String,
+                            imageName _: String) -> Data {
+        let body = NSMutableData()
+        let boundaryPrefix = "--\(boundary)\r\n"
+        for (key, value) in parameters {
+            body.appendString(boundaryPrefix)
+            body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            body.appendString("\(value)\r\n")
+        }
+
+        body.appendString(boundaryPrefix)
+        body.appendString("Content-Disposition: form-data; name=\"\("img")\"; filename=\"\("clothing.jpg")\"\r\n")
+        body.appendString("Content-Type: \(mimeType)\r\n\r\n")
+        body.append(data)
+        body.appendString("\r\n")
+        body.appendString("--".appending(boundary.appending("--")))
+
+        return body as Data
+    }
+
     func classifyErrorType(statusCode: Int, errorType: inout NetworkError) {
         if statusCode / 100 == 4 { errorType = .client }
         else if statusCode / 100 == 5 { errorType = .server }
         else { errorType = .unknown }
+    }
+
+    func configureError(_ errorType: NetworkError) -> NetworkError {
+        let errorType: NetworkError = .client
+        delegate?.requestAPIDidError()
+        return errorType
     }
 }

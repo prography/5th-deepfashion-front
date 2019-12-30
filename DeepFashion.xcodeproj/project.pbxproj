@@ -20,6 +20,7 @@
 		0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E923660F0500E26B38 /* SceneDelegate.swift */; };
 		073547AD23B9FE9000E45ADF /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547AC23B9FE9000E45ADF /* Data+.swift */; };
 		073547AF23BA427A00E45ADF /* LocationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547AE23BA427A00E45ADF /* LocationData.swift */; };
+		073547B223BA626300E45ADF /* WeatherAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547B123BA626300E45ADF /* WeatherAPIData.swift */; };
 		07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */; };
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
 		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
@@ -142,6 +143,7 @@
 		0733A6E923660F0500E26B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		073547AC23B9FE9000E45ADF /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		073547AE23BA427A00E45ADF /* LocationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationData.swift; sourceTree = "<group>"; };
+		073547B123BA626300E45ADF /* WeatherAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIData.swift; sourceTree = "<group>"; };
 		07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingPostAPIResultData.swift; sourceTree = "<group>"; };
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
 		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
@@ -188,8 +190,6 @@
 		07B5AE8823992BEF000C215E /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
 		07B5AE8923992C0D000C215E /* DeepFashion-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeepFashion-Bridging-Header.h"; sourceTree = "<group>"; };
 		07B5AE8A23992C0E000C215E /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
-		07B5AE8D23992D04000C215E /* model.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.pt; sourceTree = "<group>"; };
-		07B5AE8E23992D04000C215E /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		07B5AE93239A4DEE000C215E /* FashionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionData.swift; sourceTree = "<group>"; };
 		07B6E0592382AD9600D6A9E1 /* CodiRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendViewController.swift; sourceTree = "<group>"; };
 		07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +336,14 @@
 			path = DeepFashionUITests;
 			sourceTree = "<group>";
 		};
+		073547B023BA625100E45ADF /* WeatherData */ = {
+			isa = PBXGroup;
+			children = (
+				073547B123BA626300E45ADF /* WeatherAPIData.swift */,
+			);
+			path = WeatherData;
+			sourceTree = "<group>";
+		};
 		07554FF523A679F600691C5B /* CodiRecommendView */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				077C77B22378145C0088B151 /* RequestAPI.swift */,
+				073547B023BA625100E45ADF /* WeatherData */,
 				07B7F6BC238EE4E200EA9C10 /* ClothingData */,
 				07ADBD8A237D0DA8004222CB /* SignUpData */,
 				07ADBD89237D0D65004222CB /* LoginData */,
@@ -492,10 +501,8 @@
 		07B5AE8C23992CE9000C215E /* PyTorch */ = {
 			isa = PBXGroup;
 			children = (
-				07B5AE8D23992D04000C215E /* model.pt */,
 				07C5C60123ADF65F00324B67 /* yjModel.pt */,
 				07C5C60523ADF6DA00324B67 /* yjWords.txt */,
-				07B5AE8E23992D04000C215E /* words.txt */,
 			);
 			path = PyTorch;
 			sourceTree = "<group>";
@@ -930,6 +937,7 @@
 				07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */,
 				07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,
+				073547B223BA626300E45ADF /* WeatherAPIData.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
 				076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */,
 				07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */,
