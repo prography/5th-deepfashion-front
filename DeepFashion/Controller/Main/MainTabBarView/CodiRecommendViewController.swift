@@ -25,6 +25,11 @@ class CodiRecommendViewController: UIViewController {
     private var codiIdCount = 0
     private var locationManager = CLLocationManager()
     private var nowWeatherData: WeatherData?
+    private var weatherIndex = WeatherIndex.sunny {
+        didSet {
+            self.weatherImageView.image = weatherIndex.image
+        }
+    }
 
     // MARK: Life Cycle
 
@@ -95,6 +100,28 @@ class CodiRecommendViewController: UIViewController {
         refreshCodiButton.setImage(UIImage(named: AssetIdentifier.Image.refresh), for: .normal)
     }
 
+    private func updateWeatherData(weatherData: WeatherData) {
+        celsiusLabel.text = "\(weatherData.temperature)도"
+
+        if let rainValueString = weatherData.rain,
+            let rainValue = Double(rainValueString) {
+            if rainValue >= 0.6 {
+                weatherIndex = .rainy
+            } else {
+                weatherIndex = .sunny
+            }
+        } else if let snowValueString = weatherData.snow,
+            let snowValue = Double(snowValueString) {
+            if snowValue >= 0.6 {
+                weatherIndex = .snowy
+            } else {
+                weatherIndex = .sunny
+            }
+        } else {
+            weatherIndex = .sunny
+        }
+    }
+
     private func addCodiDataSet() {
         var codiDataSet = [CodiData]()
         for i in 0 ..< 4 {
@@ -161,9 +188,9 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
                     }
                 }
 
-                guard let nowTemparature = self.nowWeatherData?.temperature else { return }
+                guard let weatherData = self.nowWeatherData else { return }
                 DispatchQueue.main.async {
-                    self.celsiusLabel.text = "\(nowTemparature)도"
+                    self.updateWeatherData(weatherData: weatherData)
                     self.locationManager.stopUpdatingLocation()
                 }
             } else {
