@@ -700,8 +700,8 @@
                     <navigationItem key="navigationItem" title="FourthView" id="T9Y-Gf-ZMR"/>
                     <connections>
                         <outlet property="myPageTableView" destination="2ZT-c4-n4M" id="k62-WL-T5L"/>
-                        <segue destination="XZC-Qk-3ha" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="CQZ-f4-BtO"/>
                         <segue destination="Zfq-4z-PmF" kind="show" identifier="goToPrivacyView" id="SkC-VN-13Z"/>
+                        <segue destination="XZC-Qk-3ha" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindToLoginWithSegue:" id="F6u-Tj-uvz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-2F-Fa8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
