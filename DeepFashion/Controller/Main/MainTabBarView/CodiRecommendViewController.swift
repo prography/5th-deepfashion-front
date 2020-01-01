@@ -101,7 +101,9 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func updateWeatherData(weatherData: WeatherData) {
-        celsiusLabel.text = "\(weatherData.temperature)도"
+        if let temperature = Double(weatherData.temperature) {
+            celsiusLabel.text = "\((temperature * 10).rounded() / 10)°C"
+        }
 
         if let rainValueString = weatherData.rain,
             let rainValue = Double(rainValueString) {
