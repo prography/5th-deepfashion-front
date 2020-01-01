@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension Array where Element == UserClothingData {
-    mutating func binarySearch(searchData: UserClothingData) -> Int? {
+extension Array where Element == ClothingAPIData {
+    mutating func binarySearch(searchData: ClothingAPIData) -> Int? {
         var left = 0, right = count - 1
         while left <= right {
             let mid = (left + right) / 2

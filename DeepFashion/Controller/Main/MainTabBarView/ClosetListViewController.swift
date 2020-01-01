@@ -28,7 +28,7 @@ class ClosetListViewController: UIViewController {
         return deleteBarButtonItem
     }()
 
-    private var selectedClothingData = Set<UserClothingData>() {
+    private var selectedClothingData = Set<ClothingAPIData>() {
         didSet {
             if !selectedClothingData.isEmpty {
                 deleteBarButtonItem.isEnabled = true
@@ -69,6 +69,7 @@ class ClosetListViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
+        updateNetworkTask()
     }
 
     override func viewDidAppear(_: Bool) {
@@ -119,6 +120,26 @@ class ClosetListViewController: UIViewController {
         for section in 0 ..< 4 {
             guard let closetTableCell = closetListTableView.cellForRow(at: IndexPath(row: 0, section: section)) as? ClosetListTableViewCell else { return }
             closetTableCell.collectionView.allowsSelection = false
+        }
+    }
+
+    private func updateNetworkTask() {
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
+            if networkError == nil {
+                guard let clothingData = clothingData else { return }
+                UserCommonData.shared.setIsNeedToUpdateClothingFalse()
+                UserCommonData.shared.configureClothingData(clothingData)
+                DispatchQueue.main.async {
+                    self.closetListTableView.reloadData()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController else { return }
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 정보를 불러오는데 실패했습니다.")
+                    UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+                }
+            }
         }
     }
 
@@ -185,7 +206,11 @@ extension ClosetListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
-        let clothingData = UserCommonData.shared.clothingList.filter { $0.fashionType == indexPath.section }
+
+        let clothingData = UserCommonData.shared.clothingList.filter {
+            ClothingCategoryIndex.shared.convertToMainClientIndex($0.part) == indexPath.section
+        }
+
         closetListTableViewCell.delegate = self
         closetListTableViewCell.configureCell(clothingData: clothingData)
         return closetListTableViewCell

@@ -8,9 +8,16 @@
 
 import UIKit
 
-struct ClothingAPIDataList: Decodable {}
+struct ClothingAPIData: Codable, Hashable {
+    static func == (lhs: ClothingAPIData, rhs: ClothingAPIData) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
 
-struct ClothingAPIData: Decodable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+    }
+
     let id: Int
     let name: String
     let image: String?
@@ -26,3 +33,5 @@ struct ClothingAPIData: Decodable {
         case image = "img"
     }
 }
+
+typealias ClothingAPIDataList = [ClothingAPIData]

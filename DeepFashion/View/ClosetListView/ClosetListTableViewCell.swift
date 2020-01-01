@@ -16,7 +16,7 @@ class ClosetListTableViewCell: UITableViewCell {
 
     // MARK: Properties
 
-    private var closetListData: [UserClothingData] = [] {
+    private var closetListData: [ClothingAPIData] = [] {
         didSet {
             closetListDataCount = closetListData.count
         }
@@ -41,7 +41,7 @@ class ClosetListTableViewCell: UITableViewCell {
 
     // MARK: Methods
 
-    func configureCell(clothingData: [UserClothingData]) {
+    func configureCell(clothingData: [ClothingAPIData]) {
         closetListData = clothingData
         DispatchQueue.main.async {
             self.collectionView.reloadData()

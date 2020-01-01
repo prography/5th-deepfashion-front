@@ -22,7 +22,8 @@ final class UserCommonData {
     private(set) var nowClothingCode: Int = 0
 
     private(set) var codiDataList = [CodiDataSet?]()
-    private(set) var clothingList = [UserClothingData]()
+    private(set) var clothingList = [ClothingAPIData]()
+    var thumbnailImageCache = NSCache<NSString, UIImage>()
 
     private init() {}
 
@@ -31,10 +32,10 @@ final class UserCommonData {
         self.password = password
         self.gender = gender
         userData = UserData(userName: id, styles: [], password: password, gender: gender)
-        clothingList = [UserClothingData]()
+        clothingList = [ClothingAPIData]()
     }
 
-    func addUserClothing(_ clothingData: UserClothingData) {
+    func addUserClothing(_ clothingData: ClothingAPIData) {
         clothingList.append(clothingData)
     }
 
@@ -67,10 +68,14 @@ final class UserCommonData {
     }
 
     func resetClothingData() {
-        clothingList = [UserClothingData]()
+        clothingList = [ClothingAPIData]()
     }
 
-    func removeClothingData(selectedData: Set<UserClothingData>) {
+    func configureClothingData(_ clothingData: [ClothingAPIData]) {
+        clothingList = clothingData
+    }
+
+    func removeClothingData(selectedData: Set<ClothingAPIData>) {
         clothingList.sort {
             $0.name < $1.name
         }

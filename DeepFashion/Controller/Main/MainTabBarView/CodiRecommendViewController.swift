@@ -66,10 +66,11 @@ class CodiRecommendViewController: UIViewController {
 
     private func updateNetworkTask() {
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
-        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: [ClothingAPIData].self) { networkError, clothingData in
+        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
             if networkError == nil {
-                print(clothingData!)
+                guard let clothingData = clothingData else { return }
                 UserCommonData.shared.setIsNeedToUpdateClothingFalse()
+                UserCommonData.shared.configureClothingData(clothingData)
             } else {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController else { return }

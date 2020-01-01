@@ -24,6 +24,8 @@
 		073547B423BB7C7200E45ADF /* WeatherIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547B323BB7C7200E45ADF /* WeatherIndex.swift */; };
 		073547BA23BC992A00E45ADF /* ClothingAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547B923BC992A00E45ADF /* ClothingAPIData.swift */; };
 		073547BC23BCB9A700E45ADF /* ClothingCategoryIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547BB23BCB9A700E45ADF /* ClothingCategoryIndex.swift */; };
+		073547BE23BCC30C00E45ADF /* RequestImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547BD23BCC30C00E45ADF /* RequestImage.swift */; };
+		073547C023BCC95A00E45ADF /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547BF23BCC95A00E45ADF /* UIImageView+.swift */; };
 		07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */; };
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
 		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
@@ -150,6 +152,8 @@
 		073547B323BB7C7200E45ADF /* WeatherIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIndex.swift; sourceTree = "<group>"; };
 		073547B923BC992A00E45ADF /* ClothingAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingAPIData.swift; sourceTree = "<group>"; };
 		073547BB23BCB9A700E45ADF /* ClothingCategoryIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingCategoryIndex.swift; sourceTree = "<group>"; };
+		073547BD23BCC30C00E45ADF /* RequestImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImage.swift; sourceTree = "<group>"; };
+		073547BF23BCC95A00E45ADF /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingPostAPIResultData.swift; sourceTree = "<group>"; };
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
 		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
@@ -486,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				077C77B22378145C0088B151 /* RequestAPI.swift */,
+				073547BD23BCC30C00E45ADF /* RequestImage.swift */,
 				073547B023BA625100E45ADF /* WeatherData */,
 				07B7F6BC238EE4E200EA9C10 /* ClothingData */,
 				07ADBD8A237D0DA8004222CB /* SignUpData */,
@@ -625,6 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */,
+				073547BF23BCC95A00E45ADF /* UIImageView+.swift */,
 				0777D45023B51B0400385E68 /* ColorList.swift */,
 				07B6E0632382B64A00D6A9E1 /* ViewData.swift */,
 				07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */,
@@ -913,6 +919,7 @@
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */,
 				073547BA23BC992A00E45ADF /* ClothingAPIData.swift in Sources */,
+				073547BE23BCC30C00E45ADF /* RequestImage.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,
 				073547AD23B9FE9000E45ADF /* Data+.swift in Sources */,
 				07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */,
@@ -946,6 +953,7 @@
 				07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */,
 				07C745A82392A41D0045AB56 /* FashionType.swift in Sources */,
 				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,
+				073547C023BCC95A00E45ADF /* UIImageView+.swift in Sources */,
 				07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */,
 				07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,

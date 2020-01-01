@@ -588,7 +588,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="longJacket" translatesAutoresizingMaskIntoConstraints="NO" id="hpL-d7-qBl">
                                                                         <rect key="frame" x="0.0" y="0.0" width="79" height="69"/>
-                                                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>

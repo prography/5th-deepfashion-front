@@ -90,7 +90,7 @@ final class RequestAPI {
 
     weak var delegate: RequestAPIDelegate?
 
-    func getAPIData<T: Decodable>(APIMode: APIGetMode, type _: T.Type, completion: @escaping (NetworkError?, T?) -> Void) {
+    func getAPIData<T: Codable>(APIMode: APIGetMode, type _: T.Type, completion: @escaping (NetworkError?, T?) -> Void) {
         var errorType: NetworkError = .unknown
         delegate?.requestAPIDidBegin()
 
@@ -134,42 +134,29 @@ final class RequestAPI {
 
         case .getClothing:
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.clothing)"
-            guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
-            var urlRequest = URLRequest(url: requestAPIURL)
+            guard let url = URL(string: requestAPIURLString) else { return }
+            var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "GET"
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
-
-            urlSession.dataTask(with: requestAPIURL) { data, response, error in
-                if error != nil {
-                    completion(self.configureError(.client), nil)
-                    return
-                }
-
-                guard let clothingData = data else {
-                    completion(self.configureError(.client), nil)
-                    return
-                }
-
-                guard let clothingAPIData = try? JSONDecoder().decode(T.self, from: clothingData) else {
+            urlRequest.addValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlSession.dataTask(with: urlRequest, completionHandler: { (data, _, _) -> Void in
+                guard let data = data else {
                     errorType = .client
                     self.delegate?.requestAPIDidError()
                     completion(errorType, nil)
                     return
                 }
 
-                if let response = response as? HTTPURLResponse {
-                    if (200 ... 299).contains(response.statusCode) {
-                        self.delegate?.requestAPIDidFinished()
-                        completion(nil, clothingAPIData)
-                    } else {
-                        print("request failed : \(response.statusCode)")
-                        self.delegate?.requestAPIDidError()
-                        self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
-                        completion(errorType, nil)
-                    }
+                do {
+                    let weatherAPIData = try JSONDecoder().decode(T.self, from: data)
+                    self.delegate?.requestAPIDidFinished()
+                    completion(nil, weatherAPIData)
+                } catch {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType, nil)
                 }
-            }.resume()
+
+            }).resume()
         case .getCodiList:
             break
         }

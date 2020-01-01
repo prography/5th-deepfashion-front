@@ -17,7 +17,7 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
 
     weak var delegate: UICollectionViewCellDelegate?
 
-    private(set) var clothingData: UserClothingData?
+    private(set) var clothingData: ClothingAPIData?
 
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
@@ -52,9 +52,10 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
 
     // MARK: Methods
 
-    func configureCell(clothingData: UserClothingData) {
+    func configureCell(clothingData: ClothingAPIData) {
         self.clothingData = clothingData
-        fashionImageView.image = clothingData.image
+        guard let clothingImage = clothingData.image else { return }
+        fashionImageView.setThumbnailImageFromServerURL(clothingImage, placeHolder: #imageLiteral(resourceName: "check"))
         fashionImageView.layer.cornerRadius = 10
     }
 
