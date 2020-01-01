@@ -14,6 +14,7 @@ class ClosetListViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet var closetListTableView: UITableView!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     private var editBarButtonItem: UIBarButtonItem = {
         let editBarButtonItem = UIBarButtonItem()
@@ -34,6 +35,14 @@ class ClosetListViewController: UIViewController {
                 deleteBarButtonItem.isEnabled = true
             } else {
                 deleteBarButtonItem.isEnabled = false
+            }
+        }
+    }
+
+    private var isAPIDataRequested = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested)
             }
         }
     }
@@ -68,6 +77,7 @@ class ClosetListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        RequestAPI.shared.delegate = self
         configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
         updateNetworkTask()
     }
@@ -226,6 +236,23 @@ extension ClosetListViewController: ClosetListTableViewCellDelegate {
             selectedClothingData.remove(cellClothingData)
         }
         print(selectedClothingData)
+    }
+}
+
+extension ClosetListViewController: RequestAPIDelegate {
+    func requestAPIDidBegin() {
+        // 인디케이터 동작
+        isAPIDataRequested = true
+    }
+
+    func requestAPIDidFinished() {
+        // 인디케이터 종료 및 세그 동작 실행
+        isAPIDataRequested = false
+    }
+
+    func requestAPIDidError() {
+        // 에러 발생 시 동작 실행
+        isAPIDataRequested = false
     }
 }
 

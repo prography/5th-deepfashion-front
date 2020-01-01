@@ -49,6 +49,7 @@ class CodiRecommendViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        RequestAPI.shared.delegate = self
         requestLocationAuthority()
         locationManager.startUpdatingLocation()
         updateNetworkTask()
@@ -197,38 +198,38 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
 }
 
 extension CodiRecommendViewController: CLLocationManagerDelegate {
-    func locationManager(_: CLLocationManager, didUpdateLocations _: [CLLocation]) {
-//        guard let nowCoordinator = locations.first?.coordinate else { return }
-//        // 현지 위치정보를 얻었는데 만약 날씨 데이터가 존재하지 않는나면,
-//        // 날씨 데이터를 요청해서 받아온다.
-//        RequestAPI.shared.getAPIData(APIMode: .getWeather, type: [WeatherAPIData].self) { error, data in
-//            if error == nil {
-//                // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
-//                guard let weatherDataList = data else { return }
-//
-//                var minDiff: Double = 6e4
-//                weatherDataList.forEach {
-//                    guard let latitude = LocationData.coordinatorList[$0.id]?.1,
-//                        let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
-//                    let diff = abs(nowCoordinator.latitude - latitude) + abs(nowCoordinator.longitude - longitude)
-//                    if diff < minDiff {
-//                        minDiff = diff
-//                        self.nowWeatherData = $0
-//                    }
-//                }
-//
-//                guard let weatherData = self.nowWeatherData else { return }
-//                DispatchQueue.main.async {
-//                    self.updateWeatherData(weatherData: weatherData)
-//                    self.locationManager.stopUpdatingLocation()
-//                }
-//            } else {
-//                DispatchQueue.main.async {
-//                    guard let tabBarController = self.tabBarController else { return }
-//                    ToastView.shared.presentShortMessage(tabBarController.view, message: "현지 날씨정보 불러오기에 실패했습니다.")
-//                }
-//            }
-//        }
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let nowCoordinator = locations.first?.coordinate else { return }
+        // 현지 위치정보를 얻었는데 만약 날씨 데이터가 존재하지 않는나면,
+        // 날씨 데이터를 요청해서 받아온다.
+        RequestAPI.shared.getAPIData(APIMode: .getWeather, type: [WeatherAPIData].self) { error, data in
+            if error == nil {
+                // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
+                guard let weatherDataList = data else { return }
+
+                var minDiff: Double = 6e4
+                weatherDataList.forEach {
+                    guard let latitude = LocationData.coordinatorList[$0.id]?.1,
+                        let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
+                    let diff = abs(nowCoordinator.latitude - latitude) + abs(nowCoordinator.longitude - longitude)
+                    if diff < minDiff {
+                        minDiff = diff
+                        self.nowWeatherData = $0
+                    }
+                }
+
+                guard let weatherData = self.nowWeatherData else { return }
+                DispatchQueue.main.async {
+                    self.updateWeatherData(weatherData: weatherData)
+                    self.locationManager.stopUpdatingLocation()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController else { return }
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "현지 날씨정보 불러오기에 실패했습니다.")
+                }
+            }
+        }
     }
 
     func locationManager(_: CLLocationManager, didChangeAuthorization _: CLAuthorizationStatus) {

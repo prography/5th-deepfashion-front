@@ -586,9 +586,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="79" height="69"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="longJacket" translatesAutoresizingMaskIntoConstraints="NO" id="hpL-d7-qBl">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpL-d7-qBl">
                                                                         <rect key="frame" x="0.0" y="0.0" width="79" height="69"/>
-                                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
@@ -625,11 +626,18 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4CR-vm-Lad">
+                                <rect key="frame" x="188.5" y="344" width="37" height="37"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ifp-0n-4P3" firstAttribute="leading" secondItem="KJJ-Gy-1Pj" secondAttribute="leading" id="60a-8w-Zq4"/>
+                            <constraint firstItem="4CR-vm-Lad" firstAttribute="centerX" secondItem="ILb-48-Kcd" secondAttribute="centerX" id="Ndm-90-bn2"/>
                             <constraint firstItem="ifp-0n-4P3" firstAttribute="top" secondItem="KJJ-Gy-1Pj" secondAttribute="top" id="Pjq-3P-kOf"/>
+                            <constraint firstItem="4CR-vm-Lad" firstAttribute="centerY" secondItem="KJJ-Gy-1Pj" secondAttribute="centerY" id="avj-9r-NKR"/>
                             <constraint firstItem="KJJ-Gy-1Pj" firstAttribute="trailing" secondItem="ifp-0n-4P3" secondAttribute="trailing" id="jQO-IV-PiZ"/>
                             <constraint firstItem="KJJ-Gy-1Pj" firstAttribute="bottom" secondItem="ifp-0n-4P3" secondAttribute="bottom" id="tWq-15-YpO"/>
                         </constraints>
@@ -640,6 +648,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="closetListTableView" destination="ifp-0n-4P3" id="Tgw-Zv-TEg"/>
+                        <outlet property="indicatorView" destination="4CR-vm-Lad" id="OZa-go-HhA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoQ-tG-ule" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1819,6 +1828,7 @@
         <image name="home" width="29.5" height="29.5"/>
         <image name="longJacket" width="526" height="304"/>
         <image name="myPage" width="29.5" height="29.5"/>
+        <image name="noClothing" width="170.66667175292969" height="170.66667175292969"/>
         <image name="plus" width="29.5" height="29.5"/>
         <namedColor name="Beige">
             <color red="0.9100000262260437" green="0.81199997663497925" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
