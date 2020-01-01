@@ -33,10 +33,10 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 접근을 허용하면 앱 사용 중 현지 날씨에 맞는 코디 추천이 가능합니다.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>카메라 사용을 위해 접근권한이 필요합니다.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>위치 접근을 허용하면 앱 사용 중 현지 날씨에 맞는 코디 추천이 가능합니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>앨범 사용을 위해 접근권한이 필요합니다. </string>
 	<key>UIAppFonts</key>

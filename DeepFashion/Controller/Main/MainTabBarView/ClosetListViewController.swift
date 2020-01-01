@@ -88,12 +88,12 @@ class ClosetListViewController: UIViewController {
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
         configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
-        updateNetworkTask()
     }
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         viewMode = .view
+        updateNetworkTask()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -140,13 +140,11 @@ class ClosetListViewController: UIViewController {
 
     private func updateNetworkTask() {
         if UserCommonData.shared.isNeedToUpdateClothing == false { return }
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
             if networkError == nil {
                 guard let clothingData = clothingData else { return }
                 UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 UserCommonData.shared.configureClothingData(clothingData)
-                UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 DispatchQueue.main.async {
                     self.closetListTableView.reloadData()
                 }
@@ -154,7 +152,6 @@ class ClosetListViewController: UIViewController {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController else { return }
                     ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 정보를 불러오는데 실패했습니다.")
-                    UserCommonData.shared.setIsNeedToUpdateClothingTrue()
                 }
             }
         }
@@ -236,8 +233,10 @@ extension ClosetListViewController: UITableViewDataSource {
         let clothingData = UserCommonData.shared.clothingList.filter {
             ClothingCategoryIndex.shared.convertToMainClientIndex($0.part) == indexPath.section
         }
+       
 
         closetListTableViewCell.configureCell(clothingData: clothingData)
+        
         closetListTableViewCell.delegate = self
         return closetListTableViewCell
     }
@@ -247,13 +246,12 @@ extension ClosetListViewController: ClosetListTableViewCellDelegate {
     func numberOfItemsUpdated(numberOfItemsCount _: Int) {}
 
     func subCollectionViewCellSelected(collectionView: ClosetListCollectionViewCell) {
-        guard let cellClothingData = collectionView.clothingData else { return }
+//        guard let cellClothingData = collectionView.clothingData else { return }
 //        if collectionView.isSelected {
 //            selectedClothingData.insert(cellClothingData)
 //        } else {
 //            selectedClothingData.remove(cellClothingData)
 //        }
-        print(selectedClothingData)
     }
 }
 
@@ -267,9 +265,7 @@ extension ClosetListViewController: RequestAPIDelegate {
         // 인디케이터 종료 및 세그 동작 실행
         isAPIDataRequested = false
         if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {
-            DispatchQueue.main.async {
-                self.closetListTableView.reloadData()
-            }
+            
         }
     }
 
@@ -277,9 +273,7 @@ extension ClosetListViewController: RequestAPIDelegate {
         // 에러 발생 시 동작 실행
         isAPIDataRequested = false
         if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {
-            DispatchQueue.main.async {
-                self.closetListTableView.reloadData()
-            }
+
         }
     }
 }

@@ -66,7 +66,6 @@ class CodiRecommendViewController: UIViewController {
     // MARK: Methods
 
     private func updateNetworkTask() {
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
             if networkError == nil {
                 guard let clothingData = clothingData else { return }
@@ -274,5 +273,7 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
+        
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
     }
 }

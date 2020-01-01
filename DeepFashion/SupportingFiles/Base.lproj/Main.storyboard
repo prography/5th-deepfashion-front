@@ -574,7 +574,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3dd-CD-GKy">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3dd-CD-GKy">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewLayout key="collectionViewLayout" id="3bR-3s-aOE" customClass="ClosetListCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
@@ -1102,10 +1102,11 @@
                                                                     <rect key="frame" x="10" y="40" width="394" height="40"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <segments>
-                                                                        <segment title="Top"/>
-                                                                        <segment title="Outer"/>
-                                                                        <segment title="Bottom"/>
-                                                                        <segment title="Shoes"/>
+                                                                        <segment title="상의"/>
+                                                                        <segment title="아우터"/>
+                                                                        <segment title="하의"/>
+                                                                        <segment title="신발"/>
+                                                                        <segment title="원피스"/>
                                                                     </segments>
                                                                     <color key="tintColor" name="NewBrown"/>
                                                                 </segmentedControl>
@@ -1135,10 +1136,10 @@
                                                                     <rect key="frame" x="10" y="40" width="394" height="40"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <segments>
+                                                                        <segment title="ALL"/>
                                                                         <segment title="봄/가을"/>
                                                                         <segment title="여름"/>
                                                                         <segment title="겨울"/>
-                                                                        <segment title="All"/>
                                                                     </segments>
                                                                     <color key="tintColor" name="NewBrown"/>
                                                                 </segmentedControl>

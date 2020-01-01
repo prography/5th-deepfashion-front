@@ -8,9 +8,13 @@
 
 import UIKit
 
-struct ClothingAPIData: Codable, Hashable {
+struct ClothingAPIData: Codable, Hashable, Comparable {
     static func == (lhs: ClothingAPIData, rhs: ClothingAPIData) -> Bool {
-        return lhs.id == rhs.id && lhs.name == rhs.name
+        return lhs.id == rhs.id
+    }
+    
+    static func < (lhs: ClothingAPIData, rhs: ClothingAPIData) -> Bool {
+        return lhs.id < rhs.id
     }
 
     func hash(into hasher: inout Hasher) {

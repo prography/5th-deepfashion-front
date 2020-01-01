@@ -45,7 +45,7 @@ final class RequestImage {
 
     // UIImageView객체 내 추가로 URL에따른 데이터 요청 및 이미지 설정 메서드를 추가한다.
     // 인자값으로 URL값과 Default Image(placeHolder)값을 받는다.
-    func setImageFromServerURL(_ thumbnailImageURLString: String, placeHolder: UIImage?, completion: @escaping (UIImage?) -> Void) {
+    func setImageFromServerURL(_ thumbnailImageURLString: String, placeHolder: UIImage, completion: @escaping (UIImage) -> Void) {
         delegate?.imageRequestDidBegin()
 
         if let cachedImage = UserCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {

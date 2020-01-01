@@ -146,12 +146,13 @@ class EditClothingViewController: UIViewController {
             let selectedColorIndex = addFashionTableCell.getSelectedColorIndex() else { return }
         // 옷 타입, 스타일 셋팅
 
-        let partIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
+        let partServerIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
+        let partClientIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(partServerIndex + 1)
         let clothingStyle = selectedFashionData.style
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
 
-        let clotingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partIndex + 1, category: 1, image: clothingImage)
+        let clotingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partClientIndex + 1, category: 1, image: clothingImage)
 
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
             if errorType == nil {

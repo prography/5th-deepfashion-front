@@ -35,10 +35,6 @@ final class UserCommonData {
         clothingList = [ClothingAPIData]()
     }
 
-    func addUserClothing(_ clothingData: ClothingAPIData) {
-        clothingList.append(clothingData)
-    }
-
     func saveID(_ id: String) {
         self.id = id
     }
@@ -73,21 +69,18 @@ final class UserCommonData {
 
     func configureClothingData(_ clothingData: [ClothingAPIData]) {
         clothingList = clothingData
-        clothingList.sort {
-            $0.id < $1.id
-        }
     }
 
     func removeClothingData(selectedData: Set<ClothingAPIData>) {
-        clothingList.sort {
-            $0.id < $1.id
-        }
-
-        for i in selectedData.indices {
-            if let idx = clothingList.binarySearch(searchData: selectedData[i]) {
-                clothingList.remove(at: idx)
-            }
-        }
+//        clothingList.sort {
+//            $0.id < $1.id
+//        }
+//
+//        for i in selectedData.indices {
+//            if let idx = clothingList.binarySearch(searchData: selectedData[i]) {
+//                clothingList.remove(at: idx)
+//            }
+//        }
     }
 
     func setIsNeedToUpdateClothingTrue() {
