@@ -28,10 +28,6 @@ class ClosetListTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        closetListDataCount = closetListData.count
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,11 +37,21 @@ class ClosetListTableViewCell: UITableViewCell {
 
     // MARK: Methods
 
+    func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        let flowLayout = UICollectionViewFlowLayout()
+        let itemWidth = UIScreen.main.bounds.width / 4 - 10
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 0.0
+        collectionView.collectionViewLayout = flowLayout
+    }
+
     func configureCell(clothingData: [ClothingAPIData]) {
+        configureCollectionView()
         closetListData = clothingData
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
     }
 
     func removeSelectedCollectionViewCell(_ completion: @escaping (Bool) -> Void) {
@@ -70,6 +76,7 @@ extension ClosetListTableViewCell: UICollectionViewDelegate {}
 
 extension ClosetListTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+        delegate?.numberOfItemsUpdated(numberOfItemsCount: closetListDataCount)
         return closetListDataCount
     }
 

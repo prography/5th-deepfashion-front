@@ -10,4 +10,5 @@ import UIKit
 
 protocol ClosetListTableViewCellDelegate: class {
     func subCollectionViewCellSelected(collectionView: ClosetListCollectionViewCell)
+    func numberOfItemsUpdated(numberOfItemsCount: Int)
 }

@@ -13,4 +13,3 @@ protocol RequestImageDelegate: class {
     func imageRequestDidFinished(_ requestImage: UIImage, imageKey: String)
     func imageRequestDidError(_ errorDescription: String)
 }
-

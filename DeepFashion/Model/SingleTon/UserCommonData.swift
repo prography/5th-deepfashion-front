@@ -73,11 +73,14 @@ final class UserCommonData {
 
     func configureClothingData(_ clothingData: [ClothingAPIData]) {
         clothingList = clothingData
+        clothingList.sort {
+            $0.id < $1.id
+        }
     }
 
     func removeClothingData(selectedData: Set<ClothingAPIData>) {
         clothingList.sort {
-            $0.name < $1.name
+            $0.id < $1.id
         }
 
         for i in selectedData.indices {

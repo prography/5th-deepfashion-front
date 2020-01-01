@@ -14,10 +14,10 @@ extension Array where Element == ClothingAPIData {
         while left <= right {
             let mid = (left + right) / 2
             if mid >= count { return nil }
-            if self[mid].name == searchData.name {
+            if self[mid].id == searchData.id {
                 return mid
             }
-            if self[mid].name < searchData.name {
+            if self[mid].id < searchData.id {
                 left = mid + 1
             } else {
                 right = mid - 1

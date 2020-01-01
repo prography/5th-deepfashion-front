@@ -293,6 +293,7 @@ class ClothingAddViewController: UIViewController {
 
     @IBAction func unwindToClothingAddView(_: UIStoryboardSegue) {
         guard let tabBarController = tabBarController else { return }
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
         ToastView.shared.presentShortMessage(tabBarController.view, message: "해당 옷이 추가되었습니다!")
         configureLayoutWithInitStatus()
     }

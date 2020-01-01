@@ -51,6 +51,7 @@ final class RequestImage {
         if let cachedImage = UserCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
             delegate?.imageRequestDidFinished(cachedImage, imageKey: thumbnailImageURLString)
             completion(cachedImage)
+            return
         }
 
         insertImageKey(thumbnailImageURLString)
@@ -62,6 +63,7 @@ final class RequestImage {
                     self.removeImageKey(thumbnailImageURLString)
                     self.delegate?.imageRequestDidError("thumbnailImage URL Loading Error!: \(error?.localizedDescription ?? "")")
                     completion(placeHolder) // 이미지의 설정은 비동기 과정에서 진행한다.
+                    return
                 }
 
                 DispatchQueue.main.async {
