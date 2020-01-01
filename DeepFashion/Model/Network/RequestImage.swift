@@ -13,7 +13,7 @@ final class RequestImage {
 
     // MARK: - Property
 
-//    weak var delegate: RequestImageDelegate?
+    weak var delegate: RequestImageDelegate?
     private var requestingImageKey = Set<String>()
 
     // MARK: - Method
@@ -46,10 +46,10 @@ final class RequestImage {
     // UIImageView객체 내 추가로 URL에따른 데이터 요청 및 이미지 설정 메서드를 추가한다.
     // 인자값으로 URL값과 Default Image(placeHolder)값을 받는다.
     func setImageFromServerURL(_ thumbnailImageURLString: String, placeHolder: UIImage?, completion: @escaping (UIImage?) -> Void) {
-//        delegate?.imageRequestDidBegin()
+        delegate?.imageRequestDidBegin()
 
         if let cachedImage = UserCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
-//            delegate?.imageRequestDidFinished(cachedImage, imageKey: thumbnailImageURLString)
+            delegate?.imageRequestDidFinished(cachedImage, imageKey: thumbnailImageURLString)
             completion(cachedImage)
         }
 
@@ -60,7 +60,7 @@ final class RequestImage {
 
                 if error != nil {
                     self.removeImageKey(thumbnailImageURLString)
-//                    self.delegate?.imageRequestDidError("thumbnailImage URL Loading Error!: \(error?.localizedDescription ?? "")")
+                    self.delegate?.imageRequestDidError("thumbnailImage URL Loading Error!: \(error?.localizedDescription ?? "")")
                     completion(placeHolder) // 이미지의 설정은 비동기 과정에서 진행한다.
                 }
 
@@ -71,7 +71,7 @@ final class RequestImage {
                             UserCommonData.shared.thumbnailImageCache.setObject(thumbnailImage, forKey: NSString(string: thumbnailImageURLString))
 
                             self.removeImageKey(thumbnailImageURLString)
-//                            self.delegate?.imageRequestDidFinished(thumbnailImage, imageKey: thumbnailImageURLString)
+                            self.delegate?.imageRequestDidFinished(thumbnailImage, imageKey: thumbnailImageURLString)
                             completion(thumbnailImage)
                         }
                     }
