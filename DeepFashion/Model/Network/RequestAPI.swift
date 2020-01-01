@@ -54,6 +54,8 @@ enum APIDeleteMode: String {
 
 enum APIGetMode: String {
     case getWeather
+    case getClothing
+    case getCodiList
 }
 
 struct APIURL {
@@ -65,6 +67,7 @@ struct APIURL {
 
         struct Get {
             static let currentWeather = "weather/current-weather/"
+            static let clothing = "clothing/"
         }
 
         struct Post {
@@ -87,7 +90,7 @@ final class RequestAPI {
 
     weak var delegate: RequestAPIDelegate?
 
-    func getAPIData<T: Codable>(APIMode: APIGetMode, type _: T.Type, completion: @escaping (NetworkError?, T?) -> Void) {
+    func getAPIData<T: Decodable>(APIMode: APIGetMode, type _: T.Type, completion: @escaping (NetworkError?, T?) -> Void) {
         var errorType: NetworkError = .unknown
         delegate?.requestAPIDidBegin()
 
@@ -96,6 +99,7 @@ final class RequestAPI {
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
             guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: requestAPIURL)
+            urlRequest.httpMethod = "GET"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlSession.dataTask(with: requestAPIURL) { data, response, error in
                 if error != nil {
@@ -127,6 +131,47 @@ final class RequestAPI {
                     }
                 }
             }.resume()
+
+        case .getClothing:
+            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.clothing)"
+            guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
+            var urlRequest = URLRequest(url: requestAPIURL)
+            urlRequest.httpMethod = "GET"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+
+            urlSession.dataTask(with: requestAPIURL) { data, response, error in
+                if error != nil {
+                    completion(self.configureError(.client), nil)
+                    return
+                }
+
+                guard let clothingData = data else {
+                    completion(self.configureError(.client), nil)
+                    return
+                }
+
+                guard let clothingAPIData = try? JSONDecoder().decode(T.self, from: clothingData) else {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType, nil)
+                    return
+                }
+
+                if let response = response as? HTTPURLResponse {
+                    if (200 ... 299).contains(response.statusCode) {
+                        self.delegate?.requestAPIDidFinished()
+                        completion(nil, clothingAPIData)
+                    } else {
+                        print("request failed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidError()
+                        self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
+                        completion(errorType, nil)
+                    }
+                }
+            }.resume()
+        case .getCodiList:
+            break
         }
     }
 
@@ -281,7 +326,7 @@ final class RequestAPI {
 
         case .clothingPost:
 
-            guard let userData = userData as? ClothingAPIData else {
+            guard let userData = userData as? ClothingPostData else {
                 completion(configureError(.wrongType))
                 return
             }
@@ -301,6 +346,7 @@ final class RequestAPI {
                 "color": "\(userData.color)",
                 "season": "\(userData.season)",
                 "part": "\(userData.part)",
+                "category": "\(userData.category)",
             ]
 
             // request 설정
@@ -315,7 +361,7 @@ final class RequestAPI {
             let clothingMimeType = "image/jpg"
             let clothingImageKey = "img"
 
-            let imageData = userData.image!.jpegData(compressionQuality: 1)!
+            guard let imageData = userData.image?.jpegData(compressionQuality: 1) else { return }
 
             urlRequest.httpBody = createBody(parameters: parameter, boundary: boundary, data: imageData, mimeType: clothingMimeType, fileKey: clothingImageKey, imageName: imageName)
             // URLSession을 만들어 Post 작용을 시작한다.

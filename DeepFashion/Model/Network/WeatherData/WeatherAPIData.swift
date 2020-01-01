@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherData: Codable {
+struct WeatherAPIData: Codable {
     let id: Int
     let location: String
     let temperature: String

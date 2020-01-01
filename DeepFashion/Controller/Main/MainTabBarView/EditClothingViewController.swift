@@ -151,7 +151,7 @@ class EditClothingViewController: UIViewController {
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
 
-        let clotingData = ClothingAPIData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partIndex + 1, category: nil, image: clothingImage)
+        let clotingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partIndex + 1, category: 1, image: clothingImage)
 
         print("now Adding clothingData : \(clotingData)")
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in

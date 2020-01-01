@@ -1687,12 +1687,19 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-Rg-uzJ">
+                                        <rect key="frame" x="188.5" y="314" width="37" height="37"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="top" secondItem="BDW-CI-BlR" secondAttribute="top" constant="20" id="6Sj-dT-Z40"/>
                                     <constraint firstAttribute="trailing" secondItem="jYq-fT-66a" secondAttribute="trailing" constant="20" id="7Rj-C3-fmR"/>
                                     <constraint firstAttribute="bottom" secondItem="jYq-fT-66a" secondAttribute="bottom" constant="50" id="Ava-WI-vS7"/>
+                                    <constraint firstItem="RQf-Rg-uzJ" firstAttribute="centerY" secondItem="BDW-CI-BlR" secondAttribute="centerY" id="DBC-vR-lUn"/>
+                                    <constraint firstItem="RQf-Rg-uzJ" firstAttribute="centerX" secondItem="BDW-CI-BlR" secondAttribute="centerX" id="NH4-qi-33e"/>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="leading" secondItem="BDW-CI-BlR" secondAttribute="leading" constant="20" id="VWd-E8-5FV"/>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="centerX" secondItem="BDW-CI-BlR" secondAttribute="centerX" id="lt7-BR-gEZ"/>
                                 </constraints>
@@ -1716,6 +1723,7 @@
                     <connections>
                         <outlet property="celsiusLabel" destination="dtF-bn-O1x" id="Or3-zi-JFK"/>
                         <outlet property="codiListSaveButton" destination="afC-Ei-APJ" id="IGC-6l-t2e"/>
+                        <outlet property="indicatorView" destination="RQf-Rg-uzJ" id="Ldt-KE-CaF"/>
                         <outlet property="leftTitleView" destination="bsG-bF-zrX" id="q8X-P9-hZZ"/>
                         <outlet property="recommendCollectionView" destination="UWn-7u-RIA" id="7ZA-uT-R1L"/>
                         <outlet property="refreshCodiButton" destination="hu5-Jd-hH3" id="p0k-nk-rxH"/>
