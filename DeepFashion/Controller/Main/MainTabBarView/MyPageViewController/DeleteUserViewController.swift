@@ -79,6 +79,7 @@ class DeleteUserViewController: UIViewController {
 
     private func deleteUserData() {
         guard let tabBarController = self.tabBarController else { return }
+
         RequestAPI.shared.deleteAPIData(APIMode: .deleteUser) { networkError in
             DispatchQueue.main.async { [weak self] in
                 if networkError != nil {
