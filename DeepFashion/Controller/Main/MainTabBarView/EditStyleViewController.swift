@@ -66,10 +66,10 @@ class EditStyleViewController: UIViewController {
     @IBAction func finishButtonPressed(_: UIButton) {
         UserCommonData.shared.resetStyleData()
         guard let navigationController = self.navigationController,
-            let addFashionViewController = self.navigationController?.viewControllers[navigationController.viewControllers.count - 2] as? EditClothingViewController,
+            let editClothingViewController = self.navigationController?.viewControllers[navigationController.viewControllers.count - 2] as? EditClothingViewController,
             let selectedItem = collectionView.indexPathsForSelectedItems else { return }
-        addFashionViewController.selectedFashionData.style = (fashionStyles[selectedItem[0].item], selectedItem[0].item)
-        addFashionViewController.refreshStyleButton()
+        editClothingViewController.selectedClothingData.style = (fashionStyles[selectedItem[0].item], selectedItem[0].item)
+        editClothingViewController.refreshStyleButton()
 
         navigationController.popViewController(animated: true)
     }

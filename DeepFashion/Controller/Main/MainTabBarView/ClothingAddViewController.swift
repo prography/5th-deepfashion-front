@@ -274,7 +274,7 @@ class ClothingAddViewController: UIViewController {
         }
 
         // 미리 해당 뷰컨에 필요한 이미지 추가 후 네비게이션 스택에 푸시
-        viewController.selectedFashionData.image = selectedImage
+        viewController.selectedClothingData.image = selectedImage
         navigationController?.pushViewController(viewController, animated: true)
     }
 
