@@ -50,6 +50,7 @@ enum APIPostMode: String {
 
 enum APIDeleteMode: String {
     case deleteUser
+    case deleteClothing
 }
 
 enum APIGetMode: String {
@@ -63,6 +64,7 @@ struct APIURL {
     struct SubURL {
         struct Delete {
             static let deleteUser = "accounts/"
+            static let deleteClothing = "clothing/"
         }
 
         struct Get {
@@ -162,44 +164,55 @@ final class RequestAPI {
         }
     }
 
-    func deleteAPIData(APIMode: APIDeleteMode, completion: @escaping (NetworkError?) -> Void) {
+    func deleteAPIData(APIMode: APIDeleteMode, targetId: Int = 0, completion: @escaping (NetworkError?) -> Void) {
         var errorType: NetworkError = .unknown
 
         delegate?.requestAPIDidBegin()
 
+        var deleteURLString: String
+        var deleteURL: URL
+
         switch APIMode {
         case .deleteUser:
-            let deleteUserURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.deleteUser)\(UserCommonData.shared.pk)/"
-            guard let deleteURL = URL(string: deleteUserURLString) else {
+            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.deleteUser)\(UserCommonData.shared.pk)/"
+            guard let _deleteURL = URL(string: deleteURLString) else {
                 completion(configureError(.client))
                 return
             }
-
-            var urlRequest = URLRequest(url: deleteURL)
-            urlRequest.httpMethod = "DELETE"
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
-
-            urlSession.dataTask(with: urlRequest) { _, response, error in
-                if error != nil {
-                    completion(self.configureError(.client))
-                    return
-                }
-
-                if let response = response as? HTTPURLResponse {
-                    if (200 ... 299).contains(response.statusCode) {
-                        self.delegate?.requestAPIDidFinished()
-                        completion(nil)
-                    } else {
-                        print("request failed : \(response.statusCode)")
-                        self.delegate?.requestAPIDidError()
-                        self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
-                        completion(errorType)
-                    }
-                }
-
-            }.resume()
+            deleteURL = _deleteURL
+        case .deleteClothing:
+            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.deleteClothing)\(targetId)/"
+            guard let _deleteURL = URL(string: deleteURLString) else {
+                completion(configureError(.client))
+                return
+            }
+            deleteURL = _deleteURL
         }
+
+        var urlRequest = URLRequest(url: deleteURL)
+        urlRequest.httpMethod = "DELETE"
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+
+        urlSession.dataTask(with: urlRequest) { _, response, error in
+            if error != nil {
+                completion(self.configureError(.client))
+                return
+            }
+
+            if let response = response as? HTTPURLResponse {
+                if (200 ... 299).contains(response.statusCode) {
+                    self.delegate?.requestAPIDidFinished()
+                    completion(nil)
+                } else {
+                    print("request failed : \(response.statusCode)")
+                    self.delegate?.requestAPIDidError()
+                    self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
+                    completion(errorType)
+                }
+            }
+
+        }.resume()
     }
 
     func postAPIData<T>(userData: T, APIMode: APIPostMode, completion: @escaping (NetworkError?) -> Void) {

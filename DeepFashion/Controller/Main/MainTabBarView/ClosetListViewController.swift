@@ -16,6 +16,13 @@ class ClosetListViewController: UIViewController {
     @IBOutlet var closetListTableView: UITableView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
 
+    private var isRequestedDeleteClothingData = false
+    private var deletingClotingRequestCount = 0 {
+        didSet {
+            isRequestedDeleteClothingData = deletingClotingRequestCount > 0 ? true : false
+        }
+    }
+
     private var editBarButtonItem: UIBarButtonItem = {
         let editBarButtonItem = UIBarButtonItem()
         editBarButtonItem.title = "편집"
@@ -42,7 +49,7 @@ class ClosetListViewController: UIViewController {
     private var isAPIDataRequested = false {
         didSet {
             DispatchQueue.main.async {
-                self.indicatorView.checkIndicatorView(self.isAPIDataRequested || self.isImageDataRequested)
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested || self.isImageDataRequested || self.isRequestedDeleteClothingData)
             }
         }
     }
@@ -50,7 +57,7 @@ class ClosetListViewController: UIViewController {
     private var isImageDataRequested: Bool = false {
         didSet {
             DispatchQueue.main.async {
-                self.indicatorView.checkIndicatorView(self.isAPIDataRequested || self.isImageDataRequested)
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested || self.isImageDataRequested || self.isRequestedDeleteClothingData)
             }
         }
     }
@@ -93,7 +100,7 @@ class ClosetListViewController: UIViewController {
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         viewMode = .view
-        updateNetworkTask()
+        updateClothingNetworkTask()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -138,7 +145,7 @@ class ClosetListViewController: UIViewController {
         }
     }
 
-    private func updateNetworkTask() {
+    private func updateClothingNetworkTask() {
         if UserCommonData.shared.isNeedToUpdateClothing == false { return }
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
             if networkError == nil {
@@ -170,11 +177,32 @@ class ClosetListViewController: UIViewController {
     }
 
     @objc func closetListDeleteBarButtonItemPressed(_: UIButton) {
-//        guard let tabBarController = self.tabBarController else { return }
+        //        guard let tabBarController = self.tabBarController else { return }
         presentBasicTwoButtonAlertController(title: "선택 옷 삭제", message: "선택한 옷을 삭제하시겠습니까?") { isApproved in
             // 선택한 옷 삭제를 허용하면 삭제 요청을 진행한다.
             if isApproved {
                 // 선택한 id 옷들을 delete 요청 하여 제거해야 한다.
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController else { return }
+                    for selectedData in self.selectedClothingData {
+                        self.deletingClotingRequestCount += 1
+                        RequestAPI.shared.deleteAPIData(APIMode: .deleteClothing, targetId: selectedData.id) { networkError in
+                            DispatchQueue.main.async {
+                                self.deletingClotingRequestCount -= 1
+                                if networkError == nil {
+                                    if self.deletingClotingRequestCount == 0 {
+                                        self.closetListTableView.reloadData()
+                                        ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제에 성공하였습니다. ")
+                                        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+                                        self.updateClothingNetworkTask()
+                                    }
+                                } else {
+                                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제 중 오류가 발생하였습니다.")
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -183,10 +211,10 @@ class ClosetListViewController: UIViewController {
 extension ClosetListViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return ViewData.Row.Height.closetList
-//        guard let tableViewCell = tableView.cellForRow(at: indexPath) as? ClosetListTableViewCell else { return ViewData.Row.Height.closetList }
-//
-//        print("TLqkf : \(ViewData.Row.Height.closetList * CGFloat(max(1,((tableViewCell.closetListDataCount - 1) / 3 + 1))))")
-//        return ViewData.Row.Height.closetList * CGFloat(max(1,((tableViewCell.closetListDataCount - 1) / 3 + 1)))
+        //        guard let tableViewCell = tableView.cellForRow(at: indexPath) as? ClosetListTableViewCell else { return ViewData.Row.Height.closetList }
+        //
+        //        print("TLqkf : \(ViewData.Row.Height.closetList * CGFloat(max(1,((tableViewCell.closetListDataCount - 1) / 3 + 1))))")
+        //        return ViewData.Row.Height.closetList * CGFloat(max(1,((tableViewCell.closetListDataCount - 1) / 3 + 1)))
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
