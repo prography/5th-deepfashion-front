@@ -20,7 +20,9 @@ class EditClothingViewController: UIViewController {
     // MARK: Properties
 
     var selectedFashionData = FashionData()
-    var clothingSubTypeIndex = [(Int, SubCategory)]()
+    var clothingSubTypeIndexList = [(Int, SubCategory)]()
+    var selectedClothingSubTypeIndexList = [(Int, SubCategory)]()
+    var selectedSubTypeIndex: (Int, SubCategory) = (1, SubCategory(name: "청바지", mainIndex: 0))
 
     private var isColorSelected = false {
         didSet {
@@ -72,9 +74,9 @@ class EditClothingViewController: UIViewController {
 
     private func configureClothingSubTypeIndex() {
         for (key, value) in ClothingCategoryIndex.subCategoryList {
-            clothingSubTypeIndex.append((key, value))
+            clothingSubTypeIndexList.append((key, value))
         }
-        print(clothingSubTypeIndex)
+        print(clothingSubTypeIndexList)
     }
 
     private func configureFashionStyleButton() {
@@ -176,11 +178,25 @@ class EditClothingViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    @objc func clothingTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc func clothingTypeSegmentedControlPressed(_ sender: UISegmentedControl) {
+        guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+
         selectedFashionData.typeIndex = sender.selectedSegmentIndex
+
+        if selectedFashionData.typeIndex < 4 {
+            selectedClothingSubTypeIndexList = clothingSubTypeIndexList.filter {
+                $0.1.mainIndex == selectedFashionData.typeIndex
+            }
+        } else {
+            selectedClothingSubTypeIndexList = [(15, ClothingCategoryIndex.subCategoryList[15]!)]
+        }
+
+        guard let firstSubTypeIndex = selectedClothingSubTypeIndexList.first else { return }
+        selectedSubTypeIndex = firstSubTypeIndex
+        addFashionTableCell.subTypeButton.setTitle(" \(selectedSubTypeIndex.1.name)", for: .normal)
     }
 
-    @objc func clothingSeasonSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc func clothingSeasonSegmentedControlPressed(_ sender: UISegmentedControl) {
         selectedFashionData.weatherIndex = sender.selectedSegmentIndex
     }
 
@@ -231,8 +247,8 @@ extension EditClothingViewController: UITableViewDataSource {
         guard let addClothingTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
         addClothingTableCell.nameTextField.delegate = self
         addClothingTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
-        addClothingTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlValueChanged), for: .valueChanged)
-        addClothingTableCell.typeSegmentedControl.addTarget(self, action: #selector(clothingTypeSegmentedControlValueChanged), for: .valueChanged)
+        addClothingTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlPressed(_:)), for: .allEvents)
+        addClothingTableCell.typeSegmentedControl.addTarget(self, action: #selector(clothingTypeSegmentedControlPressed(_:)), for: .valueChanged)
         addClothingTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
         addClothingTableCell.subTypeButton.addTarget(self, action: #selector(subTypeButtonPressed(_:)), for: .touchUpInside)
 
@@ -265,6 +281,7 @@ extension EditClothingViewController: RequestAPIDelegate {
 
 extension EditClothingViewController: UIViewControllerSetting {
     func configureViewController() {
+        configureClothingSubTypeIndex()
         editClothingTableView.delegate = self
         editClothingTableView.dataSource = self
         navigationController?.navigationBar.isHidden = true
