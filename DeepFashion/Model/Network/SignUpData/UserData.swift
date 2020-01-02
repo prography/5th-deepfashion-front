@@ -20,7 +20,7 @@ struct UserData {
 
         var newStyles = Set<Int>()
         for value in styles.enumerated() {
-            guard let styleIndex = FashionStyle.dictionary[value.element] else { continue }
+            guard let styleIndex = ClothingStyle.dictionary[value.element] else { continue }
             newStyles.insert(styleIndex)
         }
 
@@ -32,7 +32,7 @@ struct UserData {
         let mappingStyles = styles.filter { $0.value == 1 }
 
         for (key, _) in mappingStyles {
-            guard let styleIndex = FashionStyle.dictionary[key] else { continue }
+            guard let styleIndex = ClothingStyle.dictionary[key] else { continue }
             newStyles.insert(styleIndex)
         }
 

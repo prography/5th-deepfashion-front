@@ -20,7 +20,7 @@ class EditStyleViewController: UIViewController {
 
     private var fashionStyles: [String] = {
         var fashionStyles = [String]()
-        fashionStyles = UserCommonData.shared.gender == 0 ? FashionStyle.male : FashionStyle.female
+        fashionStyles = UserCommonData.shared.gender == 0 ? ClothingStyle.male : ClothingStyle.female
         return fashionStyles
     }()
 

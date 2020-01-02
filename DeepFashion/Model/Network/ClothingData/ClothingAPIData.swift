@@ -12,7 +12,7 @@ struct ClothingAPIData: Codable, Hashable, Comparable {
     static func == (lhs: ClothingAPIData, rhs: ClothingAPIData) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     static func < (lhs: ClothingAPIData, rhs: ClothingAPIData) -> Bool {
         return lhs.id < rhs.id
     }

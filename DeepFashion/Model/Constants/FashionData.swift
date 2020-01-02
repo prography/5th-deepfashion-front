@@ -17,9 +17,9 @@ struct FashionData {
     init() {
         var styleName: [String] = []
         if gender == 0 {
-            styleName = FashionStyle.male
+            styleName = ClothingStyle.male
         } else {
-            styleName = FashionStyle.female
+            styleName = ClothingStyle.female
         }
 
         style = (styleName[0], 0)

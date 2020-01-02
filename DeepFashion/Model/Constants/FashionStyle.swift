@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct FashionStyle {
+struct ClothingStyle {
     static let male = ["Casual", "Formal", "Street", "Vintage", "Sporty", "Dandy"]
     static let female = ["Casual", "Formal", "Street", "Vintage", "Sporty", "Lovely", "Luxury", "Sexy", "Modern", "Purity"]
-    static let dictionary: [String: Int] = ["Dandy": 1, "Vintage": 2, "Sexy": 3, "Purity": 4, "Lovely": 5, "Luxury": 6, "Modern": 7, "Formal/Office": 8, "Sporty": 9, "Street": 10, "Casual": 11]
+    static let dictionary: [String: Int] = ["Casual": 1, "Street": 2, "Sporty": 3, "Formal": 4, "Modern": 5, "Luxury": 6, "Lovely": 7, "Purity": 8, "Sexy": 9, "Vintage": 10, "Dandy": 11]
 }

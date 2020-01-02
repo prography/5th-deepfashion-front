@@ -71,7 +71,7 @@ final class UserCommonData {
         clothingList = clothingData
     }
 
-    func removeClothingData(selectedData: Set<ClothingAPIData>) {
+    func removeClothingData(selectedData _: Set<ClothingAPIData>) {
 //        clothingList.sort {
 //            $0.id < $1.id
 //        }

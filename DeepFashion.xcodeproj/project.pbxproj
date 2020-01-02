@@ -103,7 +103,7 @@
 		07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */; };
 		07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */; };
 		07D5E9B9236EF9A900A27B28 /* UserDataRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */; };
-		07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BA236EF9C000A27B28 /* FashionStyle.swift */; };
+		07D5E9BB236EF9C000A27B28 /* ClothingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BA236EF9C000A27B28 /* ClothingStyle.swift */; };
 		07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BC236EFADE00A27B28 /* UIButton+.swift */; };
 		07E5B39323B64D8000F5ACCC /* DeleteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */; };
 		07F8DE7323B4EA8500066677 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F8DE7223B4EA8500066677 /* ToastView.swift */; };
@@ -234,7 +234,7 @@
 		07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifier.swift; sourceTree = "<group>"; };
 		07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCharacterSet.swift; sourceTree = "<group>"; };
 		07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRule.swift; sourceTree = "<group>"; };
-		07D5E9BA236EF9C000A27B28 /* FashionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionStyle.swift; sourceTree = "<group>"; };
+		07D5E9BA236EF9C000A27B28 /* ClothingStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingStyle.swift; sourceTree = "<group>"; };
 		07D5E9BC236EFADE00A27B28 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
 		07F8DE7223B4EA8500066677 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -639,7 +639,7 @@
 				07C5C5FA23ACED7400324B67 /* AssetIdentifier.swift */,
 				07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */,
 				07D5E9B8236EF9A800A27B28 /* UserDataRule.swift */,
-				07D5E9BA236EF9C000A27B28 /* FashionStyle.swift */,
+				07D5E9BA236EF9C000A27B28 /* ClothingStyle.swift */,
 				07C745A72392A41D0045AB56 /* FashionType.swift */,
 				07B5AE93239A4DEE000C215E /* FashionData.swift */,
 				073547AE23BA427A00E45ADF /* LocationData.swift */,
@@ -894,7 +894,7 @@
 				07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */,
 				07B7F6AF238E774900EA9C10 /* EditClothingViewController.swift in Sources */,
 				07AB242623AA52F70076ABF5 /* UserClothingUploadAPIData.swift in Sources */,
-				07D5E9BB236EF9C000A27B28 /* FashionStyle.swift in Sources */,
+				07D5E9BB236EF9C000A27B28 /* ClothingStyle.swift in Sources */,
 				07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */,
 				07F8DE7323B4EA8500066677 /* ToastView.swift in Sources */,
 				07554FFA23A67ABE00691C5B /* CodiListCollectionViewCell.swift in Sources */,

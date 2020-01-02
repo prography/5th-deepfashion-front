@@ -233,10 +233,9 @@ extension ClosetListViewController: UITableViewDataSource {
         let clothingData = UserCommonData.shared.clothingList.filter {
             ClothingCategoryIndex.shared.convertToMainClientIndex($0.part) == indexPath.section
         }
-       
 
         closetListTableViewCell.configureCell(clothingData: clothingData)
-        
+
         closetListTableViewCell.delegate = self
         return closetListTableViewCell
     }
@@ -245,7 +244,7 @@ extension ClosetListViewController: UITableViewDataSource {
 extension ClosetListViewController: ClosetListTableViewCellDelegate {
     func numberOfItemsUpdated(numberOfItemsCount _: Int) {}
 
-    func subCollectionViewCellSelected(collectionView: ClosetListCollectionViewCell) {
+    func subCollectionViewCellSelected(collectionView _: ClosetListCollectionViewCell) {
 //        guard let cellClothingData = collectionView.clothingData else { return }
 //        if collectionView.isSelected {
 //            selectedClothingData.insert(cellClothingData)
@@ -264,17 +263,13 @@ extension ClosetListViewController: RequestAPIDelegate {
     func requestAPIDidFinished() {
         // 인디케이터 종료 및 세그 동작 실행
         isAPIDataRequested = false
-        if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {
-            
-        }
+        if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {}
     }
 
     func requestAPIDidError() {
         // 에러 발생 시 동작 실행
         isAPIDataRequested = false
-        if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {
-
-        }
+        if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {}
     }
 }
 

@@ -59,7 +59,7 @@ struct ClothingCategoryIndex {
         36: SubCategory(name: "상의(기타)", mainIndex: 0),
         37: SubCategory(name: "스웨터", mainIndex: 0),
         38: SubCategory(name: "조끼", mainIndex: 0),
-        39: SubCategory(name: "하이힐", mainIndex: 3)
+        39: SubCategory(name: "하이힐", mainIndex: 3),
     ]
 
     func convertToMainClientIndex(_ index: Int) -> Int {

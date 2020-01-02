@@ -273,7 +273,7 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
-        
+
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class ClosetListTableViewCell: UITableViewCell {
     // MARK: UIs
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
     weak var delegate: ClosetListTableViewCellDelegate?
 
     // MARK: Properties
@@ -78,7 +78,6 @@ class ClosetListTableViewCell: UITableViewCell {
 extension ClosetListTableViewCell: UICollectionViewDelegate {}
 
 extension ClosetListTableViewCell: UICollectionViewDataSource {
-    
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         delegate?.numberOfItemsUpdated(numberOfItemsCount: closetListDataCount)
         return closetListDataCount
