@@ -94,6 +94,6 @@ extension ClosetListTableViewCell: UICollectionViewDataSource {
 extension ClosetListTableViewCell: UICollectionViewCellDelegate {
     func collectinoViewCellItemSelected(_ collectionViewCell: UICollectionViewCell) {
         guard let collectionViewCell = collectionViewCell as? ClosetListCollectionViewCell else { return }
-        delegate?.subCollectionViewCellSelected(collectionView: collectionViewCell)
+        delegate?.subCollectionViewCellSelected(collectionViewCell: collectionViewCell)
     }
 }

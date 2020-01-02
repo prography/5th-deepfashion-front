@@ -79,7 +79,7 @@ class ClothingAddViewController: UIViewController {
      // txt데이터를 불러와 문자열 배열로 준비한다.
      private let yjData: [String] = {
          // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 txt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "yjWords", ofType: "txt"),
+         if let filePath = Bundle.main.path(forResource: "main", ofType: "txt"),
              let labels = try? String(contentsOfFile: filePath) {
              return labels.components(separatedBy: .newlines)
          } else {

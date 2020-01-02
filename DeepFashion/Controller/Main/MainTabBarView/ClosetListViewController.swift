@@ -172,20 +172,9 @@ class ClosetListViewController: UIViewController {
     @objc func closetListDeleteBarButtonItemPressed(_: UIButton) {
 //        guard let tabBarController = self.tabBarController else { return }
         presentBasicTwoButtonAlertController(title: "선택 옷 삭제", message: "선택한 옷을 삭제하시겠습니까?") { isApproved in
-
+            // 선택한 옷 삭제를 허용하면 삭제 요청을 진행한다.
             if isApproved {
-                // 선택한 id 옷들을 delete 요청 하여 제거한다.
-//                for i in 0 ... 3 {
-//                    guard let closetListTableCell = self.closetListTableView.cellForRow(at: IndexPath(row: 0, section: i)) as? ClosetListTableViewCell else { return }
-//                    closetListTableCell.removeSelectedCollectionViewCell { isSucceed in
-//                        if isSucceed {
-//                            ToastView.shared.presentShortMessage(tabBarController.view, message: "선택한 옷이 삭제되었습니다!")
-//                        }
-//                    }
-//                }
-//
-//                UserCommonData.shared.removeClothingData(selectedData: self.selectedClothingData)
-//                self.deleteBarButtonItem.isEnabled = false
+                // 선택한 id 옷들을 delete 요청 하여 제거해야 한다.
             }
         }
     }
@@ -244,13 +233,14 @@ extension ClosetListViewController: UITableViewDataSource {
 extension ClosetListViewController: ClosetListTableViewCellDelegate {
     func numberOfItemsUpdated(numberOfItemsCount _: Int) {}
 
-    func subCollectionViewCellSelected(collectionView _: ClosetListCollectionViewCell) {
-//        guard let cellClothingData = collectionView.clothingData else { return }
-//        if collectionView.isSelected {
-//            selectedClothingData.insert(cellClothingData)
-//        } else {
-//            selectedClothingData.remove(cellClothingData)
-//        }
+    func subCollectionViewCellSelected(collectionViewCell: ClosetListCollectionViewCell) {
+        guard let cellClothingData = collectionViewCell.clothingData else { return }
+        if collectionViewCell.isSelected {
+            selectedClothingData.insert(cellClothingData)
+        } else {
+            selectedClothingData.remove(cellClothingData)
+        }
+        print("now selectedData count: \(selectedClothingData.count)")
     }
 }
 
