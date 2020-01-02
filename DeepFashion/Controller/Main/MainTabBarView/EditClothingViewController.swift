@@ -20,6 +20,7 @@ class EditClothingViewController: UIViewController {
     // MARK: Properties
 
     var selectedFashionData = FashionData()
+    var clothingSubTypeIndex = [(Int, SubCategory)]()
 
     private var isColorSelected = false {
         didSet {
@@ -69,10 +70,12 @@ class EditClothingViewController: UIViewController {
         makeRegistrationButtonDisabled()
     }
 
-    //    /// styleButton이 최소 1개 이상 설정되어있는지 확인하는 메서드
-    //    private func checkStyleButtonSetting() -> Bool {
-    //        return selectedFashionData.style.count != 0
-    //    }
+    private func configureClothingSubTypeIndex() {
+        for (key, value) in ClothingCategoryIndex.subCategoryList {
+            clothingSubTypeIndex.append((key, value))
+        }
+        print(clothingSubTypeIndex)
+    }
 
     private func configureFashionStyleButton() {
         guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
@@ -192,6 +195,8 @@ class EditClothingViewController: UIViewController {
         editStyleViewController.selectedStyle = selectedFashionData.style
         navigationController?.pushViewController(editStyleViewController, animated: true)
     }
+
+    @objc func subTypeButtonPressed(_: UIButton) {}
 }
 
 extension EditClothingViewController: UITextFieldDelegate {
@@ -223,17 +228,18 @@ extension EditClothingViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let addFashionTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
-        addFashionTableCell.nameTextField.delegate = self
-        addFashionTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
-        addFashionTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlValueChanged), for: .valueChanged)
-        addFashionTableCell.typeSegmentedControl.addTarget(self, action: #selector(clothingTypeSegmentedControlValueChanged), for: .valueChanged)
-        addFashionTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
+        guard let addClothingTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
+        addClothingTableCell.nameTextField.delegate = self
+        addClothingTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
+        addClothingTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlValueChanged), for: .valueChanged)
+        addClothingTableCell.typeSegmentedControl.addTarget(self, action: #selector(clothingTypeSegmentedControlValueChanged), for: .valueChanged)
+        addClothingTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
+        addClothingTableCell.subTypeButton.addTarget(self, action: #selector(subTypeButtonPressed(_:)), for: .touchUpInside)
 
-        addFashionTableCell.styleButton.setTitle("  \(selectedFashionData.style.0)", for: .normal)
-        addFashionTableCell.colorSelectCollectionView.delegate = self
+        addClothingTableCell.styleButton.setTitle("  \(selectedFashionData.style.0)", for: .normal)
+        addClothingTableCell.colorSelectCollectionView.delegate = self
 
-        return addFashionTableCell
+        return addClothingTableCell
     }
 }
 

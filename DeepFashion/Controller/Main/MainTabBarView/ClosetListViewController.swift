@@ -170,7 +170,7 @@ class ClosetListViewController: UIViewController {
     }
 
     @objc func closetListDeleteBarButtonItemPressed(_: UIButton) {
-        guard let tabBarController = self.tabBarController else { return }
+//        guard let tabBarController = self.tabBarController else { return }
         presentBasicTwoButtonAlertController(title: "선택 옷 삭제", message: "선택한 옷을 삭제하시겠습니까?") { isApproved in
 
             if isApproved {

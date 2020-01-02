@@ -14,6 +14,8 @@ class EditClothingTableViewCell: UITableViewCell {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var styleButton: UIButton!
     @IBOutlet var typeSegmentedControl: UISegmentedControl!
+    @IBOutlet var subTypeButton: UIButton!
+
     @IBOutlet var seasonSegmentedControl: UISegmentedControl!
     @IBOutlet var editStackView: UIStackView!
     @IBOutlet var subTitleLabelList: [UILabel]!
@@ -55,6 +57,7 @@ class EditClothingTableViewCell: UITableViewCell {
         configureSubTitleLabelList()
         configureSegmentedControl()
         configureStyleButton()
+        configureSubTypeButton()
         configureNameTextField()
         makeConstraint()
         colorSelectCollectionView.allowsSelection = true
@@ -77,14 +80,21 @@ class EditClothingTableViewCell: UITableViewCell {
 
     private func configureStyleButton() {
         styleButton.layer.cornerRadius = 10
-        styleButton.layer.borderColor = ViewData.Color.borderColor
+//        styleButton.layer.borderColor = ViewData.Color.borderColor
         styleButton.layer.borderWidth = 1
         styleButton.clipsToBounds = true
     }
 
+    private func configureSubTypeButton() {
+        subTypeButton.layer.cornerRadius = 10
+//        subTypeButton.layer.borderColor = ViewData.Color.borderColor
+        subTypeButton.layer.borderWidth = 1
+        subTypeButton.clipsToBounds = true
+    }
+
     private func configureNameTextField() {
         nameTextField.layer.cornerRadius = 10
-        nameTextField.layer.borderColor = ViewData.Color.borderColor
+//        nameTextField.layer.borderColor = ViewData.Color.borderColor
         nameTextField.layer.borderWidth = 1
         nameTextField.clipsToBounds = true
     }

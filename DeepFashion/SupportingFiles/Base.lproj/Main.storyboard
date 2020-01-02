@@ -1053,7 +1053,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-M0-ZFg">
-                                                    <rect key="frame" x="0.0" y="46" width="414" height="376"/>
+                                                    <rect key="frame" x="0.0" y="46" width="414" height="425"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QN5-E0-Xud">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
@@ -1086,7 +1086,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xQj-y0-Iy1">
-                                                            <rect key="frame" x="0.0" y="99" width="414" height="79"/>
+                                                            <rect key="frame" x="0.0" y="99" width="414" height="128"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="분류" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwC-XZ-suw">
                                                                     <rect key="frame" x="10" y="0.0" width="394" height="30"/>
@@ -1110,17 +1110,28 @@
                                                                     </segments>
                                                                     <color key="tintColor" name="NewBrown"/>
                                                                 </segmentedControl>
+                                                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qws-md-izo">
+                                                                    <rect key="frame" x="10" y="89" width="394" height="39"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                    <state key="normal" title="세부 카테고리">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </state>
+                                                                </button>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="Ngo-Xz-Mzn" secondAttribute="trailing" constant="10" id="Dbj-rm-njo"/>
                                                                 <constraint firstAttribute="trailing" secondItem="vwC-XZ-suw" secondAttribute="trailing" constant="10" id="Ivc-cs-l5a"/>
+                                                                <constraint firstItem="Qws-md-izo" firstAttribute="width" secondItem="Ngo-Xz-Mzn" secondAttribute="width" id="L7I-rQ-Gvq"/>
+                                                                <constraint firstItem="Qws-md-izo" firstAttribute="height" secondItem="Ngo-Xz-Mzn" secondAttribute="height" id="Or6-G5-nsb"/>
                                                                 <constraint firstItem="Ngo-Xz-Mzn" firstAttribute="height" secondItem="vwC-XZ-suw" secondAttribute="height" multiplier="1.3" id="a1l-nV-ppk"/>
                                                                 <constraint firstItem="Ngo-Xz-Mzn" firstAttribute="leading" secondItem="xQj-y0-Iy1" secondAttribute="leading" constant="10" id="dER-mE-drZ"/>
+                                                                <constraint firstItem="Qws-md-izo" firstAttribute="centerX" secondItem="Ngo-Xz-Mzn" secondAttribute="centerX" id="owr-bI-gB5"/>
                                                                 <constraint firstItem="vwC-XZ-suw" firstAttribute="leading" secondItem="xQj-y0-Iy1" secondAttribute="leading" constant="10" id="qie-ap-t9F"/>
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Sv-vk-Cyb">
-                                                            <rect key="frame" x="0.0" y="198" width="414" height="79"/>
+                                                            <rect key="frame" x="0.0" y="247" width="414" height="79"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="입는 계절" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-Mv-KCi">
                                                                     <rect key="frame" x="10" y="0.0" width="394" height="30"/>
@@ -1153,7 +1164,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-qU-mAk">
-                                                            <rect key="frame" x="0.0" y="297" width="414" height="79"/>
+                                                            <rect key="frame" x="0.0" y="346" width="414" height="79"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스타일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bks-kG-fpX">
                                                                     <rect key="frame" x="10" y="0.0" width="394" height="30"/>
@@ -1233,6 +1244,7 @@
                                             <outlet property="nameTextField" destination="f0v-hs-9lF" id="JoU-C4-d0h"/>
                                             <outlet property="seasonSegmentedControl" destination="L7B-jF-YI8" id="hVd-4c-tbB"/>
                                             <outlet property="styleButton" destination="lbQ-UA-1hn" id="pXc-Mj-wrc"/>
+                                            <outlet property="subTypeButton" destination="Qws-md-izo" id="SsE-4Q-Shc"/>
                                             <outlet property="typeSegmentedControl" destination="Ngo-Xz-Mzn" id="Ien-dd-eeA"/>
                                             <outletCollection property="subTitleLabelList" destination="giY-H7-g5s" collectionClass="NSMutableArray" id="WEo-Xf-3VC"/>
                                             <outletCollection property="subTitleLabelList" destination="FiH-Jd-FuW" collectionClass="NSMutableArray" id="K5m-Ct-dVy"/>
