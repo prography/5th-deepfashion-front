@@ -1241,11 +1241,11 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="editStackView" destination="ajD-M0-ZFg" id="uEi-lm-dIe"/>
+                                            <outlet property="mainTypeSegmentedControl" destination="Ngo-Xz-Mzn" id="Ien-dd-eeA"/>
                                             <outlet property="nameTextField" destination="f0v-hs-9lF" id="JoU-C4-d0h"/>
                                             <outlet property="seasonSegmentedControl" destination="L7B-jF-YI8" id="hVd-4c-tbB"/>
                                             <outlet property="styleButton" destination="lbQ-UA-1hn" id="pXc-Mj-wrc"/>
                                             <outlet property="subTypeButton" destination="Qws-md-izo" id="SsE-4Q-Shc"/>
-                                            <outlet property="typeSegmentedControl" destination="Ngo-Xz-Mzn" id="Ien-dd-eeA"/>
                                             <outletCollection property="subTitleLabelList" destination="giY-H7-g5s" collectionClass="NSMutableArray" id="WEo-Xf-3VC"/>
                                             <outletCollection property="subTitleLabelList" destination="FiH-Jd-FuW" collectionClass="NSMutableArray" id="K5m-Ct-dVy"/>
                                             <outletCollection property="subTitleLabelList" destination="vwC-XZ-suw" collectionClass="NSMutableArray" id="Cqe-8z-8G6"/>

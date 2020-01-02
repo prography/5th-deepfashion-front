@@ -76,7 +76,6 @@ class EditClothingViewController: UIViewController {
         for (key, value) in ClothingCategoryIndex.subCategoryList {
             clothingSubTypeIndexList.append((key, value))
         }
-        print(clothingSubTypeIndexList)
     }
 
     private func configureFashionStyleButton() {
@@ -131,6 +130,23 @@ class EditClothingViewController: UIViewController {
             }
         }
     }
+    
+    private func configureSubTypeButton() {
+        guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+        
+        selectedFashionData.typeIndex = addFashionTableCell.mainTypeSegmentedControl.selectedSegmentIndex
+        if selectedFashionData.typeIndex < 4 {
+            selectedClothingSubTypeIndexList = clothingSubTypeIndexList.filter {
+                $0.1.mainIndex == selectedFashionData.typeIndex
+            }
+        } else {
+            selectedClothingSubTypeIndexList = [(15, ClothingCategoryIndex.subCategoryList[15]!)]
+        }
+
+        guard let firstSubTypeIndex = selectedClothingSubTypeIndexList.first else { return }
+        selectedSubTypeIndex = firstSubTypeIndex
+        addFashionTableCell.subTypeButton.setTitle(" \(selectedSubTypeIndex.1.name)", for: .normal)
+    }
 
     func refreshStyleButton() {
         guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
@@ -151,13 +167,13 @@ class EditClothingViewController: UIViewController {
             let selectedColorIndex = addFashionTableCell.getSelectedColorIndex() else { return }
         // 옷 타입, 스타일 셋팅
 
-        let partServerIndex = addFashionTableCell.typeSegmentedControl.selectedSegmentIndex
+        let partServerIndex = addFashionTableCell.mainTypeSegmentedControl.selectedSegmentIndex
         let partClientIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(partServerIndex + 1)
         let clothingStyle = selectedFashionData.style
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
 
-        let clotingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partClientIndex + 1, category: 1, image: clothingImage)
+        let clotingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partClientIndex + 1, category: self.selectedSubTypeIndex.0, image: clothingImage)
 
         RequestAPI.shared.postAPIData(userData: clotingData, APIMode: APIPostMode.clothingPost) { errorType in
             if errorType == nil {
@@ -212,7 +228,10 @@ class EditClothingViewController: UIViewController {
         navigationController?.pushViewController(editStyleViewController, animated: true)
     }
 
-    @objc func subTypeButtonPressed(_: UIButton) {}
+    @objc func subTypeButtonPressed(_: UIButton) {
+        // 서브 카테고리 피커뷰를 띄워 선택할 수 있게 한다.
+        
+    }
 }
 
 extension EditClothingViewController: UITextFieldDelegate {
@@ -247,12 +266,13 @@ extension EditClothingViewController: UITableViewDataSource {
         guard let addClothingTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
         addClothingTableCell.nameTextField.delegate = self
         addClothingTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
-        addClothingTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlPressed(_:)), for: .allEvents)
-        addClothingTableCell.typeSegmentedControl.addTarget(self, action: #selector(clothingTypeSegmentedControlPressed(_:)), for: .valueChanged)
+        addClothingTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlPressed(_:)), for: .valueChanged)
+        addClothingTableCell.mainTypeSegmentedControl.addTarget(self, action: #selector(clothingTypeSegmentedControlPressed(_:)), for: .valueChanged)
         addClothingTableCell.styleButton.addTarget(self, action: #selector(styleButtonPressed(_:)), for: .touchUpInside)
         addClothingTableCell.subTypeButton.addTarget(self, action: #selector(subTypeButtonPressed(_:)), for: .touchUpInside)
 
         addClothingTableCell.styleButton.setTitle("  \(selectedFashionData.style.0)", for: .normal)
+        addClothingTableCell.subTypeButton.setTitle(" \(selectedSubTypeIndex.1.name)", for: .normal)
         addClothingTableCell.colorSelectCollectionView.delegate = self
 
         return addClothingTableCell
@@ -282,6 +302,7 @@ extension EditClothingViewController: RequestAPIDelegate {
 extension EditClothingViewController: UIViewControllerSetting {
     func configureViewController() {
         configureClothingSubTypeIndex()
+        configureSubTypeButton()
         editClothingTableView.delegate = self
         editClothingTableView.dataSource = self
         navigationController?.navigationBar.isHidden = true

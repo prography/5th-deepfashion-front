@@ -13,7 +13,7 @@ class EditClothingTableViewCell: UITableViewCell {
 
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var styleButton: UIButton!
-    @IBOutlet var typeSegmentedControl: UISegmentedControl!
+    @IBOutlet var mainTypeSegmentedControl: UISegmentedControl!
     @IBOutlet var subTypeButton: UIButton!
 
     @IBOutlet var seasonSegmentedControl: UISegmentedControl!
@@ -111,10 +111,10 @@ class EditClothingTableViewCell: UITableViewCell {
 
     private func configureSegmentedControl() {
         // 초기 선택 인덱스를 설정
-        typeSegmentedControl.selectedSegmentIndex = 0
-        typeSegmentedControl.layer.cornerRadius = 10
-        typeSegmentedControl.layer.borderWidth = 1
-        typeSegmentedControl.clipsToBounds = true
+        mainTypeSegmentedControl.selectedSegmentIndex = 0
+        mainTypeSegmentedControl.layer.cornerRadius = 10
+        mainTypeSegmentedControl.layer.borderWidth = 1
+        mainTypeSegmentedControl.clipsToBounds = true
 
         seasonSegmentedControl.selectedSegmentIndex = 0
         seasonSegmentedControl.layer.cornerRadius = 10
