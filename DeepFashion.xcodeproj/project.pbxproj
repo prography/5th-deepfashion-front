@@ -28,10 +28,6 @@
 		073547C023BCC95A00E45ADF /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547BF23BCC95A00E45ADF /* UIImageView+.swift */; };
 		073547C223BCD28300E45ADF /* RequestImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547C123BCD28300E45ADF /* RequestImageDelegate.swift */; };
 		0747074B23BDEDB700BD2D19 /* PickerAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0747074A23BDEDB700BD2D19 /* PickerAlertController.swift */; };
-		0747074E23BE057300BD2D19 /* main.pt in Resources */ = {isa = PBXBuildFile; fileRef = 0747074C23BE057300BD2D19 /* main.pt */; };
-		0747074F23BE057300BD2D19 /* main.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0747074D23BE057300BD2D19 /* main.txt */; };
-		0747075123BE09A900BD2D19 /* main2.pt in Resources */ = {isa = PBXBuildFile; fileRef = 0747075023BE068A00BD2D19 /* main2.pt */; };
-		0747075323BE0F2B00BD2D19 /* main3.pt in Resources */ = {isa = PBXBuildFile; fileRef = 0747075223BE0EC200BD2D19 /* main3.pt */; };
 		07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */; };
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
 		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
@@ -162,10 +158,6 @@
 		073547BF23BCC95A00E45ADF /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		073547C123BCD28300E45ADF /* RequestImageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImageDelegate.swift; sourceTree = "<group>"; };
 		0747074A23BDEDB700BD2D19 /* PickerAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerAlertController.swift; sourceTree = "<group>"; };
-		0747074C23BE057300BD2D19 /* main.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = main.pt; sourceTree = "<group>"; };
-		0747074D23BE057300BD2D19 /* main.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.txt; sourceTree = "<group>"; };
-		0747075023BE068A00BD2D19 /* main2.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = main2.pt; sourceTree = "<group>"; };
-		0747075223BE0EC200BD2D19 /* main3.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = main3.pt; sourceTree = "<group>"; };
 		07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingPostAPIResultData.swift; sourceTree = "<group>"; };
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
 		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
@@ -527,10 +519,6 @@
 			isa = PBXGroup;
 			children = (
 				07C5C60123ADF65F00324B67 /* yjModel.pt */,
-				0747074C23BE057300BD2D19 /* main.pt */,
-				0747075023BE068A00BD2D19 /* main2.pt */,
-				0747075223BE0EC200BD2D19 /* main3.pt */,
-				0747074D23BE057300BD2D19 /* main.txt */,
 				07C5C60523ADF6DA00324B67 /* yjWords.txt */,
 			);
 			path = PyTorch;
@@ -795,16 +783,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0747075323BE0F2B00BD2D19 /* main3.pt in Resources */,
-				0747075123BE09A900BD2D19 /* main2.pt in Resources */,
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
-				0747074F23BE057300BD2D19 /* main.txt in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */,
 				076DADBF23B3879C00B3FF46 /* Assets.xcassets in Resources */,
 				076DADBA23B3696900B3FF46 /* SCDream4.otf in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
-				0747074E23BE057300BD2D19 /* main.pt in Resources */,
 				076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */,
 				076DADB723B3696900B3FF46 /* SCDream3.otf in Resources */,
 				07C5C60323ADF65F00324B67 /* yjModel.pt in Resources */,

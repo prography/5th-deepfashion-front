@@ -1,5 +1,0 @@
-khaki,navy,sky,dark_beige,purple,green,yellow,blue,red,gray,pink,brown,lime,white,black,orange,beige
-sporty,vintage,modern,formal/office,street,luxury,casual,sexy,dandy,lovely,purity
-onepiece,shoes,outer,bottom,top
-summer,spring/fall,winter,All
-jogger,sleeveless,tshirt_long,sneakers,jumper,dress_shirt_long,top_others,long_padding,leggings,cardigan,sandal,running_shoes,blouse_long,tshirt_short,long_boots,blazer,slacks,dress_shirt_short,blouse_short,flat_shoes,coach_jacket,hoody_jacket,loafer,leather_jacket,walker,trench_coat,dress,short_boots,skirt,sweater,hightop,jean,heel,short_padding,coat,fleece_jacket,mtm,hoody,vest
