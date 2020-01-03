@@ -1624,6 +1624,9 @@
                                         <state key="normal" title="다른 코디 추천받기">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="refreshCodiButtonPressed:" destination="abK-qW-sZg" eventType="touchUpInside" id="Goi-Kt-k1T"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1663,7 +1666,7 @@
                                                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="longJacket" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-Up-7wQ">
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="uHW-Up-7wQ">
                                                                                     <rect key="frame" x="0.0" y="30" width="133" height="103"/>
                                                                                 </imageView>
                                                                             </subviews>
@@ -1713,8 +1716,8 @@
                                         </subviews>
                                     </stackView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-Rg-uzJ">
-                                        <rect key="frame" x="188.5" y="314" width="37" height="37"/>
-                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="188.5" y="299" width="37" height="37"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -1723,7 +1726,7 @@
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="top" secondItem="BDW-CI-BlR" secondAttribute="top" constant="20" id="6Sj-dT-Z40"/>
                                     <constraint firstAttribute="trailing" secondItem="jYq-fT-66a" secondAttribute="trailing" constant="20" id="7Rj-C3-fmR"/>
                                     <constraint firstAttribute="bottom" secondItem="jYq-fT-66a" secondAttribute="bottom" constant="50" id="Ava-WI-vS7"/>
-                                    <constraint firstItem="RQf-Rg-uzJ" firstAttribute="centerY" secondItem="BDW-CI-BlR" secondAttribute="centerY" id="DBC-vR-lUn"/>
+                                    <constraint firstItem="RQf-Rg-uzJ" firstAttribute="centerY" secondItem="jYq-fT-66a" secondAttribute="centerY" id="DBC-vR-lUn"/>
                                     <constraint firstItem="RQf-Rg-uzJ" firstAttribute="centerX" secondItem="BDW-CI-BlR" secondAttribute="centerX" id="NH4-qi-33e"/>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="leading" secondItem="BDW-CI-BlR" secondAttribute="leading" constant="20" id="VWd-E8-5FV"/>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="centerX" secondItem="BDW-CI-BlR" secondAttribute="centerX" id="lt7-BR-gEZ"/>
@@ -1842,7 +1845,6 @@
         <image name="closet" width="29.5" height="29.5"/>
         <image name="codiList" width="29.5" height="29.5"/>
         <image name="home" width="29.5" height="29.5"/>
-        <image name="longJacket" width="526" height="304"/>
         <image name="myPage" width="29.5" height="29.5"/>
         <image name="noClothing" width="170.66667175292969" height="170.66667175292969"/>
         <image name="plus" width="29.5" height="29.5"/>
