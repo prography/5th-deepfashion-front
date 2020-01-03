@@ -248,7 +248,9 @@ extension ClosetListViewController: UITableViewDataSource {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
 
         let clothingData = UserCommonData.shared.clothingList.filter {
-            ClothingCategoryIndex.shared.convertToMainClientIndex($0.part) == indexPath.section
+            // 받은 인덱스는 서버 인덱스이다.
+            guard let nowIndex = ClothingCategoryIndex.subCategoryList[$0.category]?.mainIndex else { return true }
+            return nowIndex == indexPath.section
         }
 
         closetListTableViewCell.configureCell(clothingData: clothingData)
@@ -268,7 +270,6 @@ extension ClosetListViewController: ClosetListTableViewCellDelegate {
         } else {
             selectedClothingData.remove(cellClothingData)
         }
-        print("now selectedData count: \(selectedClothingData.count)")
     }
 }
 

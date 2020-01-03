@@ -126,23 +126,6 @@ class EditClothingViewController: UIViewController {
         addClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 
-    private func uploadClothingImage() {
-        DispatchQueue.main.async {
-            guard let navigationController = self.navigationController else { return }
-            // clothingUploadAPIData 를 정의 후 사용하자.
-
-            let clothingUploadData = UserClothingUploadData(clothingCode: UserCommonData.shared.nowClothingCode, clothingImage: self.clothingImageView.image, ownerPK: UserCommonData.shared.pk)
-            RequestAPI.shared.postAPIData(userData: clothingUploadData, APIMode: .clothingUploadPost) { errorType in
-
-                if errorType == nil {
-                    self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
-                } else {
-                    ToastView.shared.presentShortMessage(navigationController.view, message: "옷 저장에 실패했습니다.")
-                }
-            }
-        }
-    }
-
     private func configureSubTypeButton() {
         selectedClothingSubTypeIndexList = clothingSubTypeIndexList.filter {
             $0.1.mainIndex == 0 && $0.0 != 15
@@ -176,19 +159,19 @@ class EditClothingViewController: UIViewController {
             let selectedColorIndex = addFashionTableCell.getSelectedColorIndex() else { return }
         // 옷 타입, 스타일 셋팅
 
-        let partServerIndex = addFashionTableCell.mainTypeSegmentedControl.selectedSegmentIndex
-        let partClientIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(partServerIndex + 1)
+        let partName = ClothingCategoryIndex.shared.getMainCategoryName(addFashionTableCell.mainTypeSegmentedControl.selectedSegmentIndex)
+        let partClientIndex = ClothingCategoryIndex.shared.convertToMainServerIndex(partName)
         let clothingStyle = selectedClothingData.style
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
 
-        let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partClientIndex + 1, category: selectedSubTypeIndex.0, image: clothingImage)
+        let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partClientIndex, category: selectedSubTypeIndex.0, image: clothingImage)
 
         print("nowClothingData: \(clothingData)")
         RequestAPI.shared.postAPIData(userData: clothingData, APIMode: APIPostMode.clothingPost) { errorType in
             if errorType == nil {
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
-                self.uploadClothingImage()
+//                self.uploadClothingImage()
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
                 }

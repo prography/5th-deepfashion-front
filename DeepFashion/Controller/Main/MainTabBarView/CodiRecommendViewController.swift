@@ -69,7 +69,6 @@ class CodiRecommendViewController: UIViewController {
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
             if networkError == nil {
                 guard let clothingData = clothingData else { return }
-                UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 UserCommonData.shared.configureClothingData(clothingData)
             } else {
                 DispatchQueue.main.async {

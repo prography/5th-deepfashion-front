@@ -49,7 +49,7 @@ class ClosetListTableViewCell: UITableViewCell {
     }
 
     func configureCell(clothingData: [ClothingAPIData]) {
-        closetListData = clothingData
+        closetListData = clothingData.sorted()
         collectionView.delegate = self
         collectionView.dataSource = self
         DispatchQueue.main.async {

@@ -30,7 +30,7 @@ struct ClothingAPIData: Codable, Hashable, Comparable {
     let color: Int
     let season: Int
     let part: Int
-    let category: Int?
+    let category: Int
 
     enum CodingKeys: String, CodingKey {
         case id, name, style, owner, color, season, part, category
