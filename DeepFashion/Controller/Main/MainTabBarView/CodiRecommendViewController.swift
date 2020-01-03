@@ -181,6 +181,33 @@ class CodiRecommendViewController: UIViewController {
 
     // MARK: - IBAction
 
+    @IBAction func refreshCodiButtonPressed(_: UIButton) {
+        var fixStatus = [Int]()
+        for i in 0..<4 {
+            guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
+                fixStatus.append(0)
+                continue
+            }
+            
+            fixStatus.append(nowCell.isSelected ? 0 : 1)
+        }
+        
+        CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
+        
+        for i in 0..<4 {
+            guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
+                continue
+            }
+            
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.6) {
+                    nowCell.imageView.setThumbnailImageFromServerURL(CodiListGenerator.shared.topCodiDataSet[i]?.image, placeHolder: #imageLiteral(resourceName: "noClothing"))
+                }
+            }
+        }
+        
+    }
+    
     @IBAction func saveButtonPressed(_: UIButton) {
         presentBasicTwoButtonAlertController(title: "코디 저장", message: "해당 코디를 저장하시겠습니까?") { isApproved in
             if isApproved {
@@ -190,6 +217,7 @@ class CodiRecommendViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension CodiRecommendViewController: UICollectionViewDelegate {
