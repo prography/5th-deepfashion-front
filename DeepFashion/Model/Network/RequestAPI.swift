@@ -12,6 +12,7 @@ enum NetworkError {
     case client
     case server
     case wrongType
+    case duplicate
     case unknown
 
     var errorTitle: String {
@@ -22,6 +23,8 @@ enum NetworkError {
             return "서버 에러"
         case .wrongType:
             return "올바르지 않은 입력"
+        case .duplicate:
+            return ""
         case .unknown:
             return "예기치 못한 에러"
         }
@@ -37,6 +40,7 @@ enum NetworkError {
             return "올바른 입력을 해주시기 바랍니다."
         case .unknown:
             return "예기치 못한 에러가 발생했습니다."
+        default: return ""
         }
     }
 }
@@ -87,6 +91,8 @@ final class RequestAPI {
 
     // MARK: - Properties
 
+    private var isWeatherRequested = false
+
     private let urlSession = URLSession(configuration: .default)
     private var dataTask = URLSessionDataTask()
 
@@ -98,6 +104,8 @@ final class RequestAPI {
 
         switch APIMode {
         case .getWeather:
+            if isWeatherRequested == true { completion(nil, nil); return }
+            isWeatherRequested = true
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
             guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: requestAPIURL)
