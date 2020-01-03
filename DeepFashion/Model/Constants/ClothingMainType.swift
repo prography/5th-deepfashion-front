@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum FashionType: Int {
+enum ClothingMainType: Int {
     case top = 0
     case outer = 1
     case bottom = 2

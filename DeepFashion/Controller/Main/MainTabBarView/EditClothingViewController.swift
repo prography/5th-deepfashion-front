@@ -171,7 +171,7 @@ class EditClothingViewController: UIViewController {
         RequestAPI.shared.postAPIData(userData: clothingData, APIMode: APIPostMode.clothingPost) { errorType in
             if errorType == nil {
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
-//                self.uploadClothingImage()
+
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
                 }

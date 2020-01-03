@@ -55,9 +55,7 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
     func configureCell(clothingData: ClothingAPIData) {
         self.clothingData = clothingData
         guard let clothingImage = clothingData.image else { return }
-        DispatchQueue.main.async {
-            self.fashionImageView.setThumbnailImageFromServerURL(clothingImage, placeHolder: #imageLiteral(resourceName: "noClothing"))
-        }
+        fashionImageView.setThumbnailImageFromServerURL(clothingImage, placeHolder: #imageLiteral(resourceName: "noClothing"))
         fashionImageView.layer.cornerRadius = 10
     }
 

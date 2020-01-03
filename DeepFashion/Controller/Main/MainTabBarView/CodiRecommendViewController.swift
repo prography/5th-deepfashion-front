@@ -52,7 +52,8 @@ class CodiRecommendViewController: UIViewController {
         RequestAPI.shared.delegate = self
         requestLocationAuthority()
         locationManager.startUpdatingLocation()
-        updateNetworkTask()
+        requestClothingAPIDataList()
+        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -65,11 +66,26 @@ class CodiRecommendViewController: UIViewController {
 
     // MARK: Methods
 
-    private func updateNetworkTask() {
-        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
+    func updateClothingAPIDataList(_ clothingDataList: [ClothingAPIData]) {
+        CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
+        UserCommonData.shared.configureClothingData(clothingDataList)
+        DispatchQueue.main.async {
+            self.recommendCollectionView.reloadData()
+        }
+    }
+
+    func requestClothingAPIDataList() {
+        if UserCommonData.shared.isNeedToUpdateClothing == false { return }
+        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
-                guard let clothingData = clothingData else { return }
-                UserCommonData.shared.configureClothingData(clothingData)
+                guard let clothingDataList = clothingDataList else { return }
+                CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
+                UserCommonData.shared.configureClothingData(clothingDataList)
+
+                DispatchQueue.main.async {
+                    self.recommendCollectionView.reloadData()
+                }
+                UserCommonData.shared.setIsNeedToUpdateClothingFalse()
             } else {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController else { return }
@@ -189,7 +205,7 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let codiRecommendCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.recommend, for: indexPath) as? CodiRecommendCollectionViewCell else { return UICollectionViewCell() }
-        codiRecommendCollectionCell.configureCell(title: ViewData.Title.fashionType[indexPath.item])
+        codiRecommendCollectionCell.configureCell(title: ViewData.Title.fashionType[indexPath.item], clothingData: CodiListGenerator.shared.topCodiDataSet[indexPath.item])
 
         return codiRecommendCollectionCell
     }
@@ -264,6 +280,7 @@ extension CodiRecommendViewController: RequestAPIDelegate {
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
         configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
         locationManager.delegate = self
@@ -272,7 +289,5 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
-
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
     }
 }

@@ -67,8 +67,8 @@ final class UserCommonData {
         clothingList = [ClothingAPIData]()
     }
 
-    func configureClothingData(_ clothingData: [ClothingAPIData]) {
-        clothingList = clothingData
+    func configureClothingData(_ clothingDataList: [ClothingAPIData]) {
+        clothingList = clothingDataList
     }
 
     func removeClothingData(selectedData _: Set<ClothingAPIData>) {

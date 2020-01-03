@@ -66,8 +66,9 @@ class EditClothingTableViewCell: UITableViewCell {
     // MARK: Methods
 
     func getSelectedColorIndex() -> Int? {
-        guard let selectedIndex = self.colorSelectCollectionView.indexPathsForSelectedItems,
-            let selectedCell = colorSelectCollectionView.cellForItem(at: selectedIndex.first!) as? ColorSelectCollectionViewCell,
+        guard let _selectedIndex = self.colorSelectCollectionView.indexPathsForSelectedItems,
+            let selectedIndex = _selectedIndex.first,
+            let selectedCell = colorSelectCollectionView.cellForItem(at: selectedIndex) as? ColorSelectCollectionViewCell,
             let colorIndex = UIIdentifier.Color.colorHexaCodeIndex[selectedCell.nowRGB] else { return nil }
         return colorIndex
     }

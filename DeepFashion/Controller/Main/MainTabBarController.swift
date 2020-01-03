@@ -58,6 +58,20 @@ class MainTabBarController: UITabBarController {
 
     private func configureEditBarButtonItem() {}
 
+    func reloadRecommendCollectionView(_ clothingDataList: ClothingAPIDataList) {
+        guard let recommendViewController = self.viewControllers?.first as? CodiRecommendViewController else { return }
+        DispatchQueue.main.async {
+            recommendViewController.updateClothingAPIDataList(clothingDataList)
+        }
+    }
+
+    func reloadClosetListTableView() {
+        guard let closetListViewController = self.viewControllers?[TabBarIndex.closetList.index] as? ClosetListViewController else { return }
+        DispatchQueue.main.async {
+            closetListViewController.closetListTableView.reloadData()
+        }
+    }
+
     override func tabBar(_: UITabBar, didSelect _: UITabBarItem) {
         guard let previousViewController = self.viewControllers?[selectedPreviousIndex] as? UINavigationController else { return }
         previousViewController.popToRootViewController(animated: false)

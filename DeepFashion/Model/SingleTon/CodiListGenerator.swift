@@ -13,15 +13,18 @@ final class CodiListGenerator {
 
     private(set) var clothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
     private(set) var topCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
-    
+
     func configureClothingDataList(_ clothingDataList: [ClothingAPIData]) {
+        resetData()
         for i in clothingDataList.indices {
-            let nowIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(clothingDataList[i].part)
+            guard let nowIndex = ClothingCategoryIndex.subCategoryList[clothingDataList[i].category]?.mainIndex else { continue }
             clothingDataLists[nowIndex].append(clothingDataList[i])
         }
     }
-    
-    func getNowCodiDataSet() -> [ClothingAPIData?] {
+
+    func getNowCodiDataSet(_ clothingDataList: [ClothingAPIData]) {
+        configureClothingDataList(clothingDataList)
+
         for i in topCodiDataSet.indices {
             guard let nowClothingData = clothingDataLists[i].first else {
                 topCodiDataSet[i] = nil
@@ -29,13 +32,12 @@ final class CodiListGenerator {
             }
             topCodiDataSet[i] = nowClothingData
         }
-        return topCodiDataSet
     }
-    
+
     func getNextCodiDataSet(_ fixTypeStatus: [Int]) -> [ClothingAPIData?] {
         for i in topCodiDataSet.indices {
             if clothingDataLists[i].isEmpty {
-               topCodiDataSet[i] = nil
+                topCodiDataSet[i] = nil
             } else {
                 if fixTypeStatus[i] == 1 {
                     clothingDataLists[i].removeFirst()
@@ -43,7 +45,7 @@ final class CodiListGenerator {
                         topCodiDataSet[i] = nil
                         continue
                     }
-                    
+
                     topCodiDataSet[i] = nowClothingData
                     clothingDataLists[i].append(nowClothingData)
                 } else {
@@ -56,6 +58,11 @@ final class CodiListGenerator {
             }
         }
         return topCodiDataSet
+    }
+
+    func resetData() {
+        clothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+        topCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
     }
 
     private init() {}

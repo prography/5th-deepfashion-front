@@ -147,12 +147,15 @@ class ClosetListViewController: UIViewController {
 
     private func updateClothingNetworkTask() {
         if UserCommonData.shared.isNeedToUpdateClothing == false { return }
-        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingData in
+        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
-                guard let clothingData = clothingData else { return }
+                guard let clothingDataList = clothingDataList else { return }
                 UserCommonData.shared.setIsNeedToUpdateClothingFalse()
-                UserCommonData.shared.configureClothingData(clothingData)
+                UserCommonData.shared.configureClothingData(clothingDataList)
+
                 DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.reloadRecommendCollectionView(clothingDataList)
                     self.closetListTableView.reloadData()
                 }
             } else {
@@ -226,7 +229,7 @@ extension ClosetListViewController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let fashionType = FashionType(rawValue: section)
+        let fashionType = ClothingMainType(rawValue: section)
         guard let headerViewTitleText = fashionType?.title else { return UIView() }
 
         let closetListTableHeaderView = ClosetListTableHeaderView()

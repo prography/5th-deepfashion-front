@@ -109,7 +109,7 @@ final class RequestAPI {
                 completion(nil, nil)
                 return
             }
-            
+
             isWeatherRequested = true
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
             guard let requestAPIURL = URL(string: requestAPIURLString) else { return }

@@ -65,9 +65,9 @@ class ClothingAddViewController: UIViewController {
 
     /*
      // pt파일을 불러와 TorchModule을 준비한다.
-     private let yjModule: TorchModule = {
+     lazy var yjModule: TorchModule = {
          // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "main3", ofType: "pt"),
+         if let filePath = Bundle.main.path(forResource: "combine", ofType: "pt"),
              let module = TorchModule(fileAtPath: filePath) {
              return module
          } else {
@@ -75,19 +75,19 @@ class ClothingAddViewController: UIViewController {
              fatalError("Can't find the model file!")
          }
      }()
-
-     // txt데이터를 불러와 문자열 배열로 준비한다.
-     private let yjData: [String] = {
-         // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 txt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "yjWords", ofType: "txt"),
-             let labels = try? String(contentsOfFile: filePath) {
-             return labels.components(separatedBy: .newlines)
-         } else {
-             // txt파일을 읽지 못하면 해당 행 실행
-             fatalError("Can't find the text file!")
-         }
-     }()
      */
+
+    // txt데이터를 불러와 문자열 배열로 준비한다.
+//    private let yjData: [String] = {
+//        // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 txt파일을 TorchModule에서 읽는다.
+//        if let filePath = Bundle.main.path(forResource: "combine", ofType: "txt"),
+//            let labels = try? String(contentsOfFile: filePath) {
+//            return labels.components(separatedBy: .newlines)
+//        } else {
+//            // txt파일을 읽지 못하면 해당 행 실행
+//            fatalError("Can't find the text file!")
+//        }
+//    }()
 
     // MARK: Life Cycle
 
@@ -123,14 +123,9 @@ class ClothingAddViewController: UIViewController {
              return
          }
 
-         let zippedResults = zip(yjData.indices, outputs)
-         let sortedResults = zippedResults.sorted { $0.1.floatValue > $1.1.floatValue }.prefix(3)
-         print("sortedResults: \(sortedResults)")
-         for (key, result) in sortedResults.enumerated() {
-             classificationLabel[key].text = yjData[result.0]
-         }
-
+         print(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
          */
+
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
         completion()
     }
@@ -163,7 +158,6 @@ class ClothingAddViewController: UIViewController {
 
     private func configurePhotoSelectAlertController() {
         let takePictureAlertAction = UIAlertAction(title: "사진 찍기", style: .default) { _ in
-            print("사진 찍기 클릭")
             let cameraType = AVMediaType.video
             let cameraAuthStatus = AVCaptureDevice.authorizationStatus(for: cameraType)
             switch cameraAuthStatus {
@@ -219,7 +213,6 @@ class ClothingAddViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.openPhotoAlbum(self.photoPickerViewController)
                 }
-                print("Present the Album List")
             @unknown default:
                 fatalError()
             }
@@ -293,17 +286,31 @@ class ClothingAddViewController: UIViewController {
     }
 
     @IBAction func unwindToClothingAddView(_: UIStoryboardSegue) {
-        guard let tabBarController = tabBarController else { return }
+        guard let tabBarController = tabBarController as? MainTabBarController else { return }
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
         ToastView.shared.presentShortMessage(tabBarController.view, message: "해당 옷이 추가되었습니다!")
         configureLayoutWithInitStatus()
+
+        RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
+
+            DispatchQueue.main.async {
+                guard let tabBarController = self.tabBarController as? MainTabBarController,
+                    let clothingDataList = clothingDataList else { return }
+                if networkError != nil {
+                    UserCommonData.shared.configureClothingData(clothingDataList)
+                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+                } else {
+                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 데이터 업데이트에 실패했습니다.")
+                }
+            }
+        }
     }
 }
 
 extension ClothingAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
-        print(selectedImage.pngData()!)
+
         clothingImageView.image = selectedImage
         selectedClothingImage = selectedImage
     }
