@@ -100,13 +100,16 @@ class ClosetListViewController: UIViewController {
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         viewMode = .view
-        updateClothingNetworkTask()
+        requestClothingNetworkTask()
     }
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
         inactivateEditBarButtonItem()
         inactivateDeleteBarButtonItem()
+
+        // TEST
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
     }
 
     // MARK: Methods
@@ -145,18 +148,19 @@ class ClosetListViewController: UIViewController {
         }
     }
 
-    private func updateClothingNetworkTask() {
+    private func requestClothingNetworkTask() {
         if UserCommonData.shared.isNeedToUpdateClothing == false { return }
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
-                UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 UserCommonData.shared.configureClothingData(clothingDataList)
+                CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
 
                 DispatchQueue.main.async {
-                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+//                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+//                    tabBarController.reloadRecommendCollectionView(clothingDataList)
                     self.closetListTableView.reloadData()
+                    UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 }
             } else {
                 DispatchQueue.main.async {
@@ -197,7 +201,7 @@ class ClosetListViewController: UIViewController {
                                         self.closetListTableView.reloadData()
                                         ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제에 성공하였습니다. ")
                                         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
-                                        self.updateClothingNetworkTask()
+                                        self.requestClothingNetworkTask()
                                     }
                                 } else {
                                     ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제 중 오류가 발생하였습니다.")

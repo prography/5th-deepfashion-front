@@ -66,13 +66,13 @@ class CodiRecommendViewController: UIViewController {
 
     // MARK: Methods
 
-    func updateClothingAPIDataList(_ clothingDataList: [ClothingAPIData]) {
-        CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
-        UserCommonData.shared.configureClothingData(clothingDataList)
-        DispatchQueue.main.async {
-            self.recommendCollectionView.reloadData()
-        }
-    }
+//    func updateClothingAPIDataList(_ clothingDataList: [ClothingAPIData]) {
+//        CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
+//        UserCommonData.shared.configureClothingData(clothingDataList)
+//        DispatchQueue.main.async {
+//            self.recommendCollectionView.reloadData()
+//        }
+//    }
 
     func requestClothingAPIDataList() {
         if UserCommonData.shared.isNeedToUpdateClothing == false { return }
@@ -205,7 +205,8 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let codiRecommendCollectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.recommend, for: indexPath) as? CodiRecommendCollectionViewCell else { return UICollectionViewCell() }
-        codiRecommendCollectionCell.configureCell(title: ViewData.Title.fashionType[indexPath.item], clothingData: CodiListGenerator.shared.topCodiDataSet[indexPath.item])
+
+        codiRecommendCollectionCell.configureCell(title: ViewData.Title.fashionType[indexPath.item], clothingData: CodiListGenerator.shared.topCodiDataSet[indexPath.item], indexPath: indexPath)
 
         return codiRecommendCollectionCell
     }

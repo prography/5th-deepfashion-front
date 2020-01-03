@@ -58,10 +58,10 @@ class MainTabBarController: UITabBarController {
 
     private func configureEditBarButtonItem() {}
 
-    func reloadRecommendCollectionView(_ clothingDataList: ClothingAPIDataList) {
+    func reloadRecommendCollectionView(_: ClothingAPIDataList) {
         guard let recommendViewController = self.viewControllers?.first as? CodiRecommendViewController else { return }
         DispatchQueue.main.async {
-            recommendViewController.updateClothingAPIDataList(clothingDataList)
+            recommendViewController.requestClothingAPIDataList()
         }
     }
 

@@ -58,12 +58,18 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
         titleLabel.backgroundColor = ColorList.newBrown
     }
 
-    func configureCell(title: String, clothingData: ClothingAPIData?) {
+    func configureCell(title: String, clothingData: ClothingAPIData?, indexPath: IndexPath) {
         titleLabel.text = " \(title)"
-        if let clothingData = clothingData {
-            imageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: #imageLiteral(resourceName: "noClothing"))
-        } else {
+
+        guard let clothingData = clothingData else {
             imageView.image = #imageLiteral(resourceName: "noClothing")
+            return
+        }
+
+        let nowPartIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(clothingData.part)
+
+        if nowPartIndex == indexPath.item {
+            imageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: #imageLiteral(resourceName: "noClothing"))
         }
     }
 
