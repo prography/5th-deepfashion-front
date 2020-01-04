@@ -11,8 +11,8 @@ import Foundation
 // MARK: - Welcome
 
 struct UserAPIData: Codable {
-    let username, gender: String
-    let styles: [Style]
+    let username, gender: String?
+    let styles: [Style]?
 }
 
 // MARK: - Style

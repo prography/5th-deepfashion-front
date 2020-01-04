@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct AccountsAPIData: Codable {
-    let username, gender: String
-    let styles: [Style]
+struct AccountCheckAPIData: Codable {
+    let username: String
+    let gender: String?
+    let styles: [Style]?
 }

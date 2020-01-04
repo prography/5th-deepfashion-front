@@ -46,7 +46,7 @@ enum NetworkError {
 }
 
 enum APIPostMode: String {
-    case userDataPost
+    case signUpAccounts
     case loginDataPost
     case clothingPost
     case clothingUploadPost
@@ -77,7 +77,7 @@ struct APIURL {
         }
 
         struct Post {
-            static let userData = "accounts/"
+            static let accounts = "accounts/"
             static let login = "accounts/login/"
             static let styleImage = "accounts/"
             static let clothing = "clothing/"
@@ -294,19 +294,19 @@ final class RequestAPI {
                 }
             }.resume()
 
-        case .userDataPost:
+        case .signUpAccounts:
 
             guard let userData = userData as? UserAPIPostData else {
                 delegate?.requestAPIDidError()
-                completion(NetworkError.wrongType)
+                completion(NetworkError.client)
                 return
             }
 
-            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.userData)"
+            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.accounts)"
             let userDataToPost = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.styles, password: userData.password)
             guard let userAPIData = try? JSONEncoder().encode(userDataToPost),
                 let postURL = URL(string: userDataPostURLString) else {
-                completion(configureError(.wrongType))
+                completion(configureError(.client))
                 return
             }
 
@@ -319,10 +319,16 @@ final class RequestAPI {
                 _, response, error in
 
                 if error != nil {
-                    print("Error Occurred...! : \(String(error?.localizedDescription ?? ""))")
                     self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                     completion(self.configureError(.client))
+                    return
                 }
+
+//                guard let _resultData = data,
+//                    let resultData = try? JSONDecoder().decode(UserAPIData.self, from: _resultData) else {
+//                        completion(self.configureError(.client))
+//                        return
+//                }
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {

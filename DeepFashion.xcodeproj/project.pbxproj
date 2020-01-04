@@ -66,7 +66,7 @@
 		07A3B0C4239108BF0028DC6B /* editStyleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C3239108BF0028DC6B /* editStyleCollectionViewCell.swift */; };
 		07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */; };
 		07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C8239138EB0028DC6B /* UserClothingData.swift */; };
-		07A5F71823C0F46D0024CF07 /* AccountsAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5F71723C0F46D0024CF07 /* AccountsAPIData.swift */; };
+		07A5F71A23C0F7940024CF07 /* AccountCheckAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5F71923C0F7940024CF07 /* AccountCheckAPIData.swift */; };
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
 		07AB242623AA52F70076ABF5 /* UserClothingUploadAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */; };
 		07AB242823AA57D10076ABF5 /* UserClothingUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */; };
@@ -196,7 +196,7 @@
 		07A3B0C3239108BF0028DC6B /* editStyleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editStyleCollectionViewCell.swift; sourceTree = "<group>"; };
 		07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		07A3B0C8239138EB0028DC6B /* UserClothingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingData.swift; sourceTree = "<group>"; };
-		07A5F71723C0F46D0024CF07 /* AccountsAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsAPIData.swift; sourceTree = "<group>"; };
+		07A5F71923C0F7940024CF07 /* AccountCheckAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCheckAPIData.swift; sourceTree = "<group>"; };
 		07AA4784237046780074DE76 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingUploadAPIData.swift; sourceTree = "<group>"; };
 		07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingUploadData.swift; sourceTree = "<group>"; };
@@ -540,8 +540,8 @@
 		07B7F6BC238EE4E200EA9C10 /* ClothingData */ = {
 			isa = PBXGroup;
 			children = (
-				07A5F71723C0F46D0024CF07 /* AccountsAPIData.swift */,
 				07B7F6BD238EE4FD00EA9C10 /* ClothingPostData.swift */,
+				07A5F71923C0F7940024CF07 /* AccountCheckAPIData.swift */,
 				073547B923BC992A00E45ADF /* ClothingAPIData.swift */,
 				07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */,
 				07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */,
@@ -891,7 +891,6 @@
 				07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */,
 				07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */,
 				07A3B0C4239108BF0028DC6B /* editStyleCollectionViewCell.swift in Sources */,
-				07A5F71823C0F46D0024CF07 /* AccountsAPIData.swift in Sources */,
 				07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */,
 				07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */,
 				07B7F6AF238E774900EA9C10 /* EditClothingViewController.swift in Sources */,
@@ -931,6 +930,7 @@
 				073547AD23B9FE9000E45ADF /* Data+.swift in Sources */,
 				07C5C5EF23ABA08900324B67 /* CodiData.swift in Sources */,
 				07554FFC23A6A52600691C5B /* CodiListCollectionViewFlowLayout.swift in Sources */,
+				07A5F71A23C0F7940024CF07 /* AccountCheckAPIData.swift in Sources */,
 				0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */,
 				0777D45123B51B0400385E68 /* ColorList.swift in Sources */,
 				07C5C5ED23AB9AD000324B67 /* CodiDataSet.swift in Sources */,

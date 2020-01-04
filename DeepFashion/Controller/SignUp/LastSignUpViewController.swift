@@ -122,14 +122,21 @@ class LastSignUpViewController: UIViewController {
 
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
         print(userAPIData)
-        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.userDataPost) { errorType in
+        RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.signUpAccounts) { errorType in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
             DispatchQueue.main.async {
                 if errorType == nil {
                     self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToLogin, sender: nil)
                 } else {
                     // * ISSUE : 네트워킹 or 회원가입 오입력에 따른 AlertController 띄울 예정
-                    ToastView.shared.presentShortMessage(navigationController.view, message: "회원가입에 실패했습니다.")
+                    switch errorType {
+                    case .client:
+                        ToastView.shared.presentShortMessage(navigationController.view, message: "회원가입에 실패했습니다. \n다른 아이디를 사용해주세요.")
+                    case .server:
+                        ToastView.shared.presentShortMessage(navigationController.view, message: "회원가입에 실패했습니다. \n네트워크 상태를 확인해주세요.")
+                    default:
+                        ToastView.shared.presentShortMessage(navigationController.view, message: "회원가입에 실패했습니다. \n네트워크 상태를 확인해주세요.")
+                    }
                 }
             }
         }
