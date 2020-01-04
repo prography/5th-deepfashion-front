@@ -100,16 +100,13 @@ class ClosetListViewController: UIViewController {
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         viewMode = .view
-        requestClothingNetworkTask()
+        requestClothingDataTask()
     }
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
         inactivateEditBarButtonItem()
         inactivateDeleteBarButtonItem()
-
-        // TEST
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
     }
 
     // MARK: Methods
@@ -148,31 +145,41 @@ class ClosetListViewController: UIViewController {
         }
     }
 
-    private func requestClothingNetworkTask() {
-        if UserCommonData.shared.isNeedToUpdateClothing == false { return }
+    private func reloadClosetListTableView() {
+        DispatchQueue.main.async {
+            self.closetListTableView.reloadData()
+        }
+    }
+
+    private func requestClothingDataTask() {
+        if UserCommonData.shared.isNeedToUpdateClothing == false {
+            reloadClosetListTableView()
+            return
+        }
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
                 UserCommonData.shared.configureClothingData(clothingDataList)
-                CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
+                CodiListGenerator.shared.getNowCodiDataSet()
 
                 DispatchQueue.main.async {
-//                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-//                    tabBarController.reloadRecommendCollectionView(clothingDataList)
-                    self.closetListTableView.reloadData()
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    self.reloadClosetListTableView()
                     UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 }
             } else {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController else { return }
                     ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 정보를 불러오는데 실패했습니다.")
+                    UserCommonData.shared.setIsNeedToUpdateClothingTrue()
                 }
             }
         }
     }
 
     private func checkImageDataRequest() {
-        isImageDataRequested = RequestImage.shared.isImageKeyEmpty() ? false : true
+        isImageDataRequested = !RequestImage.shared.isImageKeyEmpty()
     }
 
     @objc func closetListEditBarButtonItemPressed(_: UIButton) {
@@ -201,7 +208,7 @@ class ClosetListViewController: UIViewController {
                                         self.closetListTableView.reloadData()
                                         ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제에 성공하였습니다. ")
                                         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
-                                        self.requestClothingNetworkTask()
+                                        self.requestClothingDataTask()
                                     }
                                 } else {
                                     ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제 중 오류가 발생하였습니다.")
@@ -254,7 +261,7 @@ extension ClosetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
 
-        let clothingData = UserCommonData.shared.clothingList.filter {
+        let clothingData = UserCommonData.shared.clothingDataList.filter {
             // 받은 인덱스는 서버 인덱스이다.
             guard let nowIndex = ClothingCategoryIndex.subCategoryList[$0.category]?.mainIndex else { return true }
             return nowIndex == indexPath.section

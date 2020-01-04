@@ -63,8 +63,8 @@ class ClothingAddViewController: UIViewController {
 
     // MARK: - Add DeepLearning Module
 
+    // pt파일을 불러와 TorchModule을 준비한다.
     /*
-     // pt파일을 불러와 TorchModule을 준비한다.
      lazy var yjModule: TorchModule = {
          // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
          if let filePath = Bundle.main.path(forResource: "combine", ofType: "pt"),
@@ -124,8 +124,8 @@ class ClothingAddViewController: UIViewController {
          }
 
          print(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
-         */
 
+         */
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
         completion()
     }
@@ -298,8 +298,9 @@ class ClothingAddViewController: UIViewController {
                     let clothingDataList = clothingDataList else { return }
                 if networkError != nil {
                     UserCommonData.shared.configureClothingData(clothingDataList)
-                    CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
+                    CodiListGenerator.shared.getNowCodiDataSet()
                     tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 } else {
                     ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 데이터 업데이트에 실패했습니다.")
                 }

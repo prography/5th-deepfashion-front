@@ -13,6 +13,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    private(set) var clothingData: ClothingAPIData?
 
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
@@ -58,6 +59,10 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
         titleLabel.backgroundColor = ColorList.newBrown
     }
 
+    func updateCellImage(_ imageURLString: String?) {
+        imageView.setThumbnailImageFromServerURL(imageURLString, placeHolder: #imageLiteral(resourceName: "noClothing"))
+    }
+
     func configureCell(title: String, clothingData: ClothingAPIData?, indexPath: IndexPath) {
         titleLabel.text = " \(title)"
 
@@ -70,6 +75,8 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
 
         if nowPartIndex == indexPath.item {
             imageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: #imageLiteral(resourceName: "noClothing"))
+        } else {
+            imageView.image = #imageLiteral(resourceName: "noClothing")
         }
     }
 

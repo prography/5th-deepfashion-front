@@ -35,7 +35,15 @@ class CodiRecommendViewController: UIViewController {
     private var isAPIDataRequested = false {
         didSet {
             DispatchQueue.main.async {
-                self.indicatorView.checkIndicatorView(self.isAPIDataRequested)
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested || self.isImageDataRequested)
+            }
+        }
+    }
+
+    private var isImageDataRequested = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested || self.isImageDataRequested)
             }
         }
     }
@@ -74,17 +82,27 @@ class CodiRecommendViewController: UIViewController {
 //        }
 //    }
 
+    // UI적인 요소, 로직적인 요소가 같이 겹쳐져 있는 부분이 있다.
+    // ViewController에서는 데이터만 넘겨주고, viewWillAppear, viewDidAppear에서 호출해보는게 더 좋지 않을까?
+    // 이미 옷데이터를 받은 경우에는 reload소요가 크지 않으니 viewWillAppear, viewDidAppear에서 하는게 좋지않을까?
+
+    // 로딩 중 터치동작을 막기위해서는 ?
+    // keyWindows의 indicatorView를 AddsubView시키면 keyWindow는 최상단의 뷰.
+    // baseViewController를 만들고, 모든 뷰컨트롤러는 baseViewController를 상속받게만들고 baseViewController의 함수를 endLoading, startLoading 지정하는 방법 .isEnabled .UserInteractive 설정
+    // 뷰에 인디케이터를 씌워서 동작시키는 방식
+    // 인디케이터 매니저를 커스텀으로 만들어서 인디케이터매니저.showWindow
+
     func requestClothingAPIDataList() {
-        if UserCommonData.shared.isNeedToUpdateClothing == false { return }
+        if UserCommonData.shared.isNeedToUpdateClothing == false {
+            refreshCodiData()
+            return
+        }
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
-                CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
                 UserCommonData.shared.configureClothingData(clothingDataList)
-
-                DispatchQueue.main.async {
-                    self.recommendCollectionView.reloadData()
-                }
+                CodiListGenerator.shared.getNowCodiDataSet()
+                self.refreshCodiData()
                 UserCommonData.shared.setIsNeedToUpdateClothingFalse()
             } else {
                 DispatchQueue.main.async {
@@ -93,6 +111,12 @@ class CodiRecommendViewController: UIViewController {
                     UserCommonData.shared.setIsNeedToUpdateClothingTrue()
                 }
             }
+        }
+    }
+
+    func reloadRecommendCollectionView() {
+        DispatchQueue.main.async {
+            self.recommendCollectionView.reloadData()
         }
     }
 
@@ -179,35 +203,40 @@ class CodiRecommendViewController: UIViewController {
         codiIdCount += 1
     }
 
+    private func checkImageDataRequest() {
+        isImageDataRequested = !RequestImage.shared.isImageKeyEmpty()
+    }
+
+    private func refreshCodiData() {
+        DispatchQueue.main.async {
+            for i in 0 ..< 4 {
+                guard let nowCell = self.recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
+                    continue
+                }
+
+                nowCell.updateCellImage(CodiListGenerator.shared.topCodiDataSet[i]?.image)
+            }
+        }
+    }
+
     // MARK: - IBAction
 
     @IBAction func refreshCodiButtonPressed(_: UIButton) {
         var fixStatus = [Int]()
-        for i in 0..<4 {
+        for i in 0 ..< 4 {
             guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
                 fixStatus.append(0)
                 continue
             }
-            
+
             fixStatus.append(nowCell.isSelected ? 0 : 1)
         }
-        
+
         CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
-        
-        for i in 0..<4 {
-            guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
-                continue
-            }
-            
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.6) {
-                    nowCell.imageView.setThumbnailImageFromServerURL(CodiListGenerator.shared.topCodiDataSet[i]?.image, placeHolder: #imageLiteral(resourceName: "noClothing"))
-                }
-            }
-        }
-        
+
+        refreshCodiData()
     }
-    
+
     @IBAction func saveButtonPressed(_: UIButton) {
         presentBasicTwoButtonAlertController(title: "코디 저장", message: "해당 코디를 저장하시겠습니까?") { isApproved in
             if isApproved {
@@ -217,7 +246,6 @@ class CodiRecommendViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension CodiRecommendViewController: UICollectionViewDelegate {
@@ -303,6 +331,24 @@ extension CodiRecommendViewController: RequestAPIDelegate {
     func requestAPIDidError() {
         // 에러 발생 시 동작 실행
         isAPIDataRequested = false
+    }
+}
+
+extension CodiRecommendViewController: RequestImageDelegate {
+    func imageRequestDidBegin() {
+        isImageDataRequested = true
+    }
+
+    func imageRequestDidFinished(_: UIImage, imageKey _: String) {
+        checkImageDataRequest()
+    }
+
+    func imageRequestDidError(_ errorDescription: String) {
+        checkImageDataRequest()
+        DispatchQueue.main.async {
+            guard let tabBarController = self.tabBarController else { return }
+            ToastView.shared.presentShortMessage(tabBarController.view, message: "이미지 로딩 중 에러가 발생했습니다. \(errorDescription)")
+        }
     }
 }
 

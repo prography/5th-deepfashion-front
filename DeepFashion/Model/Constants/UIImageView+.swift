@@ -11,11 +11,14 @@ import UIKit
 extension UIImageView {
     func setThumbnailImageFromServerURL(_ thumbnailImageURLString: String?, placeHolder: UIImage) {
         guard let imageURL = thumbnailImageURLString else {
+            DispatchQueue.main.async {
+                self.image = placeHolder
+            }
             return
         }
 
-        DispatchQueue.main.async {
-            RequestImage.shared.setImageFromServerURL(imageURL, placeHolder: placeHolder) { image in
+        RequestImage.shared.setImageFromServerURL(imageURL, placeHolder: placeHolder) { image in
+            DispatchQueue.main.async {
                 self.image = image
             }
         }
