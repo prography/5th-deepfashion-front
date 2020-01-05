@@ -39,6 +39,7 @@ struct UIIdentifier {
     struct NibName {
         static let mainClothingInfoView = "MainClothingInfoView"
         static let colorSelectCollectionView = "ColorSelectCollectionView"
+        static let codiAddView = "CodiAddView"
     }
 
     struct Cell {

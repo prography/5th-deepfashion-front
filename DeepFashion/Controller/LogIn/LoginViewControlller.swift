@@ -142,7 +142,6 @@ class LoginViewController: UIViewController {
             // 테스트용 조건 설정 중)
             if errorType == nil {
                 DispatchQueue.main.async {
-                    ToastView.shared.presentShortMessage(navigationController.view, message: "로그인에 성공했습니다.")
                     UserCommonData.shared.saveID(idText)
                     self.passwordTextField.text = ""
                     self.passwordTextField.configureBasicTextField()

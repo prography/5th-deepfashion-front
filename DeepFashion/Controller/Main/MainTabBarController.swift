@@ -58,6 +58,12 @@ class MainTabBarController: UITabBarController {
 
     private func configureEditBarButtonItem() {}
 
+    func presentToastMessage(_ message: String) {
+        DispatchQueue.main.async {
+            ToastView.shared.presentShortMessage(self.view, message: message)
+        }
+    }
+
     func reloadRecommendCollectionView(_: ClothingAPIDataList) {
         guard let recommendViewController = self.viewControllers?.first as? CodiRecommendViewController else { return }
         DispatchQueue.main.async {

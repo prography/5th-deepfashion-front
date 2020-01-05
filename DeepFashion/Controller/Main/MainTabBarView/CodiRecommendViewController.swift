@@ -32,6 +32,8 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
+    private var codiAddView = CodiAddView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+
     private var isAPIDataRequested = false {
         didSet {
             DispatchQueue.main.async {
@@ -74,13 +76,13 @@ class CodiRecommendViewController: UIViewController {
 
     // MARK: Methods
 
-//    func updateClothingAPIDataList(_ clothingDataList: [ClothingAPIData]) {
-//        CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
-//        UserCommonData.shared.configureClothingData(clothingDataList)
-//        DispatchQueue.main.async {
-//            self.recommendCollectionView.reloadData()
-//        }
-//    }
+    //    func updateClothingAPIDataList(_ clothingDataList: [ClothingAPIData]) {
+    //        CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
+    //        UserCommonData.shared.configureClothingData(clothingDataList)
+    //        DispatchQueue.main.async {
+    //            self.recommendCollectionView.reloadData()
+    //        }
+    //    }
 
     // UI적인 요소, 로직적인 요소가 같이 겹쳐져 있는 부분이 있다.
     // ViewController에서는 데이터만 넘겨주고, viewWillAppear, viewDidAppear에서 호출해보는게 더 좋지 않을까?
@@ -105,11 +107,9 @@ class CodiRecommendViewController: UIViewController {
                 self.refreshCodiData()
                 UserCommonData.shared.setIsNeedToUpdateClothingFalse()
             } else {
-                DispatchQueue.main.async {
-                    guard let tabBarController = self.tabBarController else { return }
-                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 정보를 불러오는데 실패했습니다.")
-                    UserCommonData.shared.setIsNeedToUpdateClothingTrue()
-                }
+                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                tabBarController.presentToastMessage("옷 정보를 불러오는데 실패했습니다.")
+                UserCommonData.shared.setIsNeedToUpdateClothingTrue()
             }
         }
     }
@@ -219,6 +219,28 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
+    func dismissCodiAddView() {
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                self?.codiAddView.alpha = 0.0
+            }, completion: { [weak self] isSucceed in
+                if isSucceed {
+                    self?.codiAddView.removeFromSuperview()
+                }
+            })
+        }
+    }
+
+    @objc func codiAddButtonPressed(_: UIButton) {
+        // RequestAPI.shared.postCodiData ~
+        dismissCodiAddView()
+    }
+
+    @objc func codiCancelButtonPressed(_: UIButton) {
+        // dismiss the codiAddView
+        dismissCodiAddView()
+    }
+
     // MARK: - IBAction
 
     @IBAction func refreshCodiButtonPressed(_: UIButton) {
@@ -238,15 +260,15 @@ class CodiRecommendViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_: UIButton) {
-        let codiAlertController = CodiCheckAlertController(title: "코디 추가하기", message: "해당 코디의 이름을 입력 후 등록해주세요.", preferredStyle: .alert)
-        present(codiAlertController, animated: true)
-//        presentBasicTwoButtonAlertController(title: "코디 저장", message: "해당 코디를 저장하시겠습니까?") { isApproved in
-//            if isApproved {
-//                guard let tabBar = self.tabBarController else { return }
-//                ToastView.shared.presentShortMessage(tabBar.view, message: "해당 코디가 저장되었습니다!")
-//                self.addCodiDataSet()
-//            }
-//        }
+        guard let tabBarController = self.tabBarController else { return }
+        codiAddView.center = view.center
+        codiAddView.alpha = 0
+        codiAddView.addButton.addTarget(self, action: #selector(codiAddButtonPressed(_:)), for: .touchUpInside)
+        codiAddView.cancelButton.addTarget(self, action: #selector(codiCancelButtonPressed(_:)), for: .touchUpInside)
+        tabBarController.view.addSubview(codiAddView)
+        UIView.animate(withDuration: 0.3) {
+            self.codiAddView.alpha = 1
+        }
     }
 }
 
@@ -297,10 +319,8 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
                     self.locationManager.stopUpdatingLocation()
                 }
             } else {
-                DispatchQueue.main.async {
-                    guard let tabBarController = self.tabBarController else { return }
-                    ToastView.shared.presentShortMessage(tabBarController.view, message: "현지 날씨정보 불러오기에 실패했습니다.")
-                }
+                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                tabBarController.presentToastMessage("날씨 정보를 불러오는데 실패했습니다.")
             }
         }
     }
@@ -309,10 +329,8 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
         let locationAuthStatus = CLLocationManager.authorizationStatus()
         switch locationAuthStatus {
         case .authorizedWhenInUse:
-            DispatchQueue.main.async {
-                guard let tabBarController = self.tabBarController else { return }
-                ToastView.shared.presentShortMessage(tabBarController.view, message: "현지기반 날씨 정보가 업데이트 됩니다.")
-            }
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            tabBarController.presentToastMessage("현지 기반 날씨정보가 업데이트 되었습니다.")
         default:
             break
         }
@@ -345,12 +363,10 @@ extension CodiRecommendViewController: RequestImageDelegate {
         checkImageDataRequest()
     }
 
-    func imageRequestDidError(_ errorDescription: String) {
+    func imageRequestDidError(_: String) {
         checkImageDataRequest()
-        DispatchQueue.main.async {
-            guard let tabBarController = self.tabBarController else { return }
-            ToastView.shared.presentShortMessage(tabBarController.view, message: "이미지 로딩 중 에러가 발생했습니다. \(errorDescription)")
-        }
+        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+        tabBarController.presentToastMessage("이미지 로딩 중 에러가 발생했습니다.")
     }
 }
 
@@ -366,5 +382,8 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
+
+        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+        tabBarController.presentToastMessage("로그인에 성공했습니다.")
     }
 }

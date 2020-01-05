@@ -136,10 +136,10 @@ class CodiListViewController: UIViewController {
     }
 
     @objc func deleteBarButtonItemPressed(_: UIButton) {
-        guard let tabBarController = self.tabBarController else { return }
         presentBasicTwoButtonAlertController(title: "코디 삭제", message: "선택한 코디목록을 삭제하시겠습니까?") { isApproved in
             if isApproved {
-                ToastView.shared.presentShortMessage(tabBarController.view, message: "선택한 코디목록이 삭제되었습니다!")
+                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                tabBarController.presentToastMessage("선택 된 코디목록이 삭제되었습니다.")
                 self.deleteSelectedCells()
             }
         }

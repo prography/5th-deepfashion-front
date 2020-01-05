@@ -288,7 +288,7 @@ class ClothingAddViewController: UIViewController {
     @IBAction func unwindToClothingAddView(_: UIStoryboardSegue) {
         guard let tabBarController = tabBarController as? MainTabBarController else { return }
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
-        ToastView.shared.presentShortMessage(tabBarController.view, message: "해당 옷이 추가되었습니다!")
+        tabBarController.presentToastMessage("해당 옷이 추가되었습니다!")
         configureLayoutWithInitStatus()
 
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
@@ -302,7 +302,7 @@ class ClothingAddViewController: UIViewController {
                     tabBarController.reloadRecommendCollectionView(clothingDataList)
                     UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 } else {
-                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 데이터 업데이트에 실패했습니다.")
+                    tabBarController.presentToastMessage("옷 데이터 업데이트에 실패했습니다.")
                 }
             }
         }

@@ -887,15 +887,46 @@
                                 </constraints>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="cL2-GV-oLf">
+                                <rect key="frame" x="0.0" y="461.5" width="414" height="351.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dgB-kA-m25">
+                                        <rect key="frame" x="0.0" y="0.0" width="194.5" height="351.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tgQ-Sd-H41">
+                                                <rect key="frame" x="0.0" y="0.0" width="194.5" height="168.5"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r0I-Kd-QfY">
+                                                <rect key="frame" x="0.0" y="183.5" width="194.5" height="168"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pKM-bH-ncL">
+                                        <rect key="frame" x="219.5" y="0.0" width="194.5" height="351.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wZa-GJ-Xji">
+                                                <rect key="frame" x="0.0" y="0.0" width="194.5" height="172"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c0f-Gi-vaK">
+                                                <rect key="frame" x="0.0" y="180" width="194.5" height="171.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Vy0-LX-M4W" firstAttribute="trailing" secondItem="XMx-ZB-DCr" secondAttribute="trailing" constant="10" id="10J-9G-vBa"/>
+                            <constraint firstItem="Vy0-LX-M4W" firstAttribute="trailing" secondItem="cL2-GV-oLf" secondAttribute="trailing" id="9Q0-US-Wlm"/>
                             <constraint firstItem="lyv-zD-t1x" firstAttribute="leading" secondItem="Vy0-LX-M4W" secondAttribute="leading" id="BSN-tJ-GqN"/>
+                            <constraint firstItem="cL2-GV-oLf" firstAttribute="top" secondItem="PrQ-ah-XzD" secondAttribute="bottom" constant="8" symbolic="YES" id="UmW-wJ-8ld"/>
                             <constraint firstItem="PrQ-ah-XzD" firstAttribute="centerY" secondItem="Vy0-LX-M4W" secondAttribute="centerY" id="WAW-pv-uoR"/>
                             <constraint firstItem="Vy0-LX-M4W" firstAttribute="trailing" secondItem="lyv-zD-t1x" secondAttribute="trailing" id="buy-Pf-UkA"/>
                             <constraint firstItem="lyv-zD-t1x" firstAttribute="top" secondItem="Vy0-LX-M4W" secondAttribute="top" id="ggt-0g-XVq"/>
                             <constraint firstItem="PrQ-ah-XzD" firstAttribute="centerX" secondItem="Vy0-LX-M4W" secondAttribute="centerX" id="mMi-k1-YFa"/>
+                            <constraint firstItem="Vy0-LX-M4W" firstAttribute="bottom" secondItem="cL2-GV-oLf" secondAttribute="bottom" id="oua-Fc-zfs"/>
+                            <constraint firstItem="cL2-GV-oLf" firstAttribute="leading" secondItem="Vy0-LX-M4W" secondAttribute="leading" id="puk-tp-O0p"/>
                             <constraint firstItem="XMx-ZB-DCr" firstAttribute="leading" secondItem="Vy0-LX-M4W" secondAttribute="leading" constant="10" id="thR-2n-78G"/>
                             <constraint firstItem="XMx-ZB-DCr" firstAttribute="top" secondItem="lyv-zD-t1x" secondAttribute="bottom" constant="30" id="z9L-Rc-e3b"/>
                         </constraints>
@@ -916,7 +947,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fsv-SX-l0u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="GAq-sC-GdD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6294" y="1381"/>
+            <point key="canvasLocation" x="6292.753623188406" y="1380.8035714285713"/>
         </scene>
         <!--옷 추가하기-->
         <scene sceneID="yPN-H7-C6S">
@@ -1637,13 +1668,13 @@
                                 <rect key="frame" x="0.0" y="60" width="414" height="665"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jYq-fT-66a">
-                                        <rect key="frame" x="20" y="20" width="374" height="595"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="615"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lw4-mM-ko7">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="535"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="555"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UWn-7u-RIA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="535"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="555"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <collectionViewLayout key="collectionViewLayout" id="Cel-Qe-tKK" customClass="CodiRecommendCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
                                                         <cells>
@@ -1698,7 +1729,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afC-Ei-APJ">
-                                                <rect key="frame" x="0.0" y="545" width="374" height="50"/>
+                                                <rect key="frame" x="0.0" y="565" width="374" height="50"/>
                                                 <color key="backgroundColor" name="NewBrown"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="v9f-lm-Gwm"/>
@@ -1716,7 +1747,7 @@
                                         </subviews>
                                     </stackView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RQf-Rg-uzJ">
-                                        <rect key="frame" x="188.5" y="299" width="37" height="37"/>
+                                        <rect key="frame" x="188.5" y="309" width="37" height="37"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
@@ -1725,7 +1756,7 @@
                                 <constraints>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="top" secondItem="BDW-CI-BlR" secondAttribute="top" constant="20" id="6Sj-dT-Z40"/>
                                     <constraint firstAttribute="trailing" secondItem="jYq-fT-66a" secondAttribute="trailing" constant="20" id="7Rj-C3-fmR"/>
-                                    <constraint firstAttribute="bottom" secondItem="jYq-fT-66a" secondAttribute="bottom" constant="50" id="Ava-WI-vS7"/>
+                                    <constraint firstAttribute="bottom" secondItem="jYq-fT-66a" secondAttribute="bottom" constant="30" id="Ava-WI-vS7"/>
                                     <constraint firstItem="RQf-Rg-uzJ" firstAttribute="centerY" secondItem="jYq-fT-66a" secondAttribute="centerY" id="DBC-vR-lUn"/>
                                     <constraint firstItem="RQf-Rg-uzJ" firstAttribute="centerX" secondItem="BDW-CI-BlR" secondAttribute="centerX" id="NH4-qi-33e"/>
                                     <constraint firstItem="jYq-fT-66a" firstAttribute="leading" secondItem="BDW-CI-BlR" secondAttribute="leading" constant="20" id="VWd-E8-5FV"/>

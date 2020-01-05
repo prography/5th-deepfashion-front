@@ -170,8 +170,8 @@ class ClosetListViewController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    guard let tabBarController = self.tabBarController else { return }
-                    ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 정보를 불러오는데 실패했습니다.")
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.presentToastMessage("옷 정보 불러오기에 실패 했습니다.")
                     UserCommonData.shared.setIsNeedToUpdateClothingTrue()
                 }
             }
@@ -315,12 +315,10 @@ extension ClosetListViewController: RequestImageDelegate {
         checkImageDataRequest()
     }
 
-    func imageRequestDidError(_ errorDescription: String) {
+    func imageRequestDidError(_: String) {
         checkImageDataRequest()
-        DispatchQueue.main.async {
-            guard let tabBarController = self.tabBarController else { return }
-            ToastView.shared.presentShortMessage(tabBarController.view, message: "이미지 로딩 중 에러가 발생했습니다. \(errorDescription)")
-        }
+        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+        tabBarController.presentToastMessage("이미지 로딩 중 에러가 발생했습니다.")
     }
 }
 
