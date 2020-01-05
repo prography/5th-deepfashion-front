@@ -43,7 +43,7 @@ class ClosetListCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .lightGray
-        layer.borderColor = ViewData.Color.borderColor
+        layer.borderColor = ViewData.Color.border
         layer.borderWidth = 1
         layer.cornerRadius = 10
         addSubviews()

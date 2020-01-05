@@ -39,6 +39,18 @@ class CodiAddView: UIView {
         return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
 
+    func configureImage(_ imageList: [UIImage]) {
+        for i in imageViewList.indices {
+            imageViewList[i].layer.cornerRadius = 10
+            imageViewList[i].layer.borderWidth = 3
+            imageViewList[i].layer.borderColor = ViewData.Color.border
+            if imageList.count - 1 < i { break }
+            DispatchQueue.main.async {
+                self.imageViewList[i].image = imageList[i]
+            }
+        }
+    }
+
     @IBAction func addButtonPressed(_: UIButton) {}
 
     @IBAction func cancelButtonPressed(_: UIButton) {}

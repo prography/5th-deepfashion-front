@@ -223,6 +223,15 @@ class CodiRecommendViewController: UIViewController {
     private func presentCodiAddView() {
         guard let tabBarController = self.tabBarController else { return }
         codiAddView.alpha = 0
+
+        var codiImageList = [UIImage]()
+        for item in clothingPartTitle.indices {
+            guard let clothingCell = self.recommendCollectionView.cellForItem(at: IndexPath(item: item, section: 0)) as? CodiRecommendCollectionViewCell,
+                let clothingImage = clothingCell.imageView.image else { continue }
+            codiImageList.append(clothingImage)
+        }
+
+        codiAddView.configureImage(codiImageList)
         codiAddView.addButton.addTarget(self, action: #selector(codiAddButtonPressed(_:)), for: .touchUpInside)
         codiAddView.cancelButton.addTarget(self, action: #selector(codiCancelButtonPressed(_:)), for: .touchUpInside)
         tabBarController.navigationController?.view.addSubview(codiAddView)
@@ -245,7 +254,6 @@ class CodiRecommendViewController: UIViewController {
 
     @objc func codiAddButtonPressed(_: UIButton) {
         // RequestAPI.shared.postCodiData ~
-
         dismissCodiAddView()
     }
 

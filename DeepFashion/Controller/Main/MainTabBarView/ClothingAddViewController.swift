@@ -135,7 +135,7 @@ class ClothingAddViewController: UIViewController {
         imageTapGestureRecognizer.addTarget(self, action: #selector(clothingImageViewPressed(_:)))
         clothingImageView.addGestureRecognizer(imageTapGestureRecognizer)
         clothingImageView.layer.borderWidth = 3
-        clothingImageView.layer.borderColor = ViewData.Color.borderColor
+        clothingImageView.layer.borderColor = ViewData.Color.border
         clothingImageView.layer.cornerRadius = 10
     }
 

@@ -1295,17 +1295,17 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="JHF-cB-g4P"/>
                                         </constraints>
-                                        <state key="normal" title="등록하기"/>
+                                        <state key="normal" title="취소하기"/>
                                         <connections>
-                                            <action selector="addFashionButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="Jxf-RX-64Q"/>
+                                            <action selector="cancelButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="d2R-Mk-IKS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-ZK-HfT">
                                         <rect key="frame" x="207" y="0.0" width="207" height="60"/>
                                         <color key="backgroundColor" name="PaleBrown"/>
-                                        <state key="normal" title="취소하기"/>
+                                        <state key="normal" title="등록하기"/>
                                         <connections>
-                                            <action selector="cancelButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="hrP-O7-I3e"/>
+                                            <action selector="addFashionButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="Rrx-xt-cjJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1411,17 +1411,17 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="t3Y-0O-hCm"/>
                                                 </constraints>
-                                                <state key="normal" title="설정하기"/>
+                                                <state key="normal" title="취소하기"/>
                                                 <connections>
-                                                    <action selector="finishButtonPressed:" destination="W1j-sd-euh" eventType="touchUpInside" id="yPc-Iy-BX8"/>
+                                                    <action selector="CancelButtonPressed:" destination="W1j-sd-euh" eventType="touchUpInside" id="y8D-7H-jSr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYQ-oh-ds6">
                                                 <rect key="frame" x="197" y="0.0" width="197" height="50"/>
                                                 <color key="backgroundColor" name="PaleBrown"/>
-                                                <state key="normal" title="취소하기"/>
+                                                <state key="normal" title="설정하기"/>
                                                 <connections>
-                                                    <action selector="CancelButtonPressed:" destination="W1j-sd-euh" eventType="touchUpInside" id="09o-V9-bNP"/>
+                                                    <action selector="finishButtonPressed:" destination="W1j-sd-euh" eventType="touchUpInside" id="YzZ-TM-SQ5"/>
                                                 </connections>
                                             </button>
                                         </subviews>

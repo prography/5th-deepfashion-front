@@ -25,12 +25,12 @@
             <rect key="frame" x="0.0" y="0.0" width="456" height="993"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XCG-2m-Y7T">
-                    <rect key="frame" x="0.0" y="213.5" width="456" height="576"/>
+                <stackView contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XCG-2m-Y7T">
+                    <rect key="frame" x="0.0" y="223.5" width="456" height="556"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 코디를 추가하시겠습니까?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4q-sf-1zo">
                             <rect key="frame" x="0.0" y="0.0" width="456" height="60"/>
-                            <color key="backgroundColor" name="Beige"/>
+                            <color key="backgroundColor" name="NewBrown"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="u8b-dq-Saq"/>
                             </constraints>
@@ -38,21 +38,21 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-es-FXK">
-                            <rect key="frame" x="0.0" y="60" width="456" height="456"/>
+                        <stackView clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-es-FXK">
+                            <rect key="frame" x="20" y="70" width="416" height="416"/>
                             <subviews>
-                                <stackView contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="v7X-m7-KaG">
-                                    <rect key="frame" x="0.0" y="0.0" width="228" height="456"/>
+                                <stackView contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v7X-m7-KaG">
+                                    <rect key="frame" x="0.0" y="0.0" width="205.5" height="416"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="R0e-TA-ABq">
-                                            <rect key="frame" x="0.0" y="0.0" width="228" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="205.5" height="205.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="R0e-TA-ABq" secondAttribute="height" multiplier="1:1" id="V2h-gI-9yI"/>
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="bhJ-Ww-PrP">
-                                            <rect key="frame" x="0.0" y="228" width="228" height="228"/>
+                                            <rect key="frame" x="0.0" y="210.5" width="205.5" height="205.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
@@ -62,15 +62,15 @@
                                         <constraint firstItem="R0e-TA-ABq" firstAttribute="height" secondItem="bhJ-Ww-PrP" secondAttribute="height" id="RIR-F0-Eug"/>
                                     </constraints>
                                 </stackView>
-                                <stackView contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SlR-fB-ibh">
-                                    <rect key="frame" x="228" y="0.0" width="228" height="456"/>
+                                <stackView contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SlR-fB-ibh">
+                                    <rect key="frame" x="210.5" y="0.0" width="205.5" height="416"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-sO-7y7">
-                                            <rect key="frame" x="0.0" y="0.0" width="228" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="205.5" height="205.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="LMD-9R-jZe">
-                                            <rect key="frame" x="0.0" y="228" width="228" height="228"/>
+                                            <rect key="frame" x="0.0" y="210.5" width="205.5" height="205.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
@@ -86,11 +86,11 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UPZ-wt-LSL">
-                            <rect key="frame" x="0.0" y="516" width="456" height="60"/>
+                            <rect key="frame" x="0.0" y="496" width="456" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybz-km-UMZ">
                                     <rect key="frame" x="0.0" y="0.0" width="228" height="60"/>
-                                    <color key="backgroundColor" name="PaleBrown"/>
+                                    <color key="backgroundColor" name="Peach"/>
                                     <state key="normal" title="취소하기">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
@@ -115,6 +115,14 @@
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="5d9-es-FXK" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" constant="20" id="4lj-Iy-C44"/>
+                        <constraint firstAttribute="trailing" secondItem="UPZ-wt-LSL" secondAttribute="trailing" id="MvT-en-Ra7"/>
+                        <constraint firstItem="e4q-sf-1zo" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" id="ReS-IP-N2H"/>
+                        <constraint firstAttribute="trailing" secondItem="5d9-es-FXK" secondAttribute="trailing" constant="20" id="XSE-6v-cTU"/>
+                        <constraint firstAttribute="trailing" secondItem="e4q-sf-1zo" secondAttribute="trailing" id="g9L-2u-MDu"/>
+                        <constraint firstItem="UPZ-wt-LSL" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" id="wpv-UP-Vni"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -131,14 +139,11 @@
     </objects>
     <resources>
         <image name="noClothing" width="170.66667175292969" height="170.66667175292969"/>
-        <namedColor name="Beige">
-            <color red="0.9100000262260437" green="0.81199997663497925" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="NewBrown">
             <color red="0.74500000476837158" green="0.6119999885559082" blue="0.51399999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PaleBrown">
-            <color red="0.65100002288818359" green="0.57599997520446777" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Peach">
+            <color red="0.9649999737739563" green="0.70200002193450928" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

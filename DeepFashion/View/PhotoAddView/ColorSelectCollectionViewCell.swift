@@ -48,7 +48,7 @@ class ColorSelectCollectionViewCell: UICollectionViewCell {
         addSubviews()
         makeConstraints()
         configureCellColor(rgb: rgb)
-        layer.borderColor = ViewData.Color.borderColor
+        layer.borderColor = ViewData.Color.border
         layer.cornerRadius = 10
         layer.borderWidth = 1
         clipsToBounds = true
