@@ -26,20 +26,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XCG-2m-Y7T">
-                    <rect key="frame" x="0.0" y="218.5" width="456" height="566"/>
+                    <rect key="frame" x="0.0" y="213.5" width="456" height="576"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 코디를 추가하시겠습니까?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4q-sf-1zo">
-                            <rect key="frame" x="0.0" y="0.0" width="456" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="456" height="60"/>
                             <color key="backgroundColor" name="Beige"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="50" id="u8b-dq-Saq"/>
+                                <constraint firstAttribute="height" constant="60" id="u8b-dq-Saq"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-es-FXK">
-                            <rect key="frame" x="0.0" y="50" width="456" height="456"/>
+                            <rect key="frame" x="0.0" y="60" width="456" height="456"/>
                             <subviews>
                                 <stackView contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="v7X-m7-KaG">
                                     <rect key="frame" x="0.0" y="0.0" width="228" height="456"/>
@@ -86,7 +86,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UPZ-wt-LSL">
-                            <rect key="frame" x="0.0" y="506" width="456" height="60"/>
+                            <rect key="frame" x="0.0" y="516" width="456" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybz-km-UMZ">
                                     <rect key="frame" x="0.0" y="0.0" width="228" height="60"/>

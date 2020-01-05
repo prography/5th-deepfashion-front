@@ -17,6 +17,9 @@ class CodiAddView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureByNib()
+        titleLabel.font = UIFont.subFont(displaySize: 18)
+        addButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+        cancelButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 
     required init?(coder: NSCoder) {

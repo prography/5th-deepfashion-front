@@ -60,6 +60,7 @@ class CodiRecommendViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         RequestAPI.shared.delegate = self
+        RequestImage.shared.delegate = self
         requestLocationAuthority()
         locationManager.startUpdatingLocation()
         requestClothingAPIDataList()
@@ -219,7 +220,18 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
-    func dismissCodiAddView() {
+    private func presentCodiAddView() {
+        guard let tabBarController = self.tabBarController else { return }
+        codiAddView.alpha = 0
+        codiAddView.addButton.addTarget(self, action: #selector(codiAddButtonPressed(_:)), for: .touchUpInside)
+        codiAddView.cancelButton.addTarget(self, action: #selector(codiCancelButtonPressed(_:)), for: .touchUpInside)
+        tabBarController.navigationController?.view.addSubview(codiAddView)
+        UIView.animate(withDuration: 0.3) {
+            self.codiAddView.alpha = 1
+        }
+    }
+
+    private func dismissCodiAddView() {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.3, animations: { [weak self] in
                 self?.codiAddView.alpha = 0.0
@@ -233,6 +245,7 @@ class CodiRecommendViewController: UIViewController {
 
     @objc func codiAddButtonPressed(_: UIButton) {
         // RequestAPI.shared.postCodiData ~
+
         dismissCodiAddView()
     }
 
@@ -260,15 +273,7 @@ class CodiRecommendViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_: UIButton) {
-        guard let tabBarController = self.tabBarController else { return }
-        codiAddView.center = view.center
-        codiAddView.alpha = 0
-        codiAddView.addButton.addTarget(self, action: #selector(codiAddButtonPressed(_:)), for: .touchUpInside)
-        codiAddView.cancelButton.addTarget(self, action: #selector(codiCancelButtonPressed(_:)), for: .touchUpInside)
-        tabBarController.view.addSubview(codiAddView)
-        UIView.animate(withDuration: 0.3) {
-            self.codiAddView.alpha = 1
-        }
+        presentCodiAddView()
     }
 }
 
