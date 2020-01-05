@@ -380,7 +380,7 @@ final class RequestAPI {
             let clothingMimeType = "image/jpg"
             let clothingImageKey = "img"
 
-            guard let imageData = userData.image?.jpegData(compressionQuality: 1) else { return }
+            guard let imageData = userData.image?.jpegData(compressionQuality: 0.1) else { return }
 
             urlRequest.httpBody = createBody(parameters: parameter, boundary: boundary, data: imageData, mimeType: clothingMimeType, fileKey: clothingImageKey, imageName: imageName)
             // URLSession을 만들어 Post 작용을 시작한다.
