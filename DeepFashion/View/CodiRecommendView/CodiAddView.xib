@@ -16,10 +16,10 @@
                 <outlet property="indicatorView" destination="988-qS-DV2" id="PAV-2v-wza"/>
                 <outlet property="nameTextField" destination="CK2-jb-xcx" id="tHt-eY-uGy"/>
                 <outlet property="titleLabel" destination="e4q-sf-1zo" id="Zit-kh-6ug"/>
-                <outletCollection property="imageViewList" destination="LMD-9R-jZe" collectionClass="NSMutableArray" id="zL8-WC-0Lw"/>
-                <outletCollection property="imageViewList" destination="y3Z-sO-7y7" collectionClass="NSMutableArray" id="iYJ-f7-kXZ"/>
-                <outletCollection property="imageViewList" destination="bhJ-Ww-PrP" collectionClass="NSMutableArray" id="LKo-tO-fcb"/>
-                <outletCollection property="imageViewList" destination="R0e-TA-ABq" collectionClass="NSMutableArray" id="91w-FS-eG4"/>
+                <outletCollection property="imageViewList" destination="R0e-TA-ABq" collectionClass="NSMutableArray" id="yv3-rt-GLC"/>
+                <outletCollection property="imageViewList" destination="y3Z-sO-7y7" collectionClass="NSMutableArray" id="gHM-sP-YOy"/>
+                <outletCollection property="imageViewList" destination="bhJ-Ww-PrP" collectionClass="NSMutableArray" id="Y2K-Uc-9cI"/>
+                <outletCollection property="imageViewList" destination="LMD-9R-jZe" collectionClass="NSMutableArray" id="CmE-2k-NVU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
