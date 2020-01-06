@@ -69,6 +69,7 @@
 		07A5F71A23C0F7940024CF07 /* AccountCheckAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5F71923C0F7940024CF07 /* AccountCheckAPIData.swift */; };
 		07A5F72423C24D460024CF07 /* CodiAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A5F72323C24D460024CF07 /* CodiAddView.xib */; };
 		07A5F72623C24E3C0024CF07 /* CodiAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5F72523C24E3C0024CF07 /* CodiAddView.swift */; };
+		07A5F72923C3190B0024CF07 /* CodiAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5F72823C3190B0024CF07 /* CodiAPIData.swift */; };
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
 		07AB242623AA52F70076ABF5 /* ClothingUploadAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242523AA52F70076ABF5 /* ClothingUploadAPIData.swift */; };
 		07AB242823AA57D10076ABF5 /* ClothingUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242723AA57D10076ABF5 /* ClothingUploadData.swift */; };
@@ -201,6 +202,7 @@
 		07A5F71923C0F7940024CF07 /* AccountCheckAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCheckAPIData.swift; sourceTree = "<group>"; };
 		07A5F72323C24D460024CF07 /* CodiAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CodiAddView.xib; sourceTree = "<group>"; };
 		07A5F72523C24E3C0024CF07 /* CodiAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiAddView.swift; sourceTree = "<group>"; };
+		07A5F72823C3190B0024CF07 /* CodiAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiAPIData.swift; sourceTree = "<group>"; };
 		07AA4784237046780074DE76 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		07AB242523AA52F70076ABF5 /* ClothingUploadAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingUploadAPIData.swift; sourceTree = "<group>"; };
 		07AB242723AA57D10076ABF5 /* ClothingUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingUploadData.swift; sourceTree = "<group>"; };
@@ -470,6 +472,14 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
+		07A5F72723C318FF0024CF07 /* CodiData */ = {
+			isa = PBXGroup;
+			children = (
+				07A5F72823C3190B0024CF07 /* CodiAPIData.swift */,
+			);
+			path = CodiData;
+			sourceTree = "<group>";
+		};
 		07ADBD88237D0D59004222CB /* SingleTon */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +514,7 @@
 			children = (
 				077C77B22378145C0088B151 /* RequestAPI.swift */,
 				073547BD23BCC30C00E45ADF /* RequestImage.swift */,
+				07A5F72723C318FF0024CF07 /* CodiData */,
 				073547B023BA625100E45ADF /* WeatherData */,
 				07B7F6BC238EE4E200EA9C10 /* ClothingData */,
 				07ADBD8A237D0DA8004222CB /* SignUpData */,
@@ -955,6 +966,7 @@
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
 				07C5C60023ACFE0200324B67 /* EditClothingTableViewCell.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
+				07A5F72923C3190B0024CF07 /* CodiAPIData.swift in Sources */,
 				07A5F72623C24E3C0024CF07 /* CodiAddView.swift in Sources */,
 				07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */,
 				07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */,
