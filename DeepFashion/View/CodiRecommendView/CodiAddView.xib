@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="addButton" destination="Hg0-ok-tAq" id="SSi-5h-DoR"/>
                 <outlet property="cancelButton" destination="Ybz-km-UMZ" id="2MH-gs-HGT"/>
+                <outlet property="indicatorView" destination="988-qS-DV2" id="PAV-2v-wza"/>
                 <outlet property="nameTextField" destination="CK2-jb-xcx" id="tHt-eY-uGy"/>
                 <outlet property="titleLabel" destination="e4q-sf-1zo" id="Zit-kh-6ug"/>
                 <outletCollection property="imageViewList" destination="LMD-9R-jZe" collectionClass="NSMutableArray" id="zL8-WC-0Lw"/>
@@ -146,11 +147,17 @@
                         <constraint firstItem="UPZ-wt-LSL" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" id="wpv-UP-Vni"/>
                     </constraints>
                 </stackView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="988-qS-DV2">
+                    <rect key="frame" x="209.5" y="478" width="37" height="37"/>
+                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="XCG-2m-Y7T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FkA-IR-Ivn"/>
+                <constraint firstItem="988-qS-DV2" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="fOt-yn-nxU"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XCG-2m-Y7T" secondAttribute="trailing" id="gU7-uN-rzO"/>
+                <constraint firstItem="988-qS-DV2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gfS-Bf-zST"/>
                 <constraint firstItem="XCG-2m-Y7T" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="hTW-OG-ZMB"/>
                 <constraint firstItem="v7X-m7-KaG" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.33" id="j8G-TY-vc2"/>
                 <constraint firstItem="XCG-2m-Y7T" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ktk-TG-e2L"/>

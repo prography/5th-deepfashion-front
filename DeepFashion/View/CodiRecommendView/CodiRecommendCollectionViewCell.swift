@@ -60,23 +60,25 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     }
 
     func updateCellImage(_ imageURLString: String?) {
-        imageView.setThumbnailImageFromServerURL(imageURLString, placeHolder: #imageLiteral(resourceName: "noClothing"))
+        guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }
+        imageView.setThumbnailImageFromServerURL(imageURLString, placeHolder: defaultImage)
     }
 
     func configureCell(title: String, clothingData: ClothingAPIData?, indexPath: IndexPath) {
         titleLabel.text = " \(title)"
 
+        guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }
         guard let clothingData = clothingData else {
-            imageView.image = #imageLiteral(resourceName: "noClothing")
+            imageView.image = defaultImage
             return
         }
 
         let nowPartIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(clothingData.part)
 
         if nowPartIndex == indexPath.item {
-            imageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: #imageLiteral(resourceName: "noClothing"))
+            imageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: defaultImage)
         } else {
-            imageView.image = #imageLiteral(resourceName: "noClothing")
+            imageView.image = defaultImage
         }
     }
 

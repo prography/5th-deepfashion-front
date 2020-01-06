@@ -59,6 +59,7 @@ class CodiListCollectionViewCell: UICollectionViewCell {
 
     private func configureCodiListImage(_ idList: [Int]) {
         if idList.isEmpty { return }
+        guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }
         let sortedIdList = idList.sorted()
         var idListIndex = 0
         let clothingAPIDataList = UserCommonData.shared.clothingDataList.sorted()
@@ -66,7 +67,7 @@ class CodiListCollectionViewCell: UICollectionViewCell {
             if idListIndex >= sortedIdList.count { break }
             if clothingAPIDataList[i].id == sortedIdList[idListIndex] {
                 let clientIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(clothingAPIDataList[i].part)
-                imageViewList[clientIndex].setThumbnailImageFromServerURL(clothingAPIDataList[i].image, placeHolder: #imageLiteral(resourceName: "noClothing"))
+                imageViewList[clientIndex].setThumbnailImageFromServerURL(clothingAPIDataList[i].image, placeHolder: defaultImage)
                 idListIndex += 1
             }
         }

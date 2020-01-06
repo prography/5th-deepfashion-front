@@ -14,6 +14,7 @@ class CodiAddView: UIView {
     @IBOutlet var addButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,6 +45,7 @@ class CodiAddView: UIView {
     }
 
     func configureImage(_ imageList: [UIImage]) {
+        resetCodiViewName()
         for i in imageViewList.indices {
             imageViewList[i].layer.cornerRadius = 10
             imageViewList[i].layer.borderWidth = 3
@@ -53,6 +55,10 @@ class CodiAddView: UIView {
                 self.imageViewList[i].image = imageList[i]
             }
         }
+    }
+
+    private func resetCodiViewName() {
+        nameTextField.text = ""
     }
 
     @IBAction func addButtonPressed(_: UIButton) {}

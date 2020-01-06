@@ -10,7 +10,6 @@ import Foundation
 
 struct AssetIdentifier {
     struct Image {
-        static let longJacket = "longJacket.jpg"
         static let noClothing = "noClothing"
         static let lockIcon = "lockIcon.png"
         static let addClothing = "addClothing"

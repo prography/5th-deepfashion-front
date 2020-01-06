@@ -37,7 +37,17 @@ class CodiRecommendViewController: UIViewController {
     private var isAPIDataRequested = false {
         didSet {
             DispatchQueue.main.async {
-                self.indicatorView.checkIndicatorView(self.isAPIDataRequested || self.isImageDataRequested)
+                self.indicatorView.checkIndicatorView((self.isAPIDataRequested || self.isImageDataRequested) && !self.isCodiDataRequested)
+            }
+        }
+    }
+
+    private var isCodiDataRequested = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.codiAddView.addButton.isEnabled = !self.isCodiDataRequested
+                self.codiAddView.cancelButton.isEnabled = !self.isCodiDataRequested
+                self.codiAddView.indicatorView.checkIndicatorView(self.isCodiDataRequested)
             }
         }
     }
@@ -270,8 +280,10 @@ class CodiRecommendViewController: UIViewController {
 
         print("codiIdList : \(codiIdList)")
         let codiListData = CodiListAPIData(name: codiListName, owner: UserCommonData.shared.pk, clothes: codiIdList, createdTime: nil, updatedTime: nil)
+        isCodiDataRequested = true
         RequestAPI.shared.postAPIData(userData: codiListData, APIMode: .codiList) { networkError in
             DispatchQueue.main.async { [weak self] in
+                self?.isCodiDataRequested = false
                 if networkError == nil {
                     tabBarController.presentToastMessage("코디리스트가 등록되었습니다!")
                     self?.dismissCodiAddView()
@@ -382,8 +394,7 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
         let locationAuthStatus = CLLocationManager.authorizationStatus()
         switch locationAuthStatus {
         case .authorizedWhenInUse:
-            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-            tabBarController.presentToastMessage("현지 기반 날씨정보가 업데이트 되었습니다.")
+            break
         default:
             break
         }
@@ -435,5 +446,8 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
+
+        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+        tabBarController.presentToastMessage("로그인에 성공했습니다.")
     }
 }
