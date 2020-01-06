@@ -103,7 +103,7 @@ class DeleteUserViewController: UIViewController {
 
         let userData = LoginAPIPostData(userName: UserCommonData.shared.id, password: password)
 
-        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { [weak self] errorType in
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginData) { [weak self] errorType in
             if errorType != nil {
                 DispatchQueue.main.async {
                     ToastView.shared.presentShortMessage(tabBarController.view, message: "비밀번호 혹은 네트워크상태를 확인해주세요.")

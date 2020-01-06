@@ -21,8 +21,8 @@ final class UserCommonData {
     private(set) var selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
     private(set) var nowClothingCode: Int = 0
 
-    private(set) var codiDataList = [CodiDataSet?]()
     private(set) var clothingDataList = [ClothingAPIData]()
+    private(set) var codiListCollection = [CodiListAPIData]()
     var thumbnailImageCache = NSCache<NSString, UIImage>()
 
     private init() {}
@@ -71,18 +71,6 @@ final class UserCommonData {
         self.clothingDataList = clothingDataList
     }
 
-    func removeClothingData(selectedData _: Set<ClothingAPIData>) {
-//        clothingList.sort {
-//            $0.id < $1.id
-//        }
-//
-//        for i in selectedData.indices {
-//            if let idx = clothingList.binarySearch(searchData: selectedData[i]) {
-//                clothingList.remove(at: idx)
-//            }
-//        }
-    }
-
     func setIsNeedToUpdateClothingTrue() {
         isNeedToUpdateClothing = true
     }
@@ -91,14 +79,14 @@ final class UserCommonData {
         isNeedToUpdateClothing = false
     }
 
-    func addCodiData(_ codiData: [CodiData]) {
-        let nowTimeStamp = Date().timeIntervalSince1970
-        var codiDataSet = CodiDataSet(timeStamp: nowTimeStamp)
-        codiDataSet.configureData(dataSet: codiData)
-        codiDataList.append(codiDataSet)
-    }
-
-    func configureCodiDataList(_ codiDataList: [CodiDataSet]) {
-        self.codiDataList = codiDataList
-    }
+//    func addCodiData(_ codiData: [CodiListAPIData]) {
+//        let nowTimeStamp = Date().timeIntervalSince1970
+//        var codiDataSet = CodiDataSet(timeStamp: nowTimeStamp)
+//        codiDataSet.configureData(dataSet: codiData)
+//        codiListCollection.append(codiDataSet)
+//    }
+//
+//    func configureCodiDataList(_ codiDataList: [CodiDataSet]) {
+//        self.codiDataList = codiDataList
+//    }
 }

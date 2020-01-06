@@ -9,7 +9,7 @@
 import Foundation
 
 /// API UserData Format
-struct UserAPIPostData: Encodable {
+struct UserAPIPostData: Codable {
     let userName: String
     let gender: String
     let styles: [Int]

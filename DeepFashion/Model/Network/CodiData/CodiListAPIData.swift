@@ -8,12 +8,15 @@
 
 import UIKit
 
-struct CodiAPIData: Codable {
+struct CodiListAPIData: Codable {
     let name: String
     let owner: Int
     let clothes: [Int]
-
+    let createdTime: String?
+    let updatedTime: String?
     enum CodingKeys: String, CodingKey {
         case name, owner, clothes
+        case createdTime = "created_at"
+        case updatedTime = "update_time"
     }
 }

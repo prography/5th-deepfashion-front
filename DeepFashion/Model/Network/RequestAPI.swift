@@ -47,9 +47,9 @@ enum NetworkError {
 
 enum APIPostMode: String {
     case signUpAccounts
-    case loginDataPost
-    case clothingPost
-    case clothingUploadPost
+    case loginData
+    case clothing
+    case codiList
 }
 
 enum APIDeleteMode: String {
@@ -74,6 +74,7 @@ struct APIURL {
         struct Get {
             static let currentWeather = "weather/current-weather/"
             static let clothing = "clothing/"
+            static let codiList = "clothing/codilist/"
         }
 
         struct Post {
@@ -82,6 +83,7 @@ struct APIURL {
             static let styleImage = "accounts/"
             static let clothing = "clothing/"
             static let clothingUpload = "clothing/upload"
+            static let codiList = "clothing/codilist/"
         }
     }
 }
@@ -173,7 +175,30 @@ final class RequestAPI {
 
             }).resume()
         case .getCodiList:
-            break
+            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.codiList)"
+            guard let url = URL(string: requestAPIURLString) else { return }
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "GET"
+            urlRequest.addValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlSession.dataTask(with: urlRequest, completionHandler: { (data, _, _) -> Void in
+                guard let data = data else {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType, nil)
+                    return
+                }
+
+                do {
+                    let weatherAPIData = try JSONDecoder().decode(T.self, from: data)
+                    self.delegate?.requestAPIDidFinished()
+                    completion(nil, weatherAPIData)
+                } catch {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType, nil)
+                }
+
+            }).resume()
         }
     }
 
@@ -234,7 +259,7 @@ final class RequestAPI {
 
         delegate?.requestAPIDidBegin()
         switch APIMode {
-        case .loginDataPost:
+        case .loginData:
 
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.login)"
             guard let userData = userData as? LoginAPIPostData else {
@@ -343,7 +368,7 @@ final class RequestAPI {
                 }
             }.resume()
 
-        case .clothingPost:
+        case .clothing:
 
             guard let userData = userData as? ClothingPostData else {
                 completion(configureError(.wrongType))
@@ -398,8 +423,48 @@ final class RequestAPI {
                     }
                 }
             }.resume()
-        case .clothingUploadPost:
-            break
+        case .codiList:
+
+            guard let userData = userData as? CodiListAPIData else {
+                delegate?.requestAPIDidError()
+                completion(NetworkError.client)
+                return
+            }
+
+            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.codiList)"
+            guard let codiListAPIData = try? JSONEncoder().encode(userData),
+                let postURL = URL(string: userDataPostURLString) else {
+                completion(configureError(.client))
+                return
+            }
+
+            var urlRequest = URLRequest(url: postURL)
+            urlRequest.httpMethod = "POST"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+
+            // URLSession을 만들어 Post 작용을 시작한다.
+            urlSession.uploadTask(with: urlRequest, from: codiListAPIData) {
+                _, response, error in
+
+                if error != nil {
+                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                    completion(self.configureError(.client))
+                    return
+                }
+
+                if let response = response as? HTTPURLResponse {
+                    if (200 ... 299).contains(response.statusCode) {
+                        print("request successed : \(response.statusCode)")
+                        self.delegate?.requestAPIDidFinished()
+                        completion(nil)
+                    } else {
+                        print("request failed : \(response.statusCode)")
+                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                        completion(self.configureError(errorType))
+                    }
+                }
+            }.resume()
         }
     }
 

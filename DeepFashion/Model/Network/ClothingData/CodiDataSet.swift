@@ -6,13 +6,13 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
-import Foundation
-
-struct CodiDataSet {
-    var timeStamp: Double
-    private(set) var dataSet = [CodiData]()
-
-    mutating func configureData(dataSet codiDataList: [CodiData]) {
-        dataSet = codiDataList
-    }
-}
+// import Foundation
+//
+// struct CodiDataSet {
+//    var timeStamp: Double
+//    private(set) var dataSet = [CodiData]()
+//
+//    mutating func configureData(dataSet codiDataList: [CodiListAPIData]) {
+//        dataSet = codiDataList
+//    }
+// }

@@ -191,19 +191,6 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
-    private func addCodiDataSet() {
-        var codiDataSet = [CodiData]()
-        for i in 0 ..< 4 {
-            let nowIndexPath = IndexPath(item: i, section: 0)
-            guard let nowCell = recommendCollectionView.cellForItem(at: nowIndexPath) as? CodiRecommendCollectionViewCell else { return }
-            let codiData = CodiData(codiImage: nowCell.imageView.image, codiId: codiIdCount)
-            codiDataSet.append(codiData)
-            if codiDataSet.count == 4 { break }
-        }
-        UserCommonData.shared.addCodiData(codiDataSet)
-        codiIdCount += 1
-    }
-
     private func checkImageDataRequest() {
         isImageDataRequested = !RequestImage.shared.isImageKeyEmpty()
     }
@@ -272,7 +259,27 @@ class CodiRecommendViewController: UIViewController {
             tabBarController.presentToastMessage("코디리스트 이름을 입력해주세요.")
             return
         }
-        dismissCodiAddView()
+
+        guard let codiListName = codiAddView.nameTextField.text,
+            let tabBarController = self.tabBarController as? MainTabBarController else { return }
+        var codiIdList = [Int]()
+        for i in CodiListGenerator.shared.topCodiDataSet.indices {
+            guard let codiId = CodiListGenerator.shared.topCodiDataSet[i]?.id else { continue }
+            codiIdList.append(codiId)
+        }
+
+        print("codiIdList : \(codiIdList)")
+        let codiListData = CodiListAPIData(name: codiListName, owner: UserCommonData.shared.pk, clothes: codiIdList, createdTime: nil, updatedTime: nil)
+        RequestAPI.shared.postAPIData(userData: codiListData, APIMode: .codiList) { networkError in
+            DispatchQueue.main.async { [weak self] in
+                if networkError == nil {
+                    tabBarController.presentToastMessage("코디리스트가 등록되었습니다!")
+                    self?.dismissCodiAddView()
+                } else {
+                    tabBarController.presentToastMessage("코디리스트 등록에 실패했습니다.")
+                }
+            }
+        }
     }
 
     @objc func codiCancelButtonPressed(_: UIButton) {

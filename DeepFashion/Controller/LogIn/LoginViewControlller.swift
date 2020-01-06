@@ -138,7 +138,7 @@ class LoginViewController: UIViewController {
 
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
 
-        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginDataPost) { errorType in
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginData) { errorType in
             // 테스트용 조건 설정 중)
             if errorType == nil {
                 DispatchQueue.main.async {
