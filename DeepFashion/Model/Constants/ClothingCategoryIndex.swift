@@ -20,7 +20,7 @@ struct ClothingCategoryIndex {
     static let mainServerCategoryList = [1: "Bottom", 2: "Onepiece", 3: "Outer", 4: "Shoes", 5: "Top"]
     static let mainClientCategoryList = [0: "Top", 1: "Outer", 2: "Bottom", 3: "Shoes", 4: "Onepiece"]
     static let mainCategoryClientIndex = ["Top": 0, "Outer": 1, "Bottom": 2, "Shoes": 3, "Onepiece": 4]
-    static let mainCategoryServerIndex = ["Top": 5, "Outer": 4, "Bottom": 1, "Shoes": 4, "Onepiece": 2]
+    static let mainCategoryServerIndex = ["Top": 5, "Outer": 3, "Bottom": 1, "Shoes": 4, "Onepiece": 2]
 
     static let subCategoryList = [
         1: SubCategory(name: "청바지", mainIndex: 0),

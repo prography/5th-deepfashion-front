@@ -42,12 +42,12 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 10
         layer.borderWidth = 3
 
-        titleLabel.text = "# CodiList Title"
         titleLabel.adjustsFontSizeToFitWidth = true
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 3
+
         for i in imageViewList.indices {
             imageViewList[i].backgroundColor = .lightGray
-            imageViewList[i].image = UIImage(named: AssetIdentifier.Image.longJacket)
+            imageViewList[i].image = UIImage(named: AssetIdentifier.Image.noClothing)
             imageViewList[i].clipsToBounds = true
             imageViewList[i].layer.cornerRadius = 5
         }
@@ -57,13 +57,35 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         makeConstraints()
     }
 
+    private func configureCodiListImage(_ idList: [Int]) {
+        if idList.isEmpty { return }
+        let sortedIdList = idList.sorted()
+        var idListIndex = 0
+        let clothingAPIDataList = UserCommonData.shared.clothingDataList.sorted()
+        for i in clothingAPIDataList.indices {
+            if idListIndex >= sortedIdList.count { break }
+            if clothingAPIDataList[i].id == sortedIdList[idListIndex] {
+                let clientIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(clothingAPIDataList[i].part)
+                imageViewList[clientIndex].setThumbnailImageFromServerURL(clothingAPIDataList[i].image, placeHolder: #imageLiteral(resourceName: "noClothing"))
+                idListIndex += 1
+            }
+        }
+    }
+
     // MARK: Methods
 
     func configureCell(itemIndex _: Int, codiListData: CodiListAPIData) {
-        var titleText = ""
+        guard let createdTime = codiListData.createdTime else { return }
+        let createTime = Array(createdTime)[0 ..< 10]
+        var titleText = "now codiList Name : "
+        titleText += "\(codiListData.name)"
+        titleText += "\n\(String(createTime))"
+        titleText += "\nnow codiList Ids : "
         for i in codiListData.clothes.indices {
-            titleText += "\(codiListData.clothes[i])"
+            titleText += "#\(codiListData.clothes[i]) "
         }
+
+        configureCodiListImage(codiListData.clothes)
 //        let nowDateText = basicDateFormatter.basicFormatString(timeStamp: codiDataSet.timeStamp)
 //
         titleLabel.text = titleText

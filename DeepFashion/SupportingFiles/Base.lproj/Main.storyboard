@@ -1289,7 +1289,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
                                         <color key="backgroundColor" name="LightPeach"/>
                                         <constraints>
@@ -1344,8 +1344,8 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="activityIndicator" destination="YNE-qX-swM" id="fqn-i7-SuD"/>
-                        <outlet property="addClothingButton" destination="vIs-YW-h5X" id="iET-tT-yMj"/>
-                        <outlet property="cancelButton" destination="dJL-ZK-HfT" id="cu2-Xp-cVZ"/>
+                        <outlet property="addClothingButton" destination="dJL-ZK-HfT" id="gi1-nT-WhB"/>
+                        <outlet property="cancelButton" destination="vIs-YW-h5X" id="FZ1-oZ-n9p"/>
                         <outlet property="clothingImageView" destination="MXX-DH-Yhc" id="tFr-B2-AR3"/>
                         <outlet property="editClothingTableView" destination="tPS-rD-P5A" id="bLO-5T-SPC"/>
                         <segue destination="gch-em-YpB" kind="unwind" identifier="unwindToClothingAddView" unwindAction="unwindToClothingAddView:" id="El0-uZ-keY"/>

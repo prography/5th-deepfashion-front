@@ -24,7 +24,7 @@ class CodiListCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let totalSpacing = interItemSpacing * CGFloat(itemsPerRow - 1)
         let newWidth = (collectionView.bounds.size.width - sectionInset.left - sectionInset.right - totalSpacing) / CGFloat(itemsPerRow)
         newItemSize.width = max(newItemSize.width, newWidth)
-        newItemSize.height = newItemSize.width * 1.1
+        newItemSize.height = newItemSize.width * 1.3
         itemSize = newItemSize
     }
 }
