@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UserClothingPostAPIResultData: Codable {
+struct ClothingPostAPIResultData: Codable {
     let style: Int
     let name, color: String
     let owner, season, part: Int

@@ -28,7 +28,7 @@
 		073547C023BCC95A00E45ADF /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547BF23BCC95A00E45ADF /* UIImageView+.swift */; };
 		073547C223BCD28300E45ADF /* RequestImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547C123BCD28300E45ADF /* RequestImageDelegate.swift */; };
 		0747074B23BDEDB700BD2D19 /* PickerAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0747074A23BDEDB700BD2D19 /* PickerAlertController.swift */; };
-		07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */; };
+		07554FEE23A62C6500691C5B /* ClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* ClothingPostAPIResultData.swift */; };
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
 		07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07554FF323A663B500691C5B /* MainClothingInfoView.xib */; };
 		07554FFA23A67ABE00691C5B /* CodiListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */; };
@@ -70,8 +70,8 @@
 		07A5F72423C24D460024CF07 /* CodiAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A5F72323C24D460024CF07 /* CodiAddView.xib */; };
 		07A5F72623C24E3C0024CF07 /* CodiAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5F72523C24E3C0024CF07 /* CodiAddView.swift */; };
 		07AA4785237046780074DE76 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AA4784237046780074DE76 /* String+.swift */; };
-		07AB242623AA52F70076ABF5 /* UserClothingUploadAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */; };
-		07AB242823AA57D10076ABF5 /* UserClothingUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */; };
+		07AB242623AA52F70076ABF5 /* ClothingUploadAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242523AA52F70076ABF5 /* ClothingUploadAPIData.swift */; };
+		07AB242823AA57D10076ABF5 /* ClothingUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242723AA57D10076ABF5 /* ClothingUploadData.swift */; };
 		07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1046923AE9EAC00C8286D /* UIColor+.swift */; };
 		07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE792399035B000C215E /* UIImage+.swift */; };
 		07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE8A23992C0E000C215E /* TorchModule.mm */; };
@@ -160,7 +160,7 @@
 		073547BF23BCC95A00E45ADF /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		073547C123BCD28300E45ADF /* RequestImageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImageDelegate.swift; sourceTree = "<group>"; };
 		0747074A23BDEDB700BD2D19 /* PickerAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerAlertController.swift; sourceTree = "<group>"; };
-		07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingPostAPIResultData.swift; sourceTree = "<group>"; };
+		07554FED23A62C6500691C5B /* ClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingPostAPIResultData.swift; sourceTree = "<group>"; };
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
 		07554FF323A663B500691C5B /* MainClothingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainClothingInfoView.xib; sourceTree = "<group>"; };
 		07554FF923A67ABE00691C5B /* CodiListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 		07A5F72323C24D460024CF07 /* CodiAddView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CodiAddView.xib; sourceTree = "<group>"; };
 		07A5F72523C24E3C0024CF07 /* CodiAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiAddView.swift; sourceTree = "<group>"; };
 		07AA4784237046780074DE76 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingUploadAPIData.swift; sourceTree = "<group>"; };
-		07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserClothingUploadData.swift; sourceTree = "<group>"; };
+		07AB242523AA52F70076ABF5 /* ClothingUploadAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingUploadAPIData.swift; sourceTree = "<group>"; };
+		07AB242723AA57D10076ABF5 /* ClothingUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingUploadData.swift; sourceTree = "<group>"; };
 		07B1046923AE9EAC00C8286D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		07B5AE792399035B000C215E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		07B5AE8823992BEF000C215E /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
@@ -549,9 +549,9 @@
 				07B7F6BD238EE4FD00EA9C10 /* ClothingPostData.swift */,
 				07A5F71923C0F7940024CF07 /* AccountCheckAPIData.swift */,
 				073547B923BC992A00E45ADF /* ClothingAPIData.swift */,
-				07AB242523AA52F70076ABF5 /* UserClothingUploadAPIData.swift */,
-				07AB242723AA57D10076ABF5 /* UserClothingUploadData.swift */,
-				07554FED23A62C6500691C5B /* UserClothingPostAPIResultData.swift */,
+				07AB242523AA52F70076ABF5 /* ClothingUploadAPIData.swift */,
+				07AB242723AA57D10076ABF5 /* ClothingUploadData.swift */,
+				07554FED23A62C6500691C5B /* ClothingPostAPIResultData.swift */,
 				07A3B0C8239138EB0028DC6B /* UserClothingData.swift */,
 				07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */,
 				07C5C5EE23ABA08900324B67 /* CodiData.swift */,
@@ -901,7 +901,7 @@
 				07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */,
 				07C5C5FB23ACED7400324B67 /* AssetIdentifier.swift in Sources */,
 				07B7F6AF238E774900EA9C10 /* EditClothingViewController.swift in Sources */,
-				07AB242623AA52F70076ABF5 /* UserClothingUploadAPIData.swift in Sources */,
+				07AB242623AA52F70076ABF5 /* ClothingUploadAPIData.swift in Sources */,
 				07D5E9BB236EF9C000A27B28 /* ClothingStyle.swift in Sources */,
 				07A3B0C9239138EB0028DC6B /* UserClothingData.swift in Sources */,
 				07F8DE7323B4EA8500066677 /* ToastView.swift in Sources */,
@@ -924,7 +924,7 @@
 				07C5C61623AE0C0500324B67 /* ColorSelectCollectionView.swift in Sources */,
 				076DADB023B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift in Sources */,
 				0747074B23BDEDB700BD2D19 /* PickerAlertController.swift in Sources */,
-				07554FEE23A62C6500691C5B /* UserClothingPostAPIResultData.swift in Sources */,
+				07554FEE23A62C6500691C5B /* ClothingPostAPIResultData.swift in Sources */,
 				0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */,
 				076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */,
 				07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */,
@@ -979,7 +979,7 @@
 				07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */,
 				07AA4785237046780074DE76 /* String+.swift in Sources */,
 				07C5C5F323ACB26100324B67 /* CodiRecommendCollectionViewCell.swift in Sources */,
-				07AB242823AA57D10076ABF5 /* UserClothingUploadData.swift in Sources */,
+				07AB242823AA57D10076ABF5 /* ClothingUploadData.swift in Sources */,
 				07D5E9AF236EE6A800A27B28 /* TextField+.swift in Sources */,
 				0788543A239E6B6700B31331 /* MyPageTableHeaderView.swift in Sources */,
 				0716E0FB23B0D2B800F3E820 /* Array+.swift in Sources */,

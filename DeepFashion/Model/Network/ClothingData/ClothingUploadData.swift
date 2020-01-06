@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UserClothingUploadData {
+struct ClothingUploadData {
     let clothingCode: Int
     let clothingImage: UIImage?
     let ownerPK: Int

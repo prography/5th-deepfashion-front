@@ -6,6 +6,7 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
+// Planning to Delete
 // import UIKit
 //
 // struct UserClothingData: Hashable {

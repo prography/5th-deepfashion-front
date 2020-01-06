@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UserClothingUploadAPIData: Codable {
+struct ClothingUploadAPIData: Codable {
     var clothing: Int
     var image: UIImage?
     var owner: Int
