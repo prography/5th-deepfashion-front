@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="addButton" destination="Hg0-ok-tAq" id="SSi-5h-DoR"/>
                 <outlet property="cancelButton" destination="Ybz-km-UMZ" id="2MH-gs-HGT"/>
+                <outlet property="nameTextField" destination="CK2-jb-xcx" id="tHt-eY-uGy"/>
                 <outlet property="titleLabel" destination="e4q-sf-1zo" id="Zit-kh-6ug"/>
                 <outletCollection property="imageViewList" destination="LMD-9R-jZe" collectionClass="NSMutableArray" id="zL8-WC-0Lw"/>
                 <outletCollection property="imageViewList" destination="y3Z-sO-7y7" collectionClass="NSMutableArray" id="iYJ-f7-kXZ"/>
@@ -26,33 +27,52 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XCG-2m-Y7T">
-                    <rect key="frame" x="0.0" y="223.5" width="456" height="556"/>
+                    <rect key="frame" x="0.0" y="237.5" width="456" height="528"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 코디를 추가하시겠습니까?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4q-sf-1zo">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KNM-2j-Cfm">
                             <rect key="frame" x="0.0" y="0.0" width="456" height="60"/>
-                            <color key="backgroundColor" name="NewBrown"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="60" id="u8b-dq-Saq"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <stackView clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-es-FXK">
-                            <rect key="frame" x="20" y="70" width="416" height="416"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추가할 코디 이름을 입력해주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4q-sf-1zo">
+                                    <rect key="frame" x="0.0" y="0.0" width="456" height="60"/>
+                                    <color key="backgroundColor" name="NewBrown"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="u8b-dq-Saq"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5L1-81-9j6">
+                            <rect key="frame" x="20" y="70" width="416" height="50"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 코디 이름을 입력하세요." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CK2-jb-xcx">
+                                    <rect key="frame" x="0.0" y="0.0" width="416" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="pIm-Py-8fl"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                </textField>
+                            </subviews>
+                        </stackView>
+                        <stackView clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5d9-es-FXK">
+                            <rect key="frame" x="64" y="130" width="328" height="328"/>
                             <subviews>
                                 <stackView contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v7X-m7-KaG">
-                                    <rect key="frame" x="0.0" y="0.0" width="205.5" height="416"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="161.5" height="328"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="R0e-TA-ABq">
-                                            <rect key="frame" x="0.0" y="0.0" width="205.5" height="205.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="161.5" height="161.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="R0e-TA-ABq" secondAttribute="height" multiplier="1:1" id="BU1-G2-ftd"/>
                                                 <constraint firstAttribute="width" secondItem="R0e-TA-ABq" secondAttribute="height" multiplier="1:1" id="V2h-gI-9yI"/>
                                             </constraints>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="bhJ-Ww-PrP">
-                                            <rect key="frame" x="0.0" y="210.5" width="205.5" height="205.5"/>
+                                            <rect key="frame" x="0.0" y="166.5" width="161.5" height="161.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
@@ -63,14 +83,14 @@
                                     </constraints>
                                 </stackView>
                                 <stackView contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SlR-fB-ibh">
-                                    <rect key="frame" x="210.5" y="0.0" width="205.5" height="416"/>
+                                    <rect key="frame" x="166.5" y="0.0" width="161.5" height="328"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="y3Z-sO-7y7">
-                                            <rect key="frame" x="0.0" y="0.0" width="205.5" height="205.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="161.5" height="161.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noClothing" translatesAutoresizingMaskIntoConstraints="NO" id="LMD-9R-jZe">
-                                            <rect key="frame" x="0.0" y="210.5" width="205.5" height="205.5"/>
+                                            <rect key="frame" x="0.0" y="166.5" width="161.5" height="161.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </imageView>
                                     </subviews>
@@ -86,7 +106,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="UPZ-wt-LSL">
-                            <rect key="frame" x="0.0" y="496" width="456" height="60"/>
+                            <rect key="frame" x="0.0" y="468" width="456" height="60"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybz-km-UMZ">
                                     <rect key="frame" x="0.0" y="0.0" width="228" height="60"/>
@@ -116,11 +136,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="5d9-es-FXK" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" constant="20" id="4lj-Iy-C44"/>
+                        <constraint firstItem="5L1-81-9j6" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leadingMargin" constant="20" id="3Wm-Ic-OLS"/>
+                        <constraint firstItem="5d9-es-FXK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XCG-2m-Y7T" secondAttribute="leading" constant="20" id="4lj-Iy-C44"/>
                         <constraint firstAttribute="trailing" secondItem="UPZ-wt-LSL" secondAttribute="trailing" id="MvT-en-Ra7"/>
-                        <constraint firstItem="e4q-sf-1zo" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" id="ReS-IP-N2H"/>
-                        <constraint firstAttribute="trailing" secondItem="5d9-es-FXK" secondAttribute="trailing" constant="20" id="XSE-6v-cTU"/>
-                        <constraint firstAttribute="trailing" secondItem="e4q-sf-1zo" secondAttribute="trailing" id="g9L-2u-MDu"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="5L1-81-9j6" secondAttribute="trailing" constant="20" id="Tga-TC-kmO"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5d9-es-FXK" secondAttribute="trailing" constant="20" id="XSE-6v-cTU"/>
+                        <constraint firstItem="KNM-2j-Cfm" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" id="kfv-QP-9WT"/>
+                        <constraint firstAttribute="trailing" secondItem="KNM-2j-Cfm" secondAttribute="trailing" id="n0n-PA-6Vu"/>
                         <constraint firstItem="UPZ-wt-LSL" firstAttribute="leading" secondItem="XCG-2m-Y7T" secondAttribute="leading" id="wpv-UP-Vni"/>
                     </constraints>
                 </stackView>
@@ -130,6 +152,7 @@
                 <constraint firstItem="XCG-2m-Y7T" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="FkA-IR-Ivn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XCG-2m-Y7T" secondAttribute="trailing" id="gU7-uN-rzO"/>
                 <constraint firstItem="XCG-2m-Y7T" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="hTW-OG-ZMB"/>
+                <constraint firstItem="v7X-m7-KaG" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.33" id="j8G-TY-vc2"/>
                 <constraint firstItem="XCG-2m-Y7T" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ktk-TG-e2L"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

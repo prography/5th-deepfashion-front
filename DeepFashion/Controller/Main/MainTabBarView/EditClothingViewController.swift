@@ -99,8 +99,10 @@ class EditClothingViewController: UIViewController {
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
         let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
         let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted
+        let koreanSet = CharacterSet(charactersIn: MyCharacterSet.korean).inverted
         return character.rangeOfCharacter(from: alphabetSet) == nil
             || character.rangeOfCharacter(from: numberSet) == nil
+            || character.rangeOfCharacter(from: koreanSet) == nil
     }
 
     private func checkFillInData() {

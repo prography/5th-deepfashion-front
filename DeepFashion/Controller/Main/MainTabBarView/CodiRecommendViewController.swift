@@ -231,6 +231,10 @@ class CodiRecommendViewController: UIViewController {
             codiImageList.append(clothingImage)
         }
 
+        codiAddView.nameTextField.delegate = self
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(codiAddViewTapped(_:)))
+        codiAddView.addGestureRecognizer(tapGestureRecognizer)
         codiAddView.configureImage(codiImageList)
         codiAddView.addButton.addTarget(self, action: #selector(codiAddButtonPressed(_:)), for: .touchUpInside)
         codiAddView.cancelButton.addTarget(self, action: #selector(codiCancelButtonPressed(_:)), for: .touchUpInside)
@@ -252,14 +256,32 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
+    private func checkCharacter(textField _: UITextField, character: String) -> Bool {
+        let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
+        let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted
+        let koreanSet = CharacterSet(charactersIn: MyCharacterSet.korean).inverted
+        return character.rangeOfCharacter(from: alphabetSet) == nil
+            || character.rangeOfCharacter(from: numberSet) == nil
+            || character.rangeOfCharacter(from: koreanSet) == nil
+    }
+
     @objc func codiAddButtonPressed(_: UIButton) {
         // RequestAPI.shared.postCodiData ~
+        if codiAddView.nameTextField.text?.trimmingCharacters(in: .whitespaces) == "" {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            tabBarController.presentToastMessage("코디리스트 이름을 입력해주세요.")
+            return
+        }
         dismissCodiAddView()
     }
 
     @objc func codiCancelButtonPressed(_: UIButton) {
         // dismiss the codiAddView
         dismissCodiAddView()
+    }
+
+    @objc func codiAddViewTapped(_: CodiAddView) {
+        codiAddView.nameTextField.resignFirstResponder()
     }
 
     // MARK: - IBAction
@@ -302,6 +324,17 @@ extension CodiRecommendViewController: UICollectionViewDataSource {
         codiRecommendCollectionCell.configureCell(title: ViewData.Title.fashionType[indexPath.item], clothingData: CodiListGenerator.shared.topCodiDataSet[indexPath.item], indexPath: indexPath)
 
         return codiRecommendCollectionCell
+    }
+}
+
+extension CodiRecommendViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
+        return checkCharacter(textField: textField, character: string)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

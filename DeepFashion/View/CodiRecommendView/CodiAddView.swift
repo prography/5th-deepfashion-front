@@ -13,6 +13,7 @@ class CodiAddView: UIView {
     @IBOutlet var imageViewList: [UIImageView]!
     @IBOutlet var addButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var nameTextField: UITextField!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +21,9 @@ class CodiAddView: UIView {
         titleLabel.font = UIFont.subFont(displaySize: 18)
         addButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
         cancelButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+        nameTextField.layer.borderColor = ViewData.Color.border
+        nameTextField.layer.borderWidth = 1
+        nameTextField.layer.cornerRadius = 5
     }
 
     required init?(coder: NSCoder) {

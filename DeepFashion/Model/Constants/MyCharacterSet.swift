@@ -10,5 +10,6 @@ import Foundation
 
 struct MyCharacterSet {
     static let signUpAlphabet = "ABCDEFGHIJKLMONPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    static let korean = "ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣㅐㅒㅔㅖ"
     static let signUpNumber = "0123456789"
 }
