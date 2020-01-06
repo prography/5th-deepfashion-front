@@ -428,8 +428,5 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
-
-        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-        tabBarController.presentToastMessage("로그인에 성공했습니다.")
     }
 }
