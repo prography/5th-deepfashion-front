@@ -71,6 +71,10 @@ final class UserCommonData {
         self.clothingDataList = clothingDataList
     }
 
+    func configureCodiListCollection(_ codiListCollection: [CodiListAPIData]) {
+        self.codiListCollection = codiListCollection
+    }
+
     func setIsNeedToUpdateClothingTrue() {
         isNeedToUpdateClothing = true
     }

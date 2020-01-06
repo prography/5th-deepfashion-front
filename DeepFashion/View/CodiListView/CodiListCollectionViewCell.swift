@@ -59,11 +59,14 @@ class CodiListCollectionViewCell: UICollectionViewCell {
 
     // MARK: Methods
 
-    func configureCell(itemIndex _: Int, codiDataSet: CodiListAPIData) {
-        let basicDateFormatter = DateFormatter()
+    func configureCell(itemIndex _: Int, codiListData: CodiListAPIData) {
+        var titleText = ""
+        for i in codiListData.clothes.indices {
+            titleText += "\(codiListData.clothes[i])"
+        }
 //        let nowDateText = basicDateFormatter.basicFormatString(timeStamp: codiDataSet.timeStamp)
 //
-//        titleLabel.text = "\(nowDateText) \n # \(codiDataSet.dataSet[0].codiId) Id codiDataSet"
+        titleLabel.text = titleText
     }
 
     private func addSubviews() {

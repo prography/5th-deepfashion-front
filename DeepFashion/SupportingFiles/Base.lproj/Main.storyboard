@@ -1566,10 +1566,17 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="beT-3W-9am">
+                                <rect key="frame" x="188.5" y="385.5" width="37" height="37"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.83188049400151753" green="0.77367196288918805" blue="0.96851998567581177" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="7t0-Dp-PJJ" firstAttribute="top" secondItem="QW0-Wo-UzZ" secondAttribute="top" id="ScC-Ti-HDA"/>
+                            <constraint firstItem="beT-3W-9am" firstAttribute="centerX" secondItem="OWW-gJ-Qh0" secondAttribute="centerX" id="TIv-1l-cqe"/>
+                            <constraint firstItem="beT-3W-9am" firstAttribute="centerY" secondItem="OWW-gJ-Qh0" secondAttribute="centerY" id="UWf-sQ-zfK"/>
                             <constraint firstItem="7t0-Dp-PJJ" firstAttribute="leading" secondItem="QW0-Wo-UzZ" secondAttribute="leading" id="XCk-gh-szE"/>
                             <constraint firstItem="QW0-Wo-UzZ" firstAttribute="trailing" secondItem="7t0-Dp-PJJ" secondAttribute="trailing" id="mak-EA-ibN"/>
                             <constraint firstItem="QW0-Wo-UzZ" firstAttribute="bottom" secondItem="7t0-Dp-PJJ" secondAttribute="bottom" id="pV5-74-29q"/>
@@ -1583,6 +1590,7 @@
                     <connections>
                         <outlet property="collectionView" destination="7t0-Dp-PJJ" id="BeI-E2-Fr8"/>
                         <outlet property="emptyInfoLabel" destination="c0Y-KX-jqt" id="mKO-Zo-oXH"/>
+                        <outlet property="indicatorView" destination="beT-3W-9am" id="RKy-yd-Yn3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uN4-CX-qln" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

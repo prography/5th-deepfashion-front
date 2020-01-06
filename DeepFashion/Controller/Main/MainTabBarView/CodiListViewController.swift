@@ -13,6 +13,7 @@ class CodiListViewController: UIViewController {
 
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var emptyInfoLabel: UILabel!
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     private var editBarButtonItem: UIBarButtonItem = {
         let editBarButtonItem = UIBarButtonItem()
@@ -48,6 +49,14 @@ class CodiListViewController: UIViewController {
         }
     }
 
+    private var isAPIRequested = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.indicatorView.checkIndicatorView(self.isAPIRequested)
+            }
+        }
+    }
+
     private var selectedIndexPath: Set<IndexPath> = [] {
         didSet {
             if !selectedIndexPath.isEmpty, viewMode == .edit {
@@ -71,12 +80,14 @@ class CodiListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        RequestAPI.shared.delegate = self
         configureBasicTitle(ViewData.Title.MainTabBarView.codiList)
     }
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         viewMode = .view
+        requestCodiListDataTask()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -131,6 +142,30 @@ class CodiListViewController: UIViewController {
 //        }
     }
 
+    private func requestCodiListDataTask() {
+//        if UserCommonData.shared.isNeedToUpdateClothing == false {
+//            reloadClosetListTableView()
+//            return
+//        }
+        RequestAPI.shared.getAPIData(APIMode: .getCodiList, type: [CodiListAPIData].self) { networkError, codiListCollection in
+            if networkError == nil {
+                guard let codiListCollection = codiListCollection else { return }
+                UserCommonData.shared.configureCodiListCollection(codiListCollection)
+
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+//                    UserCommonData.shared.setIsNeedToUpdateClothingFalse()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.presentToastMessage("코디리스트 불러오기에 실패 했습니다.")
+                    UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+                }
+            }
+        }
+    }
+
     @objc func editBarButtonItemPressed(_: UIButton) {
         viewMode = viewMode == .view ? .edit : .view
     }
@@ -162,7 +197,7 @@ extension CodiListViewController: UICollectionViewDataSource {
 
         let codiListData = UserCommonData.shared.codiListCollection[indexPath.item]
 
-        codiListCell.configureCell(itemIndex: indexPath.item, codiDataSet: codiListData)
+        codiListCell.configureCell(itemIndex: indexPath.item, codiListData: codiListData)
         return codiListCell
     }
 
@@ -176,6 +211,20 @@ extension CodiListViewController: UICollectionViewDataSource {
         }
 
         return UserCommonData.shared.codiListCollection.count
+    }
+}
+
+extension CodiListViewController: RequestAPIDelegate {
+    func requestAPIDidBegin() {
+        isAPIRequested = true
+    }
+
+    func requestAPIDidFinished() {
+        isAPIRequested = false
+    }
+
+    func requestAPIDidError() {
+        isAPIRequested = false
     }
 }
 
