@@ -28,6 +28,31 @@ class CodiListViewController: UIViewController {
         return deleteBarButtonItem
     }()
 
+    private var codiListDeleteRequestCount = 0 {
+        didSet {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            DispatchQueue.main.async {
+                if self.codiListDeleteRequestCount == 0 {
+                    self.selectedIndexPath = Set<IndexPath>()
+                    tabBarController.presentToastMessage("선택한 코디가 삭제되었습니다.")
+                    self.requestCodiListDataTask()
+                } else {
+                    tabBarController.presentToastMessage("코디 삭제 중 오류가 발생했습니다.")
+                }
+            }
+        }
+    }
+
+    private var selectedIndexPath: Set<IndexPath> = [] {
+        didSet {
+            if !selectedIndexPath.isEmpty, viewMode == .edit {
+                deleteBarButtonItem.isEnabled = true
+            } else {
+                deleteBarButtonItem.isEnabled = false
+            }
+        }
+    }
+
     // MARK: Properties
 
     enum ViewMode {
@@ -53,16 +78,6 @@ class CodiListViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.indicatorView.checkIndicatorView(self.isAPIRequested)
-            }
-        }
-    }
-
-    private var selectedIndexPath: Set<IndexPath> = [] {
-        didSet {
-            if !selectedIndexPath.isEmpty, viewMode == .edit {
-                self.deleteBarButtonItem.isEnabled = true
-            } else {
-                self.deleteBarButtonItem.isEnabled = false
             }
         }
     }
@@ -123,23 +138,25 @@ class CodiListViewController: UIViewController {
     }
 
     private func deleteSelectedCells() {
-//        var originCodiDataList = UserCommonData.shared.codiListCollection
-//        selectedIndexPath.forEach {
-//            originCodiDataList[$0.item] = nil
-//        }
-//
-//        originCodiDataList = originCodiDataList.filter { $0 != nil }
-//        guard let codiDataList = originCodiDataList as? [CodiDataSet] else { return }
-//        UserCommonData.shared.configureCodiDataList(codiDataList)
-//        selectedIndexPath = Set<IndexPath>()
-//
-//        guard let selectedIndexPath = collectionView.indexPathsForSelectedItems else { return }
-//
-//        if !selectedIndexPath.isEmpty {
-//            collectionView.performBatchUpdates({
-//                self.collectionView.deleteItems(at: selectedIndexPath)
-//            }, completion: nil)
-//        }
+        let codiListCollection = UserCommonData.shared.codiListCollection
+        var selectedIdList = [Int]()
+        for i in selectedIndexPath.indices {
+            if selectedIndexPath[i].item >= codiListCollection.count { break }
+            guard let id = codiListCollection[selectedIndexPath[i].item].id else { continue }
+            selectedIdList.append(id)
+        }
+
+        // excute delete Request
+
+        codiListDeleteRequestCount = selectedIdList.count
+        for i in selectedIdList.indices {
+            RequestAPI.shared.deleteAPIData(APIMode: .deleteCodiList, targetId: selectedIdList[i]) { networkError in
+
+                self.codiListDeleteRequestCount -= 1
+                if networkError == nil {
+                } else {}
+            }
+        }
     }
 
     private func requestCodiListDataTask() {

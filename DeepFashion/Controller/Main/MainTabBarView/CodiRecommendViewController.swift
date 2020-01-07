@@ -279,7 +279,7 @@ class CodiRecommendViewController: UIViewController {
         }
 
         print("codiIdList : \(codiIdList)")
-        let codiListData = CodiListAPIData(name: codiListName, owner: UserCommonData.shared.pk, clothes: codiIdList, createdTime: nil, updatedTime: nil)
+        let codiListData = CodiListAPIData(id: nil, name: codiListName, owner: UserCommonData.shared.pk, clothes: codiIdList, createdTime: nil, updatedTime: nil)
         isCodiDataRequested = true
         RequestAPI.shared.postAPIData(userData: codiListData, APIMode: .codiList) { networkError in
             DispatchQueue.main.async { [weak self] in

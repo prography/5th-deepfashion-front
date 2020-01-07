@@ -55,6 +55,7 @@ enum APIPostMode: String {
 enum APIDeleteMode: String {
     case deleteUser
     case deleteClothing
+    case deleteCodiList
 }
 
 enum APIGetMode: String {
@@ -67,8 +68,9 @@ struct APIURL {
     static let base = "http://deepfashion-dev.us-west-2.elasticbeanstalk.com/"
     struct SubURL {
         struct Delete {
-            static let deleteUser = "accounts/"
-            static let deleteClothing = "clothing/"
+            static let user = "accounts/"
+            static let clothing = "clothing/"
+            static let codiList = "clothing/codilist/"
         }
 
         struct Get {
@@ -212,14 +214,21 @@ final class RequestAPI {
 
         switch APIMode {
         case .deleteUser:
-            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.deleteUser)\(UserCommonData.shared.pk)/"
+            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.user)\(UserCommonData.shared.pk)/"
             guard let _deleteURL = URL(string: deleteURLString) else {
                 completion(configureError(.client))
                 return
             }
             deleteURL = _deleteURL
         case .deleteClothing:
-            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.deleteClothing)\(targetId)/"
+            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.clothing)\(targetId)/"
+            guard let _deleteURL = URL(string: deleteURLString) else {
+                completion(configureError(.client))
+                return
+            }
+            deleteURL = _deleteURL
+        case .deleteCodiList:
+            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.codiList)\(targetId)/"
             guard let _deleteURL = URL(string: deleteURLString) else {
                 completion(configureError(.client))
                 return
