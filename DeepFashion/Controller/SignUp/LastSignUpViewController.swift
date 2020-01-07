@@ -121,7 +121,8 @@ class LastSignUpViewController: UIViewController {
             let navigationController = self.navigationController else { return }
 
         let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
-        print(userAPIData)
+
+        debugPrint(userAPIData)
         RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.signUpAccounts) { errorType in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
             DispatchQueue.main.async {

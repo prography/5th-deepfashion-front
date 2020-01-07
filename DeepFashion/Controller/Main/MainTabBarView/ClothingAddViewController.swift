@@ -123,7 +123,7 @@ class ClothingAddViewController: UIViewController {
              return
          }
 
-         print(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
+         debugPrint(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
 
          */
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
@@ -190,31 +190,29 @@ class ClothingAddViewController: UIViewController {
 
             switch photoAuthorizationStatus {
             case .notDetermined:
-                print("notDetermined, 아직 응답하지 않음")
+                debugPrint("notDetermined, 아직 응답하지 않음")
                 // 처음 응답이 없었을때 권한요청을 한다. 권한허용을 했다면, 앨범을 불러온다. 거절되면 빈 셀을 띄운다.
                 PHPhotoLibrary.requestAuthorization { status in
                     switch status {
                     case .authorized:
-                        print("사용자 측 권한 허용 선택")
+                        debugPrint("사용자 측 권한 허용 선택")
                         // 이때는 앨범 리스트를 연다.
                         DispatchQueue.main.async {
                             self.openPhotoAlbum(self.photoPickerViewController)
                         }
-                        print("Present the Album List")
+                        debugPrint("Present the Album List")
                     default:
-                        print("사용자 불허")
+                        debugPrint("사용자 불허")
                     }
                 }
             case .restricted, .denied:
                 self.presentPhotoAuthRequestAlertController()
             case .authorized:
-                print("authorized, 접근 승인")
+                debugPrint("authorized, 접근 승인")
                 // 이때는 앨범을 열어준다.
                 DispatchQueue.main.async {
                     self.openPhotoAlbum(self.photoPickerViewController)
                 }
-            @unknown default:
-                fatalError()
             }
         })
 

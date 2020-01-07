@@ -143,7 +143,7 @@ final class RequestAPI {
                         self.delegate?.requestAPIDidFinished()
                         completion(nil, weatherAPIData)
                     } else {
-                        print("request failed : \(response.statusCode)")
+                        debugPrint("request failed : \(response.statusCode)")
                         self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
                         completion(errorType, nil)
@@ -252,7 +252,7 @@ final class RequestAPI {
                     self.delegate?.requestAPIDidFinished()
                     completion(nil)
                 } else {
-                    print("request failed : \(response.statusCode)")
+                    debugPrint("request failed : \(response.statusCode)")
                     self.delegate?.requestAPIDidError()
                     self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
                     completion(errorType)
@@ -310,8 +310,6 @@ final class RequestAPI {
                     return
                 }
 
-                print("now PrivateData is \(userData)")
-
                 // MARK: - Token Check
 
                 UserCommonData.shared.setUserPrivateData(token: userData.token, pk: userData.pk)
@@ -321,7 +319,7 @@ final class RequestAPI {
                         self.delegate?.requestAPIDidFinished()
                         completion(nil)
                     } else {
-                        print("request failed : \(response.statusCode)")
+                        debugPrint("request failed : \(response.statusCode)")
                         self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                         completion(self.configureError(errorType))
                     }
@@ -366,11 +364,11 @@ final class RequestAPI {
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
-                        print("request successed : \(response.statusCode)")
+                        debugPrint("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
                         completion(nil)
                     } else {
-                        print("request failed : \(response.statusCode)")
+                        debugPrint("request failed : \(response.statusCode)")
                         self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                         completion(self.configureError(errorType))
                     }
@@ -386,7 +384,7 @@ final class RequestAPI {
 
             let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.clothing)"
             guard let postURL = URL(string: userDataPostURLString) else { return }
-            print("userDataPostURLString : \(userDataPostURLString)")
+            debugPrint("userDataPostURLString : \(userDataPostURLString)")
 
             let imageName = AssetIdentifier.Image.clothing
             userData.image?.accessibilityIdentifier = imageName
@@ -421,11 +419,11 @@ final class RequestAPI {
             urlSession.dataTask(with: urlRequest) { _, response, _ in
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
-                        print("request successed : \(response.statusCode)")
+                        debugPrint("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
                         completion(nil)
                     } else {
-                        print("request failed : \(response.statusCode)")
+                        debugPrint("request failed : \(response.statusCode)")
                         self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                         completion(errorType)
@@ -464,11 +462,11 @@ final class RequestAPI {
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
-                        print("request successed : \(response.statusCode)")
+                        debugPrint("request successed : \(response.statusCode)")
                         self.delegate?.requestAPIDidFinished()
                         completion(nil)
                     } else {
-                        print("request failed : \(response.statusCode)")
+                        debugPrint("request failed : \(response.statusCode)")
                         self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                         completion(self.configureError(errorType))
                     }

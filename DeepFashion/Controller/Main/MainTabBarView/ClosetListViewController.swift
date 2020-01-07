@@ -225,10 +225,6 @@ class ClosetListViewController: UIViewController {
 extension ClosetListViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return ViewData.Row.Height.closetList
-        //        guard let tableViewCell = tableView.cellForRow(at: indexPath) as? ClosetListTableViewCell else { return ViewData.Row.Height.closetList }
-        //
-        //        print("TLqkf : \(ViewData.Row.Height.closetList * CGFloat(max(1,((tableViewCell.closetListDataCount - 1) / 3 + 1))))")
-        //        return ViewData.Row.Height.closetList * CGFloat(max(1,((tableViewCell.closetListDataCount - 1) / 3 + 1)))
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {

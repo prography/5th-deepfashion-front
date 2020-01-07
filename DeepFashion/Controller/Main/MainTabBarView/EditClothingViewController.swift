@@ -169,7 +169,7 @@ class EditClothingViewController: UIViewController {
 
         let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partServerIndex, category: selectedSubTypeIndex.0, image: clothingImage)
 
-        print("nowClothingData: \(clothingData)")
+        debugPrint("nowClothingData: \(clothingData)")
         RequestAPI.shared.postAPIData(userData: clothingData, APIMode: APIPostMode.clothing) { errorType in
             if errorType == nil {
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.

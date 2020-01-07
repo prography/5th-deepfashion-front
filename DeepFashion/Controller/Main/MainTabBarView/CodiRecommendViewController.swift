@@ -69,12 +69,12 @@ class CodiRecommendViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
         requestLocationAuthority()
         locationManager.startUpdatingLocation()
         requestClothingAPIDataList()
-        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -253,6 +253,22 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
+    private func configureCodiListCollectionView() {
+        var fixStatus = [Int]()
+        for i in 0 ..< 4 {
+            guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
+                fixStatus.append(0)
+                continue
+            }
+
+            fixStatus.append(nowCell.isSelected ? 0 : 1)
+        }
+
+        CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
+
+        refreshCodiData()
+    }
+
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
         let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
         let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted
@@ -278,7 +294,6 @@ class CodiRecommendViewController: UIViewController {
             codiIdList.append(codiId)
         }
 
-        print("codiIdList : \(codiIdList)")
         let codiListData = CodiListAPIData(id: nil, name: codiListName, owner: UserCommonData.shared.pk, clothes: codiIdList, createdTime: nil, updatedTime: nil)
         isCodiDataRequested = true
         RequestAPI.shared.postAPIData(userData: codiListData, APIMode: .codiList) { networkError in
@@ -286,6 +301,7 @@ class CodiRecommendViewController: UIViewController {
                 self?.isCodiDataRequested = false
                 if networkError == nil {
                     tabBarController.presentToastMessage("코디리스트가 등록되었습니다!")
+                    UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
                     self?.dismissCodiAddView()
                 } else {
                     tabBarController.presentToastMessage("코디리스트 등록에 실패했습니다.")
@@ -443,6 +459,7 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         locationManager.delegate = self
         recommendCollectionView.allowsMultipleSelection = true
         configureCodiListSaveButton()
+        configureCodiListCollectionView()
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()

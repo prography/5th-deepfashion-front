@@ -35,6 +35,7 @@ class CodiListViewController: UIViewController {
                 if self.codiListDeleteRequestCount == 0 {
                     self.selectedIndexPath = Set<IndexPath>()
                     tabBarController.presentToastMessage("선택한 코디가 삭제되었습니다.")
+                    UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
                     self.requestCodiListDataTask()
                 } else {
                     tabBarController.presentToastMessage("코디 삭제 중 오류가 발생했습니다.")
@@ -149,21 +150,23 @@ class CodiListViewController: UIViewController {
         // excute delete Request
 
         codiListDeleteRequestCount = selectedIdList.count
+        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
         for i in selectedIdList.indices {
             RequestAPI.shared.deleteAPIData(APIMode: .deleteCodiList, targetId: selectedIdList[i]) { networkError in
 
                 self.codiListDeleteRequestCount -= 1
-                if networkError == nil {
-                } else {}
+                if networkError != nil {
+                    tabBarController.presentToastMessage("코디리스트 삭제 중 에러가 발생했습니다.")
+                }
             }
         }
     }
 
     private func requestCodiListDataTask() {
-//        if UserCommonData.shared.isNeedToUpdateClothing == false {
-//            reloadClosetListTableView()
-//            return
-//        }
+        if UserCommonData.shared.isNeedToUpdateCodiList == false {
+            return
+        }
+
         RequestAPI.shared.getAPIData(APIMode: .getCodiList, type: [CodiListAPIData].self) { networkError, codiListCollection in
             if networkError == nil {
                 guard let codiListCollection = codiListCollection else { return }
@@ -171,13 +174,13 @@ class CodiListViewController: UIViewController {
 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
-//                    UserCommonData.shared.setIsNeedToUpdateClothingFalse()
+                    UserCommonData.shared.setIsNeedToUpdateCodiListFalse()
                 }
             } else {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                     tabBarController.presentToastMessage("코디리스트 불러오기에 실패 했습니다.")
-                    UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+                    UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
                 }
             }
         }
