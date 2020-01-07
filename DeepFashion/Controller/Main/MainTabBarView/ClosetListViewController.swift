@@ -313,8 +313,10 @@ extension ClosetListViewController: RequestImageDelegate {
 
     func imageRequestDidError(_: String) {
         checkImageDataRequest()
-        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-        tabBarController.presentToastMessage("이미지 로딩 중 에러가 발생했습니다.")
+        DispatchQueue.main.async {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            tabBarController.presentToastMessage("이미지 로딩 중 에러가 발생했습니다.")
+        }
     }
 }
 

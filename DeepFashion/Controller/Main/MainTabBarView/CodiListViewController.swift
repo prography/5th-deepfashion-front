@@ -30,8 +30,8 @@ class CodiListViewController: UIViewController {
 
     private var codiListDeleteRequestCount = 0 {
         didSet {
-            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
             DispatchQueue.main.async {
+                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                 if self.codiListDeleteRequestCount == 0 {
                     self.selectedIndexPath = Set<IndexPath>()
                     tabBarController.presentToastMessage("선택한 코디가 삭제되었습니다.")
@@ -193,9 +193,11 @@ class CodiListViewController: UIViewController {
     @objc func deleteBarButtonItemPressed(_: UIButton) {
         presentBasicTwoButtonAlertController(title: "코디 삭제", message: "선택한 코디목록을 삭제하시겠습니까?") { isApproved in
             if isApproved {
-                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                tabBarController.presentToastMessage("선택 된 코디목록이 삭제되었습니다.")
-                self.deleteSelectedCells()
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.presentToastMessage("선택 된 코디목록이 삭제되었습니다.")
+                    self.deleteSelectedCells()
+                }
             }
         }
     }

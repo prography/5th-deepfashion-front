@@ -118,8 +118,11 @@ class CodiRecommendViewController: UIViewController {
                 self.refreshCodiData()
                 UserCommonData.shared.setIsNeedToUpdateClothingFalse()
             } else {
-                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                tabBarController.presentToastMessage("옷 정보를 불러오는데 실패했습니다.")
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.presentToastMessage("옷 정보를 불러오는데 실패했습니다.")
+                }
+
                 UserCommonData.shared.setIsNeedToUpdateClothingTrue()
             }
         }
@@ -281,8 +284,10 @@ class CodiRecommendViewController: UIViewController {
     @objc func codiAddButtonPressed(_: UIButton) {
         // RequestAPI.shared.postCodiData ~
         if codiAddView.nameTextField.text?.trimmingCharacters(in: .whitespaces) == "" {
-            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-            tabBarController.presentToastMessage("코디리스트 이름을 입력해주세요.")
+            DispatchQueue.main.async {
+                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                tabBarController.presentToastMessage("코디리스트 이름을 입력해주세요.")
+            }
             return
         }
 
@@ -400,8 +405,10 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
                     self.locationManager.stopUpdatingLocation()
                 }
             } else {
-                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                tabBarController.presentToastMessage("날씨 정보를 불러오는데 실패했습니다.")
+                DispatchQueue.main.async {
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.presentToastMessage("날씨 정보를 불러오는데 실패했습니다.")
+                }
             }
         }
     }
@@ -445,8 +452,10 @@ extension CodiRecommendViewController: RequestImageDelegate {
 
     func imageRequestDidError(_: String) {
         checkImageDataRequest()
-        guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-        tabBarController.presentToastMessage("이미지 로딩 중 에러가 발생했습니다.")
+        DispatchQueue.main.async {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            tabBarController.presentToastMessage("이미지 로딩 중 에러가 발생했습니다.")
+        }
     }
 }
 

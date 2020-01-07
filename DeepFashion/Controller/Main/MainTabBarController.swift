@@ -52,6 +52,7 @@ class MainTabBarController: UITabBarController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        tabBarHeight = view.safeAreaInsets.bottom == 0 ? 60 : 100
         tabBar.frame.size.height = tabBarHeight
         tabBar.frame.origin.y = view.frame.height - tabBarHeight
     }
