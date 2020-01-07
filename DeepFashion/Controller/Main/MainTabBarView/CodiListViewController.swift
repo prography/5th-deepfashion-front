@@ -34,11 +34,9 @@ class CodiListViewController: UIViewController {
                 guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                 if self.codiListDeleteRequestCount == 0 {
                     self.selectedIndexPath = Set<IndexPath>()
-                    tabBarController.presentToastMessage("선택한 코디가 삭제되었습니다.")
+                    tabBarController.presentToastMessage("선택한 코디리스트가 삭제되었습니다.")
                     UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
                     self.requestCodiListDataTask()
-                } else {
-                    tabBarController.presentToastMessage("코디 삭제 중 오류가 발생했습니다.")
                 }
             }
         }
@@ -195,7 +193,6 @@ class CodiListViewController: UIViewController {
             if isApproved {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                    tabBarController.presentToastMessage("선택 된 코디목록이 삭제되었습니다.")
                     self.deleteSelectedCells()
                 }
             }
@@ -252,6 +249,7 @@ extension CodiListViewController: RequestAPIDelegate {
 
 extension CodiListViewController: UIViewControllerSetting {
     func configureViewController() {
+        UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
     }
 }

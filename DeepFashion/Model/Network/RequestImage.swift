@@ -45,12 +45,12 @@ final class RequestImage {
 
     // UIImageView객체 내 추가로 URL에따른 데이터 요청 및 이미지 설정 메서드를 추가한다.
     // 인자값으로 URL값과 Default Image(placeHolder)값을 받는다.
-    func setImageFromServerURL(_ thumbnailImageURLString: String, placeHolder: UIImage, completion: @escaping (UIImage) -> Void) {
+    func setImageFromServerURL(_ thumbnailImageURLString: String, placeHolder: UIImage, completion: @escaping (UIImage, Bool) -> Void) {
         delegate?.imageRequestDidBegin()
 
         if let cachedImage = UserCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
             delegate?.imageRequestDidFinished(cachedImage, imageKey: thumbnailImageURLString)
-            completion(cachedImage)
+            completion(cachedImage, true)
             return
         }
 
@@ -62,7 +62,7 @@ final class RequestImage {
                 if error != nil {
                     self.removeImageKey(thumbnailImageURLString)
                     self.delegate?.imageRequestDidError("thumbnailImage URL Loading Error!: \(error?.localizedDescription ?? "")")
-                    completion(placeHolder) // 이미지의 설정은 비동기 과정에서 진행한다.
+                    completion(placeHolder, false) // 이미지의 설정은 비동기 과정에서 진행한다.
                     return
                 }
 
@@ -74,7 +74,7 @@ final class RequestImage {
 
                             self.removeImageKey(thumbnailImageURLString)
                             self.delegate?.imageRequestDidFinished(thumbnailImage, imageKey: thumbnailImageURLString)
-                            completion(thumbnailImage)
+                            completion(thumbnailImage, false)
                         }
                     }
                 }

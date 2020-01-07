@@ -92,9 +92,9 @@ class ClosetListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
-        configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
     }
 
     override func viewDidAppear(_: Bool) {
@@ -153,9 +153,9 @@ class ClosetListViewController: UIViewController {
 
     private func requestClothingDataTask() {
         if UserCommonData.shared.isNeedToUpdateClothing == false {
-            reloadClosetListTableView()
             return
         }
+        UserCommonData.shared.setIsNeedToUpdateClothingFalse()
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
@@ -163,8 +163,8 @@ class ClosetListViewController: UIViewController {
                 CodiListGenerator.shared.getNowCodiDataSet()
 
                 DispatchQueue.main.async {
-                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+//                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+//                    tabBarController.reloadRecommendCollectionView(clothingDataList)
                     self.reloadClosetListTableView()
                     UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 }
@@ -198,8 +198,8 @@ class ClosetListViewController: UIViewController {
                 // 선택한 id 옷들을 delete 요청 하여 제거해야 한다.
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController else { return }
+                    self.deletingClotingRequestCount = self.selectedClothingData.count
                     for selectedData in self.selectedClothingData {
-                        self.deletingClotingRequestCount += 1
                         RequestAPI.shared.deleteAPIData(APIMode: .deleteClothing, targetId: selectedData.id) { networkError in
                             DispatchQueue.main.async {
                                 self.deletingClotingRequestCount -= 1
@@ -257,15 +257,15 @@ extension ClosetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
 
-        let clothingData = UserCommonData.shared.clothingDataList.filter {
+        let clothingData = UserCommonData.shared.clothingDataList.sorted().filter {
             // 받은 인덱스는 서버 인덱스이다.
             guard let nowIndex = ClothingCategoryIndex.subCategoryList[$0.category]?.mainIndex else { return true }
             return nowIndex == indexPath.section
         }
 
+        closetListTableViewCell.delegate = self
         closetListTableViewCell.configureCell(clothingData: clothingData)
 
-        closetListTableViewCell.delegate = self
         return closetListTableViewCell
     }
 }
@@ -322,6 +322,9 @@ extension ClosetListViewController: RequestImageDelegate {
 
 extension ClosetListViewController: UIViewControllerSetting {
     func configureViewController() {
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        RequestAPI.shared.delegate = self
+        RequestImage.shared.delegate = self
         closetListTableView.dataSource = self
         closetListTableView.delegate = self
         closetListTableView.allowsSelection = false

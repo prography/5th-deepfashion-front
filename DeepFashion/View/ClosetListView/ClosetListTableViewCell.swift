@@ -16,13 +16,7 @@ class ClosetListTableViewCell: UITableViewCell {
 
     // MARK: Properties
 
-    private var closetListData: [ClothingAPIData] = [] {
-        didSet {
-            closetListDataCount = closetListData.count
-        }
-    }
-
-    private(set) var closetListDataCount = 0
+    private var closetListData: [ClothingAPIData] = []
 
     // MARK: Life Cycle
 
@@ -49,28 +43,11 @@ class ClosetListTableViewCell: UITableViewCell {
     }
 
     func configureCell(clothingData: [ClothingAPIData]) {
-        closetListData = clothingData.sorted()
+        closetListData = clothingData
         collectionView.delegate = self
         collectionView.dataSource = self
         DispatchQueue.main.async {
             self.collectionView.reloadData()
-        }
-    }
-
-    func removeSelectedCollectionViewCell(_ completion: @escaping (Bool) -> Void) {
-        guard let selectedIndexPaths = collectionView.indexPathsForSelectedItems else { return }
-
-        if !selectedIndexPaths.isEmpty {
-            collectionView.performBatchUpdates({
-                self.collectionView.deleteItems(at: selectedIndexPaths)
-                closetListDataCount -= selectedIndexPaths.count
-            }) { isSucceed in
-                if isSucceed {
-                    completion(true)
-                } else {
-                    completion(false)
-                }
-            }
         }
     }
 }
@@ -79,14 +56,13 @@ extension ClosetListTableViewCell: UICollectionViewDelegate {}
 
 extension ClosetListTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        delegate?.numberOfItemsUpdated(numberOfItemsCount: closetListDataCount)
-        return closetListDataCount
+        return closetListData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let closetListCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.closetList, for: indexPath) as? ClosetListCollectionViewCell else { return UICollectionViewCell() }
-        closetListCollectionViewCell.configureCell(clothingData: closetListData[indexPath.item])
         closetListCollectionViewCell.delegate = self
+        closetListCollectionViewCell.configureCell(clothingData: closetListData[indexPath.item])
         return closetListCollectionViewCell
     }
 }

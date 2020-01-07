@@ -72,6 +72,7 @@ class CodiRecommendViewController: UIViewController {
         configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
+        configureCodiListCollectionView()
         requestLocationAuthority()
         locationManager.startUpdatingLocation()
         requestClothingAPIDataList()
@@ -257,18 +258,6 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func configureCodiListCollectionView() {
-        var fixStatus = [Int]()
-        for i in 0 ..< 4 {
-            guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
-                fixStatus.append(0)
-                continue
-            }
-
-            fixStatus.append(nowCell.isSelected ? 0 : 1)
-        }
-
-        CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
-
         refreshCodiData()
     }
 
@@ -468,7 +457,6 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         locationManager.delegate = self
         recommendCollectionView.allowsMultipleSelection = true
         configureCodiListSaveButton()
-        configureCodiListCollectionView()
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()

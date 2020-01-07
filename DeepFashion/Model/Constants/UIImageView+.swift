@@ -9,6 +9,14 @@
 import UIKit
 
 extension UIImageView {
+    func presentImageWithAnimation(_ image: UIImage) {
+        alpha = 0.0
+        self.image = image
+        UIView.animate(withDuration: 0.13) {
+            self.alpha = 1.0
+        }
+    }
+
     func setThumbnailImageFromServerURL(_ thumbnailImageURLString: String?, placeHolder: UIImage) {
         guard let imageURL = thumbnailImageURLString else {
             DispatchQueue.main.async {
@@ -17,9 +25,13 @@ extension UIImageView {
             return
         }
 
-        RequestImage.shared.setImageFromServerURL(imageURL, placeHolder: placeHolder) { image in
+        RequestImage.shared.setImageFromServerURL(imageURL, placeHolder: placeHolder) { image, isCache in
             DispatchQueue.main.async {
-                self.image = image
+                if isCache {
+                    self.image = image
+                } else {
+                    self.presentImageWithAnimation(image)
+                }
             }
         }
     }
