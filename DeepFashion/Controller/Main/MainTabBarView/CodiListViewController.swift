@@ -28,6 +28,22 @@ class CodiListViewController: UIViewController {
         return deleteBarButtonItem
     }()
 
+    // MARK: - Properties
+
+    private let refreshControl = UIRefreshControl()
+    private var isRefreshControlRunning = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.refreshControl.isHidden = !self.isRefreshControlRunning
+                if self.isRefreshControlRunning {
+                    self.refreshControl.beginRefreshing()
+                } else {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
+
     private var codiListDeleteRequestCount = 0 {
         didSet {
             DispatchQueue.main.async {
@@ -73,10 +89,10 @@ class CodiListViewController: UIViewController {
         }
     }
 
-    private var isAPIRequested = false {
+    private var isAPIDataRequested = false {
         didSet {
             DispatchQueue.main.async {
-                self.indicatorView.checkIndicatorView(self.isAPIRequested)
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested)
             }
         }
     }
@@ -106,11 +122,10 @@ class CodiListViewController: UIViewController {
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
+        isRefreshControlRunning = false
+        isAPIDataRequested = false
         inactivateEditBarButtonItem()
         inactivateDeleteBarButtonItem()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
     }
 
     private func activateEditBarButtonItem() {
@@ -184,6 +199,18 @@ class CodiListViewController: UIViewController {
         }
     }
 
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshCodiListData(_:)), for: .valueChanged)
+        isRefreshControlRunning = false
+        collectionView.refreshControl = refreshControl
+    }
+
+    @objc func refreshCodiListData(_: UIRefreshControl) {
+        isRefreshControlRunning = true
+        UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
+        requestCodiListDataTask()
+    }
+
     @objc func editBarButtonItemPressed(_: UIButton) {
         viewMode = viewMode == .view ? .edit : .view
     }
@@ -235,20 +262,23 @@ extension CodiListViewController: UICollectionViewDataSource {
 
 extension CodiListViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
-        isAPIRequested = true
+        isAPIDataRequested = true
     }
 
     func requestAPIDidFinished() {
-        isAPIRequested = false
+        isAPIDataRequested = false
+        isRefreshControlRunning = false
     }
 
     func requestAPIDidError() {
-        isAPIRequested = false
+        isAPIDataRequested = false
+        isRefreshControlRunning = false
     }
 }
 
 extension CodiListViewController: UIViewControllerSetting {
     func configureViewController() {
+        configureRefreshControl()
         UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
     }
