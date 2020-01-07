@@ -181,8 +181,8 @@ class ClosetListViewController: UIViewController {
                 CodiListGenerator.shared.getNowCodiDataSet()
 
                 DispatchQueue.main.async {
-//                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-//                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    tabBarController.reloadRecommendCollectionView(clothingDataList)
                     self.reloadClosetListTableView()
                     UserCommonData.shared.setIsNeedToUpdateClothingFalse()
                 }
