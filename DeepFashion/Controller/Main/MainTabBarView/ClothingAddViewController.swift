@@ -247,7 +247,7 @@ class ClothingAddViewController: UIViewController {
         }
 
         // 추출한 딥러닝 결과를 라벨로 보여준다.
-        classificationLabel[0].text = "옷 이름 : XXX"
+        classificationLabel[0].text = "옷 이름 : XXX (추후 지원 예정입니다.)"
         classificationLabel[1].text = "옷 분류 : XXX"
         classificationLabel[2].text = "#xxx #xxx #xxx"
         saveClothingButton.configureEnabledButton()
