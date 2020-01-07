@@ -1471,9 +1471,9 @@
                         <viewLayoutGuide key="safeArea" id="a9u-1L-EbF"/>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="MYQ-oh-ds6" id="bh0-ux-eNV"/>
+                        <outlet property="cancelButton" destination="LrQ-Vg-NVv" id="44o-yB-AU9"/>
                         <outlet property="collectionView" destination="tca-3f-cQO" id="kPD-Go-qo4"/>
-                        <outlet property="subscriptionButton" destination="LrQ-Vg-NVv" id="cRb-j2-tNL"/>
+                        <outlet property="subscriptionButton" destination="MYQ-oh-ds6" id="Eck-kr-XJS"/>
                         <outlet property="titleLabel" destination="hR8-nK-NmD" id="41X-CY-M3z"/>
                     </connections>
                 </viewController>
