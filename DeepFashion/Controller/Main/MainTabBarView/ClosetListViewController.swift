@@ -16,6 +16,22 @@ class ClosetListViewController: UIViewController {
     @IBOutlet var closetListTableView: UITableView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
 
+    // MARK: - Properties
+
+    private let refreshControl = UIRefreshControl()
+    private var isRefreshControlRunning = false {
+        didSet {
+            DispatchQueue.main.async {
+                self.refreshControl.isHidden = !self.isRefreshControlRunning
+                if self.isRefreshControlRunning {
+                    self.refreshControl.beginRefreshing()
+                } else {
+                    self.refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
+
     private var isRequestedDeleteClothingData = false
     private var deletingClotingRequestCount = 0 {
         didSet {
@@ -105,6 +121,8 @@ class ClosetListViewController: UIViewController {
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
+        isRefreshControlRunning = false
+        isAPIDataRequested = false
         inactivateEditBarButtonItem()
         inactivateDeleteBarButtonItem()
     }
@@ -180,6 +198,18 @@ class ClosetListViewController: UIViewController {
 
     private func checkImageDataRequest() {
         isImageDataRequested = !RequestImage.shared.isImageKeyEmpty()
+    }
+
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshClothingData(_:)), for: .valueChanged)
+        isRefreshControlRunning = false
+        closetListTableView.refreshControl = refreshControl
+    }
+
+    @objc func refreshClothingData(_: UIRefreshControl) {
+        isRefreshControlRunning = true
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        requestClothingDataTask()
     }
 
     @objc func closetListEditBarButtonItemPressed(_: UIButton) {
@@ -292,12 +322,14 @@ extension ClosetListViewController: RequestAPIDelegate {
     func requestAPIDidFinished() {
         // 인디케이터 종료 및 세그 동작 실행
         isAPIDataRequested = false
+        isRefreshControlRunning = false
         if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {}
     }
 
     func requestAPIDidError() {
         // 에러 발생 시 동작 실행
         isAPIDataRequested = false
+        isRefreshControlRunning = false
         if RequestImage.shared.isImageKeyEmpty(), !isImageDataRequested {}
     }
 }
@@ -323,6 +355,7 @@ extension ClosetListViewController: RequestImageDelegate {
 extension ClosetListViewController: UIViewControllerSetting {
     func configureViewController() {
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        configureRefreshControl()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
         closetListTableView.dataSource = self
