@@ -163,21 +163,15 @@ class ClothingAddViewController: UIViewController {
             switch cameraAuthStatus {
             case .authorized:
                 if self.openCamera(self.photoPickerViewController) {
-                    // succeed
-                } else {
-                    self.presentCameraAuthRequestAlertController()
+                    // Camera Access Success
                 }
             // 초기 실행 시, 사진 촬영 권한 요청, 흭득 시 사용 가능
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: cameraType, completionHandler: { granted in
                     if granted {
                         if self.openCamera(self.photoPickerViewController) {
-                            // succeed
-                        } else {
-                            self.presentCameraAuthRequestAlertController()
+                            // Camera Access Success
                         }
-                    } else {
-                        self.presentCameraAuthRequestAlertController()
                     }
                 })
             default: self.presentCameraAuthRequestAlertController()
@@ -213,6 +207,8 @@ class ClothingAddViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.openPhotoAlbum(self.photoPickerViewController)
                 }
+            @unknown default:
+                debugPrint("unknown default error")
             }
         })
 
@@ -227,7 +223,9 @@ class ClothingAddViewController: UIViewController {
     }
 
     private func presentPhotoAuthRequestAlertController() {
-        presentAuthRequestAlertController(title: "사진첩 접근권한 필요", message: "사진첩을 실행하려면 접근권한 설정이 필요합니다.")
+        DispatchQueue.main.async {
+            self.presentAuthRequestAlertController(title: "사진첩 접근권한 필요", message: "사진첩을 실행하려면 접근권한 설정이 필요합니다.")
+        }
     }
 
     func configureLayoutWithInitStatus() {
@@ -254,7 +252,9 @@ class ClothingAddViewController: UIViewController {
     }
 
     private func presentCameraAuthRequestAlertController() {
-        presentAuthRequestAlertController(title: "카메라 접근권한 필요", message: "카메라를 실행하려면 접근권한 설정이 필요합니다.")
+        DispatchQueue.main.async {
+            self.presentAuthRequestAlertController(title: "카메라 접근권한 필요", message: "카메라를 실행하려면 접근권한 설정이 필요합니다.")
+        }
     }
 
     // MARK: - Methods
