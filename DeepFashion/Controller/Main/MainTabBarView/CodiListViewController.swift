@@ -53,6 +53,7 @@ class CodiListViewController: UIViewController {
                     tabBarController.presentToastMessage("선택한 코디리스트가 삭제되었습니다.")
                     UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
                     self.requestCodiListDataTask()
+                    self.endIgnoringInteractionEvents()
                 }
             }
         }
@@ -163,6 +164,7 @@ class CodiListViewController: UIViewController {
         // excute delete Request
 
         codiListDeleteRequestCount = selectedIdList.count
+        beginIgnoringInteractionEvents()
         guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
         for i in selectedIdList.indices {
             RequestAPI.shared.deleteAPIData(APIMode: .deleteCodiList, targetId: selectedIdList[i]) { networkError in
@@ -170,6 +172,7 @@ class CodiListViewController: UIViewController {
                 self.codiListDeleteRequestCount -= 1
                 if networkError != nil {
                     tabBarController.presentToastMessage("코디리스트 삭제 중 에러가 발생했습니다.")
+                    self.endIgnoringInteractionEvents()
                 }
             }
         }
