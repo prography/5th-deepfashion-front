@@ -167,16 +167,12 @@ class ClothingAddViewController: UIViewController {
             let cameraAuthStatus = AVCaptureDevice.authorizationStatus(for: cameraType)
             switch cameraAuthStatus {
             case .authorized:
-                if self.openCamera(self.photoPickerViewController) {
-                    // Camera Access Success
-                }
+                self.openCamera(self.photoPickerViewController)
             // 초기 실행 시, 사진 촬영 권한 요청, 흭득 시 사용 가능
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: cameraType, completionHandler: { granted in
                     if granted {
-                        if self.openCamera(self.photoPickerViewController) {
-                            // Camera Access Success
-                        }
+                        self.openCamera(self.photoPickerViewController)
                     }
                 })
             default: self.presentCameraAuthRequestAlertController()

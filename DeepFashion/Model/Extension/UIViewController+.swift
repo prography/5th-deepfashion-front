@@ -33,13 +33,12 @@ extension UIViewController {
         present(imagePickerController, animated: true, completion: nil)
     }
 
-    func openCamera(_ imagePickerController: UIImagePickerController) -> Bool {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePickerController.sourceType = .camera
-            present(imagePickerController, animated: true, completion: nil)
-            return true
-        } else {
-            return false
+    func openCamera(_ imagePickerController: UIImagePickerController) {
+        DispatchQueue.main.async {
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }
         }
     }
 
