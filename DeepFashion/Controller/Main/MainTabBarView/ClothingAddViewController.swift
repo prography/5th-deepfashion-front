@@ -67,7 +67,7 @@ class ClothingAddViewController: UIViewController {
     /*
      lazy var yjModule: TorchModule = {
          // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "combine", ofType: "pt"),
+         if let filePath = Bundle.main.path(forResource: "combine2", ofType: "pt"),
              let module = TorchModule(fileAtPath: filePath) {
              return module
          } else {
@@ -101,13 +101,18 @@ class ClothingAddViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         configureBasicTitle(ViewData.Title.MainTabBarView.photoAdd)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.endIgnoringInteractionEvents()
+    }
 
     // MARK: Methods
 
     // MARK: - DeepLearning Classification Method
 
     /// 이미지를 판별하는 과정이 진행되는 메서드
-    private func classificateImage(_:
+    private func classificateImage(_ image:
         UIImage, completion: @escaping () -> Void) {
         /*
          // 식별하려는 이미지의 사이즈를 224x224로 변환한다.

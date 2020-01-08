@@ -40,6 +40,11 @@ class EditClothingViewController: UIViewController {
                 self.addClothingButton.isEnabled = !newValue
                 self.cancelButton.isEnabled = !newValue
                 self.activityIndicator.checkIndicatorView(newValue)
+                if self.isRequestAPI {
+                    self.beginIgnoringInteractionEvents()
+                } else {
+                    self.endIgnoringInteractionEvents()
+                }
             }
         }
     }
@@ -283,6 +288,7 @@ extension EditClothingViewController: UICollectionViewDelegate {
 extension EditClothingViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         isRequestAPI = true
+        
     }
 
     func requestAPIDidFinished() {

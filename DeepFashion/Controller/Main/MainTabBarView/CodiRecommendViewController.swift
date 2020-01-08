@@ -417,6 +417,7 @@ extension CodiRecommendViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         // 인디케이터 동작
         isAPIDataRequested = true
+        
     }
 
     func requestAPIDidFinished() {

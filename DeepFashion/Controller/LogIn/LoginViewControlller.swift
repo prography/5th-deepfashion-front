@@ -73,6 +73,11 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(true)
         RequestAPI.shared.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.endIgnoringInteractionEvents()
+    }
 
     // MARK: Methods
 

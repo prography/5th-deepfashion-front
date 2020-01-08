@@ -12,6 +12,22 @@ import UIKit
 extension UIViewController {
     typealias completionHandler = () -> Void
 
+    func endIgnoringInteractionEvents() {
+        DispatchQueue.main.async {
+            if UIApplication.shared.isIgnoringInteractionEvents {
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
+        }
+    }
+    
+    func beginIgnoringInteractionEvents() {
+        DispatchQueue.main.async {
+            if !UIApplication.shared.isIgnoringInteractionEvents {
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            }
+        }
+    }
+    
     func openPhotoAlbum(_ imagePickerController: UIImagePickerController) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)

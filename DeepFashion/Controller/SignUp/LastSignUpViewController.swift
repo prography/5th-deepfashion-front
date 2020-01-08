@@ -22,6 +22,12 @@ class LastSignUpViewController: UIViewController {
     private var isAPIDataRequested = false {
         willSet {
             DispatchQueue.main.async {
+                if newValue {
+                    self.beginIgnoringInteractionEvents()
+                } else {
+                    self.endIgnoringInteractionEvents()
+                }
+                
                 if self.isFillInData {
                     self.signUpFinishButton.isEnabled = !newValue
                 }

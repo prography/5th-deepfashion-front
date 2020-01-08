@@ -11,14 +11,8 @@ import UIKit
 extension UIActivityIndicatorView {
     func checkIndicatorView(_ isRunning: Bool) {
         if isRunning {
-            if !UIApplication.shared.isIgnoringInteractionEvents {
-                UIApplication.shared.beginIgnoringInteractionEvents()
-            }
             startAnimating()
         } else {
-            if UIApplication.shared.isIgnoringInteractionEvents {
-                UIApplication.shared.endIgnoringInteractionEvents()
-            }
             stopAnimating()
         }
     }
