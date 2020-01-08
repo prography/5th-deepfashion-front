@@ -27,7 +27,7 @@ class LastSignUpViewController: UIViewController {
                 } else {
                     self.endIgnoringInteractionEvents()
                 }
-                
+
                 if self.isFillInData {
                     self.signUpFinishButton.isEnabled = !newValue
                 }

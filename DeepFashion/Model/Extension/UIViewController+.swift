@@ -19,7 +19,7 @@ extension UIViewController {
             }
         }
     }
-    
+
     func beginIgnoringInteractionEvents() {
         DispatchQueue.main.async {
             if !UIApplication.shared.isIgnoringInteractionEvents {
@@ -27,7 +27,7 @@ extension UIViewController {
             }
         }
     }
-    
+
     func openPhotoAlbum(_ imagePickerController: UIImagePickerController) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)

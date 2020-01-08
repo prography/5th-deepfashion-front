@@ -288,7 +288,6 @@ extension EditClothingViewController: UICollectionViewDelegate {
 extension EditClothingViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         isRequestAPI = true
-        
     }
 
     func requestAPIDidFinished() {

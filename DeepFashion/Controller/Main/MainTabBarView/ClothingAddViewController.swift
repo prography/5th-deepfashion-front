@@ -101,10 +101,10 @@ class ClothingAddViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         configureBasicTitle(ViewData.Title.MainTabBarView.photoAdd)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
+
+    override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
-        self.endIgnoringInteractionEvents()
+        endIgnoringInteractionEvents()
     }
 
     // MARK: Methods
@@ -112,7 +112,7 @@ class ClothingAddViewController: UIViewController {
     // MARK: - DeepLearning Classification Method
 
     /// 이미지를 판별하는 과정이 진행되는 메서드
-    private func classificateImage(_ image:
+    private func classificateImage(_:
         UIImage, completion: @escaping () -> Void) {
         /*
          // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
@@ -229,7 +229,7 @@ class ClothingAddViewController: UIViewController {
 
     private func presentPhotoAuthRequestAlertController() {
         DispatchQueue.main.async {
-            self.presentAuthRequestAlertController(title: "사진첩 접근권한 필요", message: "사진첩을 실행하려면 접근권한 설정이 필요합니다.")
+            self.presentAuthRequestAlertController(title: "사진첩 접근권한 필요", message: "옷 사진 등록을 위해 앨범 접근권한이 필요합니다.")
         }
     }
 
@@ -258,7 +258,7 @@ class ClothingAddViewController: UIViewController {
 
     private func presentCameraAuthRequestAlertController() {
         DispatchQueue.main.async {
-            self.presentAuthRequestAlertController(title: "카메라 접근권한 필요", message: "카메라를 실행하려면 접근권한 설정이 필요합니다.")
+            self.presentAuthRequestAlertController(title: "카메라 접근권한 필요", message: "옷 사진 등록을 위해 카메라 접근권한이 필요합니다.")
         }
     }
 
