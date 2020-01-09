@@ -10,6 +10,7 @@
 		07020DF7237FD506000CFAC2 /* UIIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */; };
 		071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */; };
 		0716E0FB23B0D2B800F3E820 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0716E0FA23B0D2B800F3E820 /* Array+.swift */; };
+		071BCCA023C7072A00E5C52B /* URLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BCC9F23C7072A00E5C52B /* URLData.swift */; };
 		0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B52365D99800E26B38 /* AppDelegate.swift */; };
 		0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B92365D99800E26B38 /* LoginViewControlller.swift */; };
 		0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6BB2365D99800E26B38 /* Main.storyboard */; };
@@ -137,6 +138,7 @@
 		07020DF6237FD506000CFAC2 /* UIIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIIndicatorView+.swift"; sourceTree = "<group>"; };
 		071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewCell.swift; sourceTree = "<group>"; };
 		0716E0FA23B0D2B800F3E820 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		071BCC9F23C7072A00E5C52B /* URLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
 		0733A6B22365D99800E26B38 /* DeepFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0733A6B52365D99800E26B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0733A6B92365D99800E26B38 /* LoginViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControlller.swift; sourceTree = "<group>"; };
@@ -292,7 +294,6 @@
 				07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */,
 				07598531237E93E500C48EE7 /* ClothingAddViewController.swift */,
 				07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */,
-				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
 				0777D45823B62F2900385E68 /* MyPageViewController */,
 				07B7F6AE238E774900EA9C10 /* EditClothingViewController.swift */,
 				07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */,
@@ -442,6 +443,7 @@
 		0777D45823B62F2900385E68 /* MyPageViewController */ = {
 			isa = PBXGroup;
 			children = (
+				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
 				0777D45923B62F3A00385E68 /* PrivacyViewController.swift */,
 				07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */,
 			);
@@ -512,6 +514,7 @@
 		07ADBD8B237D0DC4004222CB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				071BCC9F23C7072A00E5C52B /* URLData.swift */,
 				077C77B22378145C0088B151 /* RequestAPI.swift */,
 				073547BD23BCC30C00E45ADF /* RequestImage.swift */,
 				07A5F72723C318FF0024CF07 /* CodiData */,
@@ -906,6 +909,7 @@
 				07020DF7237FD506000CFAC2 /* UIIndicatorView+.swift in Sources */,
 				076F6BCC237BFEA800A2CBB4 /* UserLoginAPIData.swift in Sources */,
 				078E583D23684281000A960B /* LastSignUpViewController.swift in Sources */,
+				071BCCA023C7072A00E5C52B /* URLData.swift in Sources */,
 				07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */,
 				07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */,
 				07A3B0C4239108BF0028DC6B /* editStyleCollectionViewCell.swift in Sources */,
@@ -1173,14 +1177,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.26;
+				CURRENT_PROJECT_VERSION = 1.27;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = DeepFashion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26;
+				MARKETING_VERSION = 1.27;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1199,14 +1203,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.26;
+				CURRENT_PROJECT_VERSION = 1.27;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = DeepFashion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.26;
+				MARKETING_VERSION = 1.27;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

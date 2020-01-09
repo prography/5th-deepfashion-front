@@ -12,7 +12,7 @@ extension UIImageView {
     func presentImageWithAnimation(_ image: UIImage) {
         alpha = 0.0
         self.image = image
-        UIView.animate(withDuration: 0.13) {
+        UIView.animate(withDuration: 0.23) {
             self.alpha = 1.0
         }
     }

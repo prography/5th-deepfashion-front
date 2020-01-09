@@ -72,19 +72,21 @@ extension MyPageViewController: UITableViewDataSource {
     }
 
     func tableView(_: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        guard let myPageRow = ViewData.Section.Row.MyPage(rawValue: indexPath.row) else {
+        guard let myPageRow = ViewData.Section.Row.MyPage(rawValue: indexPath.row),
+            let tabBarController = self.tabBarController as? MainTabBarController else {
             return nil
         }
 
         switch myPageRow {
         case .notice:
-            break
+            tabBarController.presentToastMessage("해당 기능은 추후 업데이트 예정입니다.")
         case .privacy:
             presentPrivacyViewController()
         case .modifyStyle:
             break
         case .rule:
-            break
+            guard let url = URL(string: URLData.privacyRule) else { return nil }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         case .logout:
             presentLogoutAlertController()
         }
