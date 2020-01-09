@@ -13,8 +13,14 @@ extension UIActivityIndicatorView {
         DispatchQueue.main.async {
             if isRunning {
                 self.startAnimating()
+                if !UIApplication.shared.isIgnoringInteractionEvents {
+                    UIApplication.shared.beginIgnoringInteractionEvents()
+                }
             } else {
                 self.stopAnimating()
+                if UIApplication.shared.isIgnoringInteractionEvents {
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                }
             }
         }
     }

@@ -40,11 +40,6 @@ class EditClothingViewController: UIViewController {
                 self.addClothingButton.isEnabled = !newValue
                 self.cancelButton.isEnabled = !newValue
                 self.activityIndicator.checkIndicatorView(newValue)
-                if self.isRequestAPI {
-                    self.beginIgnoringInteractionEvents()
-                } else {
-                    self.endIgnoringInteractionEvents()
-                }
             }
         }
     }

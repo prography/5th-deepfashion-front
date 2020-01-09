@@ -229,7 +229,6 @@ class ClosetListViewController: UIViewController {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController else { return }
                     self.deletingClotingRequestCount = self.selectedClothingData.count
-                    self.beginIgnoringInteractionEvents()
                     for selectedData in self.selectedClothingData {
                         RequestAPI.shared.deleteAPIData(APIMode: .deleteClothing, targetId: selectedData.id) { networkError in
                             DispatchQueue.main.async {
@@ -244,7 +243,6 @@ class ClosetListViewController: UIViewController {
                                     }
                                 } else {
                                     ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제 중 오류가 발생하였습니다.")
-                                    self.endIgnoringInteractionEvents()
                                 }
                             }
                         }

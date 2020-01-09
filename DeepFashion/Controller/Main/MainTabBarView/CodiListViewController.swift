@@ -222,7 +222,6 @@ class CodiListViewController: UIViewController {
         presentBasicTwoButtonAlertController(title: "코디 삭제", message: "선택한 코디목록을 삭제하시겠습니까?") { isApproved in
             if isApproved {
                 DispatchQueue.main.async {
-                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                     self.deleteSelectedCells()
                 }
             }
