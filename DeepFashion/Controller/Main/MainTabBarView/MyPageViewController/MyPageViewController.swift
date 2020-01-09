@@ -82,8 +82,6 @@ extension MyPageViewController: UITableViewDataSource {
             tabBarController.presentToastMessage("해당 기능은 추후 업데이트 예정입니다.")
         case .privacy:
             presentPrivacyViewController()
-        case .modifyStyle:
-            break
         case .rule:
             guard let url = URL(string: URLData.privacyRule) else { return nil }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)

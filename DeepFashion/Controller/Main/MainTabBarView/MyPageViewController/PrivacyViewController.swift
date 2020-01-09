@@ -11,8 +11,6 @@ import UIKit
 class PrivacyViewController: UIViewController {
     @IBOutlet var privacyTableView: UITableView!
 
-    private var subTitleList = ["비밀번호변경", "회원탈퇴"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.navigationItem.hidesBackButton = false
@@ -55,11 +53,11 @@ class PrivacyViewController: UIViewController {
 
 extension PrivacyViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 50
+        return ViewData.Section.Row.Height.privacy
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return 50
+        return ViewData.Section.Row.Height.privacy
     }
 
     func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
@@ -69,13 +67,14 @@ extension PrivacyViewController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        guard let privacyRow = ViewData.Section.Row.Privacy(rawValue: indexPath.row) else {
+        guard let privacyRow = ViewData.Section.Row.Privacy(rawValue: indexPath.row),
+            let tabBarController = self.tabBarController as? MainTabBarController else {
             return nil
         }
 
         switch privacyRow {
-        case .password:
-            break
+        case .password, .style:
+            tabBarController.presentToastMessage("해당 기능은 추후 업데이트 예정입니다.")
         case .deleteUser:
             presentDeleteUserViewController()
         }
@@ -86,13 +85,13 @@ extension PrivacyViewController: UITableViewDelegate {
 
 extension PrivacyViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return subTitleList.count
+        return ViewData.Section.Row.privacyTableView.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let privacyTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.privacy, for: indexPath) as? PrivacyTableViewCell else { return UITableViewCell() }
 
-        privacyTableCell.configureCell(subTitleList[indexPath.row])
+        privacyTableCell.configureCell(ViewData.Section.Row.privacyTableView[indexPath.row])
         return privacyTableCell
     }
 }

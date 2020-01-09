@@ -39,26 +39,26 @@ struct ViewData {
         }
 
         struct Row {
-            static let myPageTableView = ["공지사항", "개인/보안", "스타일수정", "이용약관", "로그아웃"]
+            struct Height {
+                static let closetList: CGFloat = 120
+                static let privacy: CGFloat = 50
+            }
+
+            static let myPageTableView = ["공지사항", "개인/보안", "이용약관", "로그아웃"]
+            static let privacyTableView = ["비밀번호변경", "스타일변경", "회원탈퇴"]
 
             enum MyPage: Int {
                 case notice = 0
                 case privacy = 1
-                case modifyStyle = 2
-                case rule = 3
-                case logout = 4
+                case rule = 2
+                case logout = 3
             }
 
             enum Privacy: Int {
                 case password = 0
-                case deleteUser = 1
+                case style = 1
+                case deleteUser = 2
             }
-        }
-    }
-
-    struct Row {
-        struct Height {
-            static let closetList: CGFloat = 120
         }
     }
 }

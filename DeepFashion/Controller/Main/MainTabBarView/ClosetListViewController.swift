@@ -257,7 +257,7 @@ class ClosetListViewController: UIViewController {
 
 extension ClosetListViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return ViewData.Row.Height.closetList
+        return ViewData.Section.Row.Height.closetList
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
