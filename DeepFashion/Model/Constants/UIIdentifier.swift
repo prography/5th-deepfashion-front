@@ -11,7 +11,7 @@ import Foundation
 struct UIIdentifier {
     struct Color {
         static let mixedColorHexaCode: UInt64 = 0x181818
-        static let colorHexaCode: [UInt64] = [
+        static let colorHexaCodeList: [UInt64] = [
             UIIdentifier.Color.mixedColorHexaCode, 0xFFFFFA, 0xF7F1E0, 0xFFD700, 0xFFDED0, 0xD0EBFF, 0x3BB143,
             0xE0AFE8, 0xA9A9A9, 0xDAA652, 0xE88D00, 0xF783AD, 0x00B0FF, 0x047949, 0xC7EA46,
             0x863C9C, 0x424242, 0xB46A22, 0xFF5700, 0xEE2370, 0x1C7ED6, 0x708238, 0xC2DAD9,

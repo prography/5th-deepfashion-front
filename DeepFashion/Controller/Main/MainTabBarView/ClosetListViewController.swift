@@ -290,7 +290,7 @@ extension ClosetListViewController: UITableViewDataSource {
 
         let clothingData = UserCommonData.shared.clothingDataList.sorted().filter {
             // 받은 인덱스는 서버 인덱스이다.
-            guard let nowIndex = ClothingCategoryIndex.subCategoryList[$0.category]?.mainIndex else { return true }
+            guard let nowIndex = ClothingIndex.subCategoryList[$0.category]?.mainIndex else { return true }
             return nowIndex == indexPath.section
         }
 

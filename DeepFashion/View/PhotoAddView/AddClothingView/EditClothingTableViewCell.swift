@@ -148,13 +148,13 @@ class EditClothingTableViewCell: UITableViewCell {
 
 extension EditClothingTableViewCell: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return UIIdentifier.Color.colorHexaCode.count
+        return UIIdentifier.Color.colorHexaCodeList.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect, for: indexPath) as? ColorSelectCollectionViewCell else { return UICollectionViewCell() }
 
-        colorCell.configureCell(rgb: UIIdentifier.Color.colorHexaCode[indexPath.item])
+        colorCell.configureCell(rgb: UIIdentifier.Color.colorHexaCodeList[indexPath.item])
         return colorCell
     }
 }

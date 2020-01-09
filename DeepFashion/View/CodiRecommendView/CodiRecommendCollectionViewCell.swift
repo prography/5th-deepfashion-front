@@ -73,7 +73,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
             return
         }
 
-        let nowPartIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(clothingData.part)
+        let nowPartIndex = ClothingIndex.shared.convertToMainClientIndex(clothingData.part)
 
         if nowPartIndex == indexPath.item {
             imageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: defaultImage)

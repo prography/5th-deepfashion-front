@@ -85,7 +85,7 @@ class EditClothingViewController: UIViewController {
     }
 
     private func configureClothingSubTypeIndex() {
-        for (key, value) in ClothingCategoryIndex.subCategoryList {
+        for (key, value) in ClothingIndex.subCategoryList {
             clothingSubTypeIndexList.append((key, value))
         }
     }
@@ -161,8 +161,8 @@ class EditClothingViewController: UIViewController {
             let selectedColorIndex = addFashionTableCell.getSelectedColorIndex() else { return }
         // 옷 타입, 스타일 셋팅
 
-        let partName = ClothingCategoryIndex.shared.getMainCategoryName(addFashionTableCell.mainTypeSegmentedControl.selectedSegmentIndex)
-        let partServerIndex = ClothingCategoryIndex.shared.convertToMainServerIndex(partName)
+        let partName = ClothingIndex.shared.getMainCategoryName(addFashionTableCell.mainTypeSegmentedControl.selectedSegmentIndex)
+        let partServerIndex = ClothingIndex.shared.convertToMainServerIndex(partName)
         let clothingStyle = selectedClothingData.style
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
@@ -199,7 +199,7 @@ class EditClothingViewController: UIViewController {
                 $0.1.mainIndex == selectedClothingData.typeIndex && $0.0 != 15
             }
         } else {
-            selectedClothingSubTypeIndexList = [(15, ClothingCategoryIndex.subCategoryList[15]!)]
+            selectedClothingSubTypeIndexList = [(15, ClothingIndex.subCategoryList[15]!)]
         }
 
         guard let firstSubTypeIndex = selectedClothingSubTypeIndexList.first else { return }

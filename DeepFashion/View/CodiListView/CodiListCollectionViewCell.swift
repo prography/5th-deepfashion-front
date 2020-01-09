@@ -66,7 +66,7 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         for i in clothingAPIDataList.indices {
             if idListIndex >= sortedIdList.count { break }
             if clothingAPIDataList[i].id == sortedIdList[idListIndex] {
-                let clientIndex = ClothingCategoryIndex.shared.convertToMainClientIndex(clothingAPIDataList[i].part)
+                let clientIndex = ClothingIndex.shared.convertToMainClientIndex(clothingAPIDataList[i].part)
                 imageViewList[clientIndex].setThumbnailImageFromServerURL(clothingAPIDataList[i].image, placeHolder: defaultImage)
                 idListIndex += 1
             }

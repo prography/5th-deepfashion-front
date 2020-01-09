@@ -17,7 +17,7 @@ final class CodiListGenerator {
     func configureClothingDataList() {
         resetData()
         for i in UserCommonData.shared.clothingDataList.indices {
-            guard let nowIndex = ClothingCategoryIndex.subCategoryList[UserCommonData.shared.clothingDataList[i].category]?.mainIndex else { continue }
+            guard let nowIndex = ClothingIndex.subCategoryList[UserCommonData.shared.clothingDataList[i].category]?.mainIndex else { continue }
             clothingDataLists[nowIndex].append(UserCommonData.shared.clothingDataList[i])
         }
     }

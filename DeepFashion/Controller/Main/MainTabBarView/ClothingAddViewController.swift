@@ -64,18 +64,6 @@ class ClothingAddViewController: UIViewController {
     // MARK: - Add DeepLearning Module
 
     // pt파일을 불러와 TorchModule을 준비한다.
-    /*
-     lazy var yjModule: TorchModule = {
-         // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-         if let filePath = Bundle.main.path(forResource: "combine2", ofType: "pt"),
-             let module = TorchModule(fileAtPath: filePath) {
-             return module
-         } else {
-             // pt파일을 읽지 못하면 해당 행 실행
-             fatalError("Can't find the model file!")
-         }
-     }()
-     */
 
     // txt데이터를 불러와 문자열 배열로 준비한다.
 //    private let yjData: [String] = {
@@ -112,25 +100,34 @@ class ClothingAddViewController: UIViewController {
     // MARK: - DeepLearning Classification Method
 
     /// 이미지를 판별하는 과정이 진행되는 메서드
-    private func classificateImage(_:
+    private func classificateImage(_ image:
         UIImage, completion: @escaping () -> Void) {
-        /*
-         // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
-         let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
-         // 224x224 크기의 리사이즈 된 이미지를 Float32 배열로 변환하여 pixelBuffer에 저장한다.
-         guard var pixelBuffer = resizedImage.normalized() else {
-             return
-         }
+        let yjModule: TorchModule = {
+            // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
+            if let filePath = Bundle.main.path(forResource: "khModel", ofType: "pt"),
+                let module = TorchModule(fileAtPath: filePath) {
+                return module
+            } else {
+                // pt파일을 읽지 못하면 해당 행 실행
+                fatalError("Can't find the model file!")
+            }
+        }()
 
-         // 이미지를 배열로변환 한 뒤 해당 배열에 TorchModule의 predict메서드를 이용해 classification을 진행한다.
-         // 만약 classification 이 제대로 되지 않으면 else 로 빠져나가 classificateImage 메서드가 종료된다.
-         guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
-             return
-         }
+        // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
+        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
+        // 224x224 크기의 리사이즈 된 이미지를 Float32 배열로 변환하여 pixelBuffer에 저장한다.
+        guard var pixelBuffer = resizedImage.normalized() else {
+            return
+        }
 
-         debugPrint(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
+        // 이미지를 배열로변환 한 뒤 해당 배열에 TorchModule의 predict메서드를 이용해 classification을 진행한다.
+        // 만약 classification 이 제대로 되지 않으면 else 로 빠져나가 classificateImage 메서드가 종료된다.
+        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
+            return
+        }
 
-         */
+        debugPrint(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
+
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
         completion()
     }

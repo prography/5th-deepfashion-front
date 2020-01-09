@@ -313,6 +313,8 @@ final class RequestAPI {
                 // MARK: - Token Check
 
                 UserCommonData.shared.setUserPrivateData(token: userData.token, pk: userData.pk)
+                debugPrint("token : \(userData.token)")
+                debugPrint("pk : \(userData.pk)")
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
