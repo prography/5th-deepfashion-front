@@ -960,20 +960,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cz6-GV-QQG">
                                 <rect key="frame" x="0.0" y="5" width="414" height="715"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v75-ik-fEG">
-                                        <rect key="frame" x="20" y="615" width="374" height="50"/>
-                                        <color key="backgroundColor" name="Beige"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="ZkO-vh-fZO"/>
-                                        </constraints>
-                                        <state key="normal" title="옷 추가하기"/>
-                                        <state key="disabled" title="옷 추가하기">
-                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="saveClothingButtonPressed:" destination="k0I-cA-kpf" eventType="touchUpInside" id="ECy-q9-jcb"/>
-                                        </connections>
-                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Rv-IL-z1u">
                                         <rect key="frame" x="20" y="20" width="374" height="429"/>
                                         <subviews>
@@ -991,7 +977,7 @@
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="Vmn-ve-fn4"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상단 이미지를 탭해서 옷을 추가하세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-jr-JJa">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범이나 사진촬영으로 옷을 추가하세요" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yc7-jr-JJa">
                                                 <rect key="frame" x="20" y="319" width="334" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="fQl-PQ-ONM"/>
@@ -1032,10 +1018,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="7Rv-IL-z1u" secondAttribute="trailing" constant="20" id="4bt-eG-lOc"/>
                                     <constraint firstItem="7Rv-IL-z1u" firstAttribute="top" secondItem="cz6-GV-QQG" secondAttribute="top" constant="20" id="Zdl-2z-8VG"/>
-                                    <constraint firstAttribute="trailing" secondItem="v75-ik-fEG" secondAttribute="trailing" constant="20" id="aut-4m-wDH"/>
                                     <constraint firstItem="7Rv-IL-z1u" firstAttribute="leading" secondItem="cz6-GV-QQG" secondAttribute="leading" constant="20" id="bDh-ah-CiA"/>
-                                    <constraint firstAttribute="bottom" secondItem="v75-ik-fEG" secondAttribute="bottom" constant="50" id="bha-a7-1cq"/>
-                                    <constraint firstItem="v75-ik-fEG" firstAttribute="leading" secondItem="cz6-GV-QQG" secondAttribute="leading" constant="20" id="h5G-zW-khq"/>
                                     <constraint firstItem="7Rv-IL-z1u" firstAttribute="height" secondItem="cz6-GV-QQG" secondAttribute="height" multiplier="0.6" id="w5T-yQ-CMV"/>
                                 </constraints>
                             </view>
@@ -1054,7 +1037,6 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="clothingImageView" destination="Tm7-3M-jEU" id="yAC-Ag-82x"/>
-                        <outlet property="saveClothingButton" destination="v75-ik-fEG" id="cTV-RZ-chk"/>
                         <outletCollection property="classificationLabel" destination="Yc7-jr-JJa" collectionClass="NSMutableArray" id="d2r-vU-Jj8"/>
                         <outletCollection property="classificationLabel" destination="zf9-uD-GWq" collectionClass="NSMutableArray" id="1Hl-DT-AD3"/>
                         <outletCollection property="classificationLabel" destination="Z65-hN-uCp" collectionClass="NSMutableArray" id="KcG-eC-2bM"/>

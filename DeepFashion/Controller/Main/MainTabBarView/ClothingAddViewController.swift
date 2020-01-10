@@ -17,7 +17,6 @@ class ClothingAddViewController: UIViewController {
 
     @IBOutlet var clothingImageView: UIImageView!
     @IBOutlet var classificationLabel: [UILabel]!
-    @IBOutlet var saveClothingButton: UIButton!
 
     // MARK: - Properties
 
@@ -37,12 +36,14 @@ class ClothingAddViewController: UIViewController {
             guard let newImage = newValue else { return }
             // 1) 사진 촬영 or 앨범을 선택해서 이미지를 받아온 후
             // 2) 앨범 or 화면 화면을 닫는다.
-            photoPickerViewController.dismiss(animated: true) { [weak self] in
-                DispatchQueue.main.async { [weak self] in
+            isImageSelected = true
+            photoPickerViewController.dismiss(animated: true) {
+                DispatchQueue.main.async {
                     // 3) 이미지를 분석, 분석 결과를 저장한다.
-                    self?.classificateImage(newImage) { [weak self] in
+                    self.classificateImage(newImage) {
                         // 라벨을 변화 시킨다.
-                        self?.isImageSelected = true
+                        guard let clothingImage = self.selectedClothingImage else { return }
+                        self.presentEditClothinngViewController(selectedImage: clothingImage)
                     }
                 }
             }
@@ -51,8 +52,7 @@ class ClothingAddViewController: UIViewController {
 
     private var isImageSelected = false {
         didSet {
-            saveClothingButton.isEnabled = isImageSelected
-
+//            saveClothingButton.isEnabled = isImageSelected
             if isImageSelected {
                 configureLayoutWithDeepLearningStatus()
             } else {
@@ -88,6 +88,7 @@ class ClothingAddViewController: UIViewController {
         super.viewWillAppear(true)
         navigationController?.navigationBar.isHidden = false
         configureBasicTitle(ViewData.Title.MainTabBarView.photoAdd)
+        presentPhotoSelectAlertController()
     }
 
     override func viewDidAppear(_: Bool) {
@@ -152,11 +153,11 @@ class ClothingAddViewController: UIViewController {
         classificationLabel[0].isHidden = false
     }
 
-    private func configureSaveClothingButton() {
-        saveClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
-        saveClothingButton.setTitle("옷 추가하기", for: .normal)
-        saveClothingButton.configureDisabledButton()
-    }
+//    private func configureSaveClothingButton() {
+//        saveClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+//        saveClothingButton.setTitle("옷 추가하기", for: .normal)
+//        saveClothingButton.configureDisabledButton()
+//    }
 
     private func configurePhotoSelectAlertController() {
         let takePictureAlertAction = UIAlertAction(title: "사진 찍기", style: .default) { _ in
@@ -217,7 +218,9 @@ class ClothingAddViewController: UIViewController {
     }
 
     private func presentPhotoSelectAlertController() {
-        present(photoSelectAlertController, animated: true, completion: nil)
+        if !isImageSelected {
+            present(photoSelectAlertController, animated: true, completion: nil)
+        }
     }
 
     private func presentPhotoAuthRequestAlertController() {
@@ -231,9 +234,9 @@ class ClothingAddViewController: UIViewController {
             classificationLabel[i].isHidden = true
         }
 
-        classificationLabel[0].text = "상단 이미지를 탭해서 옷을 추가하세요"
+        classificationLabel[0].text = "앨범이나 사진촬영으로 옷을 추가하세요."
         classificationLabel[0].isHidden = false
-        saveClothingButton.isEnabled = false
+//        saveClothingButton.isEnabled = false
         clothingImageView.image = UIImage(named: AssetIdentifier.Image.addClothing)
     }
 
@@ -246,7 +249,7 @@ class ClothingAddViewController: UIViewController {
         classificationLabel[0].text = "옷 이름 : XXX (추후 지원 예정입니다.)"
         classificationLabel[1].text = "옷 분류 : XXX"
         classificationLabel[2].text = "#xxx #xxx #xxx"
-        saveClothingButton.configureEnabledButton()
+//        saveClothingButton.configureEnabledButton()
     }
 
     private func presentCameraAuthRequestAlertController() {
@@ -257,7 +260,7 @@ class ClothingAddViewController: UIViewController {
 
     // MARK: - Methods
 
-    private func presentAddFashionViewController(selectedImage: UIImage) {
+    private func presentEditClothinngViewController(selectedImage: UIImage) {
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editClothing) as? EditClothingViewController else {
             return
@@ -274,12 +277,10 @@ class ClothingAddViewController: UIViewController {
         presentPhotoSelectAlertController()
     }
 
-    @IBAction func saveClothingButtonPressed(_: UIButton) {
-        // 커스텀 패션 설정 창을 띄운다.
-        guard let clothingImage = clothingImageView.image else { return }
-
-        presentAddFashionViewController(selectedImage: clothingImage)
-    }
+//    @IBAction func saveClothingButtonPressed(_: UIButton) {
+//        // 커스텀 패션 설정 창을 띄운다.
+//
+//    }
 
     @IBAction func unwindToClothingAddView(_: UIStoryboardSegue) {
         guard let tabBarController = tabBarController as? MainTabBarController else { return }
@@ -309,8 +310,9 @@ extension ClothingAddViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
 
-        clothingImageView.image = selectedImage
+//        clothingImageView.image = selectedImage
         selectedClothingImage = selectedImage
+//        guard let clothingImage = clothingImageView.image else { return }
     }
 }
 
@@ -320,7 +322,7 @@ extension ClothingAddViewController: UIViewControllerSetting {
     func configureViewController() {
         configurePhotoSelectAlertController()
         configureImageView()
-        configureSaveClothingButton()
+//        configureSaveClothingButton()
         configureClassificationLabel()
         photoPickerViewController.delegate = self
     }
