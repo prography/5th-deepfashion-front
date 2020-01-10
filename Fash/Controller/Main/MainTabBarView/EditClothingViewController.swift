@@ -219,7 +219,8 @@ class EditClothingViewController: UIViewController {
             selectedClothingSubTypeIndexList = [(15, ClothingIndex.subCategoryList[15]!)]
         }
 
-        addClothingTableCell.subTypeButton.setTitle(" \(selectedClothingData.categoryIndex.1.name)", for: .normal)
+        guard let initialSubTypeIndex = selectedClothingSubTypeIndexList.first?.1.name else { return }
+        addClothingTableCell.subTypeButton.setTitle(" \(String(describing: initialSubTypeIndex))", for: .normal)
     }
 
     @objc func clothingSeasonSegmentedControlPressed(_ sender: UISegmentedControl) {
