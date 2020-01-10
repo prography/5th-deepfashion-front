@@ -101,9 +101,8 @@ class EditClothingViewController: UIViewController {
 
     private func checkFillInData() {
         guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
-        guard let isColorSelected = addFashionTableCell.colorSelectCollectionView.indexPathsForSelectedItems?.isEmpty else { return }
 
-        if isColorSelected, addFashionTableCell.checkNameTextFieldContents() {
+        if addFashionTableCell.checkNameTextFieldContents() {
             makeRegistrationButtonEnabled()
         } else {
             makeRegistrationButtonDisabled()
@@ -139,7 +138,13 @@ class EditClothingViewController: UIViewController {
         selectedClothingData.colorIndex = ClothingIndex.deepColorList[deepResultList[0]]
 
         // style
-        let styleIndex = ClothingIndex.deepStyleList[deepResultList[1]]
+        var styleIndex = ClothingIndex.deepStyleList[deepResultList[1]]
+
+        if (UserCommonData.shared.gender == 0 && !ClothingStyle.male.contains(ClothingStyle.styleList[styleIndex])) ||
+            (UserCommonData.shared.gender == 1 && !ClothingStyle.female.contains(ClothingStyle.styleList[styleIndex])) {
+            styleIndex = 1
+        }
+
         selectedClothingData.style = (ClothingStyle.styleList[styleIndex - 1], styleIndex)
 
         // seasonn
@@ -176,7 +181,7 @@ class EditClothingViewController: UIViewController {
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
 
-        let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex, season: seasonIndex + 1, part: partServerIndex, category: selectedClothingData.categoryIndex.0, image: clothingImage)
+        let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1, owner: ownerPK, color: selectedColorIndex + 1, season: seasonIndex + 1, part: partServerIndex, category: selectedClothingData.categoryIndex.0, image: clothingImage)
 
         debugPrint("nowClothingData: \(clothingData)")
         RequestAPI.shared.postAPIData(userData: clothingData, APIMode: APIPostMode.clothing) { errorType in

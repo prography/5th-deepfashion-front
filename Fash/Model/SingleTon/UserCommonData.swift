@@ -16,7 +16,7 @@ final class UserCommonData {
     private(set) var pk: Int = 0
     private(set) var userToken: String = ""
     private(set) var password: String = ""
-    private(set) var gender: Int = 0
+    private(set) var gender: Int = 0 // 0 남자, 1 여자
     private(set) var isNeedToUpdateClothing = false
     private(set) var needToUpdatePartIndex = [Bool](repeating: false, count: 4)
     private(set) var isNeedToUpdateCodiList = false

@@ -8,6 +8,10 @@
 
 import Foundation
 
+//    sporty vintage modern formal/office street
+//    luxury casual sexy dandy lovely
+//    purity
+
 struct ClothingStyle {
     static let male = ["Casual", "Formal", "Street", "Vintage", "Sporty", "Dandy"]
     static let female = ["Casual", "Formal", "Street", "Vintage", "Sporty", "Lovely", "Luxury", "Sexy", "Modern", "Purity"]
