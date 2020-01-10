@@ -40,10 +40,10 @@ class ClothingAddViewController: UIViewController {
             photoPickerViewController.dismiss(animated: true) {
                 DispatchQueue.main.async {
                     // 3) 이미지를 분석, 분석 결과를 저장한다.
-                    self.classificateImage(newImage) {
+                    self.classificateImage(newImage) { deepResult in
                         // 라벨을 변화 시킨다.
                         guard let clothingImage = self.selectedClothingImage else { return }
-                        self.presentEditClothinngViewController(selectedImage: clothingImage)
+                        self.presentEditClothinngViewController(selectedImage: clothingImage, deepResult: deepResult)
                     }
                 }
             }
@@ -106,7 +106,7 @@ class ClothingAddViewController: UIViewController {
 
     /// 이미지를 판별하는 과정이 진행되는 메서드
     private func classificateImage(_ image:
-        UIImage, completion: @escaping () -> Void) {
+        UIImage, completion: @escaping ([Int]) -> Void) {
         let yjModule: TorchModule = {
             // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
             if let filePath = Bundle.main.path(forResource: "khModel", ofType: "pt"),
@@ -132,9 +132,9 @@ class ClothingAddViewController: UIViewController {
         }
 
         debugPrint(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
-
+        let deepOutputList = outputs.map { Int(truncating: $0) }
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
-        completion()
+        completion(deepOutputList)
     }
 
     private func configureImageView() {
@@ -262,16 +262,16 @@ class ClothingAddViewController: UIViewController {
 
     // MARK: - Methods
 
-    private func presentEditClothinngViewController(selectedImage: UIImage) {
+    private func presentEditClothinngViewController(selectedImage: UIImage, deepResult: [Int]) {
         let storyboard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editClothing) as? EditClothingViewController else {
+        guard let editClothingViewController = storyboard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editClothing) as? EditClothingViewController else {
             return
         }
 
         // 미리 해당 뷰컨에 필요한 이미지 추가 후 네비게이션 스택에 푸시
-        viewController.selectedClothingData.image = selectedImage
-        isImageSelected = false
-        navigationController?.pushViewController(viewController, animated: true)
+        editClothingViewController.selectedClothingData.image = selectedImage
+        editClothingViewController.deepOutputList = deepResult
+        navigationController?.pushViewController(editClothingViewController, animated: true)
     }
 
     private func checkAlbumAuthority(alertAction _: UIAlertAction) {}

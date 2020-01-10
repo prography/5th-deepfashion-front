@@ -64,18 +64,56 @@ struct ClothingIndex {
         39: SubCategory(name: "힐/펌프스", mainIndex: 3),
     ]
 
-//    private(set) var colorIndex
-//    color -> deepColorList: [UInt64] // 결정 위치 별 색상의 헥사코드를 정리한다.
-//    khaki navy sky dark_beige purple green yellow blue red gray pink brown lime white black orange beige
-//
+    // deepLearning Index Matching작업 중
+
+    // MARK: - DeepLearning Color
+
+    //    color -> deepColorList: [UInt64] // 결정 위치 별 색상의 헥사코드를 정리한다.
+    //    khaki navy sky dark_beige purple
+    //    green yellow blue red gray
+    //    pink brown lime white black
+    //    orange beige
+
+    static let deepColorList: [UInt64] = [
+        0x708238, 0x1B4872, 0x00B0FF, 0x704301, 0x863C9C,
+        0x047949, 0xFFD700, 0x1C7ED6, 0xEE220C, 0xA9A9A9,
+        0xF783AD, 0xB46A22, 0xC7EA46, 0xFFFFFA, 0x000000,
+        0xFF5700, 0xF7F1E0,
+    ]
+
+    // MARK: - DeepLearning Style
+
 //    style -> deepStyleList: [Int] // 결정 위치 별 스타일의 실제 인덱스를 정리한다.
-//    sporty vintage modern formal/office street luxury casual sexy dandy lovely purity
-//
-//    season -> deepSeasonList: [Int] // 결정 위치 별 시즌의 실제 client 인덱스를 정리한다.
-//    summer spring/fall winter All
-//
-//    category -> deepCategoryList: [Int] // 결정 위치 별 시즌의 카테고리 인덱스를 정리한다.
-//    jogger sleeveless tshirt_long sneakers jumper dress_shirt_long top_others long_padding leggings cardigan sandal running_shoes blouse_long tshirt_short long_boots blazer slacks dress_shirt_short blouse_short flat_shoes coach_jacket hoody_jacket loafer leather_jacket walker trench_coat dress short_boots skirt sweater hightop jean heel short_padding coat fleece_jacket mtm hoody vest
+//    sporty vintage modern formal/office street
+//    luxury casual sexy dandy lovely
+//    purity
+
+    static let deepStyleList: [Int] = [
+        3, 10, 5, 4, 2,
+        6, 1, 9, 11, 7,
+        8,
+    ]
+
+    // MARK: - DeepLearning Season
+
+//    season -> deepSeasonList: [Int] // 결정 위치 별 시즌의 실제 client
+
+    static let deepSeasonList: [Int] = [
+        2, 1, 3, 0,
+    ]
+
+    // MARK: - DeepLearning Category
+
+    static let deepCategoryList: [Int] = [
+        2, 26, 28, 21, 12,
+        33, 36, 4, 29, 14,
+        23, 22, 31, 35, 18,
+        8, 3, 34, 32, 16,
+        11, 9, 17, 13, 20,
+        7, 15, 19, 30, 37,
+        27, 1, 39, 5, 6,
+        10, 25, 24, 38,
+    ]
 
     func convertToMainClientIndex(_ index: Int) -> Int {
         guard let _newIndex = ClothingIndex.mainServerCategoryList[index],

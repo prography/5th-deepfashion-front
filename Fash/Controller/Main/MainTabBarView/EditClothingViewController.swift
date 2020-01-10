@@ -20,6 +20,7 @@ class EditClothingViewController: UIViewController {
     // MARK: Properties
 
     var selectedClothingData = FashionData()
+    var deepOutputList = [Int](repeating: 0, count: 4)
     private var clothingSubTypeIndexList = [(Int, SubCategory)]()
     private var selectedClothingSubTypeIndexList = [(Int, SubCategory)]()
     private var selectedSubTypeIndex: (Int, SubCategory) = (1, SubCategory(name: "청바지", mainIndex: 0))
@@ -140,6 +141,10 @@ class EditClothingViewController: UIViewController {
     private func configureSubTypePickerAlertController() {
         subTypePickerAlertController.pickerView.delegate = self
         subTypePickerAlertController.pickerView.dataSource = self
+    }
+
+    private func configureClothingIndex() {
+        // Ready To configure Clothing InitialIndex
     }
 
     func refreshStyleButton() {
@@ -322,6 +327,7 @@ extension EditClothingViewController: UIViewControllerSetting {
         editClothingTableView.delegate = self
         editClothingTableView.dataSource = self
         configureSubTypeButton()
+        configureClothingIndex()
         configureSubTypePickerAlertController()
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = ViewData.Color.clothingAddView
