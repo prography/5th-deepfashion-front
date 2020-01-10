@@ -87,7 +87,6 @@
 		07B7F6AF238E774900EA9C10 /* EditClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6AE238E774900EA9C10 /* EditClothingViewController.swift */; };
 		07B7F6BE238EE4FD00EA9C10 /* ClothingPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6BD238EE4FD00EA9C10 /* ClothingPostData.swift */; };
 		07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */; };
-		07BE891023C758C400E2F2AD /* khModel.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07BE890F23C758A200E2F2AD /* khModel.pt */; };
 		07BFE0BF23BF0E6600AD9287 /* CodiListGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BFE0BE23BF0E6600AD9287 /* CodiListGenerator.swift */; };
 		07C5C5EA23AB549000324B67 /* UIBarButtonItem+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */; };
 		07C5C5ED23AB9AD000324B67 /* CodiDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */; };
@@ -102,6 +101,7 @@
 		07C5C61623AE0C0500324B67 /* ColorSelectCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5C61523AE0C0500324B67 /* ColorSelectCollectionView.swift */; };
 		07C745A82392A41D0045AB56 /* ClothingMainType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C745A72392A41D0045AB56 /* ClothingMainType.swift */; };
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
+		07D2D26823C89D7E001D6745 /* fashModel.pt in Resources */ = {isa = PBXBuildFile; fileRef = 07D2D26723C89D0A001D6745 /* fashModel.pt */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
 		07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */; };
 		07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */; };
@@ -224,7 +224,6 @@
 		07B7F6AE238E774900EA9C10 /* EditClothingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditClothingViewController.swift; sourceTree = "<group>"; };
 		07B7F6BD238EE4FD00EA9C10 /* ClothingPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingPostData.swift; sourceTree = "<group>"; };
 		07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlertController.swift; sourceTree = "<group>"; };
-		07BE890F23C758A200E2F2AD /* khModel.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = khModel.pt; sourceTree = "<group>"; };
 		07BFE0BE23BF0E6600AD9287 /* CodiListGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListGenerator.swift; sourceTree = "<group>"; };
 		07C5C5E923AB549000324B67 /* UIBarButtonItem+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+.swift"; sourceTree = "<group>"; };
 		07C5C5EC23AB9AD000324B67 /* CodiDataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiDataSet.swift; sourceTree = "<group>"; };
@@ -239,6 +238,7 @@
 		07C5C61523AE0C0500324B67 /* ColorSelectCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectCollectionView.swift; sourceTree = "<group>"; };
 		07C745A72392A41D0045AB56 /* ClothingMainType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingMainType.swift; sourceTree = "<group>"; };
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
+		07D2D26723C89D0A001D6745 /* fashModel.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = fashModel.pt; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
 		07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableHeaderView.swift; sourceTree = "<group>"; };
 		07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommonData.swift; sourceTree = "<group>"; };
@@ -541,7 +541,7 @@
 		07B5AE8C23992CE9000C215E /* PyTorch */ = {
 			isa = PBXGroup;
 			children = (
-				07BE890F23C758A200E2F2AD /* khModel.pt */,
+				07D2D26723C89D0A001D6745 /* fashModel.pt */,
 			);
 			path = PyTorch;
 			sourceTree = "<group>";
@@ -806,7 +806,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07BE891023C758C400E2F2AD /* khModel.pt in Resources */,
+				07D2D26823C89D7E001D6745 /* fashModel.pt in Resources */,
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */,
