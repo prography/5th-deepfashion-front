@@ -84,7 +84,7 @@ extension EditStyleViewController: UICollectionViewDelegateFlowLayout {}
 
 extension EditStyleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? editStyleCollectionViewCell else { return }
+        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? EditStyleCollectionViewCell else { return }
         configureSubscriptionButtonEnabled()
         if styleTitleCell.styleTitleLabel.text == "" { return }
         selectedStyle = (fashionStyles[indexPath.item], indexPath.item)
@@ -107,7 +107,7 @@ extension EditStyleViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? editStyleCollectionViewCell else { return UICollectionViewCell() }
+        guard let styleTitleCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.styleTitle, for: indexPath) as? EditStyleCollectionViewCell else { return UICollectionViewCell() }
 
         let isSelected = indexPath.item == selectedStyle.1 ? true : false
         styleTitleCell.configureCell(style: (fashionStyles[indexPath.item], indexPath.item), isSelected: isSelected)

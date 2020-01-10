@@ -10,10 +10,10 @@ import UIKit
 
 extension Data {
     func mimeType() -> String {
-        var b: UInt8 = 0
-        copyBytes(to: &b, count: 1)
+        var format: UInt8 = 0
+        copyBytes(to: &format, count: 1)
 
-        switch b {
+        switch format {
         case 0xFF:
             return "image/jpeg"
         case 0x89:

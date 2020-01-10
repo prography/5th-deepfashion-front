@@ -184,7 +184,7 @@ class EditClothingViewController: UIViewController {
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
         let ownerPK = UserCommonData.shared.pk
 
-        let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1, owner: ownerPK, color: selectedColorIndex + 1, season: seasonIndex + 1, part: partServerIndex, category: selectedClothingData.categoryIndex.0, image: clothingImage)
+        let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex + 1, season: seasonIndex + 1, part: partServerIndex, category: selectedClothingData.categoryIndex.0, image: clothingImage)
 
         debugPrint("nowClothingData: \(clothingData)")
         RequestAPI.shared.postAPIData(userData: clothingData, APIMode: APIPostMode.clothing) { errorType in
@@ -192,6 +192,7 @@ class EditClothingViewController: UIViewController {
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
 
                 DispatchQueue.main.async {
+                    self.beginIgnoringInteractionEvents()
                     self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
                 }
             } else {

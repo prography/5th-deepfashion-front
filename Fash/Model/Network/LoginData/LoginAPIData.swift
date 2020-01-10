@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserLoginAPIData: Decodable {
+struct LoginAPIData: Decodable {
     let token: String
     let pk: Int
 }

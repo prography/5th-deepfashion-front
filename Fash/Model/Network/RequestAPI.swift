@@ -304,7 +304,7 @@ final class RequestAPI {
                 }
 
                 guard let data = data,
-                    let userData = try? JSONDecoder().decode(UserLoginAPIData.self, from: data) else {
+                    let userData = try? JSONDecoder().decode(LoginAPIData.self, from: data) else {
                     self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                     completion(self.configureError(errorType))
                     return

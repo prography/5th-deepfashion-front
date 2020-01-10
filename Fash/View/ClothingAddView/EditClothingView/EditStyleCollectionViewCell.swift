@@ -8,7 +8,7 @@
 
 import UIKit
 
-class editStyleCollectionViewCell: UICollectionViewCell {
+class EditStyleCollectionViewCell: UICollectionViewCell {
     // MARK: UIs
 
     @IBOutlet var styleTitleLabel: UILabel!
