@@ -140,16 +140,16 @@
 		071372CE2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewCell.swift; sourceTree = "<group>"; };
 		0716E0FA23B0D2B800F3E820 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		071BCC9F23C7072A00E5C52B /* URLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
-		0733A6B22365D99800E26B38 /* DeepFashion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepFashion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0733A6B22365D99800E26B38 /* Fash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0733A6B52365D99800E26B38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0733A6B92365D99800E26B38 /* LoginViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControlller.swift; sourceTree = "<group>"; };
 		0733A6BC2365D99800E26B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0733A6C12365D99900E26B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0733A6C32365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0733A6C82365D99900E26B38 /* DeepFashionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepFashionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0733A6C82365D99900E26B38 /* FashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0733A6CC2365D99900E26B38 /* DeepFashionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepFashionTests.swift; sourceTree = "<group>"; };
 		0733A6CE2365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0733A6D32365D99900E26B38 /* DeepFashionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeepFashionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0733A6D32365D99900E26B38 /* FashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepFashionUITests.swift; sourceTree = "<group>"; };
 		0733A6D92365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignUpViewController.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		07B1046923AE9EAC00C8286D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		07B5AE792399035B000C215E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		07B5AE8823992BEF000C215E /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
-		07B5AE8923992C0D000C215E /* DeepFashion-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DeepFashion-Bridging-Header.h"; sourceTree = "<group>"; };
+		07B5AE8923992C0D000C215E /* Fash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fash-Bridging-Header.h"; sourceTree = "<group>"; };
 		07B5AE8A23992C0E000C215E /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
 		07B5AE93239A4DEE000C215E /* FashionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionData.swift; sourceTree = "<group>"; };
 		07B6E0592382AD9600D6A9E1 /* CodiRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendViewController.swift; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 		0733A6A92365D99800E26B38 = {
 			isa = PBXGroup;
 			children = (
-				0733A6B42365D99800E26B38 /* DeepFashion */,
+				0733A6B42365D99800E26B38 /* Fash */,
 				0733A6CB2365D99900E26B38 /* DeepFashionTests */,
 				0733A6D62365D99900E26B38 /* DeepFashionUITests */,
 				0733A6B32365D99800E26B38 /* Products */,
@@ -318,14 +318,14 @@
 		0733A6B32365D99800E26B38 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0733A6B22365D99800E26B38 /* DeepFashion.app */,
-				0733A6C82365D99900E26B38 /* DeepFashionTests.xctest */,
-				0733A6D32365D99900E26B38 /* DeepFashionUITests.xctest */,
+				0733A6B22365D99800E26B38 /* Fash.app */,
+				0733A6C82365D99900E26B38 /* FashTests.xctest */,
+				0733A6D32365D99900E26B38 /* FashUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0733A6B42365D99800E26B38 /* DeepFashion */ = {
+		0733A6B42365D99800E26B38 /* Fash */ = {
 			isa = PBXGroup;
 			children = (
 				0733A6B52365D99800E26B38 /* AppDelegate.swift */,
@@ -338,7 +338,7 @@
 				076DADB123B3696800B3FF46 /* Font */,
 				07D5E9A4236E00E200A27B28 /* SupportingFiles */,
 			);
-			path = DeepFashion;
+			path = Fash;
 			sourceTree = "<group>";
 		};
 		0733A6CB2365D99900E26B38 /* DeepFashionTests */ = {
@@ -533,7 +533,7 @@
 			children = (
 				07B5AE8A23992C0E000C215E /* TorchModule.mm */,
 				07B5AE8823992BEF000C215E /* TorchModule.h */,
-				07B5AE8923992C0D000C215E /* DeepFashion-Bridging-Header.h */,
+				07B5AE8923992C0D000C215E /* Fash-Bridging-Header.h */,
 			);
 			path = PyTorch;
 			sourceTree = "<group>";
@@ -701,9 +701,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0733A6B12365D99800E26B38 /* DeepFashion */ = {
+		0733A6B12365D99800E26B38 /* Fash */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0733A6DC2365D99900E26B38 /* Build configuration list for PBXNativeTarget "DeepFashion" */;
+			buildConfigurationList = 0733A6DC2365D99900E26B38 /* Build configuration list for PBXNativeTarget "Fash" */;
 			buildPhases = (
 				84B980B83E4F73FB3C613898 /* [CP] Check Pods Manifest.lock */,
 				0733A6AE2365D99800E26B38 /* Sources */,
@@ -714,14 +714,14 @@
 			);
 			dependencies = (
 			);
-			name = DeepFashion;
+			name = Fash;
 			productName = DeepFashion;
-			productReference = 0733A6B22365D99800E26B38 /* DeepFashion.app */;
+			productReference = 0733A6B22365D99800E26B38 /* Fash.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0733A6C72365D99900E26B38 /* DeepFashionTests */ = {
+		0733A6C72365D99900E26B38 /* FashTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0733A6DF2365D99900E26B38 /* Build configuration list for PBXNativeTarget "DeepFashionTests" */;
+			buildConfigurationList = 0733A6DF2365D99900E26B38 /* Build configuration list for PBXNativeTarget "FashTests" */;
 			buildPhases = (
 				BC6AB4A4F54CED0D203B52DD /* [CP] Check Pods Manifest.lock */,
 				0733A6C42365D99900E26B38 /* Sources */,
@@ -733,14 +733,14 @@
 			dependencies = (
 				0733A6CA2365D99900E26B38 /* PBXTargetDependency */,
 			);
-			name = DeepFashionTests;
+			name = FashTests;
 			productName = DeepFashionTests;
-			productReference = 0733A6C82365D99900E26B38 /* DeepFashionTests.xctest */;
+			productReference = 0733A6C82365D99900E26B38 /* FashTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0733A6D22365D99900E26B38 /* DeepFashionUITests */ = {
+		0733A6D22365D99900E26B38 /* FashUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0733A6E22365D99900E26B38 /* Build configuration list for PBXNativeTarget "DeepFashionUITests" */;
+			buildConfigurationList = 0733A6E22365D99900E26B38 /* Build configuration list for PBXNativeTarget "FashUITests" */;
 			buildPhases = (
 				5B9FC89CEE5BD918E5CB11FC /* [CP] Check Pods Manifest.lock */,
 				0733A6CF2365D99900E26B38 /* Sources */,
@@ -752,9 +752,9 @@
 			dependencies = (
 				0733A6D52365D99900E26B38 /* PBXTargetDependency */,
 			);
-			name = DeepFashionUITests;
+			name = FashUITests;
 			productName = DeepFashionUITests;
-			productReference = 0733A6D32365D99900E26B38 /* DeepFashionUITests.xctest */;
+			productReference = 0733A6D32365D99900E26B38 /* FashUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -781,7 +781,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0733A6AD2365D99800E26B38 /* Build configuration list for PBXProject "DeepFashion" */;
+			buildConfigurationList = 0733A6AD2365D99800E26B38 /* Build configuration list for PBXProject "Fash" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -794,9 +794,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0733A6B12365D99800E26B38 /* DeepFashion */,
-				0733A6C72365D99900E26B38 /* DeepFashionTests */,
-				0733A6D22365D99900E26B38 /* DeepFashionUITests */,
+				0733A6B12365D99800E26B38 /* Fash */,
+				0733A6C72365D99900E26B38 /* FashTests */,
+				0733A6D22365D99900E26B38 /* FashUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1027,12 +1027,12 @@
 /* Begin PBXTargetDependency section */
 		0733A6CA2365D99900E26B38 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0733A6B12365D99800E26B38 /* DeepFashion */;
+			target = 0733A6B12365D99800E26B38 /* Fash */;
 			targetProxy = 0733A6C92365D99900E26B38 /* PBXContainerItemProxy */;
 		};
 		0733A6D52365D99900E26B38 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0733A6B12365D99800E26B38 /* DeepFashion */;
+			target = 0733A6B12365D99800E26B38 /* Fash */;
 			targetProxy = 0733A6D42365D99900E26B38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1183,7 +1183,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.28;
 				DEVELOPMENT_TEAM = MSW35G2APL;
-				INFOPLIST_FILE = DeepFashion/Info.plist;
+				INFOPLIST_FILE = Fash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1192,7 +1192,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/PyTorch/DeepFashion-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fash/PyTorch/Fash-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1209,7 +1209,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.28;
 				DEVELOPMENT_TEAM = MSW35G2APL;
-				INFOPLIST_FILE = DeepFashion/Info.plist;
+				INFOPLIST_FILE = Fash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1218,7 +1218,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "DeepFashion/PyTorch/DeepFashion-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fash/PyTorch/Fash-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1243,7 +1243,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeepFashion.app/DeepFashion";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fash.app/Fash";
 			};
 			name = Debug;
 		};
@@ -1266,7 +1266,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DeepFashion.app/DeepFashion";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fash.app/Fash";
 			};
 			name = Release;
 		};
@@ -1315,7 +1315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0733A6AD2365D99800E26B38 /* Build configuration list for PBXProject "DeepFashion" */ = {
+		0733A6AD2365D99800E26B38 /* Build configuration list for PBXProject "Fash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0733A6DA2365D99900E26B38 /* Debug */,
@@ -1324,7 +1324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0733A6DC2365D99900E26B38 /* Build configuration list for PBXNativeTarget "DeepFashion" */ = {
+		0733A6DC2365D99900E26B38 /* Build configuration list for PBXNativeTarget "Fash" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0733A6DD2365D99900E26B38 /* Debug */,
@@ -1333,7 +1333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0733A6DF2365D99900E26B38 /* Build configuration list for PBXNativeTarget "DeepFashionTests" */ = {
+		0733A6DF2365D99900E26B38 /* Build configuration list for PBXNativeTarget "FashTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0733A6E02365D99900E26B38 /* Debug */,
@@ -1342,7 +1342,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0733A6E22365D99900E26B38 /* Build configuration list for PBXNativeTarget "DeepFashionUITests" */ = {
+		0733A6E22365D99900E26B38 /* Build configuration list for PBXNativeTarget "FashUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0733A6E32365D99900E26B38 /* Debug */,

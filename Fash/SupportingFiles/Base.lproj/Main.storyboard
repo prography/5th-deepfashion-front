@@ -1273,7 +1273,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
-                                        <color key="backgroundColor" name="LightPeach"/>
+                                        <color key="backgroundColor" name="Peach"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="JHF-cB-g4P"/>
                                         </constraints>
@@ -1892,6 +1892,9 @@
         </namedColor>
         <namedColor name="PalePeach">
             <color red="0.90600001811981201" green="0.83499997854232788" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Peach">
+            <color red="0.9649999737739563" green="0.70200002193450928" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PinkishGrey">
             <color red="0.81999999284744263" green="0.75300002098083496" blue="0.6470000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

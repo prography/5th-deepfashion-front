@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0733A6B12365D99800E26B38"
-               BuildableName = "DeepFashion.app"
-               BlueprintName = "DeepFashion"
-               ReferencedContainer = "container:DeepFashion.xcodeproj">
+               BuildableName = "Fash.app"
+               BlueprintName = "Fash"
+               ReferencedContainer = "container:Fash.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0733A6C72365D99900E26B38"
-               BuildableName = "DeepFashionTests.xctest"
-               BlueprintName = "DeepFashionTests"
-               ReferencedContainer = "container:DeepFashion.xcodeproj">
+               BuildableName = "FashTests.xctest"
+               BlueprintName = "FashTests"
+               ReferencedContainer = "container:Fash.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0733A6D22365D99900E26B38"
-               BuildableName = "DeepFashionUITests.xctest"
-               BlueprintName = "DeepFashionUITests"
-               ReferencedContainer = "container:DeepFashion.xcodeproj">
+               BuildableName = "FashUITests.xctest"
+               BlueprintName = "FashUITests"
+               ReferencedContainer = "container:Fash.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0733A6B12365D99800E26B38"
-            BuildableName = "DeepFashion.app"
-            BlueprintName = "DeepFashion"
-            ReferencedContainer = "container:DeepFashion.xcodeproj">
+            BuildableName = "Fash.app"
+            BlueprintName = "Fash"
+            ReferencedContainer = "container:Fash.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0733A6B12365D99800E26B38"
-            BuildableName = "DeepFashion.app"
-            BlueprintName = "DeepFashion"
-            ReferencedContainer = "container:DeepFashion.xcodeproj">
+            BuildableName = "Fash.app"
+            BlueprintName = "Fash"
+            ReferencedContainer = "container:Fash.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

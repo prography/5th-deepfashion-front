@@ -88,12 +88,19 @@ class ClothingAddViewController: UIViewController {
         super.viewWillAppear(true)
         navigationController?.navigationBar.isHidden = false
         configureBasicTitle(ViewData.Title.MainTabBarView.photoAdd)
-        presentPhotoSelectAlertController()
+        if !isImageSelected {
+            presentPhotoSelectAlertController()
+        }
     }
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         endIgnoringInteractionEvents()
+    }
+
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+        isImageSelected = false
     }
 
     // MARK: Methods
@@ -218,9 +225,7 @@ class ClothingAddViewController: UIViewController {
     }
 
     private func presentPhotoSelectAlertController() {
-        if !isImageSelected {
-            present(photoSelectAlertController, animated: true, completion: nil)
-        }
+        present(photoSelectAlertController, animated: true, completion: nil)
     }
 
     private func presentPhotoAuthRequestAlertController() {
@@ -268,6 +273,7 @@ class ClothingAddViewController: UIViewController {
 
         // 미리 해당 뷰컨에 필요한 이미지 추가 후 네비게이션 스택에 푸시
         viewController.selectedClothingData.image = selectedImage
+        isImageSelected = false
         navigationController?.pushViewController(viewController, animated: true)
     }
 
@@ -285,6 +291,7 @@ class ClothingAddViewController: UIViewController {
     @IBAction func unwindToClothingAddView(_: UIStoryboardSegue) {
         guard let tabBarController = tabBarController as? MainTabBarController else { return }
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        isImageSelected = true
         tabBarController.presentToastMessage("해당 옷이 추가되었습니다!")
         configureLayoutWithInitStatus()
 
