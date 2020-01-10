@@ -94,5 +94,10 @@ extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect _: UIViewController) {
         selectedPreviousIndex = tabBarController.selectedIndex
         tabBarController.removeBackButton()
+
+        if tabBarController.selectedIndex == TabBarIndex.clothingAdd.index {
+            guard let nowViewController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? ClothingAddViewController else { return }
+            nowViewController.presentPhotoSelectAlertController()
+        }
     }
 }

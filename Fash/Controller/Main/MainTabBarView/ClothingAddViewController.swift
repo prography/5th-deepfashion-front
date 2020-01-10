@@ -88,9 +88,6 @@ class ClothingAddViewController: UIViewController {
         super.viewWillAppear(true)
         navigationController?.navigationBar.isHidden = false
         configureBasicTitle(ViewData.Title.MainTabBarView.photoAdd)
-        if !isImageSelected {
-            presentPhotoSelectAlertController()
-        }
     }
 
     override func viewDidAppear(_: Bool) {
@@ -224,7 +221,7 @@ class ClothingAddViewController: UIViewController {
         photoSelectAlertController.addAction(cancelAlertAction)
     }
 
-    private func presentPhotoSelectAlertController() {
+    func presentPhotoSelectAlertController() {
         present(photoSelectAlertController, animated: true, completion: nil)
     }
 
