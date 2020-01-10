@@ -44,6 +44,8 @@ class EditClothingTableViewCell: UITableViewCell {
         return colorSelectTitleLabel
     }()
 
+    var selectedColorIndex = 0
+
     // MARK: Life Cycle
 
     override func awakeFromNib() {
@@ -69,7 +71,7 @@ class EditClothingTableViewCell: UITableViewCell {
         guard let _selectedIndex = self.colorSelectCollectionView.indexPathsForSelectedItems,
             let selectedIndex = _selectedIndex.first,
             let selectedCell = colorSelectCollectionView.cellForItem(at: selectedIndex) as? ColorSelectCollectionViewCell,
-            let colorIndex = UIIdentifier.Color.colorHexaCodeIndex[selectedCell.nowRGB] else { return nil }
+            let colorIndex = UIIdentifier.Color.colorHexaCodeIndex[selectedCell.nowRGB] else { return selectedColorIndex }
         return colorIndex
     }
 
@@ -155,6 +157,9 @@ extension EditClothingTableViewCell: UICollectionViewDataSource {
         guard let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect, for: indexPath) as? ColorSelectCollectionViewCell else { return UICollectionViewCell() }
 
         colorCell.configureCell(rgb: UIIdentifier.Color.colorHexaCodeList[indexPath.item])
+        if indexPath.item == selectedColorIndex {
+            colorCell.isSelected = true
+        }
         return colorCell
     }
 }

@@ -8,11 +8,13 @@
 
 import UIKit
 
-struct FashionData {
+struct ClothingData {
     var image: UIImage?
     var style: (String, Int)
     var typeIndex = 0
-    var weatherIndex = 0
+    var seasonIndex = 0
+    var categoryIndex: (Int, SubCategory) = (1, ClothingIndex.subCategoryList[1] ?? SubCategory(name: "청바지", mainIndex: 3))
+    var colorIndex: UInt64 = 0x000000
     var gender = UserCommonData.shared.gender
     init() {
         var styleName: [String] = []

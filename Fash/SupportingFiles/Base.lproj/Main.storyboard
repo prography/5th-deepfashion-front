@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mainView" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,7 +146,7 @@
         <!--SignUp-->
         <scene sceneID="Ht8-gY-tMD">
             <objects>
-                <viewController title="SignUp" modalPresentationStyle="fullScreen" id="dve-eK-BpR" customClass="FirstSignUpViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SignUp" modalPresentationStyle="fullScreen" id="dve-eK-BpR" customClass="FirstSignUpViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="llX-82-Zwa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -289,7 +289,7 @@
         <!--패션 스타일 선택-->
         <scene sceneID="IY2-8o-4Ka">
             <objects>
-                <viewController title="패션 스타일 선택" modalPresentationStyle="fullScreen" id="L8J-ZO-A7u" customClass="LastSignUpViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="패션 스타일 선택" modalPresentationStyle="fullScreen" id="L8J-ZO-A7u" customClass="LastSignUpViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ol-59-VJR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,7 +557,7 @@
         <!--옷장 리스트-->
         <scene sceneID="ERn-qo-GpZ">
             <objects>
-                <viewController title="옷장 리스트" id="wfz-52-Igo" customClass="ClosetListViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="옷장 리스트" id="wfz-52-Igo" customClass="ClosetListViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILb-48-Kcd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -567,7 +567,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="closetListTableViewCell" rowHeight="76" id="PFl-Ih-0Bt" customClass="ClosetListTableViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="closetListTableViewCell" rowHeight="76" id="PFl-Ih-0Bt" customClass="ClosetListTableViewCell" customModule="Fash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PFl-Ih-0Bt" id="5Bl-3Z-62T">
@@ -577,9 +577,9 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3dd-CD-GKy">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewLayout key="collectionViewLayout" id="3bR-3s-aOE" customClass="ClosetListCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
+                                                    <collectionViewLayout key="collectionViewLayout" id="3bR-3s-aOE" customClass="ClosetListCollectionViewFlowLayout" customModule="Fash" customModuleProvider="target"/>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="closetListCollectionViewCell" id="PDy-I8-pUd" customClass="ClosetListCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="closetListCollectionViewCell" id="PDy-I8-pUd" customClass="ClosetListCollectionViewCell" customModule="Fash" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="79" height="69"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4DG-86-uqv">
@@ -661,7 +661,7 @@
         <!--마이페이지-->
         <scene sceneID="AyH-Jc-bPg">
             <objects>
-                <viewController title="마이페이지" id="qJ7-0X-wOs" customClass="MyPageViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="마이페이지" id="qJ7-0X-wOs" customClass="MyPageViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pqs-Mh-jUn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -670,7 +670,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPageTableViewCell" rowHeight="66" id="1zF-4q-yhx" customClass="MyPageTableViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myPageTableViewCell" rowHeight="66" id="1zF-4q-yhx" customClass="MyPageTableViewCell" customModule="Fash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1zF-4q-yhx" id="p9B-kf-iP5">
@@ -724,7 +724,7 @@
         <!--개인정보/보안-->
         <scene sceneID="q83-75-aeI">
             <objects>
-                <viewController storyboardIdentifier="PrivacyViewController" modalPresentationStyle="fullScreen" id="Zfq-4z-PmF" customClass="PrivacyViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyViewController" modalPresentationStyle="fullScreen" id="Zfq-4z-PmF" customClass="PrivacyViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gmj-JK-yNx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -733,7 +733,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="privacyTableViewCell" rowHeight="108" id="MJR-aj-rbf" customClass="PrivacyTableViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="privacyTableViewCell" rowHeight="108" id="MJR-aj-rbf" customClass="PrivacyTableViewCell" customModule="Fash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MJR-aj-rbf" id="hfB-Kr-A37">
@@ -785,7 +785,7 @@
         <!--Delete User View Controller-->
         <scene sceneID="03b-qa-bnG">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="K1b-dd-den" customClass="DeleteUserViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="K1b-dd-den" customClass="DeleteUserViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Nb-ec-6fD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -952,7 +952,7 @@
         <!--옷 추가하기-->
         <scene sceneID="yPN-H7-C6S">
             <objects>
-                <viewController id="k0I-cA-kpf" customClass="ClothingAddViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k0I-cA-kpf" customClass="ClothingAddViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UzU-Z3-DGI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1049,7 +1049,7 @@
         <!--옷 등록하기-->
         <scene sceneID="Tdj-r2-JXy">
             <objects>
-                <viewController storyboardIdentifier="AddFashionViewController" title="옷 등록하기" modalPresentationStyle="fullScreen" id="TFM-gH-Vx2" customClass="EditClothingViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddFashionViewController" title="옷 등록하기" modalPresentationStyle="fullScreen" id="TFM-gH-Vx2" customClass="EditClothingViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IKm-vE-afn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1058,7 +1058,7 @@
                                 <rect key="frame" x="0.0" y="323" width="414" height="479"/>
                                 <color key="sectionIndexBackgroundColor" name="Pale"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFashionTableViewCell" rowHeight="445" id="6CM-XT-gAI" customClass="EditClothingTableViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFashionTableViewCell" rowHeight="445" id="6CM-XT-gAI" customClass="EditClothingTableViewCell" customModule="Fash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="445"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6CM-XT-gAI" id="OQW-ha-8wr">
@@ -1271,7 +1271,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
                                 <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
                                         <color key="backgroundColor" name="Peach"/>
                                         <constraints>
@@ -1282,7 +1282,7 @@
                                             <action selector="cancelButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="d2R-Mk-IKS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-ZK-HfT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-ZK-HfT">
                                         <rect key="frame" x="207" y="0.0" width="207" height="60"/>
                                         <color key="backgroundColor" name="PaleBrown"/>
                                         <state key="normal" title="등록하기"/>
@@ -1341,7 +1341,7 @@
         <!--Edit Style View Controller-->
         <scene sceneID="OCR-gI-jes">
             <objects>
-                <viewController storyboardIdentifier="EditStyleViewController" modalPresentationStyle="fullScreen" id="W1j-sd-euh" customClass="EditStyleViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditStyleViewController" modalPresentationStyle="fullScreen" id="W1j-sd-euh" customClass="EditStyleViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hIx-xR-y2v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1352,9 +1352,9 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tca-3f-cQO">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="341"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewLayout key="collectionViewLayout" id="H2V-jg-HLu" customClass="EditStyleCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
+                                        <collectionViewLayout key="collectionViewLayout" id="H2V-jg-HLu" customClass="EditStyleCollectionViewFlowLayout" customModule="Fash" customModuleProvider="target"/>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="styleTitleCollectionViewCell" id="ig6-6b-oju" customClass="editStyleCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="styleTitleCollectionViewCell" id="ig6-6b-oju" customClass="editStyleCollectionViewCell" customModule="Fash" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hWq-vz-DjQ">
@@ -1466,7 +1466,7 @@
         <!--thirdView-->
         <scene sceneID="g0p-8c-jDg">
             <objects>
-                <viewController id="MEW-gU-6r0" customClass="CodiListViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MEW-gU-6r0" customClass="CodiListViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OWW-gJ-Qh0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1475,7 +1475,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <collectionViewLayout key="collectionViewLayout" id="C4b-PU-VZe" customClass="CodiListCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="C4b-PU-VZe" customClass="CodiListCollectionViewFlowLayout" customModule="Fash" customModuleProvider="target"/>
                                 <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 저장된 코디리스트가 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c0Y-KX-jqt">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1484,7 +1484,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="codiListCollectionViewCell" id="e4n-bY-vRz" customClass="CodiListCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="codiListCollectionViewCell" id="e4n-bY-vRz" customClass="CodiListCollectionViewCell" customModule="Fash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="126" height="143"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gGq-tc-rtf">
@@ -1582,7 +1582,7 @@
         <!--코디 추천 리스트-->
         <scene sceneID="8Bq-3q-DU9">
             <objects>
-                <viewController title="코디 추천 리스트" id="abK-qW-sZg" customClass="CodiRecommendViewController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="코디 추천 리스트" id="abK-qW-sZg" customClass="CodiRecommendViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2t-dv-yFB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1666,9 +1666,9 @@
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UWn-7u-RIA">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="555"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                        <collectionViewLayout key="collectionViewLayout" id="Cel-Qe-tKK" customClass="CodiRecommendCollectionViewFlowLayout" customModule="DeepFashion" customModuleProvider="target"/>
+                                                        <collectionViewLayout key="collectionViewLayout" id="Cel-Qe-tKK" customClass="CodiRecommendCollectionViewFlowLayout" customModule="Fash" customModuleProvider="target"/>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recommendCollectionViewCell" id="sMY-CG-vlN" customClass="CodiRecommendCollectionViewCell" customModule="DeepFashion" customModuleProvider="target">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recommendCollectionViewCell" id="sMY-CG-vlN" customClass="CodiRecommendCollectionViewCell" customModule="Fash" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="133" height="133"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tZd-hH-u9C">
@@ -1813,7 +1813,7 @@
         <!--My 추천 리스트-->
         <scene sceneID="JBE-vc-0hX">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="DeepFashion" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="gbj-AY-vIH" customClass="MainTabBarController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My 추천 리스트" id="x34-lN-e5E"/>
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="ZF9-44-la4">

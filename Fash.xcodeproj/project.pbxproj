@@ -77,7 +77,7 @@
 		07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1046923AE9EAC00C8286D /* UIColor+.swift */; };
 		07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE792399035B000C215E /* UIImage+.swift */; };
 		07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE8A23992C0E000C215E /* TorchModule.mm */; };
-		07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE93239A4DEE000C215E /* FashionData.swift */; };
+		07B5AE94239A4DEE000C215E /* ClothingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE93239A4DEE000C215E /* ClothingData.swift */; };
 		07B6E05A2382AD9600D6A9E1 /* CodiRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0592382AD9600D6A9E1 /* CodiRecommendViewController.swift */; };
 		07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */; };
 		07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */; };
@@ -214,7 +214,7 @@
 		07B5AE8823992BEF000C215E /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
 		07B5AE8923992C0D000C215E /* Fash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fash-Bridging-Header.h"; sourceTree = "<group>"; };
 		07B5AE8A23992C0E000C215E /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
-		07B5AE93239A4DEE000C215E /* FashionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashionData.swift; sourceTree = "<group>"; };
+		07B5AE93239A4DEE000C215E /* ClothingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingData.swift; sourceTree = "<group>"; };
 		07B6E0592382AD9600D6A9E1 /* CodiRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendViewController.swift; sourceTree = "<group>"; };
 		07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListViewController.swift; sourceTree = "<group>"; };
 		07B6E05D2382AE9500D6A9E1 /* CodiListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiListViewController.swift; sourceTree = "<group>"; };
@@ -668,7 +668,7 @@
 				07D5E9BA236EF9C000A27B28 /* ClothingStyle.swift */,
 				07C745A72392A41D0045AB56 /* ClothingMainType.swift */,
 				073547BB23BCB9A700E45ADF /* ClothingIndex.swift */,
-				07B5AE93239A4DEE000C215E /* FashionData.swift */,
+				07B5AE93239A4DEE000C215E /* ClothingData.swift */,
 				073547AE23BA427A00E45ADF /* LocationData.swift */,
 				073547B323BB7C7200E45ADF /* WeatherIndex.swift */,
 			);
@@ -949,7 +949,7 @@
 				07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */,
 				07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */,
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
-				07B5AE94239A4DEE000C215E /* FashionData.swift in Sources */,
+				07B5AE94239A4DEE000C215E /* ClothingData.swift in Sources */,
 				073547BA23BC992A00E45ADF /* ClothingAPIData.swift in Sources */,
 				073547BE23BCC30C00E45ADF /* RequestImage.swift in Sources */,
 				07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */,

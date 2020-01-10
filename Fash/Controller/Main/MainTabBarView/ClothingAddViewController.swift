@@ -52,7 +52,6 @@ class ClothingAddViewController: UIViewController {
 
     private var isImageSelected = false {
         didSet {
-//            saveClothingButton.isEnabled = isImageSelected
             if isImageSelected {
                 configureLayoutWithDeepLearningStatus()
             } else {
@@ -105,36 +104,39 @@ class ClothingAddViewController: UIViewController {
     // MARK: - DeepLearning Classification Method
 
     /// 이미지를 판별하는 과정이 진행되는 메서드
-    private func classificateImage(_ image:
+    private func classificateImage(_:
         UIImage, completion: @escaping ([Int]) -> Void) {
-        let yjModule: TorchModule = {
-            // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-            if let filePath = Bundle.main.path(forResource: "khModel", ofType: "pt"),
-                let module = TorchModule(fileAtPath: filePath) {
-                return module
-            } else {
-                // pt파일을 읽지 못하면 해당 행 실행
-                fatalError("Can't find the model file!")
-            }
-        }()
+        /*
+         let yjModule: TorchModule = {
+             // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
+             if let filePath = Bundle.main.path(forResource: "khModel", ofType: "pt"),
+                 let module = TorchModule(fileAtPath: filePath) {
+                 return module
+             } else {
+                 // pt파일을 읽지 못하면 해당 행 실행
+                 fatalError("Can't find the model file!")
+             }
+         }()
 
-        // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
-        let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
-        // 224x224 크기의 리사이즈 된 이미지를 Float32 배열로 변환하여 pixelBuffer에 저장한다.
-        guard var pixelBuffer = resizedImage.normalized() else {
-            return
-        }
+         // 식별하려는 이미지의 사이즈를 224x224로 변환한다.
+         let resizedImage = image.resized(to: CGSize(width: 224, height: 224))
+         // 224x224 크기의 리사이즈 된 이미지를 Float32 배열로 변환하여 pixelBuffer에 저장한다.
+         guard var pixelBuffer = resizedImage.normalized() else {
+             return
+         }
 
-        // 이미지를 배열로변환 한 뒤 해당 배열에 TorchModule의 predict메서드를 이용해 classification을 진행한다.
-        // 만약 classification 이 제대로 되지 않으면 else 로 빠져나가 classificateImage 메서드가 종료된다.
-        guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
-            return
-        }
+         // 이미지를 배열로변환 한 뒤 해당 배열에 TorchModule의 predict메서드를 이용해 classification을 진행한다.
+         // 만약 classification 이 제대로 되지 않으면 else 로 빠져나가 classificateImage 메서드가 종료된다.
+         guard let outputs = yjModule.predict(image: UnsafeMutableRawPointer(&pixelBuffer)) else {
+             return
+         }
 
-        debugPrint(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
-        let deepOutputList = outputs.map { Int(truncating: $0) }
-        // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
-        completion(deepOutputList)
+         debugPrint(outputs) // 딥러닝 결과 파트 별 최댓값 인덱스 출력
+         let deepOutputList = outputs.map { Int(truncating: $0) }
+         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
+          completion(deepOutputList)
+         */
+        completion([3, 3, 3, 3])
     }
 
     private func configureImageView() {
@@ -270,7 +272,7 @@ class ClothingAddViewController: UIViewController {
 
         // 미리 해당 뷰컨에 필요한 이미지 추가 후 네비게이션 스택에 푸시
         editClothingViewController.selectedClothingData.image = selectedImage
-        editClothingViewController.deepOutputList = deepResult
+        editClothingViewController.deepResultList = deepResult
         navigationController?.pushViewController(editClothingViewController, animated: true)
     }
 

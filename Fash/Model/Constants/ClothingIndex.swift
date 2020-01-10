@@ -104,6 +104,7 @@ struct ClothingIndex {
 
     // MARK: - DeepLearning Category
 
+//    jogger sleeveless tshirt_long sneakers jumper dress_shirt_long top_others long_padding leggings cardigan sandal running_shoes blouse_long tshirt_short long_boots blazer slacks dress_shirt_short blouse_short flat_shoes coach_jacket hoody_jacket loafer leather_jacket walker trench_coat dress short_boots skirt sweater hightop jean heel short_padding coat fleece_jacket mtm hoody vest
     static let deepCategoryList: [Int] = [
         2, 26, 28, 21, 12,
         33, 36, 4, 29, 14,
