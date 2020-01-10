@@ -109,9 +109,11 @@ class ClothingAddViewController: UIViewController {
     /// 이미지를 판별하는 과정이 진행되는 메서드
     private func classificateImage(_ image:
         UIImage, completion: @escaping ([Int]) -> Void) {
+        /*
         let yjModule: TorchModule = {
+            
             // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-            if let filePath = Bundle.main.path(forResource: "fashModel", ofType: "pt"),
+            if let filePath = Bundle.main.path(forResource: "fashModel2", ofType: "pt"),
                 let module = TorchModule(fileAtPath: filePath) {
                 return module
             } else {
@@ -138,7 +140,8 @@ class ClothingAddViewController: UIViewController {
         // escaping 으로 classificateImage 메서드의 종료 시 해당 메서드 호출 휘치에 알림
         completion(deepOutputList)
 
-        completion(deepOutputList)
+        */
+        completion([1,1,1,1])
     }
 
     private func configureImageView() {

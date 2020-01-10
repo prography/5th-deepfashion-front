@@ -1057,6 +1057,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-rD-P5A">
                                 <rect key="frame" x="0.0" y="323" width="414" height="479"/>
                                 <color key="sectionIndexBackgroundColor" name="Pale"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.89368385080000001" green="0.85480196770000005" blue="0.78456461109999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFashionTableViewCell" rowHeight="445" id="6CM-XT-gAI" customClass="EditClothingTableViewCell" customModule="Fash" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="445"/>
@@ -1251,7 +1252,7 @@
                                                 <constraint firstItem="CRb-DB-2f5" firstAttribute="top" secondItem="OQW-ha-8wr" secondAttribute="topMargin" id="zf6-Tg-6rA"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Beige"/>
                                         <connections>
                                             <outlet property="editStackView" destination="ajD-M0-ZFg" id="uEi-lm-dIe"/>
                                             <outlet property="mainTypeSegmentedControl" destination="Ngo-Xz-Mzn" id="Ien-dd-eeA"/>
@@ -1287,7 +1288,7 @@
                                         <color key="backgroundColor" name="PaleBrown"/>
                                         <state key="normal" title="등록하기"/>
                                         <connections>
-                                            <action selector="addFashionButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="Rrx-xt-cjJ"/>
+                                            <action selector="addClothingButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="Rrx-xt-cjJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1305,7 +1306,7 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="Pale"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.89368385080000001" green="0.85480196770000005" blue="0.78456461109999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="YNE-qX-swM" firstAttribute="centerY" secondItem="IKm-vE-afn" secondAttribute="centerY" id="1wx-gW-a0O"/>
                             <constraint firstItem="b84-4g-Hlw" firstAttribute="trailing" secondItem="MXX-DH-Yhc" secondAttribute="trailing" id="3TQ-R3-AIW"/>

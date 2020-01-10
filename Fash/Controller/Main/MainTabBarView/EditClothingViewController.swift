@@ -165,7 +165,9 @@ class EditClothingViewController: UIViewController {
 
     // MARK: - IBActions
 
-    @IBAction func addFashionButtonPressed(_: UIButton) {
+    @IBAction func addClothingButtonPressed(_: UIButton) {
+        if isRequestAPI == true { return }
+
         guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell,
             let navigationController = self.navigationController else { return }
 
@@ -173,6 +175,7 @@ class EditClothingViewController: UIViewController {
         guard let clothingImage = selectedClothingData.image,
             let clothingName = addFashionTableCell.nameTextField.text,
             let selectedColorIndex = addFashionTableCell.getSelectedColorIndex() else { return }
+
         // 옷 타입, 스타일 셋팅
 
         let partName = ClothingIndex.shared.getMainCategoryName(addFashionTableCell.mainTypeSegmentedControl.selectedSegmentIndex)
