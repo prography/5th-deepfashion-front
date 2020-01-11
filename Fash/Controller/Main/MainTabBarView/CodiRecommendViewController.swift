@@ -118,7 +118,6 @@ class CodiRecommendViewController: UIViewController {
                 UserCommonData.shared.configureClothingData(clothingDataList)
                 CodiListGenerator.shared.getNowCodiDataSet()
                 self.refreshCodiData()
-                UserCommonData.shared.setIsNeedToUpdateClothingFalse()
             } else {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }

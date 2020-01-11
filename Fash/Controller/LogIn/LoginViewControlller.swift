@@ -76,6 +76,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
+        idTextField.text = "\(UserCommonData.shared.id)"
         resignTextFieldFirstResponder()
         endIgnoringInteractionEvents()
     }
@@ -130,6 +131,7 @@ class LoginViewController: UIViewController {
                     self.passwordTextField.text = ""
                     self.passwordTextField.configureBasicTextField()
                     UserCommonData.shared.resetImageCache()
+                    CodiListGenerator.shared.resetCodiListGenerator()
                     self.performSegue(withIdentifier: UIIdentifier.Segue.goToMain, sender: nil)
                 }
             } else {
@@ -189,6 +191,7 @@ class LoginViewController: UIViewController {
 
             guard let signUpId = UserCommonData.shared.userData?.userName,
                 let signUpPassword = UserCommonData.shared.userData?.password else { return }
+            UserCommonData.shared.saveID(signUpId)
             let signUpUserData = LoginAPIPostData(userName: signUpId, password: signUpPassword)
             requestLoginAPI(signUpUserData)
         }
