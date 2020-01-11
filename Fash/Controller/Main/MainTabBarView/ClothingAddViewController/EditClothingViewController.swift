@@ -63,6 +63,11 @@ class EditClothingViewController: UIViewController {
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
+
+        guard let addClothingTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+        if let colorIndex = UIIdentifier.Color.colorHexaCodeIndex[selectedClothingData.colorIndex] {
+            addClothingTableCell.colorSelectCollectionView.selectItem(at: IndexPath(item: colorIndex, section: 0), animated: true, scrollPosition: [])
+        }
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -276,12 +281,10 @@ extension EditClothingViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let addClothingTableCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.editClothing, for: indexPath) as? EditClothingTableViewCell else { return UITableViewCell() }
+
         addClothingTableCell.nameTextField.delegate = self
         addClothingTableCell.colorSelectCollectionView.delegate = self
-
-        if let colorIndex = UIIdentifier.Color.colorHexaCodeIndex[selectedClothingData.colorIndex] {
-            addClothingTableCell.selectedColorIndex = colorIndex
-        }
+        addClothingTableCell.colorSelectCollectionView.allowsMultipleSelection = false
 
         addClothingTableCell.nameTextField.addTarget(self, action: #selector(nameTextFieldEditingChanged(_:)), for: .editingChanged)
         addClothingTableCell.seasonSegmentedControl.addTarget(self, action: #selector(clothingSeasonSegmentedControlPressed(_:)), for: .valueChanged)

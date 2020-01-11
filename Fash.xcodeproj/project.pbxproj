@@ -55,6 +55,7 @@
 		0777D45C23B6312400385E68 /* PrivacyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45B23B6312400385E68 /* PrivacyTableViewCell.swift */; };
 		0777D45E23B6436400385E68 /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45D23B6436400385E68 /* UITabBarController+.swift */; };
 		0779552C23C9095B00C561BC /* fashModel2.pt in Resources */ = {isa = PBXBuildFile; fileRef = 0779552B23C9095400C561BC /* fashModel2.pt */; };
+		0779553023C9E36700C561BC /* LoginToMainSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779552F23C9E36700C561BC /* LoginToMainSegue.swift */; };
 		077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIPostData.swift */; };
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
@@ -188,6 +189,7 @@
 		0777D45B23B6312400385E68 /* PrivacyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTableViewCell.swift; sourceTree = "<group>"; };
 		0777D45D23B6436400385E68 /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		0779552B23C9095400C561BC /* fashModel2.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = fashModel2.pt; sourceTree = "<group>"; };
+		0779552F23C9E36700C561BC /* LoginToMainSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToMainSegue.swift; sourceTree = "<group>"; };
 		077C77B0237812570088B151 /* UserAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPostData.swift; sourceTree = "<group>"; };
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
@@ -414,7 +416,6 @@
 		07598530237E93D700C48EE7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */,
 				07020DF8237FDE99000CFAC2 /* MainTabBarView */,
 			);
 			path = Main;
@@ -457,6 +458,7 @@
 			children = (
 				07598535237E96F000C48EE7 /* MainTabBarController.swift */,
 				0747074A23BDEDB700BD2D19 /* PickerAlertController.swift */,
+				07B7F6C1238FAA7F00EA9C10 /* TypeAlertController.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -565,6 +567,7 @@
 				07554FF723A67A1400691C5B /* MyPageView */,
 				07A3B0C7239126940028DC6B /* FlowLayout */,
 				07F8DE7223B4EA8500066677 /* ToastView.swift */,
+				0779552F23C9E36700C561BC /* LoginToMainSegue.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1004,6 +1007,7 @@
 				073547B223BA626300E45ADF /* WeatherAPIData.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
 				076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */,
+				0779553023C9E36700C561BC /* LoginToMainSegue.swift in Sources */,
 				07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */,
 				07AA4785237046780074DE76 /* String+.swift in Sources */,
 				07C5C5F323ACB26100324B67 /* CodiRecommendCollectionViewCell.swift in Sources */,
@@ -1189,14 +1193,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.30;
+				CURRENT_PROJECT_VERSION = 1.31;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.30;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1215,14 +1219,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.30;
+				CURRENT_PROJECT_VERSION = 1.31;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.30;
+				MARKETING_VERSION = 1.31;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

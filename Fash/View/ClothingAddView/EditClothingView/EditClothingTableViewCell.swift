@@ -56,13 +56,13 @@ class EditClothingTableViewCell: UITableViewCell {
         editStackView.addArrangedSubview(colorSelectStackView)
         colorSelectCollectionView.dataSource = self
         colorSelectCollectionView.register(ColorSelectCollectionViewCell.self, forCellWithReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect)
+        colorSelectCollectionView.allowsMultipleSelection = false
         configureSubTitleLabelList()
         configureSegmentedControl()
         configureStyleButton()
         configureSubTypeButton()
         configureNameTextField()
         makeConstraint()
-        colorSelectCollectionView.allowsSelection = true
     }
 
     // MARK: Methods
@@ -157,9 +157,6 @@ extension EditClothingTableViewCell: UICollectionViewDataSource {
         guard let colorCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.colorSelect, for: indexPath) as? ColorSelectCollectionViewCell else { return UICollectionViewCell() }
 
         colorCell.configureCell(rgb: UIIdentifier.Color.colorHexaCodeList[indexPath.item])
-        if indexPath.item == selectedColorIndex {
-            colorCell.isSelected = true
-        }
         return colorCell
     }
 }

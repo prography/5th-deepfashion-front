@@ -24,6 +24,7 @@ class CodiRecommendViewController: UIViewController {
 
     private let clothingPartTitle = [" Top", " Outer", " Bottom", " Shoes"]
     private var codiIdCount = 0
+    private var isCodiListEmpty = true
     private var locationManager = CLLocationManager()
     private var nowWeatherData: WeatherAPIData?
     private var weatherIndex = WeatherIndex.sunny {
@@ -211,13 +212,18 @@ class CodiRecommendViewController: UIViewController {
 
     private func refreshCodiData() {
         DispatchQueue.main.async {
+            var isNowCodiListEmpty = true
             for i in 0 ..< 4 {
                 guard let nowCell = self.recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
                     continue
                 }
 
                 nowCell.updateCellImage(CodiListGenerator.shared.topCodiDataSet[i]?.image)
+                if let _ = CodiListGenerator.shared.topCodiDataSet[i]?.image {
+                    isNowCodiListEmpty = false
+                }
             }
+            self.isCodiListEmpty = isNowCodiListEmpty
         }
     }
 
@@ -332,7 +338,12 @@ class CodiRecommendViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_: UIButton) {
-        presentCodiAddView()
+        if !isCodiListEmpty {
+            presentCodiAddView()
+        } else {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            tabBarController.presentToastMessage("옷 등록 후 코디리스트 저장을 해주세요.")
+        }
     }
 }
 

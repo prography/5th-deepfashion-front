@@ -12,6 +12,7 @@ class ColorSelectCollectionView: UICollectionView {
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         backgroundColor = ColorList.lightPeach
+        allowsMultipleSelection = false
         isScrollEnabled = true
         allowsSelection = true
     }

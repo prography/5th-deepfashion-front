@@ -71,6 +71,7 @@ class LoginViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        view.endEditing(true)
         RequestAPI.shared.delegate = self
     }
 
@@ -113,6 +114,27 @@ class LoginViewController: UIViewController {
         navigationItem.titleView = navigationTitleStackView
     }
 
+    private func requestLoginAPI(_ userData: LoginAPIPostData) {
+        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginData) { errorType in
+            // 테스트용 조건 설정 중)
+            if errorType == nil {
+                DispatchQueue.main.async {
+                    UserCommonData.shared.saveID(userData.userName)
+                    self.passwordTextField.text = ""
+                    self.passwordTextField.configureBasicTextField()
+                    UserCommonData.shared.resetImageCache()
+                    self.performSegue(withIdentifier: UIIdentifier.Segue.goToMain, sender: nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    guard let navigationController = self.navigationController else { return }
+                    ToastView.shared.presentShortMessage(navigationController.view, message: "로그인에 실패했습니다.")
+                    self.loginButton.isEnabled = true
+                }
+            }
+        }
+    }
+
     override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
         view.endEditing(true)
     }
@@ -136,29 +158,13 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonPressed(_: UIButton) {
         guard let idText = self.idTextField.text,
-            let passwordText = self.passwordTextField.text,
-            let navigationController = self.navigationController else { return }
+            let passwordText = self.passwordTextField.text else { return }
 
         view.endEditing(true)
 
         let userData = LoginAPIPostData(userName: idText, password: passwordText)
 
-        RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginData) { errorType in
-            // 테스트용 조건 설정 중)
-            if errorType == nil {
-                DispatchQueue.main.async {
-                    UserCommonData.shared.saveID(idText)
-                    self.passwordTextField.text = ""
-                    self.passwordTextField.configureBasicTextField()
-                    self.performSegue(withIdentifier: UIIdentifier.Segue.goToMain, sender: nil)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    ToastView.shared.presentShortMessage(navigationController.view, message: "로그인에 실패했습니다.")
-                    self.loginButton.isEnabled = true
-                }
-            }
-        }
+        requestLoginAPI(userData)
     }
 
     // MARK: - Unwind
@@ -171,7 +177,13 @@ class LoginViewController: UIViewController {
 
         if let _ = nowSegue.source as? LastSignUpViewController,
             let navigationController = self.navigationController {
-            ToastView.shared.presentShortMessage(navigationController.view, message: "성공적으로 가입되었습니다.")
+            beginIgnoringInteractionEvents()
+            ToastView.shared.presentShortMessage(navigationController.view, message: "성공적으로 가입되었습니다.\n자동으로 로그인을 진행합니다.")
+
+            guard let signUpId = UserCommonData.shared.userData?.userName,
+                let signUpPassword = UserCommonData.shared.userData?.password else { return }
+            let signUpUserData = LoginAPIPostData(userName: signUpId, password: signUpPassword)
+            requestLoginAPI(signUpUserData)
         }
 
         if let _ = nowSegue.source as? DeleteUserViewController,

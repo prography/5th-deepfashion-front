@@ -60,6 +60,10 @@ final class UserCommonData {
         nowClothingCode = clothingCode
     }
 
+    func resetImageCache() {
+        thumbnailImageCache = NSCache<NSString, UIImage>()
+    }
+
     func resetStyleData() {
         selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
         userData?.configureStyle(styles: selectedStyle)
