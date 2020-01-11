@@ -136,7 +136,7 @@
                         <outlet property="passwordTextField" destination="lAv-bD-6HS" id="WAp-RZ-zmH"/>
                         <outlet property="signUpButton" destination="BNP-RL-yff" id="dKB-5M-ez7"/>
                         <segue destination="dve-eK-BpR" kind="show" identifier="goToFirstSignUp" id="dKp-Ft-8Je"/>
-                        <segue destination="gbj-AY-vIH" kind="show" identifier="goToMainView" id="603-jn-j4g"/>
+                        <segue destination="gbj-AY-vIH" kind="show" identifier="goToMainView" customClass="LoginToMainSegue" customModule="Fash" customModuleProvider="target" id="603-jn-j4g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

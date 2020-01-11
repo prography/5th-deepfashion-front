@@ -10,7 +10,13 @@ import UIKit
 
 class LoginToMainSegue: UIStoryboardSegue {
     override func perform() {
-        let source = self.source
-        let destination = self.destination
+        super.perform()
+
+        let transition: CATransition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromBottom
+        source.navigationController?.view.layer.add(transition, forKey: kCATransition)
     }
 }
