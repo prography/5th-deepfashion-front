@@ -78,13 +78,9 @@ class CodiListCollectionViewCell: UICollectionViewCell {
     func configureCell(itemIndex _: Int, codiListData: CodiListAPIData) {
         guard let createdTime = codiListData.createdTime else { return }
         let createTime = Array(createdTime)[0 ..< 10]
-        var titleText = "now codiList Name : "
+        var titleText = ""
         titleText += "\(codiListData.name)"
         titleText += "\n\(String(createTime))"
-        titleText += "\nnow codiList Ids : "
-        for i in codiListData.clothes.indices {
-            titleText += "#\(codiListData.clothes[i]) "
-        }
 
         configureCodiListImage(codiListData.clothes)
 //        let nowDateText = basicDateFormatter.basicFormatString(timeStamp: codiDataSet.timeStamp)

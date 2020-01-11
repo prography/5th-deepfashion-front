@@ -15,7 +15,7 @@ class LoginToMainSegue: UIStoryboardSegue {
         let transition: CATransition = CATransition()
         transition.duration = 0.3
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.push
+        transition.type = CATransitionType.reveal
         transition.subtype = CATransitionSubtype.fromBottom
         source.navigationController?.view.layer.add(transition, forKey: kCATransition)
     }

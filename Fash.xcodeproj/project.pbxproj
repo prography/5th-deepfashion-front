@@ -56,6 +56,7 @@
 		0777D45E23B6436400385E68 /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45D23B6436400385E68 /* UITabBarController+.swift */; };
 		0779552C23C9095B00C561BC /* fashModel2.pt in Resources */ = {isa = PBXBuildFile; fileRef = 0779552B23C9095400C561BC /* fashModel2.pt */; };
 		0779553023C9E36700C561BC /* LoginToMainSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779552F23C9E36700C561BC /* LoginToMainSegue.swift */; };
+		0779553223C9EF1F00C561BC /* UnwindToLoginSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779553123C9EF1F00C561BC /* UnwindToLoginSegue.swift */; };
 		077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIPostData.swift */; };
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
@@ -190,6 +191,7 @@
 		0777D45D23B6436400385E68 /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
 		0779552B23C9095400C561BC /* fashModel2.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = fashModel2.pt; sourceTree = "<group>"; };
 		0779552F23C9E36700C561BC /* LoginToMainSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToMainSegue.swift; sourceTree = "<group>"; };
+		0779553123C9EF1F00C561BC /* UnwindToLoginSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindToLoginSegue.swift; sourceTree = "<group>"; };
 		077C77B0237812570088B151 /* UserAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPostData.swift; sourceTree = "<group>"; };
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 				07A3B0C7239126940028DC6B /* FlowLayout */,
 				07F8DE7223B4EA8500066677 /* ToastView.swift */,
 				0779552F23C9E36700C561BC /* LoginToMainSegue.swift */,
+				0779553123C9EF1F00C561BC /* UnwindToLoginSegue.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1005,6 +1008,7 @@
 				07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */,
 				077C77B32378145C0088B151 /* RequestAPI.swift in Sources */,
 				073547B223BA626300E45ADF /* WeatherAPIData.swift in Sources */,
+				0779553223C9EF1F00C561BC /* UnwindToLoginSegue.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
 				076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */,
 				0779553023C9E36700C561BC /* LoginToMainSegue.swift in Sources */,
