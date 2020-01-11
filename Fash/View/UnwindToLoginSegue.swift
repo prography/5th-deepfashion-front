@@ -12,12 +12,12 @@ class UnwindToLoginSegue: UIStoryboardSegue {
     override func perform() {
         super.perform()
 
-//        let transition: CATransition = CATransition()
-//        transition.duration = 0.3
-//        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-//        transition.type = CATransitionType.moveIn
-//        transition.subtype = CATransitionSubtype.fromTop
-//        source.tabBarController?.view.layer.add(transition, forKey: kCATransition)
-//        source.view.layer.add(transition, forKey: kCATransition)
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        transition.type = .reveal
+        transition.subtype = .fromTop
+
+        destination.navigationController?.view.layer.add(transition, forKey: kCATransition)
     }
 }

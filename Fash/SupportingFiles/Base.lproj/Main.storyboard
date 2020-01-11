@@ -136,7 +136,7 @@
                         <outlet property="passwordTextField" destination="lAv-bD-6HS" id="WAp-RZ-zmH"/>
                         <outlet property="signUpButton" destination="BNP-RL-yff" id="dKB-5M-ez7"/>
                         <segue destination="dve-eK-BpR" kind="show" identifier="goToFirstSignUp" id="dKp-Ft-8Je"/>
-                        <segue destination="gbj-AY-vIH" kind="show" identifier="goToMainView" customClass="LoginToMainSegue" customModule="Fash" customModuleProvider="target" id="603-jn-j4g"/>
+                        <segue destination="gbj-AY-vIH" kind="show" identifier="goToMainView" customClass="LoginToMainSegue" customModule="Fash" customModuleProvider="target" animates="NO" id="603-jn-j4g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -713,7 +713,7 @@
                     <connections>
                         <outlet property="myPageTableView" destination="2ZT-c4-n4M" id="k62-WL-T5L"/>
                         <segue destination="Zfq-4z-PmF" kind="show" identifier="goToPrivacyView" id="SkC-VN-13Z"/>
-                        <segue destination="XZC-Qk-3ha" kind="unwind" identifier="unwindToLogin" customClass="UnwindToLoginSegue" customModule="Fash" customModuleProvider="target" unwindAction="prepareForUnwindToLoginWithSegue:" id="F6u-Tj-uvz"/>
+                        <segue destination="XZC-Qk-3ha" kind="unwind" identifier="unwindToLogin" customClass="UnwindToLoginSegue" customModule="Fash" customModuleProvider="target" animates="NO" unwindAction="prepareForUnwindToLoginWithSegue:" id="F6u-Tj-uvz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-2F-Fa8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
