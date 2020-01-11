@@ -71,16 +71,21 @@ class LoginViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        view.endEditing(true)
         RequestAPI.shared.delegate = self
     }
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
+        resignTextFieldFirstResponder()
         endIgnoringInteractionEvents()
     }
 
     // MARK: Methods
+
+    private func resignTextFieldFirstResponder() {
+        idTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
 
     private func configureLoginButton() {
         loginButton.configureDisabledButton()
