@@ -115,6 +115,8 @@ class LoginViewController: UIViewController {
     }
 
     private func requestLoginAPI(_ userData: LoginAPIPostData) {
+        RequestAPI.shared.delegate = self
+        view.endEditing(true)
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginData) { errorType in
             // 테스트용 조건 설정 중)
             if errorType == nil {
