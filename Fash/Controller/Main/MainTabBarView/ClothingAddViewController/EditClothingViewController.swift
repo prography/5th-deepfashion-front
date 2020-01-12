@@ -172,7 +172,7 @@ class EditClothingViewController: UIViewController {
 
     @IBAction func addClothingButtonPressed(_: UIButton) {
         if isRequestAPI == true { return }
-        self.beginIgnoringInteractionEvents()
+        beginIgnoringInteractionEvents()
         guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell,
             let navigationController = self.navigationController else { return }
 

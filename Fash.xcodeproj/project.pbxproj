@@ -15,8 +15,8 @@
 		0733A6BA2365D99800E26B38 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6B92365D99800E26B38 /* LoginViewControlller.swift */; };
 		0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6BB2365D99800E26B38 /* Main.storyboard */; };
 		0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0733A6C02365D99900E26B38 /* LaunchScreen.storyboard */; };
-		0733A6CD2365D99900E26B38 /* DeepFashionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6CC2365D99900E26B38 /* DeepFashionTests.swift */; };
-		0733A6D82365D99900E26B38 /* DeepFashionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */; };
+		0733A6CD2365D99900E26B38 /* FashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6CC2365D99900E26B38 /* FashTests.swift */; };
+		0733A6D82365D99900E26B38 /* FashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6D72365D99900E26B38 /* FashUITests.swift */; };
 		0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */; };
 		0733A6EA23660F0500E26B38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0733A6E923660F0500E26B38 /* SceneDelegate.swift */; };
 		073547AD23B9FE9000E45ADF /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547AC23B9FE9000E45ADF /* Data+.swift */; };
@@ -28,6 +28,7 @@
 		073547BE23BCC30C00E45ADF /* RequestImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547BD23BCC30C00E45ADF /* RequestImage.swift */; };
 		073547C023BCC95A00E45ADF /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547BF23BCC95A00E45ADF /* UIImageView+.swift */; };
 		073547C223BCD28300E45ADF /* RequestImageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073547C123BCD28300E45ADF /* RequestImageDelegate.swift */; };
+		07397ECE23CB85E5007104F3 /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07397ECD23CB85E5007104F3 /* TorchModule.mm */; };
 		0747074B23BDEDB700BD2D19 /* PickerAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0747074A23BDEDB700BD2D19 /* PickerAlertController.swift */; };
 		07554FEE23A62C6500691C5B /* ClothingPostAPIResultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FED23A62C6500691C5B /* ClothingPostAPIResultData.swift */; };
 		07554FF223A661D100691C5B /* MainClothingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07554FF123A661D100691C5B /* MainClothingInfoView.swift */; };
@@ -78,7 +79,6 @@
 		07AB242823AA57D10076ABF5 /* ClothingUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AB242723AA57D10076ABF5 /* ClothingUploadData.swift */; };
 		07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B1046923AE9EAC00C8286D /* UIColor+.swift */; };
 		07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE792399035B000C215E /* UIImage+.swift */; };
-		07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE8A23992C0E000C215E /* TorchModule.mm */; };
 		07B5AE94239A4DEE000C215E /* ClothingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B5AE93239A4DEE000C215E /* ClothingData.swift */; };
 		07B6E05A2382AD9600D6A9E1 /* CodiRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E0592382AD9600D6A9E1 /* CodiRecommendViewController.swift */; };
 		07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */; };
@@ -113,9 +113,9 @@
 		07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BC236EFADE00A27B28 /* UIButton+.swift */; };
 		07E5B39323B64D8000F5ACCC /* DeleteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */; };
 		07F8DE7323B4EA8500066677 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F8DE7223B4EA8500066677 /* ToastView.swift */; };
-		9C6530313BA91902888C5D6F /* Pods_DeepFashion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5CB424E36348009ECEDDD7 /* Pods_DeepFashion.framework */; };
-		B3B65F60FA47B028109B97C2 /* Pods_DeepFashionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86E4017DEBBEEAF6AA853027 /* Pods_DeepFashionUITests.framework */; };
-		C5DDA6E6A178DDFAD4786704 /* Pods_DeepFashionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 313AC84D5098FCF94AB95C71 /* Pods_DeepFashionTests.framework */; };
+		93729B53D181CAFB7931D84D /* Pods_Fash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795230235011814907C7BF76 /* Pods_Fash.framework */; };
+		B7B96AF88A78322EB304D9EF /* Pods_FashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2546F293B4596B71A749FFF2 /* Pods_FashUITests.framework */; };
+		E16C3E447479E1C0F90B9AE7 /* Pods_FashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E71AD7D7C3F303C9089EB99 /* Pods_FashTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,10 +147,10 @@
 		0733A6C12365D99900E26B38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0733A6C32365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6C82365D99900E26B38 /* FashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0733A6CC2365D99900E26B38 /* DeepFashionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepFashionTests.swift; sourceTree = "<group>"; };
+		0733A6CC2365D99900E26B38 /* FashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashTests.swift; sourceTree = "<group>"; };
 		0733A6CE2365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6D32365D99900E26B38 /* FashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepFashionUITests.swift; sourceTree = "<group>"; };
+		0733A6D72365D99900E26B38 /* FashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FashUITests.swift; sourceTree = "<group>"; };
 		0733A6D92365D99900E26B38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0733A6E72365E32500E26B38 /* FirstSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSignUpViewController.swift; sourceTree = "<group>"; };
 		0733A6E923660F0500E26B38 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +163,9 @@
 		073547BD23BCC30C00E45ADF /* RequestImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImage.swift; sourceTree = "<group>"; };
 		073547BF23BCC95A00E45ADF /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		073547C123BCD28300E45ADF /* RequestImageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestImageDelegate.swift; sourceTree = "<group>"; };
+		07397ECB23CB85B9007104F3 /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
+		07397ECC23CB85E4007104F3 /* Fash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fash-Bridging-Header.h"; sourceTree = "<group>"; };
+		07397ECD23CB85E5007104F3 /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
 		0747074A23BDEDB700BD2D19 /* PickerAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerAlertController.swift; sourceTree = "<group>"; };
 		07554FED23A62C6500691C5B /* ClothingPostAPIResultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingPostAPIResultData.swift; sourceTree = "<group>"; };
 		07554FF123A661D100691C5B /* MainClothingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainClothingInfoView.swift; sourceTree = "<group>"; };
@@ -213,9 +216,6 @@
 		07AB242723AA57D10076ABF5 /* ClothingUploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingUploadData.swift; sourceTree = "<group>"; };
 		07B1046923AE9EAC00C8286D /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		07B5AE792399035B000C215E /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-		07B5AE8823992BEF000C215E /* TorchModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TorchModule.h; sourceTree = "<group>"; };
-		07B5AE8923992C0D000C215E /* Fash-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fash-Bridging-Header.h"; sourceTree = "<group>"; };
-		07B5AE8A23992C0E000C215E /* TorchModule.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TorchModule.mm; sourceTree = "<group>"; };
 		07B5AE93239A4DEE000C215E /* ClothingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingData.swift; sourceTree = "<group>"; };
 		07B6E0592382AD9600D6A9E1 /* CodiRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodiRecommendViewController.swift; sourceTree = "<group>"; };
 		07B6E05B2382AE0D00D6A9E1 /* ClosetListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListViewController.swift; sourceTree = "<group>"; };
@@ -250,12 +250,18 @@
 		07D5E9BC236EFADE00A27B28 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
 		07F8DE7223B4EA8500066677 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		313AC84D5098FCF94AB95C71 /* Pods_DeepFashionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepFashionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E71AD7D7C3F303C9089EB99 /* Pods_FashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2546F293B4596B71A749FFF2 /* Pods_FashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E8E8838A93ADACE533B286 /* Pods-DeepFashionTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashionTests.debug.xcconfig"; path = "Target Support Files/Pods-DeepFashionTests/Pods-DeepFashionTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3530CF376923E82693731E51 /* Pods-FashTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashTests.debug.xcconfig"; path = "Target Support Files/Pods-FashTests/Pods-FashTests.debug.xcconfig"; sourceTree = "<group>"; };
+		46DA0360B5D0632B74F80FF2 /* Pods-FashUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashUITests.release.xcconfig"; path = "Target Support Files/Pods-FashUITests/Pods-FashUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4D5131941762D8C3A9520901 /* Pods-FashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashTests.release.xcconfig"; path = "Target Support Files/Pods-FashTests/Pods-FashTests.release.xcconfig"; sourceTree = "<group>"; };
+		4DDAAF74E5103B0657657840 /* Pods-FashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FashUITests.debug.xcconfig"; path = "Target Support Files/Pods-FashUITests/Pods-FashUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		50B2A7F7849E4B243304EEDE /* Pods-DeepFashion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashion.debug.xcconfig"; path = "Target Support Files/Pods-DeepFashion/Pods-DeepFashion.debug.xcconfig"; sourceTree = "<group>"; };
-		5F5CB424E36348009ECEDDD7 /* Pods_DeepFashion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepFashion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		684832B0485805773151AEAF /* Pods-Fash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fash.release.xcconfig"; path = "Target Support Files/Pods-Fash/Pods-Fash.release.xcconfig"; sourceTree = "<group>"; };
+		6A2174AB7B4D10309BEA4591 /* Pods-Fash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fash.debug.xcconfig"; path = "Target Support Files/Pods-Fash/Pods-Fash.debug.xcconfig"; sourceTree = "<group>"; };
 		71CEF5C5B5D05629A45DAA65 /* Pods-DeepFashionUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashionUITests.debug.xcconfig"; path = "Target Support Files/Pods-DeepFashionUITests/Pods-DeepFashionUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		86E4017DEBBEEAF6AA853027 /* Pods_DeepFashionUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeepFashionUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		795230235011814907C7BF76 /* Pods_Fash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF31D609CC7E4000B9CBABF7 /* Pods-DeepFashionTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashionTests.release.xcconfig"; path = "Target Support Files/Pods-DeepFashionTests/Pods-DeepFashionTests.release.xcconfig"; sourceTree = "<group>"; };
 		BBD6DCEA3C69B50889958B71 /* Pods-DeepFashionUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashionUITests.release.xcconfig"; path = "Target Support Files/Pods-DeepFashionUITests/Pods-DeepFashionUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F639E6864ACC87DAD50801DB /* Pods-DeepFashion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeepFashion.release.xcconfig"; path = "Target Support Files/Pods-DeepFashion/Pods-DeepFashion.release.xcconfig"; sourceTree = "<group>"; };
@@ -266,7 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C6530313BA91902888C5D6F /* Pods_DeepFashion.framework in Frameworks */,
+				93729B53D181CAFB7931D84D /* Pods_Fash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5DDA6E6A178DDFAD4786704 /* Pods_DeepFashionTests.framework in Frameworks */,
+				E16C3E447479E1C0F90B9AE7 /* Pods_FashTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3B65F60FA47B028109B97C2 /* Pods_DeepFashionUITests.framework in Frameworks */,
+				B7B96AF88A78322EB304D9EF /* Pods_FashUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,8 +311,8 @@
 			isa = PBXGroup;
 			children = (
 				0733A6B42365D99800E26B38 /* Fash */,
-				0733A6CB2365D99900E26B38 /* DeepFashionTests */,
-				0733A6D62365D99900E26B38 /* DeepFashionUITests */,
+				0733A6CB2365D99900E26B38 /* FashTests */,
+				0733A6D62365D99900E26B38 /* FashUITests */,
 				0733A6B32365D99800E26B38 /* Products */,
 				BAA7402B95D77A6C320C6055 /* Pods */,
 				7AD8DCFED537B87C46F7016F /* Frameworks */,
@@ -338,22 +344,22 @@
 			path = Fash;
 			sourceTree = "<group>";
 		};
-		0733A6CB2365D99900E26B38 /* DeepFashionTests */ = {
+		0733A6CB2365D99900E26B38 /* FashTests */ = {
 			isa = PBXGroup;
 			children = (
-				0733A6CC2365D99900E26B38 /* DeepFashionTests.swift */,
+				0733A6CC2365D99900E26B38 /* FashTests.swift */,
 				0733A6CE2365D99900E26B38 /* Info.plist */,
 			);
-			path = DeepFashionTests;
+			path = FashTests;
 			sourceTree = "<group>";
 		};
-		0733A6D62365D99900E26B38 /* DeepFashionUITests */ = {
+		0733A6D62365D99900E26B38 /* FashUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0733A6D72365D99900E26B38 /* DeepFashionUITests.swift */,
+				0733A6D72365D99900E26B38 /* FashUITests.swift */,
 				0733A6D92365D99900E26B38 /* Info.plist */,
 			);
-			path = DeepFashionUITests;
+			path = FashUITests;
 			sourceTree = "<group>";
 		};
 		073547B023BA625100E45ADF /* WeatherData */ = {
@@ -544,17 +550,10 @@
 		07B5AE8723992BD5000C215E /* PyTorch */ = {
 			isa = PBXGroup;
 			children = (
-				07B5AE8A23992C0E000C215E /* TorchModule.mm */,
-				07B5AE8823992BEF000C215E /* TorchModule.h */,
-				07B5AE8923992C0D000C215E /* Fash-Bridging-Header.h */,
-			);
-			path = PyTorch;
-			sourceTree = "<group>";
-		};
-		07B5AE8C23992CE9000C215E /* PyTorch */ = {
-			isa = PBXGroup;
-			children = (
 				0779552B23C9095400C561BC /* fashModel2.pt */,
+				07397ECB23CB85B9007104F3 /* TorchModule.h */,
+				07397ECD23CB85E5007104F3 /* TorchModule.mm */,
+				07397ECC23CB85E4007104F3 /* Fash-Bridging-Header.h */,
 			);
 			path = PyTorch;
 			sourceTree = "<group>";
@@ -639,7 +638,6 @@
 		07D5E9A5236E00F100A27B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				07B5AE8C23992CE9000C215E /* PyTorch */,
 				07D5E9B1236EF96B00A27B28 /* Constants */,
 				077C77B42378149F0088B151 /* Protocol */,
 				07ADBD8B237D0DC4004222CB /* Network */,
@@ -694,9 +692,9 @@
 		7AD8DCFED537B87C46F7016F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5F5CB424E36348009ECEDDD7 /* Pods_DeepFashion.framework */,
-				313AC84D5098FCF94AB95C71 /* Pods_DeepFashionTests.framework */,
-				86E4017DEBBEEAF6AA853027 /* Pods_DeepFashionUITests.framework */,
+				795230235011814907C7BF76 /* Pods_Fash.framework */,
+				1E71AD7D7C3F303C9089EB99 /* Pods_FashTests.framework */,
+				2546F293B4596B71A749FFF2 /* Pods_FashUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -710,6 +708,12 @@
 				AF31D609CC7E4000B9CBABF7 /* Pods-DeepFashionTests.release.xcconfig */,
 				71CEF5C5B5D05629A45DAA65 /* Pods-DeepFashionUITests.debug.xcconfig */,
 				BBD6DCEA3C69B50889958B71 /* Pods-DeepFashionUITests.release.xcconfig */,
+				6A2174AB7B4D10309BEA4591 /* Pods-Fash.debug.xcconfig */,
+				684832B0485805773151AEAF /* Pods-Fash.release.xcconfig */,
+				3530CF376923E82693731E51 /* Pods-FashTests.debug.xcconfig */,
+				4D5131941762D8C3A9520901 /* Pods-FashTests.release.xcconfig */,
+				4DDAAF74E5103B0657657840 /* Pods-FashUITests.debug.xcconfig */,
+				46DA0360B5D0632B74F80FF2 /* Pods-FashUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -785,7 +789,7 @@
 				TargetAttributes = {
 					0733A6B12365D99800E26B38 = {
 						CreatedOnToolsVersion = 11.1;
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1130;
 					};
 					0733A6C72365D99900E26B38 = {
 						CreatedOnToolsVersion = 11.1;
@@ -868,7 +872,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DeepFashionUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FashUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -890,7 +894,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DeepFashion-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Fash-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -912,7 +916,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DeepFashionTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-FashTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -980,7 +984,6 @@
 				073547B423BB7C7200E45ADF /* WeatherIndex.swift in Sources */,
 				0733A6B62365D99800E26B38 /* AppDelegate.swift in Sources */,
 				071372CF2382C0E600A2AC86 /* ClosetListCollectionViewCell.swift in Sources */,
-				07B5AE8B23992C0E000C215E /* TorchModule.mm in Sources */,
 				073547BC23BCB9A700E45ADF /* ClothingIndex.swift in Sources */,
 				07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */,
 				0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */,
@@ -1014,6 +1017,7 @@
 				0779553023C9E36700C561BC /* LoginToMainSegue.swift in Sources */,
 				07B5AE7A2399035B000C215E /* UIImage+.swift in Sources */,
 				07AA4785237046780074DE76 /* String+.swift in Sources */,
+				07397ECE23CB85E5007104F3 /* TorchModule.mm in Sources */,
 				07C5C5F323ACB26100324B67 /* CodiRecommendCollectionViewCell.swift in Sources */,
 				07AB242823AA57D10076ABF5 /* ClothingUploadData.swift in Sources */,
 				07D5E9AF236EE6A800A27B28 /* UITextField+.swift in Sources */,
@@ -1026,7 +1030,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0733A6CD2365D99900E26B38 /* DeepFashionTests.swift in Sources */,
+				0733A6CD2365D99900E26B38 /* FashTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,7 +1038,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0733A6D82365D99900E26B38 /* DeepFashionUITests.swift in Sources */,
+				0733A6D82365D99900E26B38 /* FashUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,6 +1134,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1184,6 +1189,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1191,20 +1197,20 @@
 		};
 		0733A6DD2365D99900E26B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50B2A7F7849E4B243304EEDE /* Pods-DeepFashion.debug.xcconfig */;
+			baseConfigurationReference = 6A2174AB7B4D10309BEA4591 /* Pods-Fash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.34;
+				CURRENT_PROJECT_VERSION = 1.35;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.34;
+				MARKETING_VERSION = 1.35;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1217,20 +1223,20 @@
 		};
 		0733A6DE2365D99900E26B38 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F639E6864ACC87DAD50801DB /* Pods-DeepFashion.release.xcconfig */;
+			baseConfigurationReference = 684832B0485805773151AEAF /* Pods-Fash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.34;
+				CURRENT_PROJECT_VERSION = 1.35;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.34;
+				MARKETING_VERSION = 1.35;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1242,7 +1248,7 @@
 		};
 		0733A6E02365D99900E26B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33E8E8838A93ADACE533B286 /* Pods-DeepFashionTests.debug.xcconfig */;
+			baseConfigurationReference = 3530CF376923E82693731E51 /* Pods-FashTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1265,7 +1271,7 @@
 		};
 		0733A6E12365D99900E26B38 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF31D609CC7E4000B9CBABF7 /* Pods-DeepFashionTests.release.xcconfig */;
+			baseConfigurationReference = 4D5131941762D8C3A9520901 /* Pods-FashTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1288,7 +1294,7 @@
 		};
 		0733A6E32365D99900E26B38 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71CEF5C5B5D05629A45DAA65 /* Pods-DeepFashionUITests.debug.xcconfig */;
+			baseConfigurationReference = 4DDAAF74E5103B0657657840 /* Pods-FashUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1309,7 +1315,7 @@
 		};
 		0733A6E42365D99900E26B38 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BBD6DCEA3C69B50889958B71 /* Pods-DeepFashionUITests.release.xcconfig */;
+			baseConfigurationReference = 46DA0360B5D0632B74F80FF2 /* Pods-FashUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

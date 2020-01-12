@@ -21,7 +21,7 @@ final class CodiListGenerator {
             clothingDataLists[nowIndex].append(UserCommonData.shared.clothingDataList[i])
         }
     }
-    
+
     func resetCodiListGenerator() {
         clothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
         topCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)

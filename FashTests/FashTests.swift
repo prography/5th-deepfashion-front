@@ -6,10 +6,10 @@
 //  Copyright © 2019 MinKyeongTae. All rights reserved.
 //
 
-@testable import DeepFashion
+@testable import Fash
 import XCTest
 
-class DeepFashionTests: XCTestCase {
+class FashTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
