@@ -87,6 +87,7 @@ class ClosetListViewController: UIViewController {
 
     var viewMode: ViewMode = .view {
         didSet {
+            selectedClothingData = Set<ClothingAPIData>()
             switch viewMode {
             case .view:
                 inactivateDeleteBarButtonItem()

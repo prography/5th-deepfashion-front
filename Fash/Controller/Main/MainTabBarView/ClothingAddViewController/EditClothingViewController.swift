@@ -172,7 +172,7 @@ class EditClothingViewController: UIViewController {
 
     @IBAction func addClothingButtonPressed(_: UIButton) {
         if isRequestAPI == true { return }
-
+        self.beginIgnoringInteractionEvents()
         guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell,
             let navigationController = self.navigationController else { return }
 
@@ -197,7 +197,6 @@ class EditClothingViewController: UIViewController {
                 // clothing/ post에 성공하면 clothing/upload/ post 로 실제 이미지를 보낸다.
 
                 DispatchQueue.main.async {
-                    self.beginIgnoringInteractionEvents()
                     self.performSegue(withIdentifier: UIIdentifier.Segue.unwindToClothingAdd, sender: nil)
                 }
             } else {
@@ -225,8 +224,10 @@ class EditClothingViewController: UIViewController {
             selectedClothingSubTypeIndexList = [(15, ClothingIndex.subCategoryList[15]!)]
         }
 
-        guard let initialSubTypeIndex = selectedClothingSubTypeIndexList.first?.1.name else { return }
-        addClothingTableCell.subTypeButton.setTitle(" \(String(describing: initialSubTypeIndex))", for: .normal)
+        guard let initialSubTypeIndex = selectedClothingSubTypeIndexList.first else { return }
+
+        selectedClothingData.categoryIndex = initialSubTypeIndex
+        addClothingTableCell.subTypeButton.setTitle(" \(String(describing: initialSubTypeIndex.1.name))", for: .normal)
     }
 
     @objc func clothingSeasonSegmentedControlPressed(_ sender: UISegmentedControl) {
