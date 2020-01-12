@@ -77,6 +77,16 @@ final class UserCommonData {
         clothingDataList = [ClothingAPIData]()
     }
 
+    func resetCodiListData() {
+        codiListCollection = [CodiListAPIData]()
+    }
+
+    func resetUserAPIData() {
+        resetImageCache()
+        resetClothingData()
+        resetCodiListData()
+    }
+
     func configureClothingData(_ clothingDataList: [ClothingAPIData]) {
         self.clothingDataList = clothingDataList
     }

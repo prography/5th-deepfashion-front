@@ -130,7 +130,7 @@ class LoginViewController: UIViewController {
                     UserCommonData.shared.saveID(userData.userName)
                     self.passwordTextField.text = ""
                     self.passwordTextField.configureBasicTextField()
-                    UserCommonData.shared.resetImageCache()
+                    UserCommonData.shared.resetUserAPIData()
                     CodiListGenerator.shared.resetCodiListGenerator()
                     self.performSegue(withIdentifier: UIIdentifier.Segue.goToMain, sender: nil)
                 }

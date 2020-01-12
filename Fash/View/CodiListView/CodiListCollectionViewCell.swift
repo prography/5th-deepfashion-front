@@ -62,14 +62,20 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }
         let sortedIdList = idList.sorted()
         var idListIndex = 0
+        var imageCheckList = [Int](repeating: 0, count: 4)
         let clothingAPIDataList = UserCommonData.shared.clothingDataList.sorted()
         for i in clothingAPIDataList.indices {
             if idListIndex >= sortedIdList.count { break }
             if clothingAPIDataList[i].id == sortedIdList[idListIndex] {
                 let clientIndex = ClothingIndex.shared.convertToMainClientIndex(clothingAPIDataList[i].part)
                 imageViewList[clientIndex].setThumbnailImageFromServerURL(clothingAPIDataList[i].image, placeHolder: defaultImage)
+                imageCheckList[clientIndex] = 1
                 idListIndex += 1
             }
+        }
+
+        for i in imageCheckList.indices {
+            if imageCheckList[i] == 0 { imageViewList[i].image = defaultImage }
         }
     }
 
