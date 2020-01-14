@@ -1821,6 +1821,7 @@
                         <outlet property="recommendCollectionView" destination="UWn-7u-RIA" id="7ZA-uT-R1L"/>
                         <outlet property="refreshCodiButton" destination="hu5-Jd-hH3" id="p0k-nk-rxH"/>
                         <outlet property="topContentView" destination="A0E-xe-QA1" id="VOL-XX-6Ow"/>
+                        <outlet property="topContentViewTopLayoutConstraint" destination="Xag-Yi-uXp" id="rX3-Ha-wlw"/>
                         <outlet property="weatherImageView" destination="dzC-jR-PIH" id="YZ7-fF-hw0"/>
                     </connections>
                 </viewController>

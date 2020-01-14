@@ -20,6 +20,8 @@ class CodiRecommendViewController: UIViewController {
     @IBOutlet var leftTitleView: UIView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
     @IBOutlet var topContentView: UIView!
+    @IBOutlet var topContentViewTopLayoutConstraint: NSLayoutConstraint!
+
     private let backgroundImageView: UIImageView = {
         let backgroundImageView = UIImageView()
         backgroundImageView.contentMode = .scaleAspectFill
@@ -86,15 +88,16 @@ class CodiRecommendViewController: UIViewController {
         requestClothingAPIDataList()
     }
 
+    override func viewDidAppear(_: Bool) {
+        super.viewDidAppear(true)
+        configureTopContentViewConstraint()
+        showBackgroundImage()
+    }
+
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
         hideBackgroundImage()
 //        self.navigationController?.navigationBar.isHidden = false
-    }
-
-    override func viewDidAppear(_: Bool) {
-        super.viewDidAppear(true)
-        showBackgroundImage()
     }
 
     // MARK: Methods
@@ -116,6 +119,11 @@ class CodiRecommendViewController: UIViewController {
     // baseViewController를 만들고, 모든 뷰컨트롤러는 baseViewController를 상속받게만들고 baseViewController의 함수를 endLoading, startLoading 지정하는 방법 .isEnabled .UserInteractive 설정
     // 뷰에 인디케이터를 씌워서 동작시키는 방식
     // 인디케이터 매니저를 커스텀으로 만들어서 인디케이터매니저.showWindow
+
+    private func configureTopContentViewConstraint() {
+        topContentViewTopLayoutConstraint.constant = 20
+        topContentView.layoutIfNeeded()
+    }
 
     func requestClothingAPIDataList() {
         if UserCommonData.shared.isNeedToUpdateClothing == false {

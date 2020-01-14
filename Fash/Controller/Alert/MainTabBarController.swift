@@ -91,17 +91,17 @@ class MainTabBarController: UITabBarController {
         guard let previousViewController = self.viewControllers?[selectedPreviousIndex] as? UINavigationController else { return }
         previousViewController.popToRootViewController(animated: false)
 
-        if selectedPreviousIndex == TabBarIndex.myPage.index {
-            tabBarController?.navigationController?.popViewController(animated: false)
-            navigationController?.title = ""
-        }
+//        if selectedPreviousIndex == TabBarIndex.myPage.index {
+//            tabBarController?.navigationController?.popViewController(animated: false)
+//            navigationController?.title = ""
+//        }
     }
 }
 
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect _: UIViewController) {
         selectedPreviousIndex = tabBarController.selectedIndex
-        tabBarController.removeBackButton()
+//        tabBarController.removeBackButton()
 
         if tabBarController.selectedIndex == TabBarIndex.closetList.index
             || tabBarController.selectedIndex == TabBarIndex.codiList.index {
