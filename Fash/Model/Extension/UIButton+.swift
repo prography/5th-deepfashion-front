@@ -44,4 +44,45 @@ extension UIButton {
         setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont.mainFont(displaySize: fontSize)
     }
+
+    func centerVertically(padding: CGFloat = 6.0) {
+        guard
+            let imageViewSize = self.imageView?.frame.size,
+            let titleLabelSize = self.titleLabel?.frame.size else {
+            return
+        }
+
+        let totalHeight = imageViewSize.height + titleLabelSize.height + padding
+
+        imageEdgeInsets = UIEdgeInsets(
+            top: -(totalHeight - imageViewSize.height),
+            left: frame.size.width / 2 - imageViewSize.width / 2,
+            bottom: 0.0,
+            right: 0.0
+        )
+
+        titleEdgeInsets = UIEdgeInsets(
+            top: 0.0,
+            left: -imageViewSize.width,
+            bottom: -(totalHeight - titleLabelSize.height),
+            right: 0.0
+        )
+
+        contentEdgeInsets = UIEdgeInsets(
+            top: 0.0,
+            left: 0.0,
+            bottom: titleLabelSize.height,
+            right: 0.0
+        )
+
+        if let imageView = self.imageView, let titleLabel = self.titleLabel {
+            imageView.center.x = titleLabel.center.x
+        }
+    }
+
+//    @objc func isButtonTouchEvent(_ sender: Any) {
+//        if let imageView = self.imageView, let titleLabel = self.titleLabel {
+//            imageView.center.x = titleLabel.center.x
+//        }
+//    }
 }

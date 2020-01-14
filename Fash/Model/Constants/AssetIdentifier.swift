@@ -15,6 +15,7 @@ struct AssetIdentifier {
         static let addClothing = "addClothing"
         static let delete = "delete"
         static let refresh = "refresh"
+        static let addCodiList = "addCodiList"
         static let edit = "edit"
         static let cancel = "cancel"
         static let mixedColor = "mixedColor"
@@ -22,5 +23,6 @@ struct AssetIdentifier {
         static let appIcon = "AppIcon"
         static let appLogo = "appLogo"
         static let clothing = "clothing.jpg"
+        static let sunnyBackground = "sunnyBackground"
     }
 }

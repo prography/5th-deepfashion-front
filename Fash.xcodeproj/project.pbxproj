@@ -67,6 +67,7 @@
 		078E583D23684281000A960B /* LastSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* LastSignUpViewController.swift */; };
 		07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */; };
 		07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */; };
+		079B530B23CDDFDE0042D06E /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530A23CDDFDE0042D06E /* MainNavigationController.swift */; };
 		07A3B0C22391086E0028DC6B /* EditStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */; };
 		07A3B0C4239108BF0028DC6B /* EditStyleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C3239108BF0028DC6B /* EditStyleCollectionViewCell.swift */; };
 		07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */; };
@@ -204,6 +205,7 @@
 		078E583C23684281000A960B /* LastSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSignUpViewController.swift; sourceTree = "<group>"; };
 		07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableviewCellDelegate.swift; sourceTree = "<group>"; };
+		079B530A23CDDFDE0042D06E /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		07A3B0C12391086E0028DC6B /* EditStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleViewController.swift; sourceTree = "<group>"; };
 		07A3B0C3239108BF0028DC6B /* EditStyleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleCollectionViewCell.swift; sourceTree = "<group>"; };
 		07A3B0C523911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStyleCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				07598530237E93D700C48EE7 /* Main */,
 				07D5E9A3236E00C900A27B28 /* LogIn */,
 				07D5E9A2236E00BE00A27B28 /* SignUp */,
+				079B530A23CDDFDE0042D06E /* MainNavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				07C5C5FD23ACF5A700324B67 /* DateFormatter+.swift in Sources */,
 				07C5C60D23ADFD0C00324B67 /* ColorSelectCollectionViewCell.swift in Sources */,
 				07D5E9B9236EF9A900A27B28 /* UserDataRule.swift in Sources */,
+				079B530B23CDDFDE0042D06E /* MainNavigationController.swift in Sources */,
 				077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */,
 				07C5C5EA23AB549000324B67 /* UIBarButtonItem+.swift in Sources */,
 				07598532237E93E500C48EE7 /* ClothingAddViewController.swift in Sources */,

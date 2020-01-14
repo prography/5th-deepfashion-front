@@ -19,6 +19,13 @@ class CodiRecommendViewController: UIViewController {
     @IBOutlet var refreshCodiButton: UIButton!
     @IBOutlet var leftTitleView: UIView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
+    @IBOutlet var topContentView: UIView!
+    private let backgroundImageView: UIImageView = {
+        let backgroundImageView = UIImageView()
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.image = UIImage(named: AssetIdentifier.Image.sunnyBackground)
+        return backgroundImageView
+    }()
 
     // MARK: Properties
 
@@ -155,6 +162,15 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
+    private func configureTopContentView() {
+        topContentView.layer.cornerRadius = 10
+        topContentView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        topContentView.layer.shadowColor = UIColor.black.cgColor
+        topContentView.layer.shadowOpacity = 0.3
+        topContentView.layer.shadowRadius = 3
+        topContentView.backgroundColor = UIColor(white: 1, alpha: 0.6)
+    }
+
     private func configureWeatherImageView() {
         guard let weatherImage = UIImage(named: "clear-day") else { return }
         weatherImageView.image = weatherImage.withRenderingMode(.alwaysTemplate)
@@ -162,23 +178,22 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func configureLabel() {
-        celsiusLabel.textColor = .white
-        celsiusLabel.font = UIFont.mainFont(displaySize: 18)
         celsiusLabel.adjustsFontSizeToFitWidth = true
     }
 
     private func configureCodiListSaveButton() {
-        codiListSaveButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+        codiListSaveButton.backgroundColor = .clear
         codiListSaveButton.setTitle("코디 저장하기", for: .normal)
-        codiListSaveButton.configureEnabledButton()
+        codiListSaveButton.setImage(UIImage(named: AssetIdentifier.Image.addCodiList), for: .normal)
+        codiListSaveButton.centerVertically()
     }
 
     private func configureRefreshCodiButton() {
-        refreshCodiButton.backgroundColor = ColorList.newBrown
-        refreshCodiButton.setTitleColor(.white, for: .normal)
-        refreshCodiButton.setTitle(" 코디 새로고침", for: .normal)
-        refreshCodiButton.titleLabel?.font = UIFont.mainFont(displaySize: 12)
+        refreshCodiButton.backgroundColor = .clear
+        refreshCodiButton.setTitle("코디 새로고침", for: .normal)
         refreshCodiButton.setImage(UIImage(named: AssetIdentifier.Image.refresh), for: .normal)
+        refreshCodiButton.addTarget(self, action: #selector(refreshCodiButtonPressed(_:)), for: .touchUpInside)
+        refreshCodiButton.centerVertically()
     }
 
     private func updateWeatherData(weatherData: WeatherAPIData) {
@@ -242,8 +257,9 @@ class CodiRecommendViewController: UIViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(codiAddViewTapped(_:)))
         codiAddView.addGestureRecognizer(tapGestureRecognizer)
         codiAddView.configureImage(codiImageList)
-        codiAddView.addButton.addTarget(self, action: #selector(codiAddButtonPressed(_:)), for: .touchUpInside)
+        codiAddView.addButton.addTarget(self, action: #selector(codiAddViewAddButtonPressed(_:)), for: .touchUpInside)
         codiAddView.cancelButton.addTarget(self, action: #selector(codiCancelButtonPressed(_:)), for: .touchUpInside)
+
         tabBarController.navigationController?.view.addSubview(codiAddView)
         UIView.animate(withDuration: 0.3) {
             self.codiAddView.alpha = 1
@@ -275,8 +291,21 @@ class CodiRecommendViewController: UIViewController {
             || character.rangeOfCharacter(from: koreanSet) == nil
     }
 
-    @objc func codiAddButtonPressed(_: UIButton) {
-        // RequestAPI.shared.postCodiData ~
+    private func configureTopContentButtonAlignment(_ button: UIButton) {
+        if let imageView = button.imageView, let titleLabel = button.titleLabel {
+            imageView.center.x = titleLabel.center.x
+        }
+    }
+
+    private func configureBackgroundImageView() {
+        backgroundImageView.bounds = view.bounds
+        backgroundImageView.clipsToBounds = true
+        backgroundImageView.center = view.center
+        view.addSubview(backgroundImageView)
+        view.sendSubviewToBack(backgroundImageView)
+    }
+
+    @objc func codiAddViewAddButtonPressed(_: UIButton) {
         if codiAddView.nameTextField.text?.trimmingCharacters(in: .whitespaces) == "" {
             DispatchQueue.main.async {
                 guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
@@ -321,7 +350,7 @@ class CodiRecommendViewController: UIViewController {
 
     // MARK: - IBAction
 
-    @IBAction func refreshCodiButtonPressed(_: UIButton) {
+    @objc func refreshCodiButtonPressed(_: UIButton) {
         var fixStatus = [Int]()
         for i in 0 ..< 4 {
             guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
@@ -333,7 +362,6 @@ class CodiRecommendViewController: UIViewController {
         }
 
         CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
-
         refreshCodiData()
     }
 
@@ -462,16 +490,17 @@ extension CodiRecommendViewController: RequestImageDelegate {
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
         configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
+        configureBackgroundImageView()
+        configureTopContentView()
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
         locationManager.delegate = self
         recommendCollectionView.allowsMultipleSelection = true
-        configureCodiListSaveButton()
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()
-
+        configureCodiListSaveButton()
         guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
         tabBarController.presentToastMessage("로그인에 성공했습니다.")
     }

@@ -29,7 +29,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
         selectEffectImageView.backgroundColor = .clear
         return selectEffectImageView
     }()
-    
+
     private var lockImageView: UIImageView = {
         let lockImageView = UIImageView()
         lockImageView.image = UIImage(named: AssetIdentifier.Image.lockIcon)
@@ -61,7 +61,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
         titleLabel.backgroundColor = UIColor(white: 0, alpha: 0.6)
         configureTitleLockImage()
     }
-    
+
     private func configureTitleLockImage() {
         guard let titleLockImage = UIImage(named: "titleLock.png") else { return }
         titleLockImageView.image = titleLockImage.withRenderingMode(.alwaysTemplate)
@@ -113,13 +113,13 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
             lockImageView.widthAnchor.constraint(equalToConstant: 30),
             lockImageView.heightAnchor.constraint(equalToConstant: 30),
         ])
-        
+
         selectEffectImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             selectEffectImageView.centerXAnchor.constraint(equalTo: selectEffectView.centerXAnchor),
             selectEffectImageView.centerYAnchor.constraint(equalTo: selectEffectView.centerYAnchor),
             selectEffectImageView.widthAnchor.constraint(equalToConstant: 30),
-            selectEffectImageView.heightAnchor.constraint(equalToConstant: 30)
+            selectEffectImageView.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
 }
