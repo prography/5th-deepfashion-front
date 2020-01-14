@@ -31,8 +31,8 @@ class PrivacyViewController: UIViewController {
 
     private func configureBackButton() {
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50.0, height: 50.0))
-        backButton.setTitleColor(.white, for: .normal)
-        backButton.tintColor = .white
+        backButton.setTitleColor(.black, for: .normal)
+        backButton.tintColor = .black
         backButton.setTitle("Back", for: .normal)
         backButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
         backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)

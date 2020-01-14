@@ -42,7 +42,7 @@
 <br>
 
 <div>
-<img width="300" src="https://user-images.githubusercontent.com/4410021/72028629-900e6f80-32c6-11ea-919e-d0868c086d2c.gif">
+<img width="300" src="https://user-images.githubusercontent.com/4410021/72343376-0d484300-3712-11ea-8385-42c365800318.gif">
 </div>
 
 <br>
