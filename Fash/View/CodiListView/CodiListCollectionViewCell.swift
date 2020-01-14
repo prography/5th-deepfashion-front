@@ -38,9 +38,13 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         addSubviews()
-        layer.borderColor = ViewData.Color.border
+
         layer.cornerRadius = 10
-        layer.borderWidth = 3
+        layer.masksToBounds = false
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 5
 
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.numberOfLines = 3

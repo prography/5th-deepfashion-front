@@ -42,15 +42,18 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBarController()
-        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
-        tabBar.layer.shadowColor = UIColor.black.cgColor
-        tabBar.layer.shadowOpacity = 0.3
-        tabBar.layer.shadowRadius = 3
+        navigationController?.navigationBar.isHidden = true
     }
 
     private func configureTabBarController() {
         navigationItem.setHidesBackButton(true, animated: false)
         delegate = self
+        view.backgroundColor = .clear
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBar.layer.backgroundColor = UIColor(white: 1, alpha: 0.3).cgColor
+        tabBar.layer.shadowOpacity = 0.3
+        tabBar.layer.shadowRadius = 3
         configureEditBarButtonItem()
     }
 
@@ -90,6 +93,7 @@ class MainTabBarController: UITabBarController {
 
         if selectedPreviousIndex == TabBarIndex.myPage.index {
             tabBarController?.navigationController?.popViewController(animated: false)
+            navigationController?.title = ""
         }
     }
 }
@@ -98,6 +102,14 @@ extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect _: UIViewController) {
         selectedPreviousIndex = tabBarController.selectedIndex
         tabBarController.removeBackButton()
+
+        if tabBarController.selectedIndex == TabBarIndex.closetList.index
+            || tabBarController.selectedIndex == TabBarIndex.codiList.index
+            || tabBarController.selectedIndex == TabBarIndex.myPage.index {
+            navigationController?.navigationBar.isHidden = false
+        } else {
+            navigationController?.navigationBar.isHidden = true
+        }
 
         if tabBarController.selectedIndex == TabBarIndex.clothingAdd.index {
             guard let nowViewController = tabBarController.viewControllers?[tabBarController.selectedIndex] as? ClothingAddViewController else { return }

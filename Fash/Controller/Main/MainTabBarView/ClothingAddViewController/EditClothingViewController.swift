@@ -355,7 +355,7 @@ extension EditClothingViewController: UIViewControllerSetting {
         editClothingTableView.dataSource = self
         configureSubTypeButton()
         configureSubTypePickerAlertController()
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
         view.backgroundColor = ViewData.Color.clothingAddView
         clothingImageView.image = selectedClothingData.image
         clothingImageView.backgroundColor = ColorList.beige

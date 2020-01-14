@@ -77,7 +77,8 @@ class CodiRecommendViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
+//        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
+        configureEmptyTitle()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
         configureCodiListCollectionView()
@@ -499,7 +500,7 @@ extension CodiRecommendViewController: RequestImageDelegate {
 
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
+//        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
         configureBackgroundImageView()
         configureTopContentView()
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()

@@ -44,6 +44,13 @@ class DeleteUserViewController: UIViewController {
         configureBasicTitle(ViewData.Title.MainTabBarView.deleteUser)
     }
 
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+        removeTitleText()
+    }
+
+    // MARK: - Methods
+
     private func checkCharacter(textField _: UITextField, character: String) -> Bool {
         let alphabetSet = CharacterSet(charactersIn: MyCharacterSet.signUpAlphabet).inverted
         let numberSet = CharacterSet(charactersIn: MyCharacterSet.signUpNumber).inverted

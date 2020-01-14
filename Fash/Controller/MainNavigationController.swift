@@ -11,6 +11,9 @@ import UIKit
 class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationBar.backgroundColor = UIColor(white: 1, alpha: 0.6)
+//        navigationBar.backgroundColor = UIColor(white: 1, alpha: 0.3)
+//        navigationBar.alpha = 0.3
+        view.backgroundColor = .clear
+        navigationBar.isTranslucent = true
     }
 }

@@ -59,7 +59,7 @@ class LastSignUpViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.SignUpView.lastSignUp)
+//        configureBasicTitle(ViewData.Title.SignUpView.lastSignUp)
         RequestAPI.shared.delegate = self
     }
 

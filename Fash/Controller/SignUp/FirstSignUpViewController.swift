@@ -54,7 +54,7 @@ class FirstSignUpViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.SignUpView.firstSignUp)
+//        configureBasicTitle(ViewData.Title.SignUpView.firstSignUp)
     }
 
     // MARK: Methods
