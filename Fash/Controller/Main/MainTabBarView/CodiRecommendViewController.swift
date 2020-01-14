@@ -88,10 +88,12 @@ class CodiRecommendViewController: UIViewController {
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
+        hideBackgroundImage()
     }
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
+        showBackgroundImage()
     }
 
     // MARK: Methods
@@ -303,6 +305,14 @@ class CodiRecommendViewController: UIViewController {
         backgroundImageView.center = view.center
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
+    }
+
+    private func hideBackgroundImage() {
+        backgroundImageView.isHidden = true
+    }
+
+    private func showBackgroundImage() {
+        backgroundImageView.isHidden = false
     }
 
     @objc func codiAddViewAddButtonPressed(_: UIButton) {

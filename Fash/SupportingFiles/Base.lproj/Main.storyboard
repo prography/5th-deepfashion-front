@@ -635,7 +635,7 @@
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ifp-0n-4P3" firstAttribute="leading" secondItem="KJJ-Gy-1Pj" secondAttribute="leading" id="60a-8w-Zq4"/>
                             <constraint firstItem="4CR-vm-Lad" firstAttribute="centerX" secondItem="ILb-48-Kcd" secondAttribute="centerX" id="Ndm-90-bn2"/>
@@ -700,7 +700,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.85222656811025921" green="0.89742518122207349" blue="0.96848052740097046" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2ZT-c4-n4M" firstAttribute="leading" secondItem="ukZ-jQ-0He" secondAttribute="leading" id="9KP-ho-YA5"/>
                             <constraint firstItem="2ZT-c4-n4M" firstAttribute="top" secondItem="ukZ-jQ-0He" secondAttribute="top" id="O57-8G-uRE"/>
