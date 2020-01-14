@@ -25,7 +25,6 @@ class CodiRecommendViewController: UIViewController {
     private let backgroundImageView: UIImageView = {
         let backgroundImageView = UIImageView()
         backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.image = UIImage(named: AssetIdentifier.Image.sunnyBackground)
         return backgroundImageView
     }()
 
@@ -91,12 +90,12 @@ class CodiRecommendViewController: UIViewController {
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         configureTopContentViewConstraint()
-        showBackgroundImage()
+        showBackgroundImageView()
     }
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
-        hideBackgroundImage()
+//        hideBackgroundImage()
         //        self.navigationController?.navigationBar.isHidden = false
     }
 
@@ -318,13 +317,14 @@ class CodiRecommendViewController: UIViewController {
         view.sendSubviewToBack(backgroundImageView)
     }
 
-    private func hideBackgroundImage() {
-        backgroundImageView.isHidden = true
+    private func showBackgroundImageView() {
+        guard let weatherImage = UIImage(named: AssetIdentifier.Image.sunnyBackground) else { return }
+        backgroundImageView.presentImageWithAnimation(weatherImage, 0.63)
     }
 
-    private func showBackgroundImage() {
-        backgroundImageView.isHidden = false
-    }
+//    private func hideBackgroundImage() {
+//        backgroundImageView.isHidden = true
+//    }
 
     @objc func codiAddViewAddButtonPressed(_: UIButton) {
         if codiAddView.nameTextField.text?.trimmingCharacters(in: .whitespaces) == "" {

@@ -9,10 +9,11 @@
 import UIKit
 
 extension UIImageView {
-    func presentImageWithAnimation(_ image: UIImage) {
+    func presentImageWithAnimation(_ image: UIImage, _ duration: CGFloat = 0.23) {
+        self.image = nil
         alpha = 0.0
         self.image = image
-        UIView.animate(withDuration: 0.23) {
+        UIView.animate(withDuration: TimeInterval(duration)) {
             self.alpha = 1.0
         }
     }
