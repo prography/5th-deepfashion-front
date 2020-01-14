@@ -97,7 +97,7 @@ class CodiRecommendViewController: UIViewController {
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
         hideBackgroundImage()
-//        self.navigationController?.navigationBar.isHidden = false
+        //        self.navigationController?.navigationBar.isHidden = false
     }
 
     // MARK: Methods
@@ -121,8 +121,9 @@ class CodiRecommendViewController: UIViewController {
     // 인디케이터 매니저를 커스텀으로 만들어서 인디케이터매니저.showWindow
 
     private func configureTopContentViewConstraint() {
-        topContentViewTopLayoutConstraint.constant = 20
-        topContentView.layoutIfNeeded()
+        if navigationController?.navigationBar.isHidden == false {
+            navigationController?.setNavigationBarHidden(true, animated: false)
+        }
     }
 
     func requestClothingAPIDataList() {
@@ -130,6 +131,7 @@ class CodiRecommendViewController: UIViewController {
             refreshCodiData()
             return
         }
+
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
@@ -183,9 +185,9 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func configureWeatherImageView() {
-//        guard let weatherImage = UIImage(named: "clear-day") else { return }
-//        weatherImageView.image = weatherImage.withRenderingMode(.alwaysTemplate)
-//        weatherImageView.tintColor = .white
+        //        guard let weatherImage = UIImage(named: "clear-day") else { return }
+        //        weatherImageView.image = weatherImage.withRenderingMode(.alwaysTemplate)
+        //        weatherImageView.tintColor = .white
     }
 
     private func configureLabel() {
@@ -269,7 +271,7 @@ class CodiRecommendViewController: UIViewController {
         codiAddView.addGestureRecognizer(tapGestureRecognizer)
         codiAddView.configureImage(codiImageList)
         codiAddView.addButton.addTarget(self, action: #selector(codiAddViewAddButtonPressed(_:)), for: .touchUpInside)
-        codiAddView.cancelButton.addTarget(self, action: #selector(codiCancelButtonPressed(_:)), for: .touchUpInside)
+        codiAddView.cancelButton.addTarget(self, action: #selector(codiAddViewCancelButtonPressed(_:)), for: .touchUpInside)
 
         tabBarController.navigationController?.view.addSubview(codiAddView)
         UIView.animate(withDuration: 0.3) {
@@ -358,7 +360,7 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
-    @objc func codiCancelButtonPressed(_: UIButton) {
+    @objc func codiAddViewCancelButtonPressed(_: UIButton) {
         // dismiss the codiAddView
         dismissCodiAddView()
     }
@@ -384,7 +386,7 @@ class CodiRecommendViewController: UIViewController {
         refreshCodiData()
     }
 
-    @IBAction func saveButtonPressed(_: UIButton) {
+    @IBAction func saveCodiListButtonPressed(_: UIButton) {
         if !isCodiListEmpty {
             presentCodiAddView()
         } else {
@@ -508,7 +510,7 @@ extension CodiRecommendViewController: RequestImageDelegate {
 
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
-//        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
+        //        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
         configureBackgroundImageView()
         configureTopContentView()
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()

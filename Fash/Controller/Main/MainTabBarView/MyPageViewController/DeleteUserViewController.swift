@@ -44,7 +44,6 @@ class DeleteUserViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        navigationController?.navigationBar.isHidden = false
     }
 
     override func viewWillDisappear(_: Bool) {

@@ -101,13 +101,10 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect _: UIViewController) {
         selectedPreviousIndex = tabBarController.selectedIndex
-//        tabBarController.removeBackButton()
 
         if tabBarController.selectedIndex == TabBarIndex.closetList.index
             || tabBarController.selectedIndex == TabBarIndex.codiList.index {
             navigationController?.navigationBar.isHidden = false
-        } else {
-            navigationController?.navigationBar.isHidden = true
         }
 
         if tabBarController.selectedIndex == TabBarIndex.clothingAdd.index {

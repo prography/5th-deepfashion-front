@@ -111,6 +111,7 @@ class ClosetListViewController: UIViewController {
         super.viewWillAppear(true)
 //        configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
 //        configureEmptyTitle()
+//        self.navigationController?.navigationBar.isHidden = false
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
     }
@@ -127,6 +128,7 @@ class ClosetListViewController: UIViewController {
         isAPIDataRequested = false
         inactivateEditBarButtonItem()
         inactivateDeleteBarButtonItem()
+//        self.navigationController?.navigationBar.isHidden = true
     }
 
     // MARK: Methods
