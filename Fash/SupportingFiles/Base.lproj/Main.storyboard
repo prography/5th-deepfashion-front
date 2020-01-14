@@ -564,7 +564,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ifp-0n-4P3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <prototypes>
@@ -641,7 +641,7 @@
                         <constraints>
                             <constraint firstItem="ifp-0n-4P3" firstAttribute="leading" secondItem="KJJ-Gy-1Pj" secondAttribute="leading" id="60a-8w-Zq4"/>
                             <constraint firstItem="4CR-vm-Lad" firstAttribute="centerX" secondItem="ILb-48-Kcd" secondAttribute="centerX" id="Ndm-90-bn2"/>
-                            <constraint firstItem="ifp-0n-4P3" firstAttribute="top" secondItem="KJJ-Gy-1Pj" secondAttribute="top" constant="20" id="Pjq-3P-kOf"/>
+                            <constraint firstItem="ifp-0n-4P3" firstAttribute="top" secondItem="KJJ-Gy-1Pj" secondAttribute="top" id="Pjq-3P-kOf"/>
                             <constraint firstItem="4CR-vm-Lad" firstAttribute="centerY" secondItem="KJJ-Gy-1Pj" secondAttribute="centerY" id="avj-9r-NKR"/>
                             <constraint firstItem="KJJ-Gy-1Pj" firstAttribute="trailing" secondItem="ifp-0n-4P3" secondAttribute="trailing" id="jQO-IV-PiZ"/>
                             <constraint firstItem="KJJ-Gy-1Pj" firstAttribute="bottom" secondItem="ifp-0n-4P3" secondAttribute="bottom" id="tWq-15-YpO"/>
@@ -1462,12 +1462,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7t0-Dp-PJJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <collectionViewLayout key="collectionViewLayout" id="C4b-PU-VZe" customClass="CodiListCollectionViewFlowLayout" customModule="Fash" customModuleProvider="target"/>
                                 <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 저장된 코디리스트가 없습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c0Y-KX-jqt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                     <color key="textColor" name="Brownish"/>
@@ -1547,7 +1547,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="7t0-Dp-PJJ" firstAttribute="top" secondItem="QW0-Wo-UzZ" secondAttribute="top" constant="20" id="ScC-Ti-HDA"/>
+                            <constraint firstItem="7t0-Dp-PJJ" firstAttribute="top" secondItem="QW0-Wo-UzZ" secondAttribute="top" id="ScC-Ti-HDA"/>
                             <constraint firstItem="beT-3W-9am" firstAttribute="centerX" secondItem="OWW-gJ-Qh0" secondAttribute="centerX" id="TIv-1l-cqe"/>
                             <constraint firstItem="beT-3W-9am" firstAttribute="centerY" secondItem="OWW-gJ-Qh0" secondAttribute="centerY" id="UWf-sQ-zfK"/>
                             <constraint firstItem="7t0-Dp-PJJ" firstAttribute="leading" secondItem="QW0-Wo-UzZ" secondAttribute="leading" id="XCk-gh-szE"/>
