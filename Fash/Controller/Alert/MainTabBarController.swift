@@ -44,8 +44,8 @@ class MainTabBarController: UITabBarController {
         configureTabBarController()
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowColor = UIColor.black.cgColor
-        tabBar.layer.shadowRadius = 3
         tabBar.layer.shadowOpacity = 0.3
+        tabBar.layer.shadowRadius = 3
     }
 
     private func configureTabBarController() {

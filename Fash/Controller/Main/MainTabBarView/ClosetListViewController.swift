@@ -272,7 +272,7 @@ extension ClosetListViewController: UITableViewDelegate {
         guard let headerViewTitleText = fashionType?.title else { return UIView() }
 
         let closetListTableHeaderView = ClosetListTableHeaderView()
-        closetListTableHeaderView.configureTitleLabel(headerViewTitleText)
+        closetListTableHeaderView.configureTitleLabel(" #\(headerViewTitleText)")
         return closetListTableHeaderView
     }
 }

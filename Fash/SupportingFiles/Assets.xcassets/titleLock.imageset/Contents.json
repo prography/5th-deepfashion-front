@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "lockIcon.png",
+      "filename" : "titleLock.png",
       "scale" : "1x"
     },
     {

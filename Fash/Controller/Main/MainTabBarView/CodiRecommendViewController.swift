@@ -233,7 +233,7 @@ class CodiRecommendViewController: UIViewController {
         var codiImageList = [UIImage]()
         for item in clothingPartTitle.indices {
             guard let clothingCell = self.recommendCollectionView.cellForItem(at: IndexPath(item: item, section: 0)) as? CodiRecommendCollectionViewCell,
-                let clothingImage = clothingCell.imageView.image else { continue }
+                let clothingImage = clothingCell.clothingImageView.image else { continue }
             codiImageList.append(clothingImage)
         }
 

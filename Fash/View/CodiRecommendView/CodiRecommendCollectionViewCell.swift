@@ -12,19 +12,24 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     // MARK: UIs
 
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var clothingImageView: UIImageView!
+    @IBOutlet var titleLockImageView: UIImageView!
     private(set) var clothingData: ClothingAPIData?
 
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
-        selectEffectView.backgroundColor = .white
-        selectEffectView.layer.borderColor = ColorList.brownish?.cgColor
-        selectEffectView.layer.borderWidth = 1
-        selectEffectView.alpha = 0.7
+        selectEffectView.backgroundColor = UIColor(white: 0, alpha: 0.7)
         selectEffectView.isHidden = true
         return selectEffectView
     }()
 
+    private var selectEffectImageView: UIImageView = {
+        let selectEffectImageView = UIImageView()
+        selectEffectImageView.image = UIImage(named: "selectLock.png")
+        selectEffectImageView.backgroundColor = .clear
+        return selectEffectImageView
+    }()
+    
     private var lockImageView: UIImageView = {
         let lockImageView = UIImageView()
         lockImageView.image = UIImage(named: AssetIdentifier.Image.lockIcon)
@@ -42,9 +47,6 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .lightGray
-        layer.borderColor = ViewData.Color.border
-        layer.borderWidth = 3
         layer.cornerRadius = 10
         configureTitleLabel()
         addSubviews()
@@ -56,34 +58,42 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     private func configureTitleLabel() {
         titleLabel.font = UIFont.subFont(displaySize: 18)
         titleLabel.textColor = .white
-        titleLabel.backgroundColor = ColorList.newBrown
+        titleLabel.backgroundColor = UIColor(white: 0, alpha: 0.6)
+        configureTitleLockImage()
+    }
+    
+    private func configureTitleLockImage() {
+        guard let titleLockImage = UIImage(named: "titleLock.png") else { return }
+        titleLockImageView.image = titleLockImage.withRenderingMode(.alwaysTemplate)
+        titleLockImageView.tintColor = .white
     }
 
     func updateCellImage(_ imageURLString: String?) {
         guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }
-        imageView.setThumbnailImageFromServerURL(imageURLString, placeHolder: defaultImage)
+        clothingImageView.setThumbnailImageFromServerURL(imageURLString, placeHolder: defaultImage)
     }
 
     func configureCell(title: String, clothingData: ClothingAPIData?, indexPath: IndexPath) {
-        titleLabel.text = " \(title)"
+        titleLabel.text = " #\(title)"
 
         guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }
         guard let clothingData = clothingData else {
-            imageView.image = defaultImage
+            clothingImageView.image = defaultImage
             return
         }
 
         let nowPartIndex = ClothingIndex.shared.convertToMainClientIndex(clothingData.part)
 
         if nowPartIndex == indexPath.item {
-            imageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: defaultImage)
+            clothingImageView.setThumbnailImageFromServerURL(clothingData.image, placeHolder: defaultImage)
         } else {
-            imageView.image = defaultImage
+            clothingImageView.image = defaultImage
         }
     }
 
     private func addSubviews() {
         addSubview(selectEffectView)
+        selectEffectView.addSubview(selectEffectImageView)
         selectEffectView.addSubview(lockImageView)
     }
 
@@ -102,6 +112,14 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
             lockImageView.rightAnchor.constraint(equalTo: selectEffectView.rightAnchor, constant: -5),
             lockImageView.widthAnchor.constraint(equalToConstant: 30),
             lockImageView.heightAnchor.constraint(equalToConstant: 30),
+        ])
+        
+        selectEffectImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            selectEffectImageView.centerXAnchor.constraint(equalTo: selectEffectView.centerXAnchor),
+            selectEffectImageView.centerYAnchor.constraint(equalTo: selectEffectView.centerYAnchor),
+            selectEffectImageView.widthAnchor.constraint(equalToConstant: 30),
+            selectEffectImageView.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
 }
