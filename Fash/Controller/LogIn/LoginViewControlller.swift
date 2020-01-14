@@ -71,7 +71,6 @@ class LoginViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureEmptyTitle()
         RequestAPI.shared.delegate = self
     }
 

@@ -110,7 +110,7 @@ class ClosetListViewController: UIViewController {
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
 //        configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
-        configureEmptyTitle()
+//        configureEmptyTitle()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
     }
@@ -358,6 +358,7 @@ extension ClosetListViewController: RequestImageDelegate {
 extension ClosetListViewController: UIViewControllerSetting {
     func configureViewController() {
         UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        closetListTableView.contentInsetAdjustmentBehavior = .never
         configureRefreshControl()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self

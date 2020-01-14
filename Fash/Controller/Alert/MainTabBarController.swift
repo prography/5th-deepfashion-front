@@ -42,7 +42,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBarController()
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
     }
 
     private func configureTabBarController() {
@@ -104,8 +104,7 @@ extension MainTabBarController: UITabBarControllerDelegate {
         tabBarController.removeBackButton()
 
         if tabBarController.selectedIndex == TabBarIndex.closetList.index
-            || tabBarController.selectedIndex == TabBarIndex.codiList.index
-            || tabBarController.selectedIndex == TabBarIndex.myPage.index {
+            || tabBarController.selectedIndex == TabBarIndex.codiList.index {
             navigationController?.navigationBar.isHidden = false
         } else {
             navigationController?.navigationBar.isHidden = true

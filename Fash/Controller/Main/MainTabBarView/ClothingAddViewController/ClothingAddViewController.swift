@@ -88,7 +88,7 @@ class ClothingAddViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureEmptyTitle()
+//        configureEmptyTitle()
 //        navigationController?.navigationBar.isHidden = false
 //        configureBasicTitle(ViewData.Title.MainTabBarView.photoAdd)
     }

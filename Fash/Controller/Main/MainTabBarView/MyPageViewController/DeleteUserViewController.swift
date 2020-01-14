@@ -13,6 +13,9 @@ class DeleteUserViewController: UIViewController {
     @IBOutlet var passwordTextFieldList: [UITextField]!
     @IBOutlet var deleteUserButton: UIButton!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
+    @IBOutlet var titleHeaderBackgroundView: UIView!
+
+    private let titleHeaderView = MyPageTableHeaderView()
 
     private var isFillInData = false {
         didSet {
@@ -41,12 +44,11 @@ class DeleteUserViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.MainTabBarView.deleteUser)
+        navigationController?.navigationBar.isHidden = false
     }
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
-        removeTitleText()
     }
 
     // MARK: - Methods
@@ -65,25 +67,6 @@ class DeleteUserViewController: UIViewController {
         isFillInData = passwordStatus && passwordConfirmStatus
     }
 
-    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
-        view.endEditing(true)
-    }
-
-    @objc func backButtonPressed(_: UIButton) {
-        guard let navigationController = self.navigationController else { return }
-        tabBarController?.removeBackButton()
-        navigationController.popViewController(animated: true)
-    }
-
-    @IBAction func textFieldEditingValueChanged(_ sender: UITextField) {
-        guard var nowText = sender.text else { return }
-        while nowText.count > UserDataRule.Common.maxLength {
-            nowText.removeLast()
-        }
-        sender.text = String(nowText)
-        checkFillInData()
-    }
-
     private func deleteUserData() {
         guard let tabBarController = self.tabBarController else { return }
 
@@ -97,6 +80,38 @@ class DeleteUserViewController: UIViewController {
                 }
             }
         }
+    }
+
+    private func configureTitleHeaderView() {
+        titleHeaderView.configureTitleLabel("회원 탈퇴")
+        titleHeaderView.backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
+        titleHeaderBackgroundView.addSubview(titleHeaderView)
+
+        titleHeaderView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleHeaderView.leftAnchor.constraint(equalTo: titleHeaderBackgroundView.leftAnchor),
+            titleHeaderView.rightAnchor.constraint(equalTo: titleHeaderBackgroundView.rightAnchor),
+            titleHeaderView.topAnchor.constraint(equalTo: titleHeaderBackgroundView.topAnchor),
+            titleHeaderView.bottomAnchor.constraint(equalTo: titleHeaderBackgroundView.bottomAnchor),
+        ])
+    }
+
+    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    @IBAction func textFieldEditingValueChanged(_ sender: UITextField) {
+        guard var nowText = sender.text else { return }
+        while nowText.count > UserDataRule.Common.maxLength {
+            nowText.removeLast()
+        }
+        sender.text = String(nowText)
+        checkFillInData()
+    }
+
+    @objc func backButtonPressed(_: UIButton) {
+        guard let navigationController = self.navigationController else { return }
+        navigationController.popViewController(animated: true)
     }
 
     @IBAction func deleteUserButtonPressed(_: UIButton) {
@@ -135,10 +150,10 @@ extension DeleteUserViewController: UITextFieldDelegate {
 
 extension DeleteUserViewController: UIViewControllerSetting {
     func configureViewController() {
+        configureTitleHeaderView()
         configureDeleteUserButton()
         configureTitleLabeList()
         configurePasswordTextFieldList()
-        configureBackButton()
         configureTitleLabeList()
         RequestAPI.shared.delegate = self
     }
@@ -168,17 +183,6 @@ extension DeleteUserViewController: UIViewControllerSetting {
             passwordTextFieldList[i].configureBasicTextField()
             passwordTextFieldList[i].delegate = self
         }
-    }
-
-    private func configureBackButton() {
-        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50.0, height: 50.0))
-        backButton.setTitleColor(.black, for: .normal)
-        backButton.tintColor = .black
-        backButton.setTitle("Back", for: .normal)
-        backButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
-        backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
-        let backBarButton = UIBarButtonItem(customView: backButton)
-        tabBarController?.navigationItem.leftBarButtonItem = backBarButton
     }
 }
 

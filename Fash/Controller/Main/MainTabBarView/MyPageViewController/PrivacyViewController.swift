@@ -13,14 +13,12 @@ class PrivacyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.navigationItem.hidesBackButton = false
         configureViewController()
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
         configureBasicTitle(ViewData.Title.MainTabBarView.privacy)
-        configureBackButton()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -29,24 +27,12 @@ class PrivacyViewController: UIViewController {
 
     // MARK: Methods
 
-    private func configureBackButton() {
-        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50.0, height: 50.0))
-        backButton.setTitleColor(.black, for: .normal)
-        backButton.tintColor = .black
-        backButton.setTitle("Back", for: .normal)
-        backButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
-        backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
-        let backBarButton = UIBarButtonItem(customView: backButton)
-        tabBarController?.navigationItem.leftBarButtonItem = backBarButton
-    }
-
     private func presentDeleteUserViewController() {
         performSegue(withIdentifier: UIIdentifier.Segue.goToDeleteUser, sender: nil)
     }
 
     @objc func backButtonPressed(_: UIButton) {
         guard let navigationController = self.navigationController else { return }
-        tabBarController?.removeBackButton()
         navigationController.popViewController(animated: true)
     }
 }
@@ -57,7 +43,7 @@ extension PrivacyViewController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return ViewData.Section.Row.Height.privacy
     }
 
 //    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
@@ -93,6 +79,13 @@ extension PrivacyViewController: UITableViewDataSource {
 
         privacyTableCell.configureCell(ViewData.Section.Row.privacyTableView[indexPath.row])
         return privacyTableCell
+    }
+
+    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        let headerView = MyPageTableHeaderView()
+        headerView.backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
+        headerView.configureTitleLabel(ViewData.Title.MainTabBarView.privacy)
+        return headerView
     }
 }
 

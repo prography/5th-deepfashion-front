@@ -48,7 +48,14 @@ extension MyPageViewController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return CGFloat.leastNonzeroMagnitude
+        return 50
+    }
+
+    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        let headerView = MyPageTableHeaderView()
+        headerView.configureTitleLabel("마이 페이지")
+        headerView.backButton.isHidden = true
+        return headerView
     }
 
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {

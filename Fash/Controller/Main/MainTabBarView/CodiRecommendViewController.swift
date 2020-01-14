@@ -73,12 +73,11 @@ class CodiRecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-//        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
-        configureEmptyTitle()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
         configureCodiListCollectionView()
@@ -90,6 +89,7 @@ class CodiRecommendViewController: UIViewController {
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
         hideBackgroundImage()
+//        self.navigationController?.navigationBar.isHidden = false
     }
 
     override func viewDidAppear(_: Bool) {
@@ -171,13 +171,13 @@ class CodiRecommendViewController: UIViewController {
         topContentView.layer.shadowColor = UIColor.black.cgColor
         topContentView.layer.shadowOpacity = 0.3
         topContentView.layer.shadowRadius = 3
-        topContentView.backgroundColor = UIColor(white: 1, alpha: 0.6)
+        topContentView.backgroundColor = UIColor(white: 1, alpha: 0.33)
     }
 
     private func configureWeatherImageView() {
-        guard let weatherImage = UIImage(named: "clear-day") else { return }
-        weatherImageView.image = weatherImage.withRenderingMode(.alwaysTemplate)
-        weatherImageView.tintColor = .white
+//        guard let weatherImage = UIImage(named: "clear-day") else { return }
+//        weatherImageView.image = weatherImage.withRenderingMode(.alwaysTemplate)
+//        weatherImageView.tintColor = .white
     }
 
     private func configureLabel() {
