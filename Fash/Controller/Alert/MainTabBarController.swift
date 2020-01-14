@@ -42,7 +42,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBarController()
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     private func configureTabBarController() {
@@ -104,7 +104,10 @@ extension MainTabBarController: UITabBarControllerDelegate {
 
         if tabBarController.selectedIndex == TabBarIndex.closetList.index
             || tabBarController.selectedIndex == TabBarIndex.codiList.index {
-            navigationController?.navigationBar.isHidden = false
+            navigationController?.setNavigationBarHidden(false, animated: false)
+            
+        } else {
+            navigationController?.setNavigationBarHidden(true, animated: false)
         }
 
         if tabBarController.selectedIndex == TabBarIndex.clothingAdd.index {

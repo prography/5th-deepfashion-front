@@ -74,7 +74,6 @@ class CodiRecommendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        navigationController?.navigationBar.isHidden = true
     }
 
     override func viewWillAppear(_: Bool) {
@@ -120,9 +119,7 @@ class CodiRecommendViewController: UIViewController {
     // 인디케이터 매니저를 커스텀으로 만들어서 인디케이터매니저.showWindow
 
     private func configureTopContentViewConstraint() {
-        if navigationController?.navigationBar.isHidden == false {
-            navigationController?.setNavigationBarHidden(true, animated: false)
-        }
+        
     }
 
     func requestClothingAPIDataList() {
