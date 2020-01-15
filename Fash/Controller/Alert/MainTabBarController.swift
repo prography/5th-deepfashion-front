@@ -105,7 +105,7 @@ extension MainTabBarController: UITabBarControllerDelegate {
         if tabBarController.selectedIndex == TabBarIndex.closetList.index
             || tabBarController.selectedIndex == TabBarIndex.codiList.index {
             navigationController?.setNavigationBarHidden(false, animated: false)
-            
+
         } else {
             navigationController?.setNavigationBarHidden(true, animated: false)
         }

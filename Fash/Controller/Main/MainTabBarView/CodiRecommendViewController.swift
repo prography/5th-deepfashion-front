@@ -118,9 +118,7 @@ class CodiRecommendViewController: UIViewController {
     // 뷰에 인디케이터를 씌워서 동작시키는 방식
     // 인디케이터 매니저를 커스텀으로 만들어서 인디케이터매니저.showWindow
 
-    private func configureTopContentViewConstraint() {
-        
-    }
+    private func configureTopContentViewConstraint() {}
 
     func requestClothingAPIDataList() {
         if UserCommonData.shared.isNeedToUpdateClothing == false {

@@ -76,6 +76,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         idTextField.text = "\(UserCommonData.shared.id)"
         resignTextFieldFirstResponder()
         endIgnoringInteractionEvents()
