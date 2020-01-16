@@ -71,7 +71,7 @@ extension UIButton {
         contentEdgeInsets = UIEdgeInsets(
             top: 0.0,
             left: 0.0,
-            bottom: titleLabelSize.height,
+            bottom: 0.0,
             right: 0.0
         )
 
