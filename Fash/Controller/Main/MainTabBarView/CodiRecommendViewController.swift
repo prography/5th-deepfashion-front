@@ -268,8 +268,8 @@ class CodiRecommendViewController: UIViewController {
         codiAddView.cancelButton.addTarget(self, action: #selector(codiAddViewCancelButtonPressed(_:)), for: .touchUpInside)
 
         tabBarController.navigationController?.view.addSubview(codiAddView)
-        UIView.animate(withDuration: 0.3) {
-            self.codiAddView.alpha = 1
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.codiAddView.alpha = 1
         }
     }
 
