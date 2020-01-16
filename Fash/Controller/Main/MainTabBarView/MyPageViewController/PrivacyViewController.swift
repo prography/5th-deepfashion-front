@@ -18,7 +18,8 @@ class PrivacyViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        configureBasicTitle(ViewData.Title.MainTabBarView.privacy)
+        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
+//        configureBasicTitle(ViewData.Title.MainTabBarView.privacy)
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -45,12 +46,6 @@ extension PrivacyViewController: UITableViewDelegate {
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
         return ViewData.Section.Row.Height.privacy
     }
-
-//    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
-//        let headerView = MyPageTableHeaderView()
-//        headerView.configureTitleLabel("개인정보/보안")
-//        return headerView
-//    }
 
     func tableView(_: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         guard let privacyRow = ViewData.Section.Row.Privacy(rawValue: indexPath.row),

@@ -11,8 +11,8 @@ import UIKit
 class MyPageTableHeaderView: UIView {
     let backButton: UIButton = {
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50.0, height: 50.0))
-        backButton.setTitleColor(.white, for: .normal)
-        backButton.tintColor = .white
+        backButton.setTitleColor(UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1), for: .normal)
+        backButton.tintColor = UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
         backButton.setTitle("Back", for: .normal)
         backButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
         return backButton
@@ -20,16 +20,15 @@ class MyPageTableHeaderView: UIView {
 
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.textAlignment = .left
-        titleLabel.font = UIFont.subFont(displaySize: 18)
-        titleLabel.textColor = .white
         titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.subFont(displaySize: 18)
+        titleLabel.textColor = UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
         return titleLabel
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .darkGray
+        backgroundColor = .white
         addSubviews()
         configureConstraint()
     }

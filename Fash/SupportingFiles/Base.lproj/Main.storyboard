@@ -648,7 +648,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KJJ-Gy-1Pj"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="마이옷장" image="closet" selectedImage="closet" id="R4f-aN-H9e">
+                    <tabBarItem key="tabBarItem" title="" image="closet" selectedImage="closet" id="R4f-aN-H9e">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -937,10 +937,10 @@
             </objects>
             <point key="canvasLocation" x="6292" y="1380.3598200899551"/>
         </scene>
-        <!--옷 추가-->
+        <!--옷 저장하기-->
         <scene sceneID="yPN-H7-C6S">
             <objects>
-                <viewController id="k0I-cA-kpf" customClass="ClothingAddViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="옷 저장하기" id="k0I-cA-kpf" customClass="ClothingAddViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UzU-Z3-DGI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1021,7 +1021,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vdl-x6-2sl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="옷 추가" image="plus" selectedImage="plus" id="q3p-tE-foQ">
+                    <tabBarItem key="tabBarItem" title="" image="plus" selectedImage="plus" id="q3p-tE-foQ">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <connections>
@@ -1453,10 +1453,10 @@
             </objects>
             <point key="canvasLocation" x="2614.4927536231885" y="2153.5714285714284"/>
         </scene>
-        <!--thirdView-->
+        <!--코디 리스트-->
         <scene sceneID="g0p-8c-jDg">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="MEW-gU-6r0" customClass="CodiListViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="코디 리스트" automaticallyAdjustsScrollViewInsets="NO" id="MEW-gU-6r0" customClass="CodiListViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OWW-gJ-Qh0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1556,7 +1556,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QW0-Wo-UzZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="코디리스트" image="codiList" selectedImage="codiList" id="99N-QG-aOe">
+                    <tabBarItem key="tabBarItem" title="" image="codiList" selectedImage="codiList" id="99N-QG-aOe">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="thirdView" id="TYo-Nj-8DF"/>
@@ -1580,15 +1580,15 @@
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IQo-gH-s2t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="textShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -1611,8 +1611,8 @@
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" id="ZF9-44-la4">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
@@ -1628,12 +1628,12 @@
             </objects>
             <point key="canvasLocation" x="1851" y="582"/>
         </scene>
-        <!--마이페이지-->
+        <!--Navigation Controller-->
         <scene sceneID="hTm-rF-dWn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="7pQ-Pu-MAt" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="마이페이지" image="myPage" selectedImage="myPage" id="uhi-T6-xoe">
+                    <tabBarItem key="tabBarItem" title="" image="myPage" selectedImage="myPage" id="uhi-T6-xoe">
                         <color key="badgeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1651,10 +1651,10 @@
             </objects>
             <point key="canvasLocation" x="3473.913043478261" y="1381.4732142857142"/>
         </scene>
-        <!--코디 추천 리스트-->
+        <!--Codi Recommend View Controller-->
         <scene sceneID="NQ8-xh-Vot">
             <objects>
-                <viewController title="코디 추천 리스트" automaticallyAdjustsScrollViewInsets="NO" id="qgA-aT-RoW" customClass="CodiRecommendViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="qgA-aT-RoW" customClass="CodiRecommendViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mXX-d9-LH6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1666,7 +1666,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="348" height="184"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bla-Hj-YXX">
-                                                <rect key="frame" x="0.0" y="46.333333333333329" width="348" height="128.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="55.333333333333329" width="348" height="128.66666666666669"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ilk-Zo-JsJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="348" height="128.66666666666666"/>
@@ -1687,7 +1687,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="132" height="128.66666666666666"/>
                                                                             </imageView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="jFY-bi-8vY">
-                                                                                <rect key="frame" x="0.0" y="10.000000000000007" width="132" height="108.66666666666669"/>
+                                                                                <rect key="frame" x="0.0" y="9.9999999999999929" width="132" height="108.66666666666666"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘날씨" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9UL-5P-GI2">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="132" height="32.666666666666664"/>
@@ -1697,11 +1697,11 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="270" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="mFl-Kv-MhT">
-                                                                                        <rect key="frame" x="0.0" y="32.666666666666664" width="132" height="37.999999999999993"/>
+                                                                                        <rect key="frame" x="0.0" y="32.666666666666671" width="132" height="38"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aV-5o-1Ef">
-                                                                                        <rect key="frame" x="0.0" y="70.666666666666657" width="132" height="38"/>
+                                                                                        <rect key="frame" x="0.0" y="70.666666666666671" width="132" height="38"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1775,14 +1775,19 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="bla-Hj-YXX" firstAttribute="top" secondItem="q4f-e2-UHa" secondAttribute="top" constant="46.333333333333329" id="0MD-Yr-gmg"/>
-                                            <constraint firstItem="bla-Hj-YXX" firstAttribute="leading" secondItem="q4f-e2-UHa" secondAttribute="leading" id="VXz-x5-4p6"/>
-                                            <constraint firstAttribute="trailing" secondItem="bla-Hj-YXX" secondAttribute="trailing" id="yD2-IM-Evz"/>
+                                            <constraint firstItem="bla-Hj-YXX" firstAttribute="leading" secondItem="q4f-e2-UHa" secondAttribute="leading" id="7db-mh-Hsb"/>
+                                            <constraint firstItem="bla-Hj-YXX" firstAttribute="leading" secondItem="q4f-e2-UHa" secondAttribute="leading" id="8dU-R8-93l"/>
+                                            <constraint firstAttribute="bottom" secondItem="bla-Hj-YXX" secondAttribute="bottom" id="kpL-Yy-LeB"/>
+                                            <constraint firstAttribute="trailing" secondItem="bla-Hj-YXX" secondAttribute="trailing" id="tc4-Qd-WyI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="q4f-e2-UHa" firstAttribute="leading" secondItem="fwY-vX-R7i" secondAttribute="leading" id="01G-h5-gad"/>
+                                    <constraint firstAttribute="trailing" secondItem="q4f-e2-UHa" secondAttribute="trailing" id="STZ-am-MTV"/>
+                                    <constraint firstItem="q4f-e2-UHa" firstAttribute="top" secondItem="fwY-vX-R7i" secondAttribute="top" id="UZc-rr-4OD"/>
                                     <constraint firstItem="bla-Hj-YXX" firstAttribute="height" secondItem="fwY-vX-R7i" secondAttribute="height" multiplier="0.7" id="r2d-k9-y4l"/>
+                                    <constraint firstAttribute="bottom" secondItem="q4f-e2-UHa" secondAttribute="bottom" id="wFJ-YZ-ZlA"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncm-mB-V3n">
@@ -1878,7 +1883,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ab7-Dd-wWG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="코디추천" image="home" selectedImage="home" id="kzv-9p-LJg">
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="kzv-9p-LJg">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <nil key="simulatedTopBarMetrics"/>

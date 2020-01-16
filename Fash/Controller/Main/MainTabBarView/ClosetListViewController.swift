@@ -105,12 +105,11 @@ class ClosetListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-//        configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
+        configureBasicTitle(ViewData.Title.MainTabBarView.closetList)
 //        configureEmptyTitle()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self

@@ -13,7 +13,7 @@ class ClosetListTableHeaderView: UIView {
         let titleLabel = UILabel()
         titleLabel.text = "헤더뷰 타이틀"
         titleLabel.textAlignment = .left
-        titleLabel.font = UIFont.mainFont(displaySize: 18)
+        titleLabel.font = UIFont.mainFont(displaySize: 14)
         titleLabel.textColor = .white
         return titleLabel
     }()

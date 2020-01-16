@@ -17,7 +17,7 @@ class CodiListViewController: UIViewController {
 
     private var editBarButtonItem: UIBarButtonItem = {
         let editBarButtonItem = UIBarButtonItem()
-        editBarButtonItem.title = "편집"
+//        editBarButtonItem.title = "편집"
         return editBarButtonItem
     }()
 
@@ -111,6 +111,7 @@ class CodiListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        configureBasicTitle(ViewData.Title.MainTabBarView.codiList)
         RequestAPI.shared.delegate = self
     }
 

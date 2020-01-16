@@ -88,9 +88,7 @@ extension UIViewController {
     }
 
     func configureBasicTitle(_ title: String) {
-        self.title = title
-        navigationController?.title = title
-        tabBarController?.title = ""
+        tabBarController?.title = title
     }
 
     func configureEmptyTitle() {

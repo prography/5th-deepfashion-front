@@ -44,6 +44,7 @@ class DeleteUserViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -82,7 +83,7 @@ class DeleteUserViewController: UIViewController {
     }
 
     private func configureTitleHeaderView() {
-        titleHeaderView.configureTitleLabel("회원 탈퇴")
+        titleHeaderView.configureTitleLabel(ViewData.Title.MainTabBarView.deleteUser)
         titleHeaderView.backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
         titleHeaderBackgroundView.addSubview(titleHeaderView)
 
