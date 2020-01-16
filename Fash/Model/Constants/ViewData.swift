@@ -10,7 +10,7 @@ import UIKit
 
 struct ViewData {
     struct Title {
-        static let fashionType = ["상의", "아우터", "하의", "신발"]
+        static let fashionType = ["TOP", "OUTER", "BOTTOM", "SHOES"]
 
         struct SignUpView {
             static let firstSignUp = "계정/성별 설정"

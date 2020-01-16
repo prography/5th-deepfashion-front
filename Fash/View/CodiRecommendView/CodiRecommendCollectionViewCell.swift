@@ -56,7 +56,6 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     // MARK: Methods
 
     private func configureTitleLabel() {
-        titleLabel.font = UIFont.subFont(displaySize: 18)
         titleLabel.textColor = .white
         titleLabel.backgroundColor = UIColor(white: 0, alpha: 0.6)
         configureTitleLockImage()

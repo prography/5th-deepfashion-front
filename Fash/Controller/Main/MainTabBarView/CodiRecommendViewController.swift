@@ -20,7 +20,6 @@ class CodiRecommendViewController: UIViewController {
     @IBOutlet var leftTitleView: UIView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
     @IBOutlet var topContentView: UIView!
-    @IBOutlet var topContentViewTopLayoutConstraint: NSLayoutConstraint!
 
     private let backgroundImageView: UIImageView = {
         let backgroundImageView = UIImageView()
@@ -175,7 +174,7 @@ class CodiRecommendViewController: UIViewController {
         topContentView.layer.shadowColor = UIColor.black.cgColor
         topContentView.layer.shadowOpacity = 0.3
         topContentView.layer.shadowRadius = 3
-        topContentView.backgroundColor = UIColor(white: 1, alpha: 0.33)
+        topContentView.backgroundColor = UIColor(white: 1, alpha: 0.0)
     }
 
     private func configureWeatherImageView() {
@@ -197,7 +196,6 @@ class CodiRecommendViewController: UIViewController {
 
     private func configureRefreshCodiButton() {
         refreshCodiButton.backgroundColor = .clear
-        refreshCodiButton.setTitle("코디 새로고침", for: .normal)
         refreshCodiButton.setImage(UIImage(named: AssetIdentifier.Image.refresh), for: .normal)
         refreshCodiButton.addTarget(self, action: #selector(refreshCodiButtonPressed(_:)), for: .touchUpInside)
         refreshCodiButton.centerVertically()

@@ -44,7 +44,6 @@ class CodiAddView: UIView {
     }
 
     func configureImage(_ imageList: [UIImage]) {
-        
         resetCodiViewName()
         for i in imageViewList.indices {
             imageViewList[i].layer.cornerRadius = 5
