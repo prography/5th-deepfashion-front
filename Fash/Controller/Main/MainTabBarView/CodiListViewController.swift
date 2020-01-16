@@ -111,9 +111,7 @@ class CodiListViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-//        configureEmptyTitle()
         RequestAPI.shared.delegate = self
-//        configureBasicTitle(ViewData.Title.MainTabBarView.codiList)
     }
 
     override func viewDidAppear(_: Bool) {

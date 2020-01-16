@@ -9,6 +9,7 @@
 import UIKit
 
 class CodiAddView: UIView {
+    @IBOutlet var backgroundView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var imageViewList: [UIImageView]!
     @IBOutlet var addButton: UIButton!
@@ -19,11 +20,7 @@ class CodiAddView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureByNib()
-        titleLabel.font = UIFont.subFont(displaySize: 18)
-        addButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
-        cancelButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
-        nameTextField.layer.borderColor = ViewData.Color.border
-        nameTextField.layer.borderWidth = 1
+
         nameTextField.layer.cornerRadius = 5
     }
 
@@ -35,7 +32,9 @@ class CodiAddView: UIView {
     private func configureByNib() {
         guard let view = loadViewFromNib() else { return }
         view.frame = bounds
-        view.backgroundColor = UIColor(white: 1, alpha: 0.7)
+        view.backgroundColor = UIColor(white: 0, alpha: 0.3)
+        backgroundView.clipsToBounds = true
+        backgroundView.layer.cornerRadius = 10
         addSubview(view)
     }
 
@@ -47,9 +46,7 @@ class CodiAddView: UIView {
     func configureImage(_ imageList: [UIImage]) {
         resetCodiViewName()
         for i in imageViewList.indices {
-            imageViewList[i].layer.cornerRadius = 10
-            imageViewList[i].layer.borderWidth = 3
-            imageViewList[i].layer.borderColor = ViewData.Color.border
+            imageViewList[i].layer.cornerRadius = 5
             if imageList.count - 1 < i { break }
             DispatchQueue.main.async {
                 self.imageViewList[i].image = imageList[i]
