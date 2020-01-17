@@ -16,6 +16,7 @@ class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
+        navigationController?.navigationBar.tintColor = UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
     }
 
     override func viewWillAppear(_: Bool) {

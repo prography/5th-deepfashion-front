@@ -311,7 +311,7 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func showBackgroundImageView() {
-        guard let weatherImage = UIImage(named: AssetIdentifier.Image.sunnyBackground) else { return }
+        guard let weatherImage = UIImage(named: AssetIdentifier.Image.sunnyCloudyBG) else { return }
         backgroundImageView.presentImageWithAnimation(weatherImage, 0.63)
     }
 

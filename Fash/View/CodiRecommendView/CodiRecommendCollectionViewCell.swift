@@ -39,6 +39,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
 
     override var isSelected: Bool {
         didSet {
+            self.titleLockImageView.isHidden = isSelected
             self.selectEffectView.isHidden = !isSelected
         }
     }

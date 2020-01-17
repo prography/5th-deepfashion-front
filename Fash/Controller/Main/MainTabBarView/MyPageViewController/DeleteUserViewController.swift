@@ -154,19 +154,16 @@ extension DeleteUserViewController: UIViewControllerSetting {
 
     private func configureDeleteUserButton() {
         deleteUserButton.configureDisabledButton()
-        deleteUserButton.titleLabel?.font = UIFont.mainFont(displaySize: 13)
         deleteUserButton.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
     private func configureTitleLabeList() {
         for i in titleLabelList.indices {
             if i == 0 {
-                titleLabelList[i].font = UIFont.subFont(displaySize: 16)
                 titleLabelList[i].textColor = .white
-                titleLabelList[i].backgroundColor = ColorList.newBrown
+                titleLabelList[i].backgroundColor = .darkGray
             } else {
-                titleLabelList[i].font = UIFont.mainFont(displaySize: 18)
-                titleLabelList[i].textColor = ColorList.brownish
+                titleLabelList[i].textColor = .black
             }
             titleLabelList[i].adjustsFontSizeToFitWidth = true
         }

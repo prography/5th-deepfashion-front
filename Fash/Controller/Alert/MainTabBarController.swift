@@ -42,13 +42,18 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBarController()
+        configureNavigationBar()
+    }
+
+    private func configureNavigationBar() {
+        navigationItem.setHidesBackButton(true, animated: false)
         navigationController?.setNavigationBarHidden(true, animated: false)
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
+        navigationController?.navigationBar.tintColor = UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
     }
 
     private func configureTabBarController() {
-        navigationItem.setHidesBackButton(true, animated: false)
         delegate = self
         view.backgroundColor = .clear
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)

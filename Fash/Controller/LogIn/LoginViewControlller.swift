@@ -21,20 +21,22 @@ class LoginViewController: UIViewController {
     @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     let navigationTitleStackView: UIStackView = {
-        let navigationItemStackView = UIStackView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        navigationItemStackView.alignment = .center
+        let navigationItemStackView = UIStackView()
+        navigationItemStackView.alignment = .fill
+        navigationItemStackView.distribution = .fill
         navigationItemStackView.axis = .vertical
-        navigationItemStackView.spacing = 1
-        navigationItemStackView.backgroundColor = .white
-        navigationItemStackView.distribution = .fillProportionally
+        navigationItemStackView.contentMode = .scaleAspectFit
+        navigationItemStackView.spacing = 0
+        navigationItemStackView.backgroundColor = .clear
+        navigationItemStackView.clipsToBounds = true
         return navigationItemStackView
     }()
 
     let titleImageView: UIImageView = {
-        let titleImageView = UIImageView()
-        titleImageView.image = UIImage(named: AssetIdentifier.Image.appLogo)
+        let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 30))
+        titleImageView.image = UIImage(named: AssetIdentifier.Image.fashTitle)
+        titleImageView.translatesAutoresizingMaskIntoConstraints = false
         titleImageView.contentMode = .scaleAspectFit
-        titleImageView.alpha = 0.6
         return titleImageView
     }()
 
@@ -117,8 +119,8 @@ class LoginViewController: UIViewController {
     }
 
     private func makeNavigationTitle() {
-        navigationTitleStackView.addArrangedSubview(titleImageView)
-        navigationItem.titleView = navigationTitleStackView
+//        navigationTitleStackView.addArrangedSubview(titleImageView)
+        navigationItem.titleView = titleImageView
     }
 
     private func requestLoginAPI(_ userData: LoginAPIPostData) {
@@ -238,6 +240,5 @@ extension LoginViewController: UIViewControllerSetting {
         configureTextField()
         configureLoginButton()
         signUpButton.layer.cornerRadius = 10
-        signUpButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 }

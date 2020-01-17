@@ -10,20 +10,16 @@ import UIKit
 
 extension UIButton {
     func configureDisabledButton() {
-        layer.borderColor = ColorList.beige?.cgColor
-        setTitleColor(.white, for: .normal)
-        backgroundColor = ColorList.lightPeach
-        alpha = 0.77
+        setTitleColor(ColorList.loginButtonDisabledTitle, for: .normal)
+        backgroundColor = ColorList.loginButtonDisabledBG
         layer.cornerRadius = 10
         isEnabled = false
     }
 
     func configureEnabledButton() {
-        layer.borderColor = ColorList.brownish?.cgColor
-        setTitleColor(.white, for: .normal)
-        backgroundColor = ColorList.newBrown
+        setTitleColor(ColorList.loginButtonEnabledTitle, for: .normal)
+        backgroundColor = ColorList.loginButtonEnabledBG
         layer.cornerRadius = 10
-        alpha = 1.0
         isEnabled = true
     }
 
