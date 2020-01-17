@@ -87,6 +87,20 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    func setCustomNavigationBarBackButton() {
+        let backButton: UIButton = {
+            let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50.0, height: 50.0))
+            backButton.setTitleColor(UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1), for: .normal)
+            backButton.tintColor = UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
+            backButton.setTitle("Back", for: .normal)
+            backButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+            backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
+            return backButton
+        }()
+
+        tabBarController?.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+
     func configureBasicTitle(_ title: String) {
         tabBarController?.title = title
     }
@@ -94,5 +108,10 @@ extension UIViewController {
     func configureEmptyTitle() {
         title = ""
         navigationController?.title = ""
+    }
+
+    @objc func backButtonPressed(_: UIButton) {
+        guard let navigationController = self.navigationController else { return }
+        navigationController.popViewController(animated: true)
     }
 }

@@ -18,8 +18,9 @@ class PrivacyViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
-//        configureBasicTitle(ViewData.Title.MainTabBarView.privacy)
+//        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
+        configureBasicTitle(ViewData.Title.MainTabBarView.privacy)
+        setCustomNavigationBarBackButton()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -31,11 +32,6 @@ class PrivacyViewController: UIViewController {
     private func presentDeleteUserViewController() {
         performSegue(withIdentifier: UIIdentifier.Segue.goToDeleteUser, sender: nil)
     }
-
-    @objc func backButtonPressed(_: UIButton) {
-        guard let navigationController = self.navigationController else { return }
-        navigationController.popViewController(animated: true)
-    }
 }
 
 extension PrivacyViewController: UITableViewDelegate {
@@ -44,7 +40,7 @@ extension PrivacyViewController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return ViewData.Section.Row.Height.privacy
+        return CGFloat.leastNonzeroMagnitude
     }
 
     func tableView(_: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -76,12 +72,12 @@ extension PrivacyViewController: UITableViewDataSource {
         return privacyTableCell
     }
 
-    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
-        let headerView = MyPageTableHeaderView()
-        headerView.backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
-        headerView.configureTitleLabel(ViewData.Title.MainTabBarView.privacy)
-        return headerView
-    }
+//    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+//        let headerView = MyPageTableHeaderView()
+//        headerView.backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
+//        headerView.configureTitleLabel(ViewData.Title.MainTabBarView.privacy)
+//        return headerView
+//    }
 }
 
 extension PrivacyViewController: UINavigationControllerDelegate {}

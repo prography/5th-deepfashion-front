@@ -20,6 +20,7 @@ class MyPageViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
+
         configureBasicTitle(ViewData.Title.MainTabBarView.myPage)
     }
 
@@ -48,15 +49,15 @@ extension MyPageViewController: UITableViewDelegate {
     }
 
     func tableView(_: UITableView, heightForHeaderInSection _: Int) -> CGFloat {
-        return 50
+        return CGFloat.leastNonzeroMagnitude
     }
 
-    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
-        let headerView = MyPageTableHeaderView()
-        headerView.configureTitleLabel("마이 페이지")
-        headerView.backButton.isHidden = true
-        return headerView
-    }
+//    func tableView(_: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+//        let headerView = MyPageTableHeaderView()
+//        headerView.configureTitleLabel("마이 페이지")
+//        headerView.backButton.isHidden = true
+//        return headerView
+//    }
 
     func tableView(_: UITableView, heightForFooterInSection _: Int) -> CGFloat {
         return CGFloat.leastNonzeroMagnitude

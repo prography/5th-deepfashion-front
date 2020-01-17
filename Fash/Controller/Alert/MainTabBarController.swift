@@ -43,7 +43,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         configureTabBarController()
         navigationController?.setNavigationBarHidden(true, animated: false)
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 
@@ -104,7 +104,8 @@ extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect _: UIViewController) {
         selectedPreviousIndex = tabBarController.selectedIndex
 
-        if tabBarController.selectedIndex == TabBarIndex.codiRecommend.index {
+        if tabBarController.selectedIndex == TabBarIndex.codiRecommend.index
+            || tabBarController.selectedIndex == TabBarIndex.myPage.index {
             navigationController?.setNavigationBarHidden(true, animated: false)
         } else {
             navigationController?.setNavigationBarHidden(false, animated: false)

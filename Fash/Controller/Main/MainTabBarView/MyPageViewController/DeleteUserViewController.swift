@@ -13,9 +13,6 @@ class DeleteUserViewController: UIViewController {
     @IBOutlet var passwordTextFieldList: [UITextField]!
     @IBOutlet var deleteUserButton: UIButton!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
-    @IBOutlet var titleHeaderBackgroundView: UIView!
-
-    private let titleHeaderView = MyPageTableHeaderView()
 
     private var isFillInData = false {
         didSet {
@@ -44,7 +41,9 @@ class DeleteUserViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
+//        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
+        configureBasicTitle(ViewData.Title.MainTabBarView.deleteUser)
+        setCustomNavigationBarBackButton()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -82,19 +81,19 @@ class DeleteUserViewController: UIViewController {
         }
     }
 
-    private func configureTitleHeaderView() {
-        titleHeaderView.configureTitleLabel(ViewData.Title.MainTabBarView.deleteUser)
-        titleHeaderView.backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
-        titleHeaderBackgroundView.addSubview(titleHeaderView)
-
-        titleHeaderView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleHeaderView.leftAnchor.constraint(equalTo: titleHeaderBackgroundView.leftAnchor),
-            titleHeaderView.rightAnchor.constraint(equalTo: titleHeaderBackgroundView.rightAnchor),
-            titleHeaderView.topAnchor.constraint(equalTo: titleHeaderBackgroundView.topAnchor),
-            titleHeaderView.bottomAnchor.constraint(equalTo: titleHeaderBackgroundView.bottomAnchor),
-        ])
-    }
+//    private func configureTitleHeaderView() {
+//        titleHeaderView.configureTitleLabel(ViewData.Title.MainTabBarView.deleteUser)
+//        titleHeaderView.backButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
+//        titleHeaderBackgroundView.addSubview(titleHeaderView)
+//
+//        titleHeaderView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            titleHeaderView.leftAnchor.constraint(equalTo: titleHeaderBackgroundView.leftAnchor),
+//            titleHeaderView.rightAnchor.constraint(equalTo: titleHeaderBackgroundView.rightAnchor),
+//            titleHeaderView.topAnchor.constraint(equalTo: titleHeaderBackgroundView.topAnchor),
+//            titleHeaderView.bottomAnchor.constraint(equalTo: titleHeaderBackgroundView.bottomAnchor),
+//        ])
+//    }
 
     override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
         view.endEditing(true)
@@ -107,11 +106,6 @@ class DeleteUserViewController: UIViewController {
         }
         sender.text = String(nowText)
         checkFillInData()
-    }
-
-    @objc func backButtonPressed(_: UIButton) {
-        guard let navigationController = self.navigationController else { return }
-        navigationController.popViewController(animated: true)
     }
 
     @IBAction func deleteUserButtonPressed(_: UIButton) {
@@ -150,7 +144,7 @@ extension DeleteUserViewController: UITextFieldDelegate {
 
 extension DeleteUserViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureTitleHeaderView()
+//        configureTitleHeaderView()
         configureDeleteUserButton()
         configureTitleLabeList()
         configurePasswordTextFieldList()
