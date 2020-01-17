@@ -54,7 +54,7 @@ struct ClothingIndex {
         29: SubCategory(name: "레깅스", mainIndex: 2),
         30: SubCategory(name: "치마", mainIndex: 2),
         31: SubCategory(name: "긴팔블라우스", mainIndex: 0),
-        32: SubCategory(name: "반팔블라우스", mainIndex: 2),
+        32: SubCategory(name: "반팔블라우스", mainIndex: 0),
         33: SubCategory(name: "긴팔셔츠", mainIndex: 0),
         34: SubCategory(name: "반팔셔츠", mainIndex: 0),
         35: SubCategory(name: "반팔티셔츠", mainIndex: 0),

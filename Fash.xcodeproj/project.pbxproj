@@ -55,7 +55,6 @@
 		0777D45A23B62F3A00385E68 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45923B62F3A00385E68 /* PrivacyViewController.swift */; };
 		0777D45C23B6312400385E68 /* PrivacyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45B23B6312400385E68 /* PrivacyTableViewCell.swift */; };
 		0777D45E23B6436400385E68 /* UITabBarController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45D23B6436400385E68 /* UITabBarController+.swift */; };
-		0779552C23C9095B00C561BC /* fashModel2.pt in Resources */ = {isa = PBXBuildFile; fileRef = 0779552B23C9095400C561BC /* fashModel2.pt */; };
 		0779553023C9E36700C561BC /* LoginToMainSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779552F23C9E36700C561BC /* LoginToMainSegue.swift */; };
 		0779553223C9EF1F00C561BC /* UnwindToLoginSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0779553123C9EF1F00C561BC /* UnwindToLoginSegue.swift */; };
 		077C77B1237812570088B151 /* UserAPIPostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B0237812570088B151 /* UserAPIPostData.swift */; };
@@ -193,7 +192,6 @@
 		0777D45923B62F3A00385E68 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		0777D45B23B6312400385E68 /* PrivacyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyTableViewCell.swift; sourceTree = "<group>"; };
 		0777D45D23B6436400385E68 /* UITabBarController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+.swift"; sourceTree = "<group>"; };
-		0779552B23C9095400C561BC /* fashModel2.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = fashModel2.pt; sourceTree = "<group>"; };
 		0779552F23C9E36700C561BC /* LoginToMainSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginToMainSegue.swift; sourceTree = "<group>"; };
 		0779553123C9EF1F00C561BC /* UnwindToLoginSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwindToLoginSegue.swift; sourceTree = "<group>"; };
 		077C77B0237812570088B151 /* UserAPIPostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPostData.swift; sourceTree = "<group>"; };
@@ -553,7 +551,6 @@
 		07B5AE8723992BD5000C215E /* PyTorch */ = {
 			isa = PBXGroup;
 			children = (
-				0779552B23C9095400C561BC /* fashModel2.pt */,
 				07397ECB23CB85B9007104F3 /* TorchModule.h */,
 				07397ECD23CB85E5007104F3 /* TorchModule.mm */,
 				07397ECC23CB85E4007104F3 /* Fash-Bridging-Header.h */,
@@ -829,7 +826,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0779552C23C9095B00C561BC /* fashModel2.pt in Resources */,
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */,
