@@ -38,6 +38,7 @@
 		07598532237E93E500C48EE7 /* ClothingAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598531237E93E500C48EE7 /* ClothingAddViewController.swift */; };
 		07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598535237E96F000C48EE7 /* MainTabBarController.swift */; };
 		07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598537237EABA800C48EE7 /* UIViewController+.swift */; };
+		076C4B5123D2EA9E0088C9B5 /* khModel.pt in Resources */ = {isa = PBXBuildFile; fileRef = 076C4B5023D2EA7A0088C9B5 /* khModel.pt */; };
 		076DADB023B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DADAF23B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift */; };
 		076DADB723B3696900B3FF46 /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB223B3696800B3FF46 /* SCDream3.otf */; };
 		076DADB823B3696900B3FF46 /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB323B3696800B3FF46 /* SCDream2.otf */; };
@@ -175,6 +176,7 @@
 		07598531237E93E500C48EE7 /* ClothingAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingAddViewController.swift; sourceTree = "<group>"; };
 		07598535237E96F000C48EE7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		07598537237EABA800C48EE7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		076C4B5023D2EA7A0088C9B5 /* khModel.pt */ = {isa = PBXFileReference; lastKnownFileType = file; path = khModel.pt; sourceTree = "<group>"; };
 		076DADAF23B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		076DADB223B3696800B3FF46 /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
 		076DADB323B3696800B3FF46 /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 		07B5AE8723992BD5000C215E /* PyTorch */ = {
 			isa = PBXGroup;
 			children = (
+				076C4B5023D2EA7A0088C9B5 /* khModel.pt */,
 				07397ECB23CB85B9007104F3 /* TorchModule.h */,
 				07397ECD23CB85E5007104F3 /* TorchModule.mm */,
 				07397ECC23CB85E4007104F3 /* Fash-Bridging-Header.h */,
@@ -826,6 +829,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				076C4B5123D2EA9E0088C9B5 /* khModel.pt in Resources */,
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
 				076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */,
@@ -1203,14 +1207,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.43;
+				CURRENT_PROJECT_VERSION = 1.44;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.43;
+				MARKETING_VERSION = 1.44;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1229,14 +1233,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.43;
+				CURRENT_PROJECT_VERSION = 1.44;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.43;
+				MARKETING_VERSION = 1.44;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

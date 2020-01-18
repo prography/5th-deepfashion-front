@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,17 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.77000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INR-9v-aLH">
-                                <rect key="frame" x="152.5" y="298.5" width="70" height="70"/>
+                            <imageView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.77000000000000002" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fashTitle" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INR-9v-aLH">
+                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="7l3-4o-qC8"/>
-                                    <constraint firstAttribute="height" constant="70" id="G2Q-du-cud"/>
+                                    <constraint firstAttribute="width" constant="150" id="7l3-4o-qC8"/>
+                                    <constraint firstAttribute="height" constant="150" id="G2Q-du-cud"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="LightPeach"/>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="INR-9v-aLH" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LMw-Ur-nFu"/>
                             <constraint firstItem="INR-9v-aLH" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="QU0-fM-m1r"/>
@@ -41,9 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appLogo" width="29.5" height="29.5"/>
-        <namedColor name="LightPeach">
-            <color red="0.90600001811981201" green="0.83899998664855957" blue="0.7369999885559082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="fashTitle" width="73" height="20"/>
     </resources>
 </document>
