@@ -69,15 +69,14 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         var imageCheckList = [Int](repeating: 0, count: 4)
         let clothingAPIDataList = UserCommonData.shared.clothingDataList.sorted()
 
-        if idListIndex < sortedIdList.count {
-            clothingAPIDataList
-                .filter { $0.id == sortedIdList[idListIndex] }
-                .forEach { data in
-                    let clientIndex = ClothingIndex.shared.convertToMainClientIndex(data.part)
-                    imageViewList[clientIndex].setThumbnailImageFromServerURL(data.image, placeHolder: defaultImage)
-                    imageCheckList[clientIndex] = 1
-                    idListIndex += 1
-                }
+        for i in clothingAPIDataList.indices {
+            if idListIndex >= sortedIdList.count { break }
+            if clothingAPIDataList[i].id == sortedIdList[idListIndex] {
+                let clientIndex = ClothingIndex.shared.convertToMainClientIndex(clothingAPIDataList[i].part)
+                imageViewList[clientIndex].setThumbnailImageFromServerURL(clothingAPIDataList[i].image, placeHolder: defaultImage)
+                imageCheckList[clientIndex] = 1
+                idListIndex += 1
+            }
         }
 
         imageCheckList.enumerated()
