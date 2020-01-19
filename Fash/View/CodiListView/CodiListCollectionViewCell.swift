@@ -68,9 +68,8 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         var idListIndex = 0
         var imageCheckList = [Int](repeating: 0, count: 4)
         let clothingAPIDataList = UserCommonData.shared.clothingDataList.sorted()
-        
+
         if idListIndex < sortedIdList.count {
-            
             clothingAPIDataList
                 .filter { $0.id == sortedIdList[idListIndex] }
                 .forEach { data in
@@ -78,7 +77,7 @@ class CodiListCollectionViewCell: UICollectionViewCell {
                     imageViewList[clientIndex].setThumbnailImageFromServerURL(data.image, placeHolder: defaultImage)
                     imageCheckList[clientIndex] = 1
                     idListIndex += 1
-            }
+                }
         }
 
         imageCheckList.enumerated()
