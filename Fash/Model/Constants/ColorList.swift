@@ -24,6 +24,9 @@ enum ColorList {
     static let pinkishGrey = UIColor(named: "PinkishGrey")
     static let mainBackground = #colorLiteral(red: 0.9921568627, green: 0.9921568627, blue: 0.9921568627, alpha: 1)
     static let colorSelectCollectionViewBG = #colorLiteral(red: 0.9333333333, green: 0.9333333333, blue: 0.9333333333, alpha: 1)
+    static let editClothingViewBorder = #colorLiteral(red: 0.6666666865, green: 0.6666666865, blue: 0.6666666865, alpha: 1).cgColor
+    static let mainBorder = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1).cgColor
+    static let clothingAddView = #colorLiteral(red: 0.9921568627, green: 0.9921568627, blue: 0.9921568627, alpha: 1)
     static let mainFont = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     static let loginButtonEnabledTitle = UIColor(displayP3Red: 221 / 255, green: 221 / 255, blue: 221 / 255, alpha: 1.0)
     static let loginButtonEnabledBG = UIColor(displayP3Red: 105 / 255, green: 101 / 255, blue: 189 / 255, alpha: 1.0)

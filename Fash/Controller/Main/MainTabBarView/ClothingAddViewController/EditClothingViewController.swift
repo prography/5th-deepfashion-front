@@ -402,7 +402,7 @@ extension EditClothingViewController: UIViewControllerSetting {
         configureSubTypeButton()
         configureSubTypePickerAlertController()
         configureSubStylePickerAlertController()
-        view.backgroundColor = ViewData.Color.clothingAddView
+        view.backgroundColor = ColorList.clothingAddView
         clothingImageView.image = selectedClothingData.image
         makeRegistrationButtonDisabled()
     }

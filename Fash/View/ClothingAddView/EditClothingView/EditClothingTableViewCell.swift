@@ -82,21 +82,21 @@ class EditClothingTableViewCell: UITableViewCell {
 
     private func configureStyleButton() {
         styleButton.layer.cornerRadius = 10
-//        styleButton.layer.borderColor = ViewData.Color.borderColor
+        styleButton.layer.borderColor = ColorList.editClothingViewBorder
         styleButton.layer.borderWidth = 1
         styleButton.clipsToBounds = true
     }
 
     private func configureSubTypeButton() {
         subTypeButton.layer.cornerRadius = 10
-//        subTypeButton.layer.borderColor = ViewData.Color.borderColor
+        subTypeButton.layer.borderColor = ColorList.editClothingViewBorder
         subTypeButton.layer.borderWidth = 1
         subTypeButton.clipsToBounds = true
     }
 
     private func configureNameTextField() {
         nameTextField.layer.cornerRadius = 10
-//        nameTextField.layer.borderColor = ViewData.Color.borderColor
+        nameTextField.layer.borderColor = ColorList.editClothingViewBorder
         nameTextField.layer.borderWidth = 1
         nameTextField.clipsToBounds = true
     }
@@ -108,12 +108,14 @@ class EditClothingTableViewCell: UITableViewCell {
         mainTypeSegmentedControl.selectedSegmentIndex = 0
         mainTypeSegmentedControl.layer.cornerRadius = 10
         mainTypeSegmentedControl.layer.borderWidth = 1
+        mainTypeSegmentedControl.layer.borderColor = ColorList.editClothingViewBorder
         mainTypeSegmentedControl.clipsToBounds = true
 
         seasonSegmentedControl.selectedSegmentIndex = 0
         seasonSegmentedControl.layer.cornerRadius = 10
         seasonSegmentedControl.clipsToBounds = true
         seasonSegmentedControl.layer.borderWidth = 1
+        seasonSegmentedControl.layer.borderColor = ColorList.editClothingViewBorder
     }
 
     private func makeConstraint() {

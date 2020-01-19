@@ -19,7 +19,7 @@ class LogoAnimationViewController: UIViewController {
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
             self.performSegue(withIdentifier: UIIdentifier.Segue.goToLogin, sender: nil)
         }
     }

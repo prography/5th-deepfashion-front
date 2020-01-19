@@ -59,9 +59,10 @@ class FirstSignUpViewController: UIViewController {
 
     // MARK: Methods
 
-    private func configureSignUpButton() {
+    private func configureNextPageButton() {
         nextPageButton.configureDisabledButton()
         nextPageButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+        nextPageButton.layer.borderColor = ColorList.mainBorder
     }
 
     private func configureTextField() {
@@ -129,7 +130,8 @@ extension FirstSignUpViewController: UITextFieldDelegate {
 extension FirstSignUpViewController: UIViewControllerSetting {
     func configureViewController() {
         configureTextField()
-        configureSignUpButton()
+        configureNextPageButton()
         genderSegmentedControl.layer.cornerRadius = 10
+        genderSegmentedControl.layer.borderColor = ColorList.mainBorder
     }
 }

@@ -76,6 +76,11 @@ class LoginViewController: UIViewController {
         RequestAPI.shared.delegate = self
     }
 
+    override func viewWillDisappear(_: Bool) {
+        super.viewWillDisappear(true)
+        view.endEditing(true)
+    }
+
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         navigationController?.setNavigationBarHidden(false, animated: false)

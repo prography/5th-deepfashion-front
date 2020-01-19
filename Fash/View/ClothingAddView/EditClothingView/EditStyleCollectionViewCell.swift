@@ -31,7 +31,7 @@ class EditStyleCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = ViewData.Color.border
+        layer.borderColor = ColorList.mainBorder
         layer.borderWidth = 3
         layer.cornerRadius = 10
         styleTitleLabel.font = UIFont.subFont(displaySize: 18)
