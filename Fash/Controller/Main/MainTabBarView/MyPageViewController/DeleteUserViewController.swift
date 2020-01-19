@@ -41,7 +41,6 @@ class DeleteUserViewController: UIViewController {
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-//        tabBarController?.navigationController?.setNavigationBarHidden(true, animated: false)
         configureBasicTitle(ViewData.Title.MainTabBarView.deleteUser)
         setCustomNavigationBarBackButton()
     }
@@ -67,10 +66,10 @@ class DeleteUserViewController: UIViewController {
     }
 
     private func deleteUserData() {
-        guard let tabBarController = self.tabBarController else { return }
 
         RequestAPI.shared.deleteAPIData(APIMode: .deleteUser) { networkError in
             DispatchQueue.main.async { [weak self] in
+                guard let tabBarController = self?.tabBarController else { return }
                 if networkError != nil {
                     guard let errorMessage = networkError?.errorMessage else { return }
                     ToastView.shared.presentShortMessage(tabBarController.view, message: errorMessage)

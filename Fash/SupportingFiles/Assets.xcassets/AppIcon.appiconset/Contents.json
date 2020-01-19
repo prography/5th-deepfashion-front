@@ -147,7 +147,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "1024.png",
+      "filename" : "1024.jpg",
       "scale" : "1x"
     },
     {
@@ -231,7 +231,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "watch-marketing",
-      "filename" : "1024.png",
+      "filename" : "1024-1.jpg",
       "scale" : "1x"
     },
     {
@@ -291,7 +291,7 @@
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "1024.png",
+      "filename" : "1024-2.jpg",
       "scale" : "2x"
     }
   ],
