@@ -25,5 +25,6 @@ struct AssetIdentifier {
         static let clothing = "clothing.jpg"
         static let sunnyBG = "sunnyBG"
         static let sunnyCloudyBG = "sunnyCloudyBG"
+        static let fashSplash = "fashSplash"
     }
 }
