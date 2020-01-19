@@ -159,8 +159,8 @@ class ClothingAddViewController: UIViewController {
     private func configureClassificationLabel() {
         for i in classificationLabel.indices {
             classificationLabel[i].adjustsFontSizeToFitWidth = true
-            classificationLabel[i].font = UIFont.mainFont(displaySize: 13)
-            classificationLabel[i].textColor = ColorList.brownish
+            classificationLabel[i].font = UIFont.mainFont(displaySize: 17)
+            classificationLabel[i].textColor = ColorList.mainFont
             classificationLabel[i].isHidden = true
         }
 

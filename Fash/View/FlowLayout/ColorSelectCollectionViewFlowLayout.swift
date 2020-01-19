@@ -16,7 +16,7 @@ class ColorSelectCollectionViewFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()
         guard let collectionView = self.collectionView else { return }
-        sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: -5, right: 10)
 
         let itemsPerRow = numberOfItemsPerRow
         let interItemSpacing: CGFloat = 5

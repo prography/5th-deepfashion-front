@@ -29,8 +29,8 @@ struct ViewData {
     }
 
     struct Color {
-        static let clothingAddView = ColorList.pale
-        static let border = ColorList.lightPeach?.cgColor
+        static let clothingAddView = #colorLiteral(red: 0.9921568627, green: 0.9921568627, blue: 0.9921568627, alpha: 1)
+        static let border = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1).cgColor
     }
 
     struct Section {

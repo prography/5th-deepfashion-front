@@ -9,6 +9,11 @@
 import Foundation
 
 struct UIIdentifier {
+    struct Tag {
+        static let typePickerView = 301
+        static let stylePickerView = 302
+    }
+
     struct Color {
         static let mixedColorHexaCode: UInt64 = 0x181818
         static let colorHexaCodeList: [UInt64] = [

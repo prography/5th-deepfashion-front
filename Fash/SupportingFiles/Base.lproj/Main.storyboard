@@ -225,11 +225,11 @@
                                             <segment title="남성"/>
                                             <segment title="여성"/>
                                         </segments>
-                                        <color key="tintColor" name="PinkishGrey"/>
+                                        <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiK-sP-1LJ">
                                         <rect key="frame" x="0.0" y="315" width="394" height="65.666666666666686"/>
-                                        <color key="backgroundColor" name="LightPeach"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="다음">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -507,11 +507,12 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gZy-Na-5lf">
                                 <rect key="frame" x="20" y="324" width="374" height="50"/>
-                                <color key="backgroundColor" name="LightPeach"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7bJ-9f-t8o"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="가입 완료">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1036,7 +1037,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tPS-rD-P5A">
                                 <rect key="frame" x="0.0" y="230.66666666666666" width="414" height="445.33333333333337"/>
-                                <color key="sectionIndexBackgroundColor" name="Pale"/>
+                                <color key="sectionIndexBackgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.89368385080000001" green="0.85480196770000005" blue="0.78456461109999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFashionTableViewCell" rowHeight="445" id="6CM-XT-gAI" customClass="EditClothingTableViewCell" customModule="Fash" customModuleProvider="target">
@@ -1047,7 +1048,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ajD-M0-ZFg">
-                                                    <rect key="frame" x="0.0" y="46" width="414" height="425"/>
+                                                    <rect key="frame" x="0.0" y="49" width="414" height="425"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QN5-E0-Xud">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
@@ -1058,8 +1059,8 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="fXi-qY-Fn4"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="패션 이름을 입력해주세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-hs-9lF">
@@ -1088,8 +1089,8 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="bxJ-gN-iNE"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ngo-Xz-Mzn">
@@ -1102,14 +1103,14 @@
                                                                         <segment title="신발"/>
                                                                         <segment title="원피스"/>
                                                                     </segments>
-                                                                    <color key="tintColor" name="NewBrown"/>
+                                                                    <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </segmentedControl>
                                                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qws-md-izo">
                                                                     <rect key="frame" x="10" y="89" width="394" height="39"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                                     <state key="normal" title="세부 카테고리">
-                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </state>
                                                                 </button>
                                                             </subviews>
@@ -1133,8 +1134,8 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="IuY-PF-LMf"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L7B-jF-YI8">
@@ -1146,7 +1147,7 @@
                                                                         <segment title="여름"/>
                                                                         <segment title="겨울"/>
                                                                     </segments>
-                                                                    <color key="tintColor" name="NewBrown"/>
+                                                                    <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </segmentedControl>
                                                             </subviews>
                                                             <constraints>
@@ -1166,8 +1167,8 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="30" id="hhZ-oc-FNH"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-UA-1hn">
@@ -1201,38 +1202,39 @@
                                                     </constraints>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRb-DB-2f5">
-                                                    <rect key="frame" x="20" y="11" width="374" height="35"/>
+                                                    <rect key="frame" x="0.0" y="11" width="414" height="38"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록 정보를 설정하세요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giY-H7-g5s">
-                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록할 옷의 정보를 설정하세요." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giY-H7-g5s">
+                                                            <rect key="frame" x="10" y="-12" width="404" height="50"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="20" id="bXD-zS-bsL"/>
+                                                                <constraint firstAttribute="height" constant="50" id="bXD-zS-bsL"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="13"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="giY-H7-g5s" firstAttribute="leading" secondItem="CRb-DB-2f5" secondAttribute="leading" id="4he-YQ-fng"/>
-                                                        <constraint firstItem="giY-H7-g5s" firstAttribute="top" secondItem="CRb-DB-2f5" secondAttribute="top" id="PR5-I7-J7g"/>
-                                                        <constraint firstAttribute="height" constant="35" id="ZIm-b4-Czr"/>
-                                                        <constraint firstAttribute="trailing" secondItem="giY-H7-g5s" secondAttribute="trailing" id="r8O-vs-tAd"/>
+                                                        <constraint firstAttribute="bottom" secondItem="giY-H7-g5s" secondAttribute="bottom" id="CXO-ij-cvA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="giY-H7-g5s" secondAttribute="trailing" id="Ikn-uI-FjD"/>
+                                                        <constraint firstItem="giY-H7-g5s" firstAttribute="top" secondItem="CRb-DB-2f5" secondAttribute="topMargin" constant="-20" id="Iuo-xO-6ak"/>
+                                                        <constraint firstItem="giY-H7-g5s" firstAttribute="leading" secondItem="CRb-DB-2f5" secondAttribute="leading" constant="10" id="WOc-JE-H8B"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CRb-DB-2f5" secondAttribute="trailing" id="5e8-Sj-gWd"/>
                                                 <constraint firstAttribute="trailing" secondItem="ajD-M0-ZFg" secondAttribute="trailing" id="9VZ-sS-HAN"/>
-                                                <constraint firstItem="CRb-DB-2f5" firstAttribute="left" secondItem="OQW-ha-8wr" secondAttribute="leftMargin" id="QCF-IS-OX4"/>
+                                                <constraint firstItem="CRb-DB-2f5" firstAttribute="width" secondItem="OQW-ha-8wr" secondAttribute="width" id="Dd6-7d-Wmj"/>
+                                                <constraint firstItem="CRb-DB-2f5" firstAttribute="centerX" secondItem="OQW-ha-8wr" secondAttribute="centerX" id="HTS-oM-Yft"/>
                                                 <constraint firstItem="ajD-M0-ZFg" firstAttribute="leading" secondItem="OQW-ha-8wr" secondAttribute="leading" id="hkz-a5-Rkk"/>
                                                 <constraint firstItem="ajD-M0-ZFg" firstAttribute="top" secondItem="CRb-DB-2f5" secondAttribute="bottom" id="sH7-lV-IMs"/>
                                                 <constraint firstItem="CRb-DB-2f5" firstAttribute="top" secondItem="OQW-ha-8wr" secondAttribute="topMargin" id="zf6-Tg-6rA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="editStackView" destination="ajD-M0-ZFg" id="uEi-lm-dIe"/>
                                             <outlet property="mainTypeSegmentedControl" destination="Ngo-Xz-Mzn" id="Ien-dd-eeA"/>
@@ -1252,21 +1254,27 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-oS-nZg">
                                 <rect key="frame" x="0.0" y="676" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIs-YW-h5X">
                                         <rect key="frame" x="0.0" y="0.0" width="207" height="60"/>
-                                        <color key="backgroundColor" name="Peach"/>
+                                        <color key="backgroundColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="JHF-cB-g4P"/>
                                         </constraints>
-                                        <state key="normal" title="취소하기"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                        <state key="normal" title="취소하기">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="cancelButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="d2R-Mk-IKS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-ZK-HfT">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-ZK-HfT">
                                         <rect key="frame" x="207" y="0.0" width="207" height="60"/>
-                                        <color key="backgroundColor" name="PaleBrown"/>
-                                        <state key="normal" title="등록하기"/>
+                                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="등록하기">
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="addClothingButtonPressed:" destination="TFM-gH-Vx2" eventType="touchUpInside" id="Rrx-xt-cjJ"/>
                                         </connections>
@@ -1285,7 +1293,7 @@
                                 <color key="color" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" name="Pale"/>
+                        <color key="backgroundColor" red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.89368385080000001" green="0.85480196770000005" blue="0.78456461109999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="YNE-qX-swM" firstAttribute="centerY" secondItem="IKm-vE-afn" secondAttribute="centerY" id="1wx-gW-a0O"/>
@@ -1414,7 +1422,7 @@
                                 <color key="backgroundColor" name="Beige"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" name="Pale"/>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YQj-ta-bJx" firstAttribute="leading" secondItem="a9u-1L-EbF" secondAttribute="leading" constant="10" id="1j4-jc-6Dd"/>
@@ -1928,29 +1936,14 @@
         <namedColor name="Brownish">
             <color red="0.55699998140335083" green="0.42399999499320984" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="LightPeach">
-            <color red="0.90600001811981201" green="0.83899998664855957" blue="0.7369999885559082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="NewBrown">
-            <color red="0.74500000476837158" green="0.6119999885559082" blue="0.51399999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="NewYellow">
             <color red="1" green="0.7839999794960022" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Pale">
-            <color red="0.98799997568130493" green="0.92199999094009399" blue="0.82400000095367432" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PaleBrown">
             <color red="0.65100002288818359" green="0.57599997520446777" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PalePeach">
             <color red="0.90600001811981201" green="0.83499997854232788" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Peach">
-            <color red="0.9649999737739563" green="0.70200002193450928" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="PinkishGrey">
-            <color red="0.81999999284744263" green="0.75300002098083496" blue="0.6470000147819519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

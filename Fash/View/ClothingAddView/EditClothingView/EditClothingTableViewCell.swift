@@ -32,15 +32,15 @@ class EditClothingTableViewCell: UITableViewCell {
     var colorSelectCollectionView: ColorSelectCollectionView = {
         let collectionViewLayout = ColorSelectCollectionViewFlowLayout()
         let colorSelectCollectionView = ColorSelectCollectionView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), collectionViewLayout: collectionViewLayout)
+        colorSelectCollectionView.layer.cornerRadius = 10
+        colorSelectCollectionView.clipsToBounds = true
         return colorSelectCollectionView
     }()
 
     private var colorSelectTitleLabel: UILabel = {
         let colorSelectTitleLabel = UILabel()
         colorSelectTitleLabel.text = "옷 색상"
-        colorSelectTitleLabel.font = UIFont.mainFont(displaySize: 16)
-        colorSelectTitleLabel.textColor = .black
-        colorSelectTitleLabel.backgroundColor = ViewData.Color.clothingAddView
+        colorSelectTitleLabel.font = UIFont.mainFont(displaySize: 17)
         return colorSelectTitleLabel
     }()
 
@@ -50,7 +50,6 @@ class EditClothingTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = ViewData.Color.clothingAddView
         colorSelectStackView.addArrangedSubview(colorSelectTitleLabel)
         colorSelectStackView.addArrangedSubview(colorSelectCollectionView)
         editStackView.addArrangedSubview(colorSelectStackView)
@@ -102,15 +101,7 @@ class EditClothingTableViewCell: UITableViewCell {
         nameTextField.clipsToBounds = true
     }
 
-    private func configureSubTitleLabelList() {
-        for i in subTitleLabelList.indices {
-            if i == 0 {
-                subTitleLabelList[i].font = UIFont.subFont(displaySize: 16)
-            } else {
-                subTitleLabelList[i].font = UIFont.mainFont(displaySize: 16)
-            }
-        }
-    }
+    private func configureSubTitleLabelList() {}
 
     private func configureSegmentedControl() {
         // 초기 선택 인덱스를 설정
@@ -128,21 +119,22 @@ class EditClothingTableViewCell: UITableViewCell {
     private func makeConstraint() {
         colorSelectStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.colorSelectStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-            self.colorSelectStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            self.colorSelectStackView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10),
+            self.colorSelectStackView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10),
         ])
 
         colorSelectCollectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.colorSelectCollectionView.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 0),
             self.colorSelectCollectionView.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
-            self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2 - colorSelectCollectionView.contentInset.left * 3),
+            self.colorSelectCollectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
+            self.colorSelectStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
         ])
 
         colorSelectTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.colorSelectTitleLabel.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 10),
-            self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: -10),
+            self.colorSelectTitleLabel.leftAnchor.constraint(equalTo: colorSelectStackView.leftAnchor, constant: 0),
+            self.colorSelectTitleLabel.rightAnchor.constraint(equalTo: colorSelectStackView.rightAnchor, constant: 0),
             self.colorSelectTitleLabel.heightAnchor.constraint(equalToConstant: 30),
         ])
     }

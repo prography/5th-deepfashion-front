@@ -23,9 +23,17 @@ class EditClothingViewController: UIViewController {
     var deepResultList = [Int](repeating: 0, count: 4)
     private var clothingSubTypeIndexList = [(Int, SubCategory)]()
     private var selectedClothingSubTypeIndexList = [(Int, SubCategory)]()
-    private let subTypePickerAlertController: PickerAlertController = {
-        let subTypePickerAlertController = PickerAlertController(title: "소분류 선택", message: "소분류를 선택해주세요.", preferredStyle: .actionSheet)
-        return subTypePickerAlertController
+
+    private let typePickerAlertController: PickerAlertController = {
+        let typePickerAlertController = PickerAlertController(title: "소분류 선택", message: "옷 소분류를 선택해주세요.", preferredStyle: .actionSheet)
+        typePickerAlertController.pickerView.tag = UIIdentifier.Tag.typePickerView
+        return typePickerAlertController
+    }()
+
+    private let stylePickerAlertController: PickerAlertController = {
+        let stylePickerAlertController = PickerAlertController(title: "스타일 선택", message: "옷 스타일을 선택해주세요.", preferredStyle: .actionSheet)
+        stylePickerAlertController.pickerView.tag = UIIdentifier.Tag.stylePickerView
+        return stylePickerAlertController
     }()
 
     private var isColorSelected = false {
@@ -33,6 +41,12 @@ class EditClothingViewController: UIViewController {
             checkFillInData()
         }
     }
+
+    private var fashionStyles: [String] = {
+        var fashionStyles = [String]()
+        fashionStyles = UserCommonData.shared.gender == 0 ? ClothingStyle.male : ClothingStyle.female
+        return fashionStyles
+    }()
 
     private var isRequestAPI = false {
         willSet {
@@ -82,10 +96,21 @@ class EditClothingViewController: UIViewController {
     }
 
     private func presentSubTypePickerAlertController() {
-        subTypePickerAlertController.pickerView.delegate = self
-        subTypePickerAlertController.pickerView.dataSource = self
-        present(subTypePickerAlertController, animated: true) {
-            self.subTypePickerAlertController.configureDefaultPickerViewIndex()
+        configureSubTypePickerAlertController()
+        guard let defaultType = selectedClothingSubTypeIndexList.first else { return }
+        selectedClothingData.categoryIndex = defaultType
+        present(typePickerAlertController, animated: true) { [weak self] in
+            self?.refreshTypeButton()
+        }
+    }
+
+    private func presentSubStylePickerAlertController() {
+        configureSubStylePickerAlertController()
+        guard let defaultStyle = fashionStyles.first else { return }
+        selectedClothingData.style = (defaultStyle, 0)
+
+        present(stylePickerAlertController, animated: true) { [weak self] in
+            self?.refreshStyleButton()
         }
     }
 
@@ -115,16 +140,17 @@ class EditClothingViewController: UIViewController {
     }
 
     private func makeRegistrationButtonDisabled() {
-        addClothingButton.configureDisabledButton()
-        addClothingButton.backgroundColor = ColorList.beige
-        addClothingButton.layer.cornerRadius = 0
-        addClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+//        addClothingButton.configureDisabledButton()
+//        addClothingButton.layer.cornerRadius = 0
+        addClothingButton.isEnabled = false
+        addClothingButton.alpha = 0.7
     }
 
     private func makeRegistrationButtonEnabled() {
-        addClothingButton.configureEnabledButton()
-        addClothingButton.layer.cornerRadius = 0
-        addClothingButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+//        addClothingButton.configureEnabledButton()
+//        addClothingButton.layer.cornerRadius = 0
+        addClothingButton.isEnabled = true
+        addClothingButton.alpha = 1.0
     }
 
     private func configureSubTypeButton() {
@@ -134,8 +160,13 @@ class EditClothingViewController: UIViewController {
     }
 
     private func configureSubTypePickerAlertController() {
-        subTypePickerAlertController.pickerView.delegate = self
-        subTypePickerAlertController.pickerView.dataSource = self
+        typePickerAlertController.pickerView.delegate = self
+        typePickerAlertController.pickerView.dataSource = self
+    }
+
+    private func configureSubStylePickerAlertController() {
+        stylePickerAlertController.pickerView.delegate = self
+        stylePickerAlertController.pickerView.dataSource = self
     }
 
     private func configureSelectedClothingData() {
@@ -161,7 +192,12 @@ class EditClothingViewController: UIViewController {
         selectedClothingData.categoryIndex = (subCategoryIndex, subCategory)
     }
 
-    func refreshStyleButton() {
+    private func refreshTypeButton() {
+        guard let addClothingTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
+        addClothingTableCell.subTypeButton.setTitle(" \(selectedClothingData.categoryIndex.1.name)", for: .normal)
+    }
+
+    private func refreshStyleButton() {
         guard let addFashionTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
         DispatchQueue.main.async {
             addFashionTableCell.styleButton.setTitle("  \(self.selectedClothingData.style.0)", for: .normal)
@@ -239,11 +275,7 @@ class EditClothingViewController: UIViewController {
     }
 
     @objc func styleButtonPressed(_: UIButton) {
-        let storyBoard = UIStoryboard(name: UIIdentifier.mainStoryboard, bundle: nil)
-        guard let editStyleViewController = storyBoard.instantiateViewController(withIdentifier: UIIdentifier.ViewController.editStyle) as? EditStyleViewController else { return }
-
-        editStyleViewController.selectedStyle = selectedClothingData.style
-        navigationController?.pushViewController(editStyleViewController, animated: true)
+        presentSubStylePickerAlertController()
     }
 
     @objc func subTypeButtonPressed(_: UIButton) {
@@ -326,10 +358,14 @@ extension EditClothingViewController: RequestAPIDelegate {
 }
 
 extension EditClothingViewController: UIPickerViewDelegate {
-    func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-        selectedClothingData.categoryIndex = selectedClothingSubTypeIndexList[row]
-        guard let addClothingTableCell = editClothingTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EditClothingTableViewCell else { return }
-        addClothingTableCell.subTypeButton.setTitle(" \(selectedClothingData.categoryIndex.1.name)", for: .normal)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
+        if pickerView.tag == UIIdentifier.Tag.typePickerView {
+            selectedClothingData.categoryIndex = selectedClothingSubTypeIndexList[row]
+            refreshTypeButton()
+        } else if pickerView.tag == UIIdentifier.Tag.stylePickerView {
+            selectedClothingData.style = (fashionStyles[row], row)
+            refreshStyleButton()
+        }
     }
 }
 
@@ -338,12 +374,22 @@ extension EditClothingViewController: UIPickerViewDataSource {
         return 1
     }
 
-    func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-        return selectedClothingSubTypeIndexList.count
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
+        if pickerView.tag == UIIdentifier.Tag.typePickerView {
+            return selectedClothingSubTypeIndexList.count
+        } else if pickerView.tag == UIIdentifier.Tag.stylePickerView {
+            return fashionStyles.count
+        }
+        return 0
     }
 
-    func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-        return "\(selectedClothingSubTypeIndexList[row].1.name)"
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
+        if pickerView.tag == UIIdentifier.Tag.typePickerView {
+            return "\(selectedClothingSubTypeIndexList[row].1.name)"
+        } else if pickerView.tag == UIIdentifier.Tag.stylePickerView {
+            return "\(fashionStyles[row])"
+        }
+        return ""
     }
 }
 
@@ -355,11 +401,9 @@ extension EditClothingViewController: UIViewControllerSetting {
         editClothingTableView.dataSource = self
         configureSubTypeButton()
         configureSubTypePickerAlertController()
-//        navigationController?.navigationBar.isHidden = true
+        configureSubStylePickerAlertController()
         view.backgroundColor = ViewData.Color.clothingAddView
         clothingImageView.image = selectedClothingData.image
-        clothingImageView.backgroundColor = ColorList.beige
         makeRegistrationButtonDisabled()
-        cancelButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
     }
 }
