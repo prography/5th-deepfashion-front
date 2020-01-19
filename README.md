@@ -26,6 +26,7 @@
 <br>
 
 ## 추가 구현할 사항
+- 코디 추천 알고리즘 (1/20 ~ )
 - 회원정보 변경기능 (진행중)
 - 딥러닝 연동작업 (진행중)
 - 앱 디자인, 레이아웃 보완 (진행중)
@@ -41,7 +42,7 @@
 <br>
 
 <div>
-<img width="300" src="https://user-images.githubusercontent.com/4410021/72375343-3fc46100-374f-11ea-8bf7-7084fe3bab5b.gif">
+<img width="300" src="https://user-images.githubusercontent.com/4410021/72687226-218ba600-3b3f-11ea-9bac-82e33e85edd1.gif">
 </div>
 
 <br>
