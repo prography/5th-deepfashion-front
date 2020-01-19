@@ -7,6 +7,7 @@ target 'Fash' do
 
   # Pods for Fash
   pod 'LibTorch'
+  pod 'SwiftGifOrigin'
 
   target 'FashTests' do
     inherit! :search_paths

@@ -4,17 +4,21 @@ PODS:
   - LibTorch/Core (0.0.2):
     - LibTorch/Torch
   - LibTorch/Torch (0.0.2)
+  - SwiftGifOrigin (1.7.0)
 
 DEPENDENCIES:
   - LibTorch
+  - SwiftGifOrigin
 
 SPEC REPOS:
   trunk:
     - LibTorch
+    - SwiftGifOrigin
 
 SPEC CHECKSUMS:
   LibTorch: f4b576069920da1c6d9963ccb3c737529c6cc991
+  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
 
-PODFILE CHECKSUM: 24330de59527914a59b78dd1fb15e98f0cf6f9dd
+PODFILE CHECKSUM: f0240c0f72ce211e9fc2d0e2201d3162d6d92cca
 
 COCOAPODS: 1.8.4

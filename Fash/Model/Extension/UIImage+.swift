@@ -9,18 +9,6 @@
 import UIKit
 
 extension UIImage {
-    
-    class func getGifImageWithName(_ name: String) -> UIImage? {
-        guard let bundleURL = Bundle.main
-            .url(forResource: AssetIdentifier.Image.fashSplash, withExtension: "gif") else {
-                return nil
-        }
-        
-        guard let imageData = try? Data(contentsOf: bundleURL) else { return nil }
-        
-        return UIImage(data: imageData)
-    }
-    
     func resized(to newSize: CGSize, scale: CGFloat = 1) -> UIImage {
         let format = UIGraphicsImageRendererFormat.default()
         format.scale = scale
