@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EwL-22-Vck">
                                 <rect key="frame" x="25" y="74" width="364" height="250"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 입력 (6자리이상 영문+숫자)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ypv-GV-f7F">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 입력 (6자리이상 영문+숫자)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ypv-GV-f7F">
                                         <rect key="frame" x="5" y="0.0" width="354" height="47.333333333333336"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -32,7 +32,7 @@
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="Scc-Xi-lIJ"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력 (8자리이상 영문+숫자)" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAv-bD-6HS">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력 (8자리이상 영문+숫자)" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAv-bD-6HS">
                                         <rect key="frame" x="5" y="57.333333333333343" width="354" height="47.333333333333343"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -55,7 +55,7 @@
                                             <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-HG-Vg2">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-HG-Vg2">
                                         <rect key="frame" x="5" y="134.66666666666666" width="354" height="47"/>
                                         <color key="backgroundColor" red="0.41176470588235292" green="0.396078431372549" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
@@ -160,13 +160,13 @@
                                 <rect key="frame" x="10" y="74.000000000000028" width="394" height="380.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신규 ID 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3r-sg-5Mc">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="22.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="24.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6N-dm-Zel">
-                                        <rect key="frame" x="0.0" y="27.333333333333332" width="394" height="44.333333333333343"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="6자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6N-dm-Zel">
+                                        <rect key="frame" x="0.0" y="29.333333333333325" width="394" height="48.666666666666657"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -178,13 +178,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-Ge-Zgc">
-                                        <rect key="frame" x="0.0" y="76.666666666666657" width="394" height="22.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="83" width="394" height="24.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A4l-gg-DC0">
-                                        <rect key="frame" x="0.0" y="104" width="394" height="44.666666666666657"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A4l-gg-DC0">
+                                        <rect key="frame" x="0.0" y="112.33333333333336" width="394" height="48.666666666666671"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -196,13 +196,13 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9L-Wo-Ryz">
-                                        <rect key="frame" x="0.0" y="153.66666666666666" width="394" height="22.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="166" width="394" height="24.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="116-GC-wGm">
-                                        <rect key="frame" x="0.0" y="181" width="394" height="44.333333333333343"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="116-GC-wGm">
+                                        <rect key="frame" x="0.0" y="195.33333333333331" width="394" height="48.666666666666657"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -214,29 +214,27 @@
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="성별 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9N-DA-hyf">
-                                        <rect key="frame" x="0.0" y="230.33333333333331" width="394" height="22.333333333333343"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="0.0" y="249.00000000000003" width="394" height="24.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hv-Tf-aWZ">
-                                        <rect key="frame" x="0.0" y="257.66666666666669" width="394" height="53.333333333333314"/>
+                                    <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hv-Tf-aWZ">
+                                        <rect key="frame" x="0.0" y="278.33333333333331" width="394" height="49.666666666666686"/>
                                         <segments>
                                             <segment title="남성"/>
                                             <segment title="여성"/>
                                         </segments>
                                         <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiK-sP-1LJ">
-                                        <rect key="frame" x="0.0" y="315" width="394" height="65.666666666666686"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiK-sP-1LJ">
+                                        <rect key="frame" x="0.0" y="332" width="394" height="48.666666666666686"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="다음">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <state key="disabled" title="다음">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
+                                        <state key="disabled" title="다음"/>
                                         <state key="selected" title="다음"/>
                                         <state key="highlighted" title="다음"/>
                                         <connections>
@@ -248,9 +246,11 @@
                                     <constraint firstItem="K6N-dm-Zel" firstAttribute="width" secondItem="L3r-sg-5Mc" secondAttribute="width" id="5Xw-FN-4ad"/>
                                     <constraint firstItem="5hv-Tf-aWZ" firstAttribute="width" secondItem="FiK-sP-1LJ" secondAttribute="width" id="ART-H1-l2P"/>
                                     <constraint firstItem="r9L-Wo-Ryz" firstAttribute="width" secondItem="116-GC-wGm" secondAttribute="width" id="Fc2-Ob-QZz"/>
-                                    <constraint firstItem="5hv-Tf-aWZ" firstAttribute="height" secondItem="FiK-sP-1LJ" secondAttribute="height" multiplier="0.8" id="Gqd-7J-vVC"/>
+                                    <constraint firstItem="5hv-Tf-aWZ" firstAttribute="height" secondItem="FiK-sP-1LJ" secondAttribute="height" id="Gqd-7J-vVC"/>
                                     <constraint firstItem="L3r-sg-5Mc" firstAttribute="height" secondItem="K6N-dm-Zel" secondAttribute="height" multiplier="0.5" id="MGe-gy-czg"/>
+                                    <constraint firstItem="5hv-Tf-aWZ" firstAttribute="height" secondItem="K6N-dm-Zel" secondAttribute="height" id="NTi-xz-hzV"/>
                                     <constraint firstItem="116-GC-wGm" firstAttribute="height" secondItem="K6N-dm-Zel" secondAttribute="height" id="Tqp-lP-0Ms"/>
+                                    <constraint firstItem="FiK-sP-1LJ" firstAttribute="height" secondItem="K6N-dm-Zel" secondAttribute="height" id="UFF-R5-W2j"/>
                                     <constraint firstItem="P9N-DA-hyf" firstAttribute="height" secondItem="L3r-sg-5Mc" secondAttribute="height" id="XGw-5W-00a"/>
                                     <constraint firstItem="116-GC-wGm" firstAttribute="width" secondItem="5hv-Tf-aWZ" secondAttribute="width" id="ZIX-0M-ZJ9"/>
                                     <constraint firstItem="gjm-Ge-Zgc" firstAttribute="height" secondItem="L3r-sg-5Mc" secondAttribute="height" id="bK1-O0-mi8"/>
@@ -307,16 +307,17 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="DSW-gn-dHb"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AG4-3o-ZNp">
                                         <rect key="frame" x="0.0" y="40" width="374" height="32.666666666666657"/>
                                         <subviews>
-                                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-bJ-Pse">
+                                            <button opaque="NO" clipsSubviews="YES" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDJ-bJ-Pse">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.33333333333333" height="32.666666666666664"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="캐쥬얼">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -324,9 +325,10 @@
                                                     <action selector="styleSelectButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="zst-wr-ipi"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-or-rpZ">
+                                            <button opaque="NO" clipsSubviews="YES" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPu-or-rpZ">
                                                 <rect key="frame" x="131.33333333333334" y="0.0" width="111.33333333333334" height="32.666666666666664"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="오피스룩">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -334,9 +336,10 @@
                                                     <action selector="styleSelectButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="3Iy-bE-hdB"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uop-x4-XDs">
+                                            <button opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uop-x4-XDs">
                                                 <rect key="frame" x="262.66666666666669" y="0.0" width="111.33333333333331" height="32.666666666666664"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="스트리트">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -361,9 +364,10 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t6X-6k-Xef">
                                         <rect key="frame" x="0.0" y="92.666666666666657" width="374" height="32.333333333333343"/>
                                         <subviews>
-                                            <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akT-kN-Twe">
+                                            <button opaque="NO" clipsSubviews="YES" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akT-kN-Twe">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.33333333333333" height="32.333333333333336"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="빈티지">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -371,9 +375,10 @@
                                                     <action selector="styleSelectButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="xVK-DO-qd4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-nN-P3v">
+                                            <button opaque="NO" clipsSubviews="YES" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rse-nN-P3v">
                                                 <rect key="frame" x="131.33333333333334" y="0.0" width="111.33333333333334" height="32.333333333333336"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="힙합">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -381,9 +386,10 @@
                                                     <action selector="styleSelectButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="kbb-HS-gRx"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZK-yT-7M5">
+                                            <button opaque="NO" clipsSubviews="YES" tag="106" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZK-yT-7M5">
                                                 <rect key="frame" x="262.66666666666669" y="0.0" width="111.33333333333331" height="32.333333333333336"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal" title="스포츠">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -408,9 +414,10 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WmF-gM-2QS">
                                         <rect key="frame" x="0.0" y="145" width="374" height="32.666666666666657"/>
                                         <subviews>
-                                            <button opaque="NO" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-o1-sd5">
+                                            <button opaque="NO" clipsSubviews="YES" tag="107" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-o1-sd5">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.33333333333333" height="32.666666666666664"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -418,9 +425,10 @@
                                                     <action selector="styleSelectButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="RF9-XM-A2t"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="108" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuR-qf-45m">
+                                            <button opaque="NO" clipsSubviews="YES" tag="108" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuR-qf-45m">
                                                 <rect key="frame" x="131.33333333333334" y="0.0" width="111.33333333333334" height="32.666666666666664"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -428,9 +436,10 @@
                                                     <action selector="styleSelectButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="eMn-hw-6PP"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="109" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-mb-GE4">
+                                            <button opaque="NO" clipsSubviews="YES" tag="109" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ya-mb-GE4">
                                                 <rect key="frame" x="262.66666666666669" y="0.0" width="111.33333333333331" height="32.666666666666664"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -455,9 +464,10 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C9s-mR-O0G">
                                         <rect key="frame" x="0.0" y="197.66666666666669" width="374" height="32.333333333333343"/>
                                         <subviews>
-                                            <button opaque="NO" tag="110" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biP-PM-P3c">
+                                            <button opaque="NO" clipsSubviews="YES" tag="110" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biP-PM-P3c">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.33333333333333" height="32.333333333333336"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -505,19 +515,17 @@
                                     <constraint firstItem="C9s-mR-O0G" firstAttribute="height" secondItem="AG4-3o-ZNp" secondAttribute="height" id="cq1-BV-Vsu"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gZy-Na-5lf">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="gZy-Na-5lf">
                                 <rect key="frame" x="20" y="324" width="374" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7bJ-9f-t8o"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="가입 완료">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <state key="normal" title="가입 완료"/>
                                 <state key="disabled">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="signUpFinishedButtonPressed:" destination="L8J-ZO-A7u" eventType="touchUpInside" id="3Jg-S7-vpW"/>

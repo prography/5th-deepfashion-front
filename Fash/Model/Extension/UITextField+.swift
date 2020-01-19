@@ -56,7 +56,7 @@ extension UITextField {
     func configureBasicTextField() {
         borderStyle = .roundedRect
         layer.borderWidth = 1
-        layer.cornerRadius = 3
+        layer.cornerRadius = 10
         layer.borderColor = ViewData.Color.border
     }
 }

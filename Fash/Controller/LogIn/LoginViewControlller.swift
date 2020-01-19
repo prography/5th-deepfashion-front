@@ -93,14 +93,17 @@ class LoginViewController: UIViewController {
 
     private func configureLoginButton() {
         loginButton.configureDisabledButton()
-        loginButton.titleLabel?.font = UIFont.mainFont(displaySize: 18)
+    }
+
+    private func configureSignUpButton() {
+        signUpButton.layer.cornerRadius = 10
     }
 
     private func configureTextField() {
         idTextField.configureBasicTextField()
-        idTextField.layer.cornerRadius = 5
+        idTextField.layer.cornerRadius = 10
         passwordTextField.configureBasicTextField()
-        passwordTextField.layer.cornerRadius = 5
+        passwordTextField.layer.cornerRadius = 10
         idTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
@@ -239,6 +242,6 @@ extension LoginViewController: UIViewControllerSetting {
         makeNavigationTitle()
         configureTextField()
         configureLoginButton()
-        signUpButton.layer.cornerRadius = 10
+        configureSignUpButton()
     }
 }

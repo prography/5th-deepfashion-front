@@ -130,5 +130,6 @@ extension FirstSignUpViewController: UIViewControllerSetting {
     func configureViewController() {
         configureTextField()
         configureSignUpButton()
+        genderSegmentedControl.layer.cornerRadius = 10
     }
 }
