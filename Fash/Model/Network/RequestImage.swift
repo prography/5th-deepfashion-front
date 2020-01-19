@@ -47,39 +47,38 @@ final class RequestImage {
     // 인자값으로 URL값과 Default Image(placeHolder)값을 받는다.
     func setImageFromServerURL(_ thumbnailImageURLString: String, placeHolder: UIImage, completion: @escaping (UIImage, Bool) -> Void) {
         delegate?.imageRequestDidBegin()
-
+        
         if let cachedImage = UserCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
             delegate?.imageRequestDidFinished(cachedImage, imageKey: thumbnailImageURLString)
             completion(cachedImage, true)
             return
         }
-
+        
         insertImageKey(thumbnailImageURLString)
-
-        if let imageUrl = URL(string: thumbnailImageURLString) {
-            URLSession.shared.dataTask(with: imageUrl, completionHandler: { data, _, error in
-
-                if error != nil {
-                    self.removeImageKey(thumbnailImageURLString)
-                    self.delegate?.imageRequestDidError("thumbnailImage URL Loading Error!: \(error?.localizedDescription ?? "")")
-                    completion(placeHolder, false) // 이미지의 설정은 비동기 과정에서 진행한다.
-                    return
-                }
-
-                DispatchQueue.main.async {
-                    if let thumbnailImageData = data {
-                        if let thumbnailImage = UIImage(data: thumbnailImageData) {
-                            // 이미지 캐싱 후 해당 이미지에 최종적으로 처리된 이미지를 셋팅한다.
-                            UserCommonData.shared.thumbnailImageCache.setObject(thumbnailImage, forKey: NSString(string: thumbnailImageURLString))
-
-                            self.removeImageKey(thumbnailImageURLString)
-                            self.delegate?.imageRequestDidFinished(thumbnailImage, imageKey: thumbnailImageURLString)
-                            completion(thumbnailImage, false)
-                        }
-                    }
-                }
-
-            }).resume()
-        }
+        
+        guard let imageUrl = URL(string: thumbnailImageURLString) else { return }
+        URLSession.shared.dataTask(with: imageUrl) { data, _, error in
+            
+            if let error = error {
+                self.removeImageKey(thumbnailImageURLString)
+                self.delegate?.imageRequestDidError("thumbnailImage URL Loading Error!: \(error.localizedDescription)")
+                completion(placeHolder, false) // 이미지의 설정은 비동기 과정에서 진행한다.
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let thumbnailImageData = data,
+                    let thumbnailImage = UIImage(data: thumbnailImageData)
+                    else { return }
+                // 이미지 캐싱 후 해당 이미지에 최종적으로 처리된 이미지를 셋팅한다.
+                UserCommonData.shared.thumbnailImageCache.setObject(thumbnailImage, forKey: NSString(string: thumbnailImageURLString))
+                
+                self.removeImageKey(thumbnailImageURLString)
+                self.delegate?.imageRequestDidFinished(thumbnailImage, imageKey: thumbnailImageURLString)
+                completion(thumbnailImage, false)
+                
+            }
+        } .resume()
+        
     }
 }
