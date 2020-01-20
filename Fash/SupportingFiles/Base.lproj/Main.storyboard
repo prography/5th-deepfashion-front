@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EwL-22-Vck">
-                                <rect key="frame" x="25" y="74" width="364" height="250"/>
+                                <rect key="frame" x="10.333333333333343" y="74" width="393.33333333333326" height="250"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 입력 (6자리이상 영문+숫자)" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ypv-GV-f7F">
-                                        <rect key="frame" x="5" y="0.0" width="354" height="47.333333333333336"/>
+                                        <rect key="frame" x="5" y="0.0" width="383.33333333333331" height="47.333333333333336"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,7 +33,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호 입력 (8자리이상 영문+숫자)" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAv-bD-6HS">
-                                        <rect key="frame" x="5" y="57.333333333333343" width="354" height="47.333333333333343"/>
+                                        <rect key="frame" x="5" y="57.333333333333343" width="383.33333333333331" height="47.333333333333343"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,7 +44,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RnP-Hd-4ap">
-                                        <rect key="frame" x="10" y="114.66666666666666" width="344" height="10"/>
+                                        <rect key="frame" x="10" y="114.66666666666666" width="373.33333333333331" height="10"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="10" id="HN3-KU-VK7"/>
@@ -56,7 +56,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTI-HG-Vg2">
-                                        <rect key="frame" x="5" y="134.66666666666666" width="354" height="47"/>
+                                        <rect key="frame" x="5" y="134.66666666666666" width="383.33333333333331" height="47"/>
                                         <color key="backgroundColor" red="0.41176470588235292" green="0.396078431372549" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                         <state key="normal" title="로그인">
@@ -70,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9X-K2-cfU">
-                                        <rect key="frame" x="5" y="191.66666666666669" width="354" height="1"/>
+                                        <rect key="frame" x="5" y="191.66666666666669" width="383.33333333333331" height="1"/>
                                         <color key="backgroundColor" name="PalePeach"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="MGD-gB-ez7"/>
@@ -80,7 +80,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNP-RL-yff">
-                                        <rect key="frame" x="5" y="202.66666666666669" width="354" height="47.333333333333343"/>
+                                        <rect key="frame" x="5" y="202.66666666666669" width="383.33333333333331" height="47.333333333333343"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                         <state key="normal" title="회원가입" backgroundImage="registerBG">
@@ -125,7 +125,7 @@
                         <constraints>
                             <constraint firstItem="R5u-wh-hcu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0b5-gh-IyI"/>
                             <constraint firstItem="R5u-wh-hcu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5xp-hc-vg7"/>
-                            <constraint firstItem="EwL-22-Vck" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.88" id="9A2-Do-eqO"/>
+                            <constraint firstItem="EwL-22-Vck" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.95" id="9A2-Do-eqO"/>
                             <constraint firstItem="EwL-22-Vck" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RSY-QF-TCl"/>
                             <constraint firstItem="EwL-22-Vck" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="nnG-1R-TxB"/>
                         </constraints>
