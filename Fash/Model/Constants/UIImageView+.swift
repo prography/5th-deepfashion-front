@@ -10,12 +10,11 @@ import UIKit
 
 extension UIImageView {
     func presentImageWithAnimation(_ image: UIImage, _ duration: CGFloat = 0.23) {
-        self.image = nil
-        alpha = 0.0
         self.image = image
-        UIView.animate(withDuration: TimeInterval(duration)) {
-            self.alpha = 1.0
-        }
+        alpha = 0.0
+        UIView.animate(withDuration: TimeInterval(duration), animations: { [weak self] in
+            self?.alpha = 1.0
+        })
     }
 
     func setThumbnailImageFromServerURL(_ thumbnailImageURLString: String?, placeHolder: UIImage) {

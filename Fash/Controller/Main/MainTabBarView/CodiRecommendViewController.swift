@@ -35,8 +35,7 @@ class CodiRecommendViewController: UIViewController {
     private var nowWeatherData: WeatherAPIData?
     private var weatherIndex = WeatherIndex.sunny {
         didSet {
-            weatherImageView.image = weatherIndex.iconImage
-            showBackgroundImageView(weatherIndex.backgroundImage)
+            updateWeatherImage(weatherIndex)
         }
     }
 
@@ -81,12 +80,13 @@ class CodiRecommendViewController: UIViewController {
         RequestImage.shared.delegate = self
         configureCodiListCollectionView()
         requestClothingAPIDataList()
-        showBackgroundImageView(weatherIndex.backgroundImage)
+        updateWeatherImage(weatherIndex)
     }
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         configureTopContentViewConstraint()
+        checkLocationAuthority()
     }
 
     override func viewWillDisappear(_: Bool) {
@@ -106,6 +106,11 @@ class CodiRecommendViewController: UIViewController {
     // 인디케이터 매니저를 커스텀으로 만들어서 인디케이터매니저.showWindow
 
     private func configureTopContentViewConstraint() {}
+
+    private func updateWeatherImage(_ weatherIndex: WeatherIndex) {
+        weatherImageView.presentImageWithAnimation(weatherIndex.iconImage, 0.63)
+        backgroundImageView.presentImageWithAnimation(weatherIndex.backgroundImage, 0.63)
+    }
 
     func requestClothingAPIDataList() {
         if UserCommonData.shared.isNeedToUpdateClothing == false {
@@ -146,6 +151,24 @@ class CodiRecommendViewController: UIViewController {
              .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
         // location Update, get weatherData
+        default:
+            presentBasicTwoButtonAlertController(title: "위치 권한 요청", message: "현지 날씨정보를 받기 위해 위치권한이 필요합니다. 위치권한을 설정하시겠습니까?") { isApproved in
+                if isApproved {
+                    guard let appSettingURL = URL(string: UIApplication.openSettingsURLString) else { return }
+                    UIApplication.shared.open(appSettingURL, options: [:])
+                } else {}
+            }
+        }
+    }
+
+    private func checkLocationAuthority() {
+        // 현재 위치권한이 있는지 유무를 확인한다.
+        let locationAuthStatus = CLLocationManager.authorizationStatus()
+        switch locationAuthStatus {
+        case .notDetermined,
+             .authorizedAlways,
+             .authorizedWhenInUse:
+            break
         default:
             presentBasicTwoButtonAlertController(title: "위치 권한 요청", message: "현지 날씨정보를 받기 위해 위치권한이 필요합니다. 위치권한을 설정하시겠습니까?") { isApproved in
                 if isApproved {
@@ -304,10 +327,6 @@ class CodiRecommendViewController: UIViewController {
         view.sendSubviewToBack(backgroundImageView)
     }
 
-    private func showBackgroundImageView(_ image: UIImage) {
-        backgroundImageView.presentImageWithAnimation(image, 0.63)
-    }
-
     private func configureCodiRecommendCollectionView() {
         recommendCollectionView.dataSource = self
         recommendCollectionView.delegate = self
@@ -315,9 +334,9 @@ class CodiRecommendViewController: UIViewController {
         recommendCollectionView.isScrollEnabled = false
     }
 
-//    private func hideBackgroundImage() {
-//        backgroundImageView.isHidden = true
-//    }
+    //    private func hideBackgroundImage() {
+    //        backgroundImageView.isHidden = true
+    //    }
 
     @objc func codiAddViewAddButtonPressed(_: UIButton) {
         if codiAddView.nameTextField.text?.trimmingCharacters(in: .whitespaces) == "" {
@@ -472,8 +491,9 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
     func locationManager(_: CLLocationManager, didChangeAuthorization _: CLAuthorizationStatus) {
         let locationAuthStatus = CLLocationManager.authorizationStatus()
         switch locationAuthStatus {
-        case .authorizedWhenInUse:
-            break
+        case .authorizedAlways,
+             .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
         default:
             break
         }
