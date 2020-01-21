@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = mainNavigationController
             window?.makeKeyAndVisible()
         }
+
+        let BarButtonItemAppearance = UIBarButtonItem.appearance()
+        BarButtonItemAppearance.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
         return true
     }
 

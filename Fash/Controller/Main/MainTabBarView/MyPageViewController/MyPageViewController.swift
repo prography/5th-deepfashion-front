@@ -29,6 +29,14 @@ class MyPageViewController: UIViewController {
         super.viewDidDisappear(true)
     }
 
+    private func configureMyPageTableView() {
+        myPageTableView.delegate = self
+        myPageTableView.dataSource = self
+        myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        myPageTableView.separatorColor = ColorList.mainSeperatorBG
+        myPageTableView.tableFooterView?.isHidden = true
+    }
+
     private func presentPrivacyViewController() {
         performSegue(withIdentifier: UIIdentifier.Segue.goToPrivacy, sender: nil)
     }
@@ -105,10 +113,6 @@ extension MyPageViewController: UITableViewDataSource {
 
 extension MyPageViewController: UIViewControllerSetting {
     func configureViewController() {
-        myPageTableView.delegate = self
-        myPageTableView.dataSource = self
-        myPageTableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        myPageTableView.separatorColor = ColorList.newBrown
-        myPageTableView.tableFooterView?.isHidden = true
+        configureMyPageTableView()
     }
 }

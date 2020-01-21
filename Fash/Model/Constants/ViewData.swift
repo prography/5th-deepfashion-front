@@ -18,10 +18,10 @@ struct ViewData {
         }
 
         struct MainTabBarView {
-            static let recommend = "마이 추천 리스트"
-            static let closetList = "마이 옷장 리스트"
-            static let photoAdd = "옷장 사진 추가"
-            static let codiList = "마이 코디 리스트"
+            static let recommend = "추천리스트"
+            static let closetList = "옷장"
+            static let photoAdd = "옷장 사진추가"
+            static let codiList = "코디리스트"
             static let myPage = "마이 페이지"
             static let privacy = "개인정보/보안"
             static let deleteUser = "회원탈퇴"

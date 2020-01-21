@@ -13,7 +13,7 @@ class PrivacyTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.textColor = ColorList.brownishGray
+        titleLabel.textColor = ColorList.mainFont
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

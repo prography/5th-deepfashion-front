@@ -110,7 +110,7 @@ final class RequestAPI {
         case .getWeather:
             if isWeatherRequested == true {
                 delegate?.requestAPIDidFinished()
-                completion(nil, nil)
+                completion(NetworkError.duplicate, nil)
                 return
             }
 
@@ -511,5 +511,9 @@ final class RequestAPI {
         let errorType: NetworkError = .client
         delegate?.requestAPIDidError()
         return errorType
+    }
+
+    func resetProperties() {
+        isWeatherRequested = false
     }
 }

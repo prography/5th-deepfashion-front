@@ -395,15 +395,16 @@ extension EditClothingViewController: UIPickerViewDataSource {
 
 extension EditClothingViewController: UIViewControllerSetting {
     func configureViewController() {
-        configureClothingSubTypeIndex()
-        configureSelectedClothingData()
         editClothingTableView.delegate = self
         editClothingTableView.dataSource = self
+        configureClothingSubTypeIndex()
+        configureSelectedClothingData()
         configureSubTypeButton()
         configureSubTypePickerAlertController()
         configureSubStylePickerAlertController()
         view.backgroundColor = ColorList.clothingAddView
         clothingImageView.image = selectedClothingData.image
         makeRegistrationButtonDisabled()
+        navigationItem.backBarButtonItem?.title = ""
     }
 }

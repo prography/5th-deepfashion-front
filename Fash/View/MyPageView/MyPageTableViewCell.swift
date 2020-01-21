@@ -14,7 +14,7 @@ class MyPageTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        titleLabel.textColor = ColorList.brownishGray
+        titleLabel.textColor = ColorList.mainFont
         backgroundColor = .white
     }
 

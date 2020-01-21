@@ -37,8 +37,10 @@ class CodiListViewController: UIViewController {
                 self.refreshControl.isHidden = !self.isRefreshControlRunning
                 if self.isRefreshControlRunning {
                     self.refreshControl.beginRefreshing()
+                    self.indicatorView.setAlphaZero()
                 } else {
                     self.refreshControl.endRefreshing()
+                    self.indicatorView.setAlphaOne()
                 }
             }
         }

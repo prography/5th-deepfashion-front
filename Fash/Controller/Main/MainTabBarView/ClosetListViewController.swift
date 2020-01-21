@@ -25,8 +25,10 @@ class ClosetListViewController: UIViewController {
                 self.refreshControl.isHidden = !self.isRefreshControlRunning
                 if self.isRefreshControlRunning {
                     self.refreshControl.beginRefreshing()
+                    self.indicatorView.setAlphaZero()
                 } else {
                     self.refreshControl.endRefreshing()
+                    self.indicatorView.setAlphaOne()
                 }
             }
         }
@@ -274,7 +276,7 @@ extension ClosetListViewController: UITableViewDelegate {
         guard let headerViewTitleText = fashionType?.title else { return UIView() }
 
         let closetListTableHeaderView = ClosetListTableHeaderView()
-        closetListTableHeaderView.configureTitleLabel(" #\(headerViewTitleText)")
+        closetListTableHeaderView.configureTitleLabel(" # \(headerViewTitleText)")
         return closetListTableHeaderView
     }
 }

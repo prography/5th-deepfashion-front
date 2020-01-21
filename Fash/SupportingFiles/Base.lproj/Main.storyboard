@@ -71,7 +71,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9X-K2-cfU">
                                         <rect key="frame" x="5" y="191.66666666666669" width="383.33333333333331" height="1"/>
-                                        <color key="backgroundColor" name="PalePeach"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="MGD-gB-ez7"/>
                                         </constraints>
@@ -864,7 +864,7 @@
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9f-mN-jFt">
                                                 <rect key="frame" x="0.0" y="87" width="354" height="1"/>
-                                                <color key="backgroundColor" name="Beige"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="FfC-vM-NPR"/>
                                                 </constraints>
@@ -873,7 +873,7 @@
                                     </stackView>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3V-jT-R4P">
                                         <rect key="frame" x="20" y="208" width="354" height="50"/>
-                                        <color key="backgroundColor" name="NewYellow"/>
+                                        <color key="backgroundColor" name="Peach"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gnq-Ph-Ubh"/>
                                         </constraints>
@@ -1515,8 +1515,8 @@
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luf-UL-dre">
                                                             <rect key="frame" x="0.0" y="107.66666666666667" width="116" height="25.333333333333329"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -1938,21 +1938,18 @@
         <image name="recommendTopRightBG" width="654" height="888"/>
         <image name="refresh" width="29.666666030883789" height="29.666666030883789"/>
         <image name="registerBG" width="2203" height="318"/>
-        <image name="titleLock" width="2000" height="2000"/>
+        <image name="titleLock" width="29.666666030883789" height="29.666666030883789"/>
         <namedColor name="Beige">
             <color red="0.9100000262260437" green="0.81199997663497925" blue="0.66699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Brownish">
             <color red="0.55699998140335083" green="0.42399999499320984" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="NewYellow">
-            <color red="1" green="0.7839999794960022" blue="0.37599998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="PaleBrown">
             <color red="0.65100002288818359" green="0.57599997520446777" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="PalePeach">
-            <color red="0.90600001811981201" green="0.83499997854232788" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="Peach">
+            <color red="0.9649999737739563" green="0.70200002193450928" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

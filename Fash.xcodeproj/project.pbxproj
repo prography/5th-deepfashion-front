@@ -61,6 +61,7 @@
 		077C77B32378145C0088B151 /* RequestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B22378145C0088B151 /* RequestAPI.swift */; };
 		077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */; };
 		077C77BA2378155F0088B151 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077C77B92378155F0088B151 /* UserData.swift */; };
+		0785BC9B23D6D20400D88D38 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0785BC9A23D6D20400D88D38 /* UIView+.swift */; };
 		07885438239E690400B31331 /* MyPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07885437239E690400B31331 /* MyPageTableViewCell.swift */; };
 		0788543A239E6B6700B31331 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07885439239E6B6700B31331 /* UIView.swift */; };
 		078E583D23684281000A960B /* LastSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* LastSignUpViewController.swift */; };
@@ -201,6 +202,7 @@
 		077C77B22378145C0088B151 /* RequestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPI.swift; sourceTree = "<group>"; };
 		077C77B5237814AA0088B151 /* RequestAPIDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAPIDelegate.swift; sourceTree = "<group>"; };
 		077C77B92378155F0088B151 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		0785BC9A23D6D20400D88D38 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		07885437239E690400B31331 /* MyPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTableViewCell.swift; sourceTree = "<group>"; };
 		07885439239E6B6700B31331 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		078E583C23684281000A960B /* LastSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSignUpViewController.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				07598537237EABA800C48EE7 /* UIViewController+.swift */,
+				0785BC9A23D6D20400D88D38 /* UIView+.swift */,
 				07D5E9AE236EE6A800A27B28 /* UITextField+.swift */,
 				0777D45D23B6436400385E68 /* UITabBarController+.swift */,
 				0777D45623B6121500385E68 /* UINavigationBar+.swift */,
@@ -1042,6 +1045,7 @@
 				073547B223BA626300E45ADF /* WeatherAPIData.swift in Sources */,
 				0779553223C9EF1F00C561BC /* UnwindToLoginSegue.swift in Sources */,
 				0733A6E82365E32500E26B38 /* FirstSignUpViewController.swift in Sources */,
+				0785BC9B23D6D20400D88D38 /* UIView+.swift in Sources */,
 				076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */,
 				0779553023C9E36700C561BC /* LoginToMainSegue.swift in Sources */,
 				079F56A723D4278900F1F859 /* SplashToMainSegue.swift in Sources */,

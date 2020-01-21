@@ -18,7 +18,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
 
     private var selectEffectView: UIView = {
         let selectEffectView = UIView()
-        selectEffectView.backgroundColor = UIColor(white: 0, alpha: 0.7)
+        selectEffectView.backgroundColor = UIColor(white: 0, alpha: 0.5)
         selectEffectView.isHidden = true
         return selectEffectView
     }()
@@ -74,7 +74,7 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell(title: String, clothingData: ClothingAPIData?, indexPath: IndexPath) {
-        titleLabel.text = " #\(title)"
+        titleLabel.text = " # \(title)"
 
         guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }
         guard let clothingData = clothingData else {

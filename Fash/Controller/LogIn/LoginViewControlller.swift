@@ -142,6 +142,7 @@ class LoginViewController: UIViewController {
                     self.passwordTextField.text = ""
                     self.passwordTextField.configureBasicTextField()
                     UserCommonData.shared.resetUserAPIData()
+                    RequestAPI.shared.resetProperties()
                     CodiListGenerator.shared.resetCodiListGenerator()
                     self.performSegue(withIdentifier: UIIdentifier.Segue.goToMain, sender: nil)
                 }

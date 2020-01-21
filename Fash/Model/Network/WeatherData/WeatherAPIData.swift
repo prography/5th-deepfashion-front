@@ -14,9 +14,10 @@ struct WeatherAPIData: Codable {
     let temperature: String
     let rain: String?
     let snow: String?
+    let humidity: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, location, rain, snow
+        case id, location, rain, snow, humidity
         case temperature = "temp"
     }
 }

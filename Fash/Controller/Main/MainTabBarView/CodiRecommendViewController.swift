@@ -17,7 +17,6 @@ class CodiRecommendViewController: UIViewController {
     @IBOutlet var weatherImageView: UIImageView!
     @IBOutlet var celsiusLabel: UILabel!
     @IBOutlet var refreshCodiButton: UIButton!
-    @IBOutlet var leftTitleView: UIView!
     @IBOutlet var indicatorView: UIActivityIndicatorView!
     @IBOutlet var topContentView: UIView!
 
@@ -36,7 +35,8 @@ class CodiRecommendViewController: UIViewController {
     private var nowWeatherData: WeatherAPIData?
     private var weatherIndex = WeatherIndex.sunny {
         didSet {
-            weatherImageView.image = weatherIndex.image
+            weatherImageView.image = weatherIndex.iconImage
+            showBackgroundImageView(weatherIndex.backgroundImage)
         }
     }
 
@@ -80,32 +80,20 @@ class CodiRecommendViewController: UIViewController {
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
         configureCodiListCollectionView()
-        requestLocationAuthority()
-        locationManager.startUpdatingLocation()
         requestClothingAPIDataList()
+        showBackgroundImageView(weatherIndex.backgroundImage)
     }
 
     override func viewDidAppear(_: Bool) {
         super.viewDidAppear(true)
         configureTopContentViewConstraint()
-        showBackgroundImageView()
     }
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
-//        hideBackgroundImage()
-        //        self.navigationController?.navigationBar.isHidden = false
     }
 
     // MARK: Methods
-
-    //    func updateClothingAPIDataList(_ clothingDataList: [ClothingAPIData]) {
-    //        CodiListGenerator.shared.getNowCodiDataSet(clothingDataList)
-    //        UserCommonData.shared.configureClothingData(clothingDataList)
-    //        DispatchQueue.main.async {
-    //            self.recommendCollectionView.reloadData()
-    //        }
-    //    }
 
     // UI적인 요소, 로직적인 요소가 같이 겹쳐져 있는 부분이 있다.
     // ViewController에서는 데이터만 넘겨주고, viewWillAppear, viewDidAppear에서 호출해보는게 더 좋지 않을까?
@@ -156,8 +144,8 @@ class CodiRecommendViewController: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         case .authorizedAlways,
              .authorizedWhenInUse:
-            // location Update, get weatherData
-            break
+            locationManager.startUpdatingLocation()
+        // location Update, get weatherData
         default:
             presentBasicTwoButtonAlertController(title: "위치 권한 요청", message: "현지 날씨정보를 받기 위해 위치권한이 필요합니다. 위치권한을 설정하시겠습니까?") { isApproved in
                 if isApproved {
@@ -210,19 +198,25 @@ class CodiRecommendViewController: UIViewController {
             let rainValue = Double(rainValueString) {
             if rainValue >= 0.6 {
                 weatherIndex = .rainy
-            } else {
-                weatherIndex = .sunny
             }
+            return
         } else if let snowValueString = weatherData.snow,
             let snowValue = Double(snowValueString) {
             if snowValue >= 0.6 {
                 weatherIndex = .snowy
-            } else {
-                weatherIndex = .sunny
             }
-        } else {
-            weatherIndex = .sunny
+            return
         }
+
+        if let humidityValueString = weatherData.humidity,
+            let humidityValue = Double(humidityValueString) {
+            if humidityValue >= 60.0 {
+                weatherIndex = .cloudy
+            }
+            return
+        }
+
+        weatherIndex = .sunny
     }
 
     private func checkImageDataRequest() {
@@ -310,9 +304,15 @@ class CodiRecommendViewController: UIViewController {
         view.sendSubviewToBack(backgroundImageView)
     }
 
-    private func showBackgroundImageView() {
-        guard let weatherImage = UIImage(named: AssetIdentifier.Image.sunnyCloudyBG) else { return }
-        backgroundImageView.presentImageWithAnimation(weatherImage, 0.63)
+    private func showBackgroundImageView(_ image: UIImage) {
+        backgroundImageView.presentImageWithAnimation(image, 0.63)
+    }
+
+    private func configureCodiRecommendCollectionView() {
+        recommendCollectionView.dataSource = self
+        recommendCollectionView.delegate = self
+        recommendCollectionView.allowsMultipleSelection = true
+        recommendCollectionView.isScrollEnabled = false
     }
 
 //    private func hideBackgroundImage() {
@@ -426,32 +426,46 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
         // 현지 위치정보를 얻었는데 만약 날씨 데이터가 존재하지 않는나면,
         // 날씨 데이터를 요청해서 받아온다.
         RequestAPI.shared.getAPIData(APIMode: .getWeather, type: [WeatherAPIData].self) { error, data in
-            if error == nil {
-                // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
-                guard let weatherDataList = data else { return }
 
-                var minDiff: Double = 6e4
-                weatherDataList.forEach {
-                    guard let latitude = LocationData.coordinatorList[$0.id]?.1,
-                        let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
-                    let diff = abs(nowCoordinator.latitude - latitude) + abs(nowCoordinator.longitude - longitude)
-                    if diff < minDiff {
-                        minDiff = diff
-                        self.nowWeatherData = $0
-                    }
-                }
-
-                guard let weatherData = self.nowWeatherData else { return }
-                DispatchQueue.main.async {
-                    self.updateWeatherData(weatherData: weatherData)
+            if error != nil {
+                if error == NetworkError.duplicate {
                     self.locationManager.stopUpdatingLocation()
                 }
-            } else {
+
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                     tabBarController.presentToastMessage("날씨 정보를 불러오는데 실패했습니다.")
                 }
+                return
             }
+
+            // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
+            guard let weatherDataList = data else { return }
+
+            var minDiff: Double = 6e4
+            weatherDataList.forEach {
+                guard let latitude = LocationData.coordinatorList[$0.id]?.1,
+                    let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
+                let diff = abs(nowCoordinator.latitude - latitude) + abs(nowCoordinator.longitude - longitude)
+                if diff < minDiff {
+                    minDiff = diff
+                    self.nowWeatherData = $0
+                }
+            }
+
+            guard let weatherData = self.nowWeatherData else { return }
+            DispatchQueue.main.async {
+                self.updateWeatherData(weatherData: weatherData)
+                self.locationManager.stopUpdatingLocation()
+            }
+        }
+    }
+
+    func locationManager(_: CLLocationManager, didFailWithError _: Error) {
+        debugPrint("Failed to update Location Information")
+        DispatchQueue.main.async {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            tabBarController.presentToastMessage("날씨 정보를 불러오는데 실패했습니다.")
         }
     }
 
@@ -504,13 +518,12 @@ extension CodiRecommendViewController: RequestImageDelegate {
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
         //        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
+        locationManager.delegate = self
+        requestLocationAuthority()
+        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
         configureBackgroundImageView()
         configureTopContentView()
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
-        recommendCollectionView.dataSource = self
-        recommendCollectionView.delegate = self
-        locationManager.delegate = self
-        recommendCollectionView.allowsMultipleSelection = true
+        configureCodiRecommendCollectionView()
         configureWeatherImageView()
         configureLabel()
         configureRefreshCodiButton()

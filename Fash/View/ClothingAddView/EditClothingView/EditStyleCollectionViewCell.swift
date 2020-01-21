@@ -18,10 +18,10 @@ class EditStyleCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                backgroundColor = ColorList.brownish
+                backgroundColor = .darkGray
                 styleTitleLabel.textColor = .white
             } else {
-                backgroundColor = ColorList.beige
+                backgroundColor = .lightGray
                 styleTitleLabel.textColor = .white
             }
         }

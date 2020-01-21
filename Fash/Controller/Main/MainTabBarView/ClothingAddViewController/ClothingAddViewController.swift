@@ -65,20 +65,6 @@ class ClothingAddViewController: UIViewController {
 
     // MARK: - Add DeepLearning Module
 
-    // pt파일을 불러와 TorchModule을 준비한다.
-
-    // txt데이터를 불러와 문자열 배열로 준비한다.
-//    private let yjData: [String] = {
-//        // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 txt파일을 TorchModule에서 읽는다.
-//        if let filePath = Bundle.main.path(forResource: "combine", ofType: "txt"),
-//            let labels = try? String(contentsOfFile: filePath) {
-//            return labels.components(separatedBy: .newlines)
-//        } else {
-//            // txt파일을 읽지 못하면 해당 행 실행
-//            fatalError("Can't find the text file!")
-//        }
-//    }()
-
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -113,7 +99,7 @@ class ClothingAddViewController: UIViewController {
         /*
          let yjModule: TorchModule = {
              // 파일경로가 정상인지 확인 한 후 정상이면 해당 파일경로의 pt파일을 TorchModule에서 읽는다.
-             if let filePath = Bundle.main.path(forResource: "khModel", ofType: "pt"),
+             if let filePath = Bundle.main.path(forResource: "mobilenet_v2_checkpoint_jit-49_no_crop", ofType: "pt"),
                  let module = TorchModule(fileAtPath: filePath) {
                  return module
              } else {
