@@ -93,6 +93,23 @@ class LoginViewController: UIViewController {
 
     // MARK: Methods
 
+    private func animateFadeOutTopView(_: TimeInterval = 0.5) {
+        let topView = UIView()
+        topView.bounds = view.bounds
+        topView.frame = view.frame
+        navigationController?.view.addSubview(topView)
+        topView.backgroundColor = .white
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.0,
+                       options: .curveEaseOut,
+                       animations: {
+                           topView.alpha = 0.0
+                       },
+                       completion: { _ in
+                           topView.removeFromSuperview()
+        })
+    }
+
     private func resignTextFieldFirstResponder() {
         idTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
@@ -268,5 +285,7 @@ extension LoginViewController: UIViewControllerSetting {
         configureTextField()
         configureLoginButton()
         configureSignUpButton()
+
+        animateFadeOutTopView()
     }
 }
