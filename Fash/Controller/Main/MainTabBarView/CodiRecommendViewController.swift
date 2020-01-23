@@ -213,7 +213,7 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func updateWeatherData(weatherData: WeatherAPIData) {
-        if let temperature = Double(weatherData.temperature) {
+        if let temperature = Double(weatherData.temperature!) {
             celsiusLabel.text = "\((temperature * 10).rounded() / 10)°C"
         }
 
@@ -334,6 +334,29 @@ class CodiRecommendViewController: UIViewController {
         recommendCollectionView.isScrollEnabled = false
     }
 
+    private func checkWeatherData(_ weatherDataList: [WeatherAPIData]?, coordinator: CLLocationCoordinate2D) {
+        // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
+
+        guard let weatherDataList = weatherDataList else { return }
+
+        var minDiff: Double = 6e4
+        weatherDataList.forEach {
+            guard let latitude = LocationData.coordinatorList[$0.id]?.1,
+                let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
+            let diff = abs(coordinator.latitude - latitude) + abs(coordinator.longitude - longitude)
+            if diff < minDiff {
+                minDiff = diff
+                self.nowWeatherData = $0
+            }
+        }
+
+        guard let weatherData = self.nowWeatherData else { return }
+        DispatchQueue.main.async {
+            self.updateWeatherData(weatherData: weatherData)
+            self.locationManager.stopUpdatingLocation()
+        }
+    }
+
     //    private func hideBackgroundImage() {
     //        backgroundImageView.isHidden = true
     //    }
@@ -444,11 +467,13 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
         guard let nowCoordinator = locations.first?.coordinate else { return }
         // 현지 위치정보를 얻었는데 만약 날씨 데이터가 존재하지 않는나면,
         // 날씨 데이터를 요청해서 받아온다.
-        RequestAPI.shared.getAPIData(APIMode: .getWeather, type: [WeatherAPIData].self) { error, data in
+        RequestAPI.shared.getAPIData(APIMode: .getWeather, type: WeatherAPIDataList.self) { error, data in
 
             if error != nil {
                 if error == NetworkError.duplicate {
                     self.locationManager.stopUpdatingLocation()
+                    self.checkWeatherData(data, coordinator: nowCoordinator)
+                    return
                 }
 
                 DispatchQueue.main.async {
@@ -458,25 +483,7 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
                 return
             }
 
-            // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
-            guard let weatherDataList = data else { return }
-
-            var minDiff: Double = 6e4
-            weatherDataList.forEach {
-                guard let latitude = LocationData.coordinatorList[$0.id]?.1,
-                    let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
-                let diff = abs(nowCoordinator.latitude - latitude) + abs(nowCoordinator.longitude - longitude)
-                if diff < minDiff {
-                    minDiff = diff
-                    self.nowWeatherData = $0
-                }
-            }
-
-            guard let weatherData = self.nowWeatherData else { return }
-            DispatchQueue.main.async {
-                self.updateWeatherData(weatherData: weatherData)
-                self.locationManager.stopUpdatingLocation()
-            }
+            self.checkWeatherData(data, coordinator: nowCoordinator)
         }
     }
 

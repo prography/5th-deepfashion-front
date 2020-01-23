@@ -113,9 +113,10 @@ class DeleteUserViewController: UIViewController {
         view.endEditing(true)
 
         guard let tabBarController = self.tabBarController,
-            let password = self.passwordTextFieldList[0].text else { return }
+            let password = self.passwordTextFieldList[0].text,
+            let userName = UserCommonData.shared.userData?.username else { return }
 
-        let userData = LoginAPIPostData(userName: UserCommonData.shared.id, password: password)
+        let userData = LoginAPIPostData(userName: userName, password: password)
 
         RequestAPI.shared.postAPIData(userData: userData, APIMode: APIPostMode.loginData) { [weak self] errorType in
             if errorType != nil {

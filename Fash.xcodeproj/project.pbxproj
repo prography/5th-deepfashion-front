@@ -116,6 +116,7 @@
 		07D5E9BB236EF9C000A27B28 /* ClothingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BA236EF9C000A27B28 /* ClothingStyle.swift */; };
 		07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9BC236EFADE00A27B28 /* UIButton+.swift */; };
 		07E5B39323B64D8000F5ACCC /* DeleteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */; };
+		07F0346A23D9980B00B829E2 /* GenderIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F0346923D9980B00B829E2 /* GenderIndex.swift */; };
 		07F8DE7323B4EA8500066677 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F8DE7223B4EA8500066677 /* ToastView.swift */; };
 		93729B53D181CAFB7931D84D /* Pods_Fash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795230235011814907C7BF76 /* Pods_Fash.framework */; };
 		B7B96AF88A78322EB304D9EF /* Pods_FashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2546F293B4596B71A749FFF2 /* Pods_FashUITests.framework */; };
@@ -257,6 +258,7 @@
 		07D5E9BA236EF9C000A27B28 /* ClothingStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingStyle.swift; sourceTree = "<group>"; };
 		07D5E9BC236EFADE00A27B28 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserViewController.swift; sourceTree = "<group>"; };
+		07F0346923D9980B00B829E2 /* GenderIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderIndex.swift; sourceTree = "<group>"; };
 		07F8DE7223B4EA8500066677 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		1E71AD7D7C3F303C9089EB99 /* Pods_FashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2546F293B4596B71A749FFF2 /* Pods_FashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -697,6 +699,7 @@
 				07B5AE93239A4DEE000C215E /* ClothingData.swift */,
 				073547AE23BA427A00E45ADF /* LocationData.swift */,
 				073547B323BB7C7200E45ADF /* WeatherIndex.swift */,
+				07F0346923D9980B00B829E2 /* GenderIndex.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1021,6 +1024,7 @@
 				0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */,
 				07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */,
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
+				07F0346A23D9980B00B829E2 /* GenderIndex.swift in Sources */,
 				07C5C60023ACFE0200324B67 /* EditClothingTableViewCell.swift in Sources */,
 				077C77BA2378155F0088B151 /* UserData.swift in Sources */,
 				07A5F72923C3190B0024CF07 /* CodiListAPIData.swift in Sources */,
@@ -1237,14 +1241,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.52;
+				CURRENT_PROJECT_VERSION = 1.53;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.52;
+				MARKETING_VERSION = 1.53;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1263,14 +1267,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.52;
+				CURRENT_PROJECT_VERSION = 1.53;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.52;
+				MARKETING_VERSION = 1.53;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

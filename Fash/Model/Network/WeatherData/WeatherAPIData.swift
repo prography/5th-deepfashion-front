@@ -8,16 +8,18 @@
 
 import Foundation
 
+typealias WeatherAPIDataList = [WeatherAPIData]
 struct WeatherAPIData: Codable {
     let id: Int
-    let location: String
-    let temperature: String
+    let location: String?
+    let status: String?
+    let temperature: String?
     let rain: String?
     let snow: String?
     let humidity: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, location, rain, snow, humidity
+        case id, location, rain, snow, humidity, status
         case temperature = "temp"
     }
 }

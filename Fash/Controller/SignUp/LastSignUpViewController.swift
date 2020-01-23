@@ -50,6 +50,8 @@ class LastSignUpViewController: UIViewController {
         get { return _styleSelectionCount }
     }
 
+    private var selectedStyles = [Int: Int]()
+
     // MARK: Life Cycle
 
     override func viewDidLoad() {
@@ -117,11 +119,15 @@ class LastSignUpViewController: UIViewController {
 
     @IBAction func signUpFinishedButtonPressed(_: UIButton) {
         /// Data Check Test
-        guard let userData = UserCommonData.shared.userData,
-            let navigationController = self.navigationController else { return }
+        guard let navigationController = self.navigationController,
+            let userData = UserCommonData.shared.userData else { return }
 
-        let userAPIData = UserAPIPostData(userName: userData.userName, gender: userData.gender, styles: userData.style, password: userData.password)
+        var styles = [Int]()
+        for (key, _) in selectedStyles {
+            styles.append(key)
+        }
 
+        let userAPIData = UserAPIPostData(userName: userData.username, gender: userData.gender, styles: styles, password: UserCommonData.shared.password)
         debugPrint(userAPIData)
         RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.signUpAccounts) { errorType in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
@@ -144,15 +150,18 @@ class LastSignUpViewController: UIViewController {
     }
 
     @IBAction func styleSelectButtonPressed(_ sender: UIButton) {
-        guard let styleName = sender.titleLabel?.text else { return }
+        guard let styleName = sender.titleLabel?.text,
+            let styleText = sender.titleLabel?.text,
+            let styleKey = ClothingStyle.dictionary[styleText] else { return }
 
         let flag = UserCommonData.shared.toggleStyleData(styleName: styleName)
-
         if flag == 0 {
             configureStyleButtonDisabled(styleButton: sender)
+            selectedStyles.removeValue(forKey: styleKey)
             styleSelectionCount -= 1
         } else {
             configureStyleButtonSelected(styleButton: sender)
+            selectedStyles[styleKey] = (selectedStyles[styleKey] ?? 0) + 1
             styleSelectionCount += 1
         }
     }

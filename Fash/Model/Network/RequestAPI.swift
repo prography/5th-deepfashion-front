@@ -62,6 +62,7 @@ enum APIGetMode: String {
     case getWeather
     case getClothing
     case getCodiList
+    case getUserData
 }
 
 struct APIURL {
@@ -77,6 +78,7 @@ struct APIURL {
             static let currentWeather = "weather/current-weather/"
             static let clothing = "clothing/"
             static let codiList = "clothing/codilist/"
+            static let user = "accounts/"
         }
 
         struct Post {
@@ -107,6 +109,33 @@ final class RequestAPI {
         delegate?.requestAPIDidBegin()
 
         switch APIMode {
+        case .getUserData:
+            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.user)\(UserCommonData.shared.pk)/"
+            debugPrint("now url : \(requestAPIURLString)")
+
+            guard let url = URL(string: requestAPIURLString) else { return }
+            var urlRequest = URLRequest(url: url)
+            urlRequest.httpMethod = "GET"
+            urlRequest.addValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlSession.dataTask(with: urlRequest, completionHandler: { (data, _, _) -> Void in
+                guard let data = data else {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType, nil)
+                    return
+                }
+
+                do {
+                    let userAPIData = try JSONDecoder().decode(T.self, from: data)
+                    self.delegate?.requestAPIDidFinished()
+                    completion(nil, userAPIData)
+                } catch {
+                    errorType = .client
+                    self.delegate?.requestAPIDidError()
+                    completion(errorType, nil)
+                }
+
+            }).resume()
         case .getWeather:
             if isWeatherRequested == true {
                 delegate?.requestAPIDidFinished()

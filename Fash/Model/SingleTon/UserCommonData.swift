@@ -11,8 +11,7 @@ import UIKit
 final class UserCommonData {
     static let shared = UserCommonData()
 
-    private(set) var userData: UserData?
-    private(set) var id: String = ""
+    private(set) var userData: UserAPIData?
     private(set) var pk: Int = 0
     private(set) var userToken: String = ""
     private(set) var password: String = ""
@@ -29,16 +28,13 @@ final class UserCommonData {
 
     private init() {}
 
-    func setUserData(id: String, password: String, gender: Int) {
-        self.id = id
-        self.password = password
-        self.gender = gender
-        userData = UserData(userName: id, styles: [], password: password, gender: gender)
-        clothingDataList = [ClothingAPIData]()
+    func setUserData(_ userData: UserAPIData) {
+        self.userData = userData
+        debugPrint("now UserData : \(userData)")
     }
 
-    func saveID(_ id: String) {
-        self.id = id
+    func savePassword(_ password: String) {
+        self.password = password
     }
 
     func setUserPrivateData(token: String, pk: Int) {
@@ -52,7 +48,7 @@ final class UserCommonData {
         } else {
             selectedStyle[styleName] = 0
         }
-        userData?.configureStyle(styles: selectedStyle)
+//        userData?.configureStyle(styles: selectedStyle)
         return selectedStyle[styleName] ?? 0
     }
 
@@ -66,7 +62,7 @@ final class UserCommonData {
 
     func resetStyleData() {
         selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
-        userData?.configureStyle(styles: selectedStyle)
+//        userData?.configureStyle(styles: selectedStyle)
     }
 
     func setNeedToUpdatePartIndex(_ index: Int, _ value: Bool) {

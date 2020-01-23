@@ -94,10 +94,13 @@ class FirstSignUpViewController: UIViewController {
         guard let nextViewController = segue.destination as? LastSignUpViewController else { return }
         guard let idText = self.idTextField.text,
             let passwordText = self.passwordTextField.text,
-            let genderIndex = self.genderSegmentedControl?.selectedSegmentIndex else { return }
+            let _genderIndex = self.genderSegmentedControl?.selectedSegmentIndex,
+            let genderIndex = GenderIndex(rawValue: _genderIndex)?.index else { return }
 
-        nextViewController.isGenderMan = genderIndex == 0 ? true : false
-        UserCommonData.shared.setUserData(id: idText, password: passwordText, gender: genderIndex)
+        nextViewController.isGenderMan = _genderIndex == 0 ? true : false
+        let userData = UserAPIData(username: idText, gender: genderIndex, styles: [])
+        UserCommonData.shared.setUserData(userData)
+        UserCommonData.shared.savePassword(passwordText)
     }
 
     // MARK: - IBActions
