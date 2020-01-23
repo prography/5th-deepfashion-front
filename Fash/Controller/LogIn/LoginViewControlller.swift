@@ -285,7 +285,6 @@ extension LoginViewController: UIViewControllerSetting {
         configureTextField()
         configureLoginButton()
         configureSignUpButton()
-
         animateFadeOutTopView()
     }
 }

@@ -146,7 +146,7 @@ class CodiRecommendViewController: UIViewController {
         let locationAuthStatus = CLLocationManager.authorizationStatus()
         switch locationAuthStatus {
         case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
         case .authorizedAlways,
              .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
