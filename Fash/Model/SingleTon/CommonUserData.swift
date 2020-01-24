@@ -8,25 +8,33 @@
 
 import UIKit
 
-final class UserCommonData {
-    static let shared = UserCommonData()
+final class CommonUserData {
+    static let shared = CommonUserData()
+
+    // MARK: Properties
 
     private(set) var userData: UserAPIData?
     private(set) var pk: Int = 0
     private(set) var userToken: String = ""
     private(set) var password: String = ""
     private(set) var gender: Int = 0 // 0 남자, 1 여자
-    private(set) var isNeedToUpdateClothing = false
     private(set) var needToUpdatePartIndex = [Bool](repeating: false, count: 4)
+    private(set) var isNeedToUpdateClothing = false
     private(set) var isNeedToUpdateCodiList = false
     private(set) var selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
     private(set) var nowClothingCode: Int = 0
 
     private(set) var clothingDataList = [ClothingAPIData]()
     private(set) var codiListCollection = [CodiListAPIData]()
+    private(set) var weatherData: WeatherData?
     var thumbnailImageCache = NSCache<NSString, UIImage>()
+//    var nowWeatherData =
+
+    // MARK: Init
 
     private init() {}
+
+    // MARK: Methods
 
     func setUserData(_ userData: UserAPIData) {
         self.userData = userData
@@ -48,7 +56,6 @@ final class UserCommonData {
         } else {
             selectedStyle[styleName] = 0
         }
-//        userData?.configureStyle(styles: selectedStyle)
         return selectedStyle[styleName] ?? 0
     }
 
@@ -62,7 +69,6 @@ final class UserCommonData {
 
     func resetStyleData() {
         selectedStyle = ["Casual": 0, "Formal": 0, "Street": 0, "Vintage": 0, "Hiphop": 0, "Sporty": 0, "Lovely": 0, "Luxury": 0, "Sexy": 0, "Modern": 0, "Chic": 0, "Purity": 0, "Dandy": 0]
-//        userData?.configureStyle(styles: selectedStyle)
     }
 
     func setNeedToUpdatePartIndex(_ index: Int, _ value: Bool) {
@@ -91,6 +97,14 @@ final class UserCommonData {
         self.codiListCollection = codiListCollection
     }
 
+    func configureWeatherData(_ weatherData: WeatherData) {
+        self.weatherData = weatherData
+    }
+
+    func isWeatherDataEmpty() -> Bool {
+        return weatherData == nil
+    }
+
     func setIsNeedToUpdateClothingTrue() {
         isNeedToUpdateClothing = true
     }
@@ -106,15 +120,4 @@ final class UserCommonData {
     func setIsNeedToUpdateCodiListFalse() {
         isNeedToUpdateCodiList = false
     }
-
-//    func addCodiData(_ codiData: [CodiListAPIData]) {
-//        let nowTimeStamp = Date().timeIntervalSince1970
-//        var codiDataSet = CodiDataSet(timeStamp: nowTimeStamp)
-//        codiDataSet.configureData(dataSet: codiData)
-//        codiListCollection.append(codiDataSet)
-//    }
-//
-//    func configureCodiDataList(_ codiDataList: [CodiDataSet]) {
-//        self.codiDataList = codiDataList
-//    }
 }

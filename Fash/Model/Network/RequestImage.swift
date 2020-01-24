@@ -33,7 +33,7 @@ final class RequestImage {
     }
 
     func setImageFromCache(_ thumbnailImageURLString: String, placeHolder: UIImage) -> UIImage {
-        if let cachedImage = UserCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
+        if let cachedImage = CommonUserData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
             // 이미지셋팅 후 작업을 마친다. 이미지캐시가 없다면 URL에 대한 데이터처리를 준비한다.
             return cachedImage
         } else {
@@ -48,7 +48,7 @@ final class RequestImage {
     func setImageFromServerURL(_ thumbnailImageURLString: String, placeHolder: UIImage, completion: @escaping (UIImage, Bool) -> Void) {
         delegate?.imageRequestDidBegin()
 
-        if let cachedImage = UserCommonData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
+        if let cachedImage = CommonUserData.shared.thumbnailImageCache.object(forKey: NSString(string: thumbnailImageURLString)) {
             delegate?.imageRequestDidFinished(cachedImage, imageKey: thumbnailImageURLString)
             completion(cachedImage, true)
             return
@@ -71,7 +71,7 @@ final class RequestImage {
                     let thumbnailImage = UIImage(data: thumbnailImageData)
                 else { return }
                 // 이미지 캐싱 후 해당 이미지에 최종적으로 처리된 이미지를 셋팅한다.
-                UserCommonData.shared.thumbnailImageCache.setObject(thumbnailImage, forKey: NSString(string: thumbnailImageURLString))
+                CommonUserData.shared.thumbnailImageCache.setObject(thumbnailImage, forKey: NSString(string: thumbnailImageURLString))
 
                 self.removeImageKey(thumbnailImageURLString)
                 self.delegate?.imageRequestDidFinished(thumbnailImage, imageKey: thumbnailImageURLString)

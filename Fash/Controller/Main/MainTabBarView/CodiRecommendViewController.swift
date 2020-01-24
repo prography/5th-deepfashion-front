@@ -113,7 +113,7 @@ class CodiRecommendViewController: UIViewController {
     }
 
     func requestClothingAPIDataList() {
-        if UserCommonData.shared.isNeedToUpdateClothing == false {
+        if CommonUserData.shared.isNeedToUpdateClothing == false {
             refreshCodiData()
             return
         }
@@ -121,7 +121,7 @@ class CodiRecommendViewController: UIViewController {
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
-                UserCommonData.shared.configureClothingData(clothingDataList)
+                CommonUserData.shared.configureClothingData(clothingDataList)
                 CodiListGenerator.shared.getNowCodiDataSet()
                 self.refreshCodiData()
             } else {
@@ -130,7 +130,7 @@ class CodiRecommendViewController: UIViewController {
                     tabBarController.presentToastMessage("옷 정보를 불러오는데 실패했습니다.")
                 }
 
-                UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+                CommonUserData.shared.setIsNeedToUpdateClothingTrue()
             }
         }
     }
@@ -351,9 +351,15 @@ class CodiRecommendViewController: UIViewController {
             }
         }
 
-        guard let weatherData = self.nowWeatherData else { return }
+        // 현재 흭득한 날씨 정보를 CommonUserData에 저장
+        guard let weatherAPIData = self.nowWeatherData,
+            let _temperature = weatherAPIData.temperature,
+            let temperature = Double(_temperature) else { return }
+        let weatherData = WeatherData(temperature: temperature, coordinator: coordinator)
+        CommonUserData.shared.configureWeatherData(weatherData)
+
         DispatchQueue.main.async {
-            self.updateWeatherData(weatherData: weatherData)
+            self.updateWeatherData(weatherData: weatherAPIData)
             self.locationManager.stopUpdatingLocation()
         }
     }
@@ -379,7 +385,7 @@ class CodiRecommendViewController: UIViewController {
             codiIdList.append(codiId)
         }
 
-        let codiListData = CodiListAPIData(id: nil, name: codiListName, owner: UserCommonData.shared.pk, clothes: codiIdList, createdTime: nil, updatedTime: nil)
+        let codiListData = CodiListAPIData(id: nil, name: codiListName, owner: CommonUserData.shared.pk, clothes: codiIdList, createdTime: nil, updatedTime: nil)
         isCodiDataRequested = true
         debugPrint("now Posting CodiListData : \(codiListData)")
         RequestAPI.shared.postAPIData(userData: codiListData, APIMode: .codiList) { networkError in
@@ -387,7 +393,7 @@ class CodiRecommendViewController: UIViewController {
                 self?.isCodiDataRequested = false
                 if networkError == nil {
                     tabBarController.presentToastMessage("코디리스트가 등록되었습니다!")
-                    UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
+                    CommonUserData.shared.setIsNeedToUpdateCodiListTrue()
                     self?.dismissCodiAddView()
                 } else {
                     tabBarController.presentToastMessage("코디리스트 등록에 실패했습니다.")
@@ -408,6 +414,14 @@ class CodiRecommendViewController: UIViewController {
     // MARK: - IBAction
 
     @objc func refreshCodiButtonPressed(_: UIButton) {
+        // 먼저 날씨정보를 참고할 수 있는지 확인한다.
+        if CommonUserData.shared.isWeatherDataEmpty() {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            tabBarController.presentToastMessage("날씨정보가 갱신되지 않아 추천이 불가능합니다.")
+        }
+
+        CodiListGenerator.shared.classifyCodiList()
+
         var fixStatus = [Int]()
         for i in 0 ..< 4 {
             guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
@@ -472,8 +486,6 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
 
             if error != nil {
                 if error == NetworkError.duplicate {
-                    self.locationManager.stopUpdatingLocation()
-                    self.checkWeatherData(data, coordinator: nowCoordinator)
                     return
                 }
 
@@ -548,7 +560,7 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         //        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
         locationManager.delegate = self
         requestLocationAuthority()
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        CommonUserData.shared.setIsNeedToUpdateClothingTrue()
         configureBackgroundImageView()
         configureTopContentView()
         configureCodiRecommendCollectionView()

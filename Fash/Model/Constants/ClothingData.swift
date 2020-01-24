@@ -15,7 +15,7 @@ struct ClothingData {
     var seasonIndex = 0
     var categoryIndex: (Int, SubCategory) = (1, ClothingIndex.subCategoryList[1] ?? SubCategory(name: "청바지", mainIndex: 3))
     var colorIndex: UInt64 = 0x000000
-    var gender = UserCommonData.shared.gender
+    var gender = CommonUserData.shared.gender
     init() {
         var styleName: [String] = []
         if gender == 0 {

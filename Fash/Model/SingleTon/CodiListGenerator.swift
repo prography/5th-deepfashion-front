@@ -12,14 +12,57 @@ final class CodiListGenerator {
     static let shared = CodiListGenerator()
 
     private(set) var clothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+    private(set) var seasonClassifiedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+    private(set) var otherClassifiedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+    private(set) var recommendedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+
     private(set) var topCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
+    private(set) var seasonIndex = SeasonIndex.all
 
     func configureClothingDataList() {
         resetData()
-        for i in UserCommonData.shared.clothingDataList.indices {
-            guard let nowIndex = ClothingIndex.subCategoryList[UserCommonData.shared.clothingDataList[i].category]?.mainIndex else { continue }
-            clothingDataLists[nowIndex].append(UserCommonData.shared.clothingDataList[i])
+        for i in CommonUserData.shared.clothingDataList.indices {
+            guard let nowIndex = ClothingIndex.subCategoryList[CommonUserData.shared.clothingDataList[i].category]?.mainIndex else { continue }
+            clothingDataLists[nowIndex].append(CommonUserData.shared.clothingDataList[i])
         }
+    }
+
+    func classifyCodiList() {
+        adjustWeatherData()
+    }
+
+    private func adjustWeatherData() {
+        // ✓ clothingDataLists : 초기 원본 파트 별 옷 데이터 2차원배열 리스트 (파트별 4종류의 list가 존재)
+        // ✓ seasonClassifiedClothingDataLists : 현재 계절에 한해서 분류한 옷 데이터 2차원배열 리스트
+        // ✓ otherClassifiedClothingDataLists : 현재 계절 이외 옷 데이터 2차원배열 리스트
+        // ✓ recommendedClothingDataLists : 실제 코디 추천에 사용 될 2차원배열 리스트
+
+        guard let weatherData = CommonUserData.shared.weatherData else { return }
+        if weatherData.temperature <= 5.0 {
+            seasonIndex = .winter
+        } else if weatherData.temperature <= 23.0 {
+            seasonIndex = .springFall
+        } else {
+            seasonIndex = .summer
+        }
+
+        for i in clothingDataLists.indices {
+            for j in clothingDataLists[i].indices {
+                if clothingDataLists[i][j].season == seasonIndex.rawValue {
+                    seasonClassifiedClothingDataLists[i].append(clothingDataLists[i][j])
+                } else {
+                    otherClassifiedClothingDataLists[i].append(clothingDataLists[i][j])
+                }
+            }
+        }
+
+        for i in recommendedClothingDataLists.indices {
+            recommendedClothingDataLists[i] = seasonClassifiedClothingDataLists[i] + otherClassifiedClothingDataLists[i]
+        }
+
+        debugPrint("seasonClassifiedClothingDataLists : \(seasonClassifiedClothingDataLists)")
+        debugPrint("otherClassifiedClothingDataLists : \(otherClassifiedClothingDataLists)")
+        debugPrint("recommendedClothingDataLists : \(recommendedClothingDataLists)")
     }
 
     func resetCodiListGenerator() {
@@ -58,7 +101,6 @@ final class CodiListGenerator {
                 }
             }
         }
-//        return topCodiDataSet
     }
 
     func resetData() {

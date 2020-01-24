@@ -68,6 +68,7 @@
 		07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */; };
 		07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */; };
 		0798DE0123DAEAFA0090CD3C /* SeasonIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */; };
+		0798DE0323DAEE500090CD3C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798DE0223DAEE500090CD3C /* WeatherData.swift */; };
 		079B530B23CDDFDE0042D06E /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530A23CDDFDE0042D06E /* MainNavigationController.swift */; };
 		079F56A123D40D0D00F1F859 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */; };
 		079F56A523D4137F00F1F859 /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */; };
@@ -109,7 +110,7 @@
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
 		07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */; };
-		07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */; };
+		07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */; };
 		07D5E9AF236EE6A800A27B28 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* UITextField+.swift */; };
 		07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */; };
 		07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */; };
@@ -211,6 +212,7 @@
 		07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableviewCellDelegate.swift; sourceTree = "<group>"; };
 		0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonIndex.swift; sourceTree = "<group>"; };
+		0798DE0223DAEE500090CD3C /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		079B530A23CDDFDE0042D06E /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +254,7 @@
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
 		07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableHeaderView.swift; sourceTree = "<group>"; };
-		07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommonData.swift; sourceTree = "<group>"; };
+		07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserData.swift; sourceTree = "<group>"; };
 		07D5E9AE236EE6A800A27B28 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifier.swift; sourceTree = "<group>"; };
 		07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCharacterSet.swift; sourceTree = "<group>"; };
@@ -521,7 +523,7 @@
 			isa = PBXGroup;
 			children = (
 				07BFE0BE23BF0E6600AD9287 /* CodiListGenerator.swift */,
-				07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */,
+				07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */,
 			);
 			path = SingleTon;
 			sourceTree = "<group>";
@@ -702,6 +704,7 @@
 				0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */,
 				073547AE23BA427A00E45ADF /* LocationData.swift */,
 				073547B323BB7C7200E45ADF /* WeatherIndex.swift */,
+				0798DE0223DAEE500090CD3C /* WeatherData.swift */,
 				07F0346923D9980B00B829E2 /* GenderIndex.swift */,
 			);
 			path = Constants;
@@ -1004,7 +1007,7 @@
 				079F56A523D4137F00F1F859 /* LogoAnimationViewController.swift in Sources */,
 				076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */,
 				07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */,
-				07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */,
+				07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */,
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07B5AE94239A4DEE000C215E /* ClothingData.swift in Sources */,
 				073547BA23BC992A00E45ADF /* ClothingAPIData.swift in Sources */,
@@ -1042,6 +1045,7 @@
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
 				073547AF23BA427A00E45ADF /* LocationData.swift in Sources */,
+				0798DE0323DAEE500090CD3C /* WeatherData.swift in Sources */,
 				07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */,
 				07C745A82392A41D0045AB56 /* ClothingMainType.swift in Sources */,
 				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,

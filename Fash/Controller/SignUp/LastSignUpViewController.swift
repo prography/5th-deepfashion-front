@@ -67,7 +67,7 @@ class LastSignUpViewController: UIViewController {
 
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
-        UserCommonData.shared.resetStyleData()
+        CommonUserData.shared.resetStyleData()
         styleSelectionCount = 0
     }
 
@@ -120,14 +120,14 @@ class LastSignUpViewController: UIViewController {
     @IBAction func signUpFinishedButtonPressed(_: UIButton) {
         /// Data Check Test
         guard let navigationController = self.navigationController,
-            let userData = UserCommonData.shared.userData else { return }
+            let userData = CommonUserData.shared.userData else { return }
 
         var styles = [Int]()
         for (key, _) in selectedStyles {
             styles.append(key)
         }
 
-        let userAPIData = UserAPIPostData(userName: userData.username, gender: userData.gender, styles: styles, password: UserCommonData.shared.password)
+        let userAPIData = UserAPIPostData(userName: userData.username, gender: userData.gender, styles: styles, password: CommonUserData.shared.password)
         debugPrint(userAPIData)
         RequestAPI.shared.postAPIData(userData: userAPIData, APIMode: APIPostMode.signUpAccounts) { errorType in
             // API POST 요청 후 요청 성공 시 상관없이 userData 정보를 출력
@@ -154,7 +154,7 @@ class LastSignUpViewController: UIViewController {
             let styleText = sender.titleLabel?.text,
             let styleKey = ClothingStyle.dictionary[styleText] else { return }
 
-        let flag = UserCommonData.shared.toggleStyleData(styleName: styleName)
+        let flag = CommonUserData.shared.toggleStyleData(styleName: styleName)
         if flag == 0 {
             configureStyleButtonDisabled(styleButton: sender)
             selectedStyles.removeValue(forKey: styleKey)

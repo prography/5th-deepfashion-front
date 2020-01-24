@@ -67,7 +67,7 @@ class CodiListCollectionViewCell: UICollectionViewCell {
         let sortedIdList = idList.sorted()
         var idListIndex = 0
         var imageCheckList = [Int](repeating: 0, count: 4)
-        let clothingAPIDataList = UserCommonData.shared.clothingDataList.sorted()
+        let clothingAPIDataList = CommonUserData.shared.clothingDataList.sorted()
 
         for i in clothingAPIDataList.indices {
             if idListIndex >= sortedIdList.count { break }

@@ -283,7 +283,7 @@ class ClothingAddViewController: UIViewController {
 
     @IBAction func unwindToClothingAddView(_: UIStoryboardSegue) {
         guard let tabBarController = tabBarController as? MainTabBarController else { return }
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        CommonUserData.shared.setIsNeedToUpdateClothingTrue()
         isImageSelected = true
         tabBarController.presentToastMessage("해당 옷이 추가되었습니다!")
         configureLayoutWithInitStatus()
@@ -294,10 +294,10 @@ class ClothingAddViewController: UIViewController {
                 guard let tabBarController = self.tabBarController as? MainTabBarController,
                     let clothingDataList = clothingDataList else { return }
                 if networkError != nil {
-                    UserCommonData.shared.configureClothingData(clothingDataList)
+                    CommonUserData.shared.configureClothingData(clothingDataList)
                     CodiListGenerator.shared.getNowCodiDataSet()
                     tabBarController.reloadRecommendCollectionView(clothingDataList)
-                    UserCommonData.shared.setIsNeedToUpdateClothingFalse()
+                    CommonUserData.shared.setIsNeedToUpdateClothingFalse()
                 } else {
                     tabBarController.presentToastMessage("옷 데이터 업데이트에 실패했습니다.")
                 }
