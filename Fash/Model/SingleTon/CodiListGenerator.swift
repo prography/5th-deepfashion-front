@@ -16,18 +16,22 @@ final class CodiListGenerator {
     private(set) var otherClassifiedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
     private(set) var recommendedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
 
-    private(set) var topCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
+    private(set) var topRecommendedCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
     private(set) var seasonIndex = SeasonIndex.all
+    private(set) var weatherDataDidAdjusted = false
 
-    func configureClothingDataList() {
+    func configureClothingDataLists() {
         resetData()
         for i in CommonUserData.shared.clothingDataList.indices {
             guard let nowIndex = ClothingIndex.subCategoryList[CommonUserData.shared.clothingDataList[i].category]?.mainIndex else { continue }
             clothingDataLists[nowIndex].append(CommonUserData.shared.clothingDataList[i])
         }
+
+        // 코디리스트 추천 알고리즘 적용
+        classifyCodiList()
     }
 
-    func classifyCodiList() {
+    private func classifyCodiList() {
         adjustWeatherData()
     }
 
@@ -57,7 +61,7 @@ final class CodiListGenerator {
         }
 
         for i in recommendedClothingDataLists.indices {
-            recommendedClothingDataLists[i] = seasonClassifiedClothingDataLists[i] + otherClassifiedClothingDataLists[i]
+            recommendedClothingDataLists[i] = seasonClassifiedClothingDataLists[i].shuffled() + otherClassifiedClothingDataLists[i].shuffled()
         }
 
         debugPrint("seasonClassifiedClothingDataLists : \(seasonClassifiedClothingDataLists)")
@@ -67,34 +71,35 @@ final class CodiListGenerator {
 
     func resetCodiListGenerator() {
         clothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
-        topCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
+        topRecommendedCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
+        weatherDataDidAdjusted = false
     }
 
     func getNowCodiDataSet() {
-        configureClothingDataList()
+        configureClothingDataLists()
 
-        for i in topCodiDataSet.indices {
-            guard let nowClothingData = clothingDataLists[i].first else {
-                topCodiDataSet[i] = nil
+        for i in topRecommendedCodiDataSet.indices {
+            guard let recommendedClothingData = recommendedClothingDataLists[i].first else {
+                topRecommendedCodiDataSet[i] = nil
                 continue
             }
-            topCodiDataSet[i] = nowClothingData
+            topRecommendedCodiDataSet[i] = recommendedClothingData
         }
     }
 
     func getNextCodiDataSet(_ fixTypeStatus: [Int]) {
-        for i in topCodiDataSet.indices {
-            if clothingDataLists[i].isEmpty {
-                topCodiDataSet[i] = nil
+        for i in topRecommendedCodiDataSet.indices {
+            if recommendedClothingDataLists[i].isEmpty {
+                topRecommendedCodiDataSet[i] = nil
             } else {
                 if fixTypeStatus[i] == 1 {
-                    guard let nowClothingData = clothingDataLists[i].first else {
-                        topCodiDataSet[i] = nil
+                    guard let nowClothingData = recommendedClothingDataLists[i].first else {
+                        topRecommendedCodiDataSet[i] = nil
                         continue
                     }
-                    clothingDataLists[i].removeFirst()
-                    clothingDataLists[i].append(nowClothingData)
-                    topCodiDataSet[i] = nowClothingData
+                    recommendedClothingDataLists[i].removeFirst()
+                    recommendedClothingDataLists[i].append(nowClothingData)
+                    topRecommendedCodiDataSet[i] = nowClothingData
 
                 } else {
                     continue
@@ -103,9 +108,12 @@ final class CodiListGenerator {
         }
     }
 
-    func resetData() {
+    private func resetData() {
         clothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
-        topCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
+        seasonClassifiedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+        otherClassifiedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+        recommendedClothingDataLists = [[ClothingAPIData]](repeating: [ClothingAPIData](), count: 4)
+        topRecommendedCodiDataSet = [ClothingAPIData?](repeating: nil, count: 4)
     }
 
     private init() {}
