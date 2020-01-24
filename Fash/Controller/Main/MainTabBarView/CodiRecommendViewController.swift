@@ -213,7 +213,8 @@ class CodiRecommendViewController: UIViewController {
     }
 
     private func updateWeatherData(weatherData: WeatherAPIData) {
-        if let temperature = Double(weatherData.temperature!) {
+        if let _temperature = weatherData.temperature,
+            let temperature = Double(_temperature) {
             celsiusLabel.text = "\((temperature * 10).rounded() / 10)°C"
         }
 

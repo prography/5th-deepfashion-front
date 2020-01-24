@@ -67,6 +67,7 @@
 		078E583D23684281000A960B /* LastSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078E583C23684281000A960B /* LastSignUpViewController.swift */; };
 		07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */; };
 		07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */; };
+		0798DE0123DAEAFA0090CD3C /* SeasonIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */; };
 		079B530B23CDDFDE0042D06E /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530A23CDDFDE0042D06E /* MainNavigationController.swift */; };
 		079F56A123D40D0D00F1F859 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */; };
 		079F56A523D4137F00F1F859 /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */; };
@@ -209,6 +210,7 @@
 		078E583C23684281000A960B /* LastSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSignUpViewController.swift; sourceTree = "<group>"; };
 		07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableviewCellDelegate.swift; sourceTree = "<group>"; };
+		0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonIndex.swift; sourceTree = "<group>"; };
 		079B530A23CDDFDE0042D06E /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				07C745A72392A41D0045AB56 /* ClothingMainType.swift */,
 				073547BB23BCB9A700E45ADF /* ClothingIndex.swift */,
 				07B5AE93239A4DEE000C215E /* ClothingData.swift */,
+				0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */,
 				073547AE23BA427A00E45ADF /* LocationData.swift */,
 				073547B323BB7C7200E45ADF /* WeatherIndex.swift */,
 				07F0346923D9980B00B829E2 /* GenderIndex.swift */,
@@ -1023,6 +1026,7 @@
 				07B1046A23AE9EAC00C8286D /* UIColor+.swift in Sources */,
 				0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */,
 				07B6E0602382AEDF00D6A9E1 /* UIViewControllerSetting.swift in Sources */,
+				0798DE0123DAEAFA0090CD3C /* SeasonIndex.swift in Sources */,
 				07B6E0622382AF7C00D6A9E1 /* MyPageViewController.swift in Sources */,
 				07F0346A23D9980B00B829E2 /* GenderIndex.swift in Sources */,
 				07C5C60023ACFE0200324B67 /* EditClothingTableViewCell.swift in Sources */,

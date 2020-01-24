@@ -21,6 +21,7 @@ struct ClothingIndex {
     static let mainClientCategoryList = [0: "Top", 1: "Outer", 2: "Bottom", 3: "Shoes", 4: "Onepiece"]
     static let mainCategoryClientIndex = ["Top": 0, "Outer": 1, "Bottom": 2, "Shoes": 3, "Onepiece": 4]
     static let mainCategoryServerIndex = ["Top": 5, "Outer": 3, "Bottom": 1, "Shoes": 4, "Onepiece": 2]
+    static let seasonServerIndex: [SeasonIndex: Int] = [.all: 1, .springFall: 2, .summer: 3, .winter: 4]
 
     static let subCategoryList = [
         1: SubCategory(name: "청바지", mainIndex: 2),
