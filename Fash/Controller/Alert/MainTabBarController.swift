@@ -86,6 +86,14 @@ class MainTabBarController: UITabBarController {
             recommendViewController.requestClothingAPIDataList()
         }
     }
+    
+    func updateRecommendCodiList() {
+        guard let recommendViewController = self.viewControllers?.first as? CodiRecommendViewController else { return }
+        CodiListGenerator.shared.getNowCodiDataSet()
+        recommendViewController.updateRecommendedCodiList()
+    }
+    
+    
 
     func reloadClosetListTableView() {
         guard let closetListViewController = self.viewControllers?[TabBarIndex.closetList.index] as? ClosetListViewController else { return }

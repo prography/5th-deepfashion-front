@@ -43,7 +43,7 @@ class CodiRecommendViewController: UIViewController {
         didSet {
             if recommendAPIDataChecker.isClothingData, recommendAPIDataChecker.isWeatherData {
                 CodiListGenerator.shared.getNowCodiDataSet()
-                refreshCodiData()
+                updateRecommendedCodiList()
             }
         }
     }
@@ -342,6 +342,23 @@ class CodiRecommendViewController: UIViewController {
         recommendCollectionView.allowsMultipleSelection = true
         recommendCollectionView.isScrollEnabled = false
     }
+    
+    func updateRecommendedCodiList() {
+        var fixStatus = [Int]()
+        DispatchQueue.main.async {
+            for i in 0 ..< 4 {
+                guard let nowCell = self.recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
+                    fixStatus.append(0)
+                    continue
+                }
+                
+                fixStatus.append(nowCell.isSelected ? 0 : 1)
+            }
+            
+            CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
+            self.refreshCodiData()
+        }
+    }
 
     private func checkWeatherData(_ weatherDataList: [WeatherAPIData]?, coordinator: CLLocationCoordinate2D) {
         // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
@@ -427,19 +444,8 @@ class CodiRecommendViewController: UIViewController {
             guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
             tabBarController.presentToastMessage("옷, 날씨정보를 받지 못해 추천이 불가능합니다.")
         }
-
-        var fixStatus = [Int]()
-        for i in 0 ..< 4 {
-            guard let nowCell = recommendCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as? CodiRecommendCollectionViewCell else {
-                fixStatus.append(0)
-                continue
-            }
-
-            fixStatus.append(nowCell.isSelected ? 0 : 1)
-        }
-
-        CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
-        refreshCodiData()
+        
+        updateRecommendedCodiList()
     }
 
     @IBAction func saveCodiListButtonPressed(_: UIButton) {

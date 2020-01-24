@@ -295,8 +295,8 @@ class ClothingAddViewController: UIViewController {
                     let clothingDataList = clothingDataList else { return }
                 if networkError != nil {
                     CommonUserData.shared.configureClothingData(clothingDataList)
-                    CodiListGenerator.shared.getNowCodiDataSet()
-                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    // tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    tabBarController.updateRecommendCodiList()
                     CommonUserData.shared.setIsNeedToUpdateClothingFalse()
                 } else {
                     tabBarController.presentToastMessage("옷 데이터 업데이트에 실패했습니다.")

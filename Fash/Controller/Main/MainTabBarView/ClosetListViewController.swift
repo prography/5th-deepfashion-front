@@ -176,6 +176,7 @@ class ClosetListViewController: UIViewController {
 
     private func requestClothingDataTask() {
         if CommonUserData.shared.isNeedToUpdateClothing == false {
+            self.reloadClosetListTableView()
             return
         }
         CommonUserData.shared.setIsNeedToUpdateClothingFalse()
@@ -183,11 +184,11 @@ class ClosetListViewController: UIViewController {
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
                 CommonUserData.shared.configureClothingData(clothingDataList)
-                CodiListGenerator.shared.getNowCodiDataSet()
 
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+//                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    tabBarController.updateRecommendCodiList()
                     self.reloadClosetListTableView()
                     CommonUserData.shared.setIsNeedToUpdateClothingFalse()
                 }
@@ -360,7 +361,7 @@ extension ClosetListViewController: RequestImageDelegate {
 
 extension ClosetListViewController: UIViewControllerSetting {
     func configureViewController() {
-        CommonUserData.shared.setIsNeedToUpdateClothingTrue()
+//        CommonUserData.shared.setIsNeedToUpdateClothingTrue()
         configureRefreshControl()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self
