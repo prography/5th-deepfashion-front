@@ -187,6 +187,7 @@ class ClosetListViewController: UIViewController {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                     CommonUserData.shared.configureClothingData(clothingDataList)
                     tabBarController.updateRecommendCodiList()
+                    tabBarController.updateClosetListTableView()
                     self.reloadClosetListTableView()
                     CommonUserData.shared.setIsNeedToUpdateClothingFalse()
                 }

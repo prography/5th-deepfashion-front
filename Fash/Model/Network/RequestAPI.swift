@@ -151,17 +151,20 @@ final class RequestAPI {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlSession.dataTask(with: requestAPIURL) { data, response, error in
                 if error != nil {
+                    self.isWeatherRequested = false
                     completion(self.configureError(.client), nil)
                     return
                 }
 
                 guard let weatherData = data else {
+                    self.isWeatherRequested = false
                     completion(self.configureError(.client), nil)
                     return
                 }
 
                 guard let weatherAPIData = try? JSONDecoder().decode(T.self, from: weatherData) else {
                     errorType = .client
+                    self.isWeatherRequested = false
                     self.delegate?.requestAPIDidError()
                     completion(errorType, nil)
                     return
@@ -169,10 +172,12 @@ final class RequestAPI {
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
+                        self.isWeatherRequested = false
                         self.delegate?.requestAPIDidFinished()
                         completion(nil, weatherAPIData)
                     } else {
                         debugPrint("request failed : \(response.statusCode)")
+                        self.isWeatherRequested = false
                         self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
                         completion(errorType, nil)

@@ -9,17 +9,17 @@
 import UIKit
 
 extension UIFont {
-    static func mainFont(displaySize: CGFloat) -> UIFont {
-        if let mainFont = UIFont(name: "AppleSDGothicNeo-Regular", size: displaySize) {
-            return mainFont
-        }
+    static func mainFont(displaySize _: CGFloat) -> UIFont {
+//        if let mainFont = UIFont(name: "AppleSDGothicNeo-Regular", size: displaySize) {
+//            return mainFont
+//        }
         return UIFont()
     }
 
-    static func titleFont(displaySize: CGFloat) -> UIFont {
-        if let titleFont = UIFont(name: "AppleSDGothicNeo-Bold", size: displaySize) {
-            return titleFont
-        }
+    static func titleFont(displaySize _: CGFloat) -> UIFont {
+//        if let titleFont = UIFont(name: "AppleSDGothicNeo-Bold", size: displaySize) {
+//            return titleFont
+//        }
         return UIFont()
     }
 

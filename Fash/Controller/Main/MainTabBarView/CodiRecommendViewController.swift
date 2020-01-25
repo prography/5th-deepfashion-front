@@ -134,6 +134,7 @@ class CodiRecommendViewController: UIViewController {
                     guard let clothingDataList = clothingDataList else { return }
                     CommonUserData.shared.configureClothingData(clothingDataList)
                     self.recommendAPIDataChecker.isClothingData = true
+                    tabBarController.updateClosetListTableView()
                     CommonUserData.shared.setIsNeedToUpdateClothingFalse()
                 } else {
                     tabBarController.presentToastMessage("옷 정보를 불러오는데 실패했습니다.")
