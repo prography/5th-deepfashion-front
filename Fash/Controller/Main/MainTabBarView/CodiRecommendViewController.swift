@@ -128,17 +128,18 @@ class CodiRecommendViewController: UIViewController {
         }
 
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
-            if networkError == nil {
-                guard let clothingDataList = clothingDataList else { return }
-                CommonUserData.shared.configureClothingData(clothingDataList)
-                self.recommendAPIDataChecker.isClothingData = true
-            } else {
-                DispatchQueue.main.async {
-                    guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            DispatchQueue.main.async {
+                guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                if networkError == nil {
+                    guard let clothingDataList = clothingDataList else { return }
+                    CommonUserData.shared.configureClothingData(clothingDataList)
+                    self.recommendAPIDataChecker.isClothingData = true
+                    CommonUserData.shared.setIsNeedToUpdateClothingFalse()
+                } else {
                     tabBarController.presentToastMessage("옷 정보를 불러오는데 실패했습니다.")
+                    CommonUserData.shared.setIsNeedToUpdateClothingTrue()
+                    self.recommendAPIDataChecker.isClothingData = false
                 }
-                CommonUserData.shared.setIsNeedToUpdateClothingTrue()
-                self.recommendAPIDataChecker.isClothingData = false
             }
         }
     }
@@ -342,7 +343,7 @@ class CodiRecommendViewController: UIViewController {
         recommendCollectionView.allowsMultipleSelection = true
         recommendCollectionView.isScrollEnabled = false
     }
-    
+
     func updateRecommendedCodiList() {
         var fixStatus = [Int]()
         DispatchQueue.main.async {
@@ -351,10 +352,10 @@ class CodiRecommendViewController: UIViewController {
                     fixStatus.append(0)
                     continue
                 }
-                
+
                 fixStatus.append(nowCell.isSelected ? 0 : 1)
             }
-            
+
             CodiListGenerator.shared.getNextCodiDataSet(fixStatus)
             self.refreshCodiData()
         }
@@ -382,6 +383,7 @@ class CodiRecommendViewController: UIViewController {
             let temperature = Double(_temperature) else { return }
         let weatherData = WeatherData(temperature: temperature, coordinator: coordinator)
         CommonUserData.shared.configureWeatherData(weatherData)
+        recommendAPIDataChecker.isWeatherData = true
 
         DispatchQueue.main.async {
             self.updateWeatherData(weatherData: weatherAPIData)
@@ -444,7 +446,7 @@ class CodiRecommendViewController: UIViewController {
             guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
             tabBarController.presentToastMessage("옷, 날씨정보를 받지 못해 추천이 불가능합니다.")
         }
-        
+
         updateRecommendedCodiList()
     }
 
@@ -511,7 +513,6 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
             }
 
             self.checkWeatherData(data, coordinator: nowCoordinator)
-            self.recommendAPIDataChecker.isWeatherData = true
         }
     }
 

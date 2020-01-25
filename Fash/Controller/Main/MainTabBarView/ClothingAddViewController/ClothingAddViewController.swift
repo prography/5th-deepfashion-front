@@ -297,6 +297,7 @@ class ClothingAddViewController: UIViewController {
                     CommonUserData.shared.configureClothingData(clothingDataList)
                     // tabBarController.reloadRecommendCollectionView(clothingDataList)
                     tabBarController.updateRecommendCodiList()
+                    tabBarController.updateClosetListTableView()
                     CommonUserData.shared.setIsNeedToUpdateClothingFalse()
                 } else {
                     tabBarController.presentToastMessage("옷 데이터 업데이트에 실패했습니다.")

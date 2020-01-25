@@ -53,7 +53,16 @@ class MainTabBarController: UITabBarController {
         navigationController?.navigationBar.tintColor = UIColor(displayP3Red: 51 / 255, green: 51 / 255, blue: 51 / 255, alpha: 1)
     }
 
+    private func preloadViewControllers() {
+        if let viewControllers = self.viewControllers {
+            for viewController in viewControllers {
+                _ = viewController.view
+            }
+        }
+    }
+
     private func configureTabBarController() {
+        preloadViewControllers()
         delegate = self
         view.backgroundColor = .clear
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -86,16 +95,14 @@ class MainTabBarController: UITabBarController {
             recommendViewController.requestClothingAPIDataList()
         }
     }
-    
+
     func updateRecommendCodiList() {
         guard let recommendViewController = self.viewControllers?.first as? CodiRecommendViewController else { return }
         CodiListGenerator.shared.getNowCodiDataSet()
         recommendViewController.updateRecommendedCodiList()
     }
-    
-    
 
-    func reloadClosetListTableView() {
+    func updateClosetListTableView() {
         guard let closetListViewController = self.viewControllers?[TabBarIndex.closetList.index] as? ClosetListViewController else { return }
         DispatchQueue.main.async {
             closetListViewController.closetListTableView.reloadData()

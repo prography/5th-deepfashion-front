@@ -176,18 +176,16 @@ class ClosetListViewController: UIViewController {
 
     private func requestClothingDataTask() {
         if CommonUserData.shared.isNeedToUpdateClothing == false {
-            self.reloadClosetListTableView()
             return
         }
-        CommonUserData.shared.setIsNeedToUpdateClothingFalse()
+
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
-                CommonUserData.shared.configureClothingData(clothingDataList)
 
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-//                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    CommonUserData.shared.configureClothingData(clothingDataList)
                     tabBarController.updateRecommendCodiList()
                     self.reloadClosetListTableView()
                     CommonUserData.shared.setIsNeedToUpdateClothingFalse()
@@ -294,7 +292,7 @@ extension ClosetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
 
-        let clothingData = CommonUserData.shared.clothingDataList.sorted().filter {
+        let clothingData = CommonUserData.shared.clothingDataList.filter {
             // 받은 인덱스는 서버 인덱스이다.
             guard let nowIndex = ClothingIndex.subCategoryList[$0.category]?.mainIndex else { return true }
             return nowIndex == indexPath.section
@@ -302,7 +300,7 @@ extension ClosetListViewController: UITableViewDataSource {
 
         closetListTableViewCell.delegate = self
         closetListTableViewCell.configureCell(clothingData: clothingData)
-
+        closetListTableViewCell.collectionView.reloadData()
         return closetListTableViewCell
     }
 }

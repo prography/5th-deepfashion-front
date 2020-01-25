@@ -46,9 +46,6 @@ class ClosetListTableViewCell: UITableViewCell {
         closetListData = clothingData
         collectionView.delegate = self
         collectionView.dataSource = self
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
     }
 }
 
