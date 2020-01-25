@@ -345,6 +345,15 @@ class CodiRecommendViewController: UIViewController {
         recommendCollectionView.isScrollEnabled = false
     }
 
+    private func checkAPIDataWithDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+            if !self.recommendAPIDataChecker.isWeatherData {
+                tabBarController.presentToastMessage("날씨 정보 업데이트가 지연되고 있습니다.")
+            }
+        }
+    }
+
     func updateRecommendedCodiList() {
         var fixStatus = [Int]()
         DispatchQueue.main.async {
@@ -587,5 +596,6 @@ extension CodiRecommendViewController: UIViewControllerSetting {
         configureCodiListSaveButton()
         guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
         tabBarController.presentToastMessage("로그인에 성공했습니다.")
+        checkAPIDataWithDelay()
     }
 }
