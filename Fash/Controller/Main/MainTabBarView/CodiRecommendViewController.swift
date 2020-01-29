@@ -345,11 +345,19 @@ class CodiRecommendViewController: UIViewController {
         recommendCollectionView.isScrollEnabled = false
     }
 
+    private func configureLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.activityType = .automotiveNavigation
+        locationManager.distanceFilter = 0
+        requestLocationAuthority()
+    }
+
     private func checkAPIDataWithDelay() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
             if !self.recommendAPIDataChecker.isWeatherData {
-                tabBarController.presentToastMessage("날씨 정보 업데이트가 지연되고 있습니다.")
+                tabBarController.presentToastMessage("초기 날씨정보 갱신 시 지연이 발생할 수 있습니다.")
             }
         }
     }
@@ -583,9 +591,7 @@ extension CodiRecommendViewController: RequestImageDelegate {
 
 extension CodiRecommendViewController: UIViewControllerSetting {
     func configureViewController() {
-        //        configureBasicTitle(ViewData.Title.MainTabBarView.recommend)
-        locationManager.delegate = self
-        requestLocationAuthority()
+        configureLocationManager()
         CommonUserData.shared.setIsNeedToUpdateClothingTrue()
         configureBackgroundImageView()
         configureTopContentView()
