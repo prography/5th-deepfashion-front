@@ -97,7 +97,7 @@ final class RequestAPI {
 
     // MARK: - Properties
 
-    private var isWeatherRequested = false
+//    private var isWeatherRequested = false
 
     private let urlSession = URLSession(configuration: .default)
     private var dataTask = URLSessionDataTask()
@@ -137,13 +137,13 @@ final class RequestAPI {
 
             }).resume()
         case .getWeather:
-            if isWeatherRequested == true {
-                delegate?.requestAPIDidFinished()
-                completion(NetworkError.duplicate, nil)
-                return
-            }
+//            if isWeatherRequested == true {
+//                delegate?.requestAPIDidFinished()
+//                completion(NetworkError.duplicate, nil)
+//                return
+//            }
 
-            isWeatherRequested = true
+//            isWeatherRequested = true
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
             guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: requestAPIURL)
@@ -151,20 +151,20 @@ final class RequestAPI {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlSession.dataTask(with: requestAPIURL) { data, response, error in
                 if error != nil {
-                    self.isWeatherRequested = false
+//                    self.isWeatherRequested = false
                     completion(self.configureError(.client), nil)
                     return
                 }
 
                 guard let weatherData = data else {
-                    self.isWeatherRequested = false
+//                    self.isWeatherRequested = false
                     completion(self.configureError(.client), nil)
                     return
                 }
 
                 guard let weatherAPIData = try? JSONDecoder().decode(T.self, from: weatherData) else {
                     errorType = .client
-                    self.isWeatherRequested = false
+//                    self.isWeatherRequested = false
                     self.delegate?.requestAPIDidError()
                     completion(errorType, nil)
                     return
@@ -172,12 +172,12 @@ final class RequestAPI {
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
-                        self.isWeatherRequested = false
+//                        self.isWeatherRequested = false
                         self.delegate?.requestAPIDidFinished()
                         completion(nil, weatherAPIData)
                     } else {
                         debugPrint("request failed : \(response.statusCode)")
-                        self.isWeatherRequested = false
+//                        self.isWeatherRequested = false
                         self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
                         completion(errorType, nil)
@@ -548,6 +548,6 @@ final class RequestAPI {
     }
 
     func resetProperties() {
-        isWeatherRequested = false
+//        isWeatherRequested = false
     }
 }

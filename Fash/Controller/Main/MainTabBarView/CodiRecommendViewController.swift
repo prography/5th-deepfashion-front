@@ -347,9 +347,9 @@ class CodiRecommendViewController: UIViewController {
 
     private func configureLocationManager() {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         locationManager.activityType = .automotiveNavigation
-        locationManager.distanceFilter = 0
+        locationManager.distanceFilter = kCLDistanceFilterNone
         requestLocationAuthority()
     }
 
@@ -517,10 +517,6 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
         RequestAPI.shared.getAPIData(APIMode: .getWeather, type: WeatherAPIDataList.self) { error, data in
 
             if error != nil {
-                if error == NetworkError.duplicate {
-                    return
-                }
-
                 self.recommendAPIDataChecker.isWeatherData = false
 
                 DispatchQueue.main.async {
