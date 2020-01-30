@@ -53,7 +53,7 @@ class CodiListViewController: UIViewController {
                 if self.codiListDeleteRequestCount == 0 {
                     self.selectedIndexPath = Set<IndexPath>()
                     tabBarController.presentToastMessage("선택한 코디리스트가 삭제되었습니다.")
-                    UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
+                    CommonUserData.shared.setIsNeedToUpdateCodiListTrue()
                     self.requestCodiListDataTask()
                     self.endIgnoringInteractionEvents()
                 }
@@ -155,7 +155,7 @@ class CodiListViewController: UIViewController {
     }
 
     private func deleteSelectedCells() {
-        let codiListCollection = UserCommonData.shared.codiListCollection
+        let codiListCollection = CommonUserData.shared.codiListCollection
         var selectedIdList = [Int]()
         for i in selectedIndexPath.indices {
             if selectedIndexPath[i].item >= codiListCollection.count { break }
@@ -181,24 +181,24 @@ class CodiListViewController: UIViewController {
     }
 
     private func requestCodiListDataTask() {
-        if UserCommonData.shared.isNeedToUpdateCodiList == false {
+        if CommonUserData.shared.isNeedToUpdateCodiList == false {
             return
         }
 
         RequestAPI.shared.getAPIData(APIMode: .getCodiList, type: [CodiListAPIData].self) { networkError, codiListCollection in
             if networkError == nil {
                 guard let codiListCollection = codiListCollection else { return }
-                UserCommonData.shared.configureCodiListCollection(codiListCollection)
+                CommonUserData.shared.configureCodiListCollection(codiListCollection)
 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
-                    UserCommonData.shared.setIsNeedToUpdateCodiListFalse()
+                    CommonUserData.shared.setIsNeedToUpdateCodiListFalse()
                 }
             } else {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                     tabBarController.presentToastMessage("코디리스트 불러오기에 실패 했습니다.")
-                    UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
+                    CommonUserData.shared.setIsNeedToUpdateCodiListTrue()
                 }
             }
         }
@@ -212,7 +212,7 @@ class CodiListViewController: UIViewController {
 
     @objc func refreshCodiListData(_: UIRefreshControl) {
         isRefreshControlRunning = true
-        UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
+        CommonUserData.shared.setIsNeedToUpdateCodiListTrue()
         requestCodiListDataTask()
     }
 
@@ -245,14 +245,14 @@ extension CodiListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let codiListCell = collectionView.dequeueReusableCell(withReuseIdentifier: UIIdentifier.Cell.CollectionView.codiList, for: indexPath) as? CodiListCollectionViewCell else { return UICollectionViewCell() }
 
-        let codiListData = UserCommonData.shared.codiListCollection[indexPath.item]
+        let codiListData = CommonUserData.shared.codiListCollection[indexPath.item]
 
         codiListCell.configureCell(itemIndex: indexPath.item, codiListData: codiListData)
         return codiListCell
     }
 
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        if UserCommonData.shared.codiListCollection.isEmpty {
+        if CommonUserData.shared.codiListCollection.isEmpty {
             UIView.animate(withDuration: 0.6) { [weak self] in
                 self?.emptyInfoLabel.alpha = 1
             }
@@ -260,7 +260,7 @@ extension CodiListViewController: UICollectionViewDataSource {
             emptyInfoLabel.alpha = 0
         }
 
-        return UserCommonData.shared.codiListCollection.count
+        return CommonUserData.shared.codiListCollection.count
     }
 }
 
@@ -283,7 +283,7 @@ extension CodiListViewController: RequestAPIDelegate {
 extension CodiListViewController: UIViewControllerSetting {
     func configureViewController() {
         configureRefreshControl()
-        UserCommonData.shared.setIsNeedToUpdateCodiListTrue()
+        CommonUserData.shared.setIsNeedToUpdateCodiListTrue()
         tabBarController?.navigationItem.rightBarButtonItem?.isEnabled = true
     }
 }

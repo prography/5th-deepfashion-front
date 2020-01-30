@@ -59,12 +59,12 @@ class CodiRecommendCollectionViewCell: UICollectionViewCell {
     private func configureTitleLabel() {
         titleLabel.textColor = .white
         titleLabel.backgroundColor = UIColor(white: 0, alpha: 0.3)
-        configureTitleLockImage()
+//        configureTitleLockImage()
     }
 
-    private func configureTitleLockImage() {
-        guard let titleLockImage = UIImage(named: "titleLock") else { return }
-    }
+//    private func configureTitleLockImage() {
+//
+//    }
 
     func updateCellImage(_ imageURLString: String?) {
         guard let defaultImage = UIImage(named: AssetIdentifier.Image.noClothing) else { return }

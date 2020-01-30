@@ -44,7 +44,7 @@ class EditClothingViewController: UIViewController {
 
     private var fashionStyles: [String] = {
         var fashionStyles = [String]()
-        fashionStyles = UserCommonData.shared.gender == 0 ? ClothingStyle.male : ClothingStyle.female
+        fashionStyles = CommonUserData.shared.gender == 0 ? ClothingStyle.male : ClothingStyle.female
         return fashionStyles
     }()
 
@@ -176,8 +176,8 @@ class EditClothingViewController: UIViewController {
         // style
         var styleIndex = ClothingIndex.deepStyleList[deepResultList[1]]
 
-        if (UserCommonData.shared.gender == 0 && !ClothingStyle.male.contains(ClothingStyle.styleList[styleIndex])) ||
-            (UserCommonData.shared.gender == 1 && !ClothingStyle.female.contains(ClothingStyle.styleList[styleIndex])) {
+        if (CommonUserData.shared.gender == 0 && !ClothingStyle.male.contains(ClothingStyle.styleList[styleIndex])) ||
+            (CommonUserData.shared.gender == 1 && !ClothingStyle.female.contains(ClothingStyle.styleList[styleIndex])) {
             styleIndex = 1
         }
 
@@ -223,7 +223,7 @@ class EditClothingViewController: UIViewController {
         let partServerIndex = ClothingIndex.shared.convertToMainServerIndex(partName)
         let clothingStyle = selectedClothingData.style
         let seasonIndex = addFashionTableCell.seasonSegmentedControl.selectedSegmentIndex
-        let ownerPK = UserCommonData.shared.pk
+        let ownerPK = CommonUserData.shared.pk
 
         let clothingData = ClothingPostData(id: nil, name: clothingName, style: clothingStyle.1 + 1, owner: ownerPK, color: selectedColorIndex + 1, season: seasonIndex + 1, part: partServerIndex, category: selectedClothingData.categoryIndex.0, image: clothingImage)
 

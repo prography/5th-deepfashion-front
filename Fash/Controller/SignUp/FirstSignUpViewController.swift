@@ -99,8 +99,8 @@ class FirstSignUpViewController: UIViewController {
 
         nextViewController.isGenderMan = _genderIndex == 0 ? true : false
         let userData = UserAPIData(username: idText, gender: genderIndex, styles: [])
-        UserCommonData.shared.setUserData(userData)
-        UserCommonData.shared.savePassword(passwordText)
+        CommonUserData.shared.setUserData(userData)
+        CommonUserData.shared.savePassword(passwordText)
     }
 
     // MARK: - IBActions

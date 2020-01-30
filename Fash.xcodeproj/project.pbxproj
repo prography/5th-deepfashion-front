@@ -39,11 +39,6 @@
 		07598536237E96F000C48EE7 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598535237E96F000C48EE7 /* MainTabBarController.swift */; };
 		07598538237EABA800C48EE7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07598537237EABA800C48EE7 /* UIViewController+.swift */; };
 		076DADB023B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DADAF23B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift */; };
-		076DADB723B3696900B3FF46 /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB223B3696800B3FF46 /* SCDream3.otf */; };
-		076DADB823B3696900B3FF46 /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB323B3696800B3FF46 /* SCDream2.otf */; };
-		076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB423B3696800B3FF46 /* SCDream5.otf */; };
-		076DADBA23B3696900B3FF46 /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB523B3696800B3FF46 /* SCDream4.otf */; };
-		076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 076DADB623B3696800B3FF46 /* SSShinb7.ttf */; };
 		076DADBD23B369CF00B3FF46 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076DADBC23B369CF00B3FF46 /* UIFont+.swift */; };
 		076DADBF23B3879C00B3FF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 076DADBE23B3879B00B3FF46 /* Assets.xcassets */; };
 		076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */; };
@@ -68,6 +63,7 @@
 		07952A3623B012CB00124E97 /* UICollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */; };
 		07952A3823B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */; };
 		0798DE0123DAEAFA0090CD3C /* SeasonIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */; };
+		0798DE0323DAEE500090CD3C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798DE0223DAEE500090CD3C /* WeatherData.swift */; };
 		079B530B23CDDFDE0042D06E /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530A23CDDFDE0042D06E /* MainNavigationController.swift */; };
 		079F56A123D40D0D00F1F859 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */; };
 		079F56A523D4137F00F1F859 /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */; };
@@ -109,7 +105,7 @@
 		07CB63DF2397CD01004C89F2 /* NSMutableData+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */; };
 		07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */; };
 		07D4994D239A8DB00099B7A9 /* ClosetListTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */; };
-		07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */; };
+		07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */; };
 		07D5E9AF236EE6A800A27B28 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9AE236EE6A800A27B28 /* UITextField+.swift */; };
 		07D5E9B3236EF97A00A27B28 /* UIIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */; };
 		07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */; };
@@ -182,11 +178,6 @@
 		07598535237E96F000C48EE7 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		07598537237EABA800C48EE7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		076DADAF23B35D0E00B3FF46 /* ClosetListCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		076DADB223B3696800B3FF46 /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
-		076DADB323B3696800B3FF46 /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
-		076DADB423B3696800B3FF46 /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
-		076DADB523B3696800B3FF46 /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
-		076DADB623B3696800B3FF46 /* SSShinb7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SSShinb7.ttf; sourceTree = "<group>"; };
 		076DADBC23B369CF00B3FF46 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		076DADBE23B3879B00B3FF46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		076F6BC7237BCB1500A2CBB4 /* UserAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIData.swift; sourceTree = "<group>"; };
@@ -211,6 +202,7 @@
 		07952A3523B012CB00124E97 /* UICollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		07952A3723B01A5A00124E97 /* ClosetListTableviewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableviewCellDelegate.swift; sourceTree = "<group>"; };
 		0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonIndex.swift; sourceTree = "<group>"; };
+		0798DE0223DAEE500090CD3C /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		079B530A23CDDFDE0042D06E /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +244,7 @@
 		07CB63DE2397CD01004C89F2 /* NSMutableData+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableData+.swift"; sourceTree = "<group>"; };
 		07D49948239A8B910099B7A9 /* ClosetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableViewCell.swift; sourceTree = "<group>"; };
 		07D4994C239A8DB00099B7A9 /* ClosetListTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosetListTableHeaderView.swift; sourceTree = "<group>"; };
-		07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommonData.swift; sourceTree = "<group>"; };
+		07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUserData.swift; sourceTree = "<group>"; };
 		07D5E9AE236EE6A800A27B28 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		07D5E9B2236EF97A00A27B28 /* UIIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIIdentifier.swift; sourceTree = "<group>"; };
 		07D5E9B6236EF99C00A27B28 /* MyCharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCharacterSet.swift; sourceTree = "<group>"; };
@@ -446,11 +438,6 @@
 		076DADB123B3696800B3FF46 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				076DADB223B3696800B3FF46 /* SCDream3.otf */,
-				076DADB323B3696800B3FF46 /* SCDream2.otf */,
-				076DADB423B3696800B3FF46 /* SCDream5.otf */,
-				076DADB523B3696800B3FF46 /* SCDream4.otf */,
-				076DADB623B3696800B3FF46 /* SSShinb7.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -521,7 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				07BFE0BE23BF0E6600AD9287 /* CodiListGenerator.swift */,
-				07D5E9AC236EBF0900A27B28 /* UserCommonData.swift */,
+				07D5E9AC236EBF0900A27B28 /* CommonUserData.swift */,
 			);
 			path = SingleTon;
 			sourceTree = "<group>";
@@ -702,6 +689,7 @@
 				0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */,
 				073547AE23BA427A00E45ADF /* LocationData.swift */,
 				073547B323BB7C7200E45ADF /* WeatherIndex.swift */,
+				0798DE0223DAEE500090CD3C /* WeatherData.swift */,
 				07F0346923D9980B00B829E2 /* GenderIndex.swift */,
 			);
 			path = Constants;
@@ -847,13 +835,8 @@
 			files = (
 				07554FF423A663B500691C5B /* MainClothingInfoView.xib in Resources */,
 				0733A6C22365D99900E26B38 /* LaunchScreen.storyboard in Resources */,
-				076DADB923B3696900B3FF46 /* SCDream5.otf in Resources */,
 				076DADBF23B3879C00B3FF46 /* Assets.xcassets in Resources */,
-				076DADBA23B3696900B3FF46 /* SCDream4.otf in Resources */,
 				0733A6BD2365D99800E26B38 /* Main.storyboard in Resources */,
-				076DADBB23B3696900B3FF46 /* SSShinb7.ttf in Resources */,
-				076DADB723B3696900B3FF46 /* SCDream3.otf in Resources */,
-				076DADB823B3696900B3FF46 /* SCDream2.otf in Resources */,
 				07A5F72423C24D460024CF07 /* CodiAddView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1004,7 +987,7 @@
 				079F56A523D4137F00F1F859 /* LogoAnimationViewController.swift in Sources */,
 				076F6BCA237BDFFE00A2CBB4 /* LoginAPIPostData.swift in Sources */,
 				07B6E05C2382AE0D00D6A9E1 /* ClosetListViewController.swift in Sources */,
-				07D5E9AD236EBF0900A27B28 /* UserCommonData.swift in Sources */,
+				07D5E9AD236EBF0900A27B28 /* CommonUserData.swift in Sources */,
 				07D5E9BD236EFADE00A27B28 /* UIButton+.swift in Sources */,
 				07B5AE94239A4DEE000C215E /* ClothingData.swift in Sources */,
 				073547BA23BC992A00E45ADF /* ClothingAPIData.swift in Sources */,
@@ -1042,6 +1025,7 @@
 				076F6BC8237BCB1500A2CBB4 /* UserAPIData.swift in Sources */,
 				07D5E9B7236EF99C00A27B28 /* MyCharacterSet.swift in Sources */,
 				073547AF23BA427A00E45ADF /* LocationData.swift in Sources */,
+				0798DE0323DAEE500090CD3C /* WeatherData.swift in Sources */,
 				07B6E0642382B64A00D6A9E1 /* ViewData.swift in Sources */,
 				07C745A82392A41D0045AB56 /* ClothingMainType.swift in Sources */,
 				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,
@@ -1245,14 +1229,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.54;
+				CURRENT_PROJECT_VERSION = 1.62;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.54;
+				MARKETING_VERSION = 1.62;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1271,14 +1255,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.54;
+				CURRENT_PROJECT_VERSION = 1.62;
 				DEVELOPMENT_TEAM = MSW35G2APL;
 				INFOPLIST_FILE = Fash/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.54;
+				MARKETING_VERSION = 1.62;
 				PRODUCT_BUNDLE_IDENTIFIER = com.prography.deepfashion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

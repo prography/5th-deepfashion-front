@@ -175,27 +175,27 @@ class ClosetListViewController: UIViewController {
     }
 
     private func requestClothingDataTask() {
-        if UserCommonData.shared.isNeedToUpdateClothing == false {
+        if CommonUserData.shared.isNeedToUpdateClothing == false {
             return
         }
-        UserCommonData.shared.setIsNeedToUpdateClothingFalse()
+
         RequestAPI.shared.getAPIData(APIMode: .getClothing, type: ClothingAPIDataList.self) { networkError, clothingDataList in
             if networkError == nil {
                 guard let clothingDataList = clothingDataList else { return }
-                UserCommonData.shared.configureClothingData(clothingDataList)
-                CodiListGenerator.shared.getNowCodiDataSet()
 
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
-                    tabBarController.reloadRecommendCollectionView(clothingDataList)
+                    CommonUserData.shared.configureClothingData(clothingDataList)
+                    tabBarController.updateRecommendCodiList()
+                    tabBarController.updateClosetListTableView()
                     self.reloadClosetListTableView()
-                    UserCommonData.shared.setIsNeedToUpdateClothingFalse()
+                    CommonUserData.shared.setIsNeedToUpdateClothingFalse()
                 }
             } else {
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                     tabBarController.presentToastMessage("옷 정보 불러오기에 실패 했습니다.")
-                    UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+                    CommonUserData.shared.setIsNeedToUpdateClothingTrue()
                 }
             }
         }
@@ -213,7 +213,7 @@ class ClosetListViewController: UIViewController {
 
     @objc func refreshClothingData(_: UIRefreshControl) {
         isRefreshControlRunning = true
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+        CommonUserData.shared.setIsNeedToUpdateClothingTrue()
         requestClothingDataTask()
     }
 
@@ -242,7 +242,7 @@ class ClosetListViewController: UIViewController {
                                     if self.deletingClotingRequestCount == 0 {
                                         self.closetListTableView.reloadData()
                                         ToastView.shared.presentShortMessage(tabBarController.view, message: "옷 삭제에 성공하였습니다. ")
-                                        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+                                        CommonUserData.shared.setIsNeedToUpdateClothingTrue()
                                         self.requestClothingDataTask()
                                         self.endIgnoringInteractionEvents()
                                     }
@@ -293,7 +293,7 @@ extension ClosetListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let closetListTableViewCell = tableView.dequeueReusableCell(withIdentifier: UIIdentifier.Cell.TableView.closetList, for: indexPath) as? ClosetListTableViewCell else { return UITableViewCell() }
 
-        let clothingData = UserCommonData.shared.clothingDataList.sorted().filter {
+        let clothingData = CommonUserData.shared.clothingDataList.filter {
             // 받은 인덱스는 서버 인덱스이다.
             guard let nowIndex = ClothingIndex.subCategoryList[$0.category]?.mainIndex else { return true }
             return nowIndex == indexPath.section
@@ -301,7 +301,7 @@ extension ClosetListViewController: UITableViewDataSource {
 
         closetListTableViewCell.delegate = self
         closetListTableViewCell.configureCell(clothingData: clothingData)
-
+        closetListTableViewCell.collectionView.reloadData()
         return closetListTableViewCell
     }
 }
@@ -360,7 +360,7 @@ extension ClosetListViewController: RequestImageDelegate {
 
 extension ClosetListViewController: UIViewControllerSetting {
     func configureViewController() {
-        UserCommonData.shared.setIsNeedToUpdateClothingTrue()
+//        CommonUserData.shared.setIsNeedToUpdateClothingTrue()
         configureRefreshControl()
         RequestAPI.shared.delegate = self
         RequestImage.shared.delegate = self

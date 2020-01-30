@@ -97,7 +97,7 @@ final class RequestAPI {
 
     // MARK: - Properties
 
-    private var isWeatherRequested = false
+//    private var isWeatherRequested = false
 
     private let urlSession = URLSession(configuration: .default)
     private var dataTask = URLSessionDataTask()
@@ -110,13 +110,13 @@ final class RequestAPI {
 
         switch APIMode {
         case .getUserData:
-            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.user)\(UserCommonData.shared.pk)/"
+            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.user)\(CommonUserData.shared.pk)/"
             debugPrint("now url : \(requestAPIURLString)")
 
             guard let url = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "GET"
-            urlRequest.addValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.addValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
             urlSession.dataTask(with: urlRequest, completionHandler: { (data, _, _) -> Void in
                 guard let data = data else {
                     errorType = .client
@@ -137,13 +137,13 @@ final class RequestAPI {
 
             }).resume()
         case .getWeather:
-            if isWeatherRequested == true {
-                delegate?.requestAPIDidFinished()
-                completion(NetworkError.duplicate, nil)
-                return
-            }
+//            if isWeatherRequested == true {
+//                delegate?.requestAPIDidFinished()
+//                completion(NetworkError.duplicate, nil)
+//                return
+//            }
 
-            isWeatherRequested = true
+//            isWeatherRequested = true
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
             guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: requestAPIURL)
@@ -151,17 +151,20 @@ final class RequestAPI {
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             urlSession.dataTask(with: requestAPIURL) { data, response, error in
                 if error != nil {
+//                    self.isWeatherRequested = false
                     completion(self.configureError(.client), nil)
                     return
                 }
 
                 guard let weatherData = data else {
+//                    self.isWeatherRequested = false
                     completion(self.configureError(.client), nil)
                     return
                 }
 
                 guard let weatherAPIData = try? JSONDecoder().decode(T.self, from: weatherData) else {
                     errorType = .client
+//                    self.isWeatherRequested = false
                     self.delegate?.requestAPIDidError()
                     completion(errorType, nil)
                     return
@@ -169,10 +172,12 @@ final class RequestAPI {
 
                 if let response = response as? HTTPURLResponse {
                     if (200 ... 299).contains(response.statusCode) {
+//                        self.isWeatherRequested = false
                         self.delegate?.requestAPIDidFinished()
                         completion(nil, weatherAPIData)
                     } else {
                         debugPrint("request failed : \(response.statusCode)")
+//                        self.isWeatherRequested = false
                         self.delegate?.requestAPIDidError()
                         self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
                         completion(errorType, nil)
@@ -185,7 +190,7 @@ final class RequestAPI {
             guard let url = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "GET"
-            urlRequest.addValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.addValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
             urlSession.dataTask(with: urlRequest, completionHandler: { (data, _, _) -> Void in
                 guard let data = data else {
                     errorType = .client
@@ -210,7 +215,7 @@ final class RequestAPI {
             guard let url = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "GET"
-            urlRequest.addValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.addValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
             urlSession.dataTask(with: urlRequest, completionHandler: { (data, _, _) -> Void in
                 guard let data = data else {
                     errorType = .client
@@ -243,7 +248,7 @@ final class RequestAPI {
 
         switch APIMode {
         case .deleteUser:
-            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.user)\(UserCommonData.shared.pk)/"
+            deleteURLString = "\(APIURL.base)\(APIURL.SubURL.Delete.user)\(CommonUserData.shared.pk)/"
             guard let _deleteURL = URL(string: deleteURLString) else {
                 completion(configureError(.client))
                 return
@@ -268,7 +273,7 @@ final class RequestAPI {
         var urlRequest = URLRequest(url: deleteURL)
         urlRequest.httpMethod = "DELETE"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+        urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
 
         urlSession.dataTask(with: urlRequest) { _, response, error in
             if error != nil {
@@ -341,7 +346,7 @@ final class RequestAPI {
 
                 // MARK: - Token Check
 
-                UserCommonData.shared.setUserPrivateData(token: userData.token, pk: userData.pk)
+                CommonUserData.shared.setUserPrivateData(token: userData.token, pk: userData.pk)
                 debugPrint("token : \(userData.token)")
                 debugPrint("pk : \(userData.pk)")
 
@@ -424,7 +429,7 @@ final class RequestAPI {
             let parameter = [
                 "name": "\(userData.name)",
                 "style": "\(userData.style)",
-                "owner": "\(UserCommonData.shared.pk)",
+                "owner": "\(CommonUserData.shared.pk)",
                 "color": "\(userData.color)",
                 "season": "\(userData.season)",
                 "part": "\(userData.part)",
@@ -433,7 +438,7 @@ final class RequestAPI {
 
             // request 설정
             var urlRequest = URLRequest(url: postURL)
-            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
             urlRequest.httpMethod = "POST"
 
             // multipart form-data로 보낼 것임을 설정한다.
@@ -479,7 +484,7 @@ final class RequestAPI {
             var urlRequest = URLRequest(url: postURL)
             urlRequest.httpMethod = "POST"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlRequest.setValue("token \(UserCommonData.shared.userToken)", forHTTPHeaderField: "Authorization")
+            urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
 
             // URLSession을 만들어 Post 작용을 시작한다.
             urlSession.uploadTask(with: urlRequest, from: codiListAPIData) {
@@ -543,6 +548,6 @@ final class RequestAPI {
     }
 
     func resetProperties() {
-        isWeatherRequested = false
+//        isWeatherRequested = false
     }
 }
