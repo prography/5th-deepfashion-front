@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// API UserData Format
+/// API Put UserData Format
 struct UserAPIPutData: Codable {
     let userName: String
     let gender: String

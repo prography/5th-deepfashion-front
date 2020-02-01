@@ -32,6 +32,10 @@ class PrivacyViewController: UIViewController {
     private func presentDeleteUserViewController() {
         performSegue(withIdentifier: UIIdentifier.Segue.goToDeleteUser, sender: nil)
     }
+
+    private func presentEditUserViewController() {
+        performSegue(withIdentifier: UIIdentifier.Segue.goToEditUser, sender: nil)
+    }
 }
 
 extension PrivacyViewController: UITableViewDelegate {
@@ -50,7 +54,9 @@ extension PrivacyViewController: UITableViewDelegate {
         }
 
         switch privacyRow {
-        case .password, .style:
+        case .editUser:
+            presentEditUserViewController()
+        case .style:
             tabBarController.presentToastMessage("해당 기능은 추후 업데이트 예정입니다.")
         case .deleteUser:
             presentDeleteUserViewController()

@@ -46,6 +46,7 @@
 		076F6BCC237BFEA800A2CBB4 /* LoginAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCB237BFEA800A2CBB4 /* LoginAPIData.swift */; };
 		076F6BCE237BFF8100A2CBB4 /* LoginUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */; };
 		0771B83323E5626200145179 /* UserAPIPutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771B83223E5626200145179 /* UserAPIPutData.swift */; };
+		0771B83523E5653B00145179 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771B83423E5653B00145179 /* EditUserInfoViewController.swift */; };
 		0777D45123B51B0400385E68 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45023B51B0400385E68 /* ColorList.swift */; };
 		0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45623B6121500385E68 /* UINavigationBar+.swift */; };
 		0777D45A23B62F3A00385E68 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45923B62F3A00385E68 /* PrivacyViewController.swift */; };
@@ -186,6 +187,7 @@
 		076F6BCB237BFEA800A2CBB4 /* LoginAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIData.swift; sourceTree = "<group>"; };
 		076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserData.swift; sourceTree = "<group>"; };
 		0771B83223E5626200145179 /* UserAPIPutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPutData.swift; sourceTree = "<group>"; };
+		0771B83423E5653B00145179 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
 		0777D45023B51B0400385E68 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
 		0777D45623B6121500385E68 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
 		0777D45923B62F3A00385E68 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 			children = (
 				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
 				0777D45923B62F3A00385E68 /* PrivacyViewController.swift */,
+				0771B83423E5653B00145179 /* EditUserInfoViewController.swift */,
 				07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */,
 			);
 			path = MyPageViewController;
@@ -1042,6 +1045,7 @@
 				07C745A82392A41D0045AB56 /* ClothingMainType.swift in Sources */,
 				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,
 				073547C023BCC95A00E45ADF /* UIImageView+.swift in Sources */,
+				0771B83523E5653B00145179 /* EditUserInfoViewController.swift in Sources */,
 				07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */,
 				07BFE0BF23BF0E6600AD9287 /* CodiListGenerator.swift in Sources */,
 				07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */,

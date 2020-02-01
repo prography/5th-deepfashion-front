@@ -83,8 +83,8 @@ class MainTabBarController: UITabBarController {
     private func configureEditBarButtonItem() {}
 
     func presentToastMessage(_ message: String) {
-        guard let navigationController = self.navigationController else { return }
         DispatchQueue.main.async {
+            guard let navigationController = self.navigationController else { return }
             ToastView.shared.presentShortMessage(navigationController.view, message: message)
         }
     }

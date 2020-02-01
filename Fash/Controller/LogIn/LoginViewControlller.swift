@@ -54,14 +54,10 @@ class LoginViewController: UIViewController {
         }
     }
 
-    private var _isFillInData = false
-    private var isFillInData: Bool {
-        set {
-            _isFillInData = newValue
-            loginButton.configureButtonByStatus(newValue)
+    private var isFillInData = false {
+        didSet {
+            loginButton.configureButtonByStatus(isFillInData)
         }
-
-        get { return _isFillInData }
     }
 
     // MARK: LifeCycle
@@ -156,6 +152,8 @@ class LoginViewController: UIViewController {
                 guard let userData = userData else { return }
                 CommonUserData.shared.setUserData(userData)
                 DispatchQueue.main.async {
+                    guard let password = self.passwordTextField.text else { return }
+                    CommonUserData.shared.savePassword(password)
                     self.passwordTextField.text = ""
                     self.passwordTextField.configureBasicTextField()
                     CommonUserData.shared.resetUserAPIData()

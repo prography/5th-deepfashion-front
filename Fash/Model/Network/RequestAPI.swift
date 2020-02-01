@@ -65,6 +65,10 @@ enum APIGetMode: String {
     case getUserData
 }
 
+enum APIPutMode: String {
+    case putUserData
+}
+
 struct APIURL {
     static let base = "http://deepfashion-dev.us-west-2.elasticbeanstalk.com/"
     struct SubURL {
@@ -88,6 +92,10 @@ struct APIURL {
             static let clothing = "clothing/"
             static let clothingUpload = "clothing/upload"
             static let codiList = "clothing/codilist/"
+        }
+
+        struct Put {
+            static let accounts = "accounts/"
         }
     }
 }
@@ -137,13 +145,7 @@ final class RequestAPI {
 
             }).resume()
         case .getWeather:
-//            if isWeatherRequested == true {
-//                delegate?.requestAPIDidFinished()
-//                completion(NetworkError.duplicate, nil)
-//                return
-//            }
 
-//            isWeatherRequested = true
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
             guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
             var urlRequest = URLRequest(url: requestAPIURL)
@@ -294,6 +296,60 @@ final class RequestAPI {
             }
 
         }.resume()
+    }
+
+    func putAPIData<T: Codable>(_ userData: T, APIMode: APIPutMode, completion: @escaping (NetworkError?) -> Void) {
+        var nowStatusCode = 0
+        var errorType: NetworkError = .unknown
+
+        delegate?.requestAPIDidBegin()
+        switch APIMode {
+        case .putUserData:
+
+            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Put.accounts)\(CommonUserData.shared.pk)/"
+            guard let userData = userData as? UserAPIPutData else {
+                delegate?.requestAPIDidError()
+                completion(NetworkError.wrongType)
+                return
+            }
+
+            guard let userAPIData = try? JSONEncoder().encode(userData),
+                let postURL = URL(string: userDataPostURLString) else {
+                delegate?.requestAPIDidError()
+
+                completion(NetworkError.unknown)
+                return
+            }
+
+            var urlRequest = URLRequest(url: postURL)
+            urlRequest.httpMethod = "PUT"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            urlRequest.setValue("token \(CommonUserData.shared.userToken)", forHTTPHeaderField: "Authorization")
+
+            // URLSession을 만들어 Post 작용을 시작한다.
+            urlSession.uploadTask(with: urlRequest, from: userAPIData) {
+                _, response, error in
+                nowStatusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+
+                if error != nil {
+                    self.delegate?.requestAPIDidError()
+                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                    completion(errorType)
+                    return
+                }
+
+                if let response = response as? HTTPURLResponse {
+                    if (200 ... 299).contains(response.statusCode) {
+                        self.delegate?.requestAPIDidFinished()
+                        completion(nil)
+                    } else {
+                        debugPrint("request failed : \(response.statusCode)")
+                        self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                        completion(self.configureError(errorType))
+                    }
+                }
+            }.resume()
+        }
     }
 
     func postAPIData<T>(userData: T, APIMode: APIPostMode, completion: @escaping (NetworkError?) -> Void) {

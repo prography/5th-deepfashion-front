@@ -73,6 +73,7 @@ struct UIIdentifier {
         static let unwindToClothingAdd = "unwindToClothingAddView"
         static let goToPrivacy = "goToPrivacyView"
         static let goToDeleteUser = "goToDeleteUserView"
+        static let goToEditUser = "goToEditUserView"
         static let goToLogin = "goToLoginView"
     }
 
