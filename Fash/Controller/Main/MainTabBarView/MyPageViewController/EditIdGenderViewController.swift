@@ -16,10 +16,10 @@ class EditIdGenderViewController: UIViewController {
 
     private var gender: String = "M"
     private var userId: String = ""
-    private var isAPIDateRequested = false {
+    private var isAPIDataRequested = false {
         didSet {
             DispatchQueue.main.async {
-                self.indicatorView.checkIndicatorView(self.isAPIDateRequested)
+                self.indicatorView.checkIndicatorView(self.isAPIDataRequested)
             }
         }
     }
@@ -32,19 +32,11 @@ class EditIdGenderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let userData = CommonUserData.shared.userData else { return }
-        gender = userData.gender
-        userId = userData.username
-        idTextField.text = userId
-        idTextField.delegate = self
-        idTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
-        genderSegmentedControl.selectedSegmentIndex = gender == "M" ? 0 : 1
-        editUserDataButton.configureButtonByStatus(true)
+        configureViewController()
     }
 
     override func viewWillAppear(_: Bool) {
         super.viewWillAppear(true)
-        RequestAPI.shared.delegate = self
     }
 
     override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
@@ -118,14 +110,28 @@ extension EditIdGenderViewController: UITextFieldDelegate {
 
 extension EditIdGenderViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
-        isAPIDateRequested = true
+        isAPIDataRequested = true
     }
 
     func requestAPIDidFinished() {
-        isAPIDateRequested = false
+        isAPIDataRequested = false
     }
 
     func requestAPIDidError() {
-        isAPIDateRequested = false
+        isAPIDataRequested = false
+    }
+}
+
+extension EditIdGenderViewController: UIViewControllerSetting {
+    func configureViewController() {
+        guard let userData = CommonUserData.shared.userData else { return }
+        RequestAPI.shared.delegate = self
+        gender = userData.gender
+        userId = userData.username
+        idTextField.text = userId
+        idTextField.delegate = self
+        idTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
+        genderSegmentedControl.selectedSegmentIndex = gender == "M" ? 0 : 1
+        editUserDataButton.configureButtonByStatus(true)
     }
 }

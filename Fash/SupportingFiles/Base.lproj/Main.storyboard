@@ -888,17 +888,47 @@
                                     <constraint firstItem="HcS-4C-g3e" firstAttribute="height" secondItem="v8F-mx-bex" secondAttribute="height" id="tdn-Kj-fZg"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rpz-xI-wRN">
+                                <rect key="frame" x="10" y="388.33333333333331" width="394" height="56.666666666666686"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <state key="normal" title="비밀번호 변경">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="savePasswordButtonPressed:" destination="slo-P2-crf" eventType="touchUpInside" id="N8E-uL-hxR"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0Yk-US-WGu">
+                                <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Rpz-xI-wRN" firstAttribute="top" secondItem="FPv-Th-Gqk" secondAttribute="bottom" constant="20" id="RQ6-Ny-Mrt"/>
                             <constraint firstItem="FPv-Th-Gqk" firstAttribute="top" secondItem="Xcu-xq-63N" secondAttribute="top" constant="30" id="WAR-Hq-UGH"/>
+                            <constraint firstItem="Rpz-xI-wRN" firstAttribute="height" secondItem="XV0-7w-KWX" secondAttribute="height" id="aN0-BH-itW"/>
                             <constraint firstItem="FPv-Th-Gqk" firstAttribute="leading" secondItem="Xcu-xq-63N" secondAttribute="leading" constant="10" id="bDw-FN-0wM"/>
+                            <constraint firstItem="0Yk-US-WGu" firstAttribute="centerX" secondItem="X8c-fN-iLK" secondAttribute="centerX" id="fcD-wm-Mal"/>
                             <constraint firstItem="Xcu-xq-63N" firstAttribute="trailing" secondItem="FPv-Th-Gqk" secondAttribute="trailing" constant="10" id="kAL-ub-YXq"/>
+                            <constraint firstItem="Xcu-xq-63N" firstAttribute="trailing" secondItem="Rpz-xI-wRN" secondAttribute="trailing" constant="10" id="lHW-yb-TSy"/>
                             <constraint firstItem="FPv-Th-Gqk" firstAttribute="height" secondItem="X8c-fN-iLK" secondAttribute="height" multiplier="0.4" id="qWj-bD-8SQ"/>
+                            <constraint firstItem="0Yk-US-WGu" firstAttribute="centerY" secondItem="X8c-fN-iLK" secondAttribute="centerY" id="tq7-BV-3D1"/>
+                            <constraint firstItem="Rpz-xI-wRN" firstAttribute="leading" secondItem="Xcu-xq-63N" secondAttribute="leading" constant="10" id="zZF-kx-r7l"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xcu-xq-63N"/>
                     </view>
                     <navigationItem key="navigationItem" title="비밀번호 변경" id="bmh-j7-I5b"/>
+                    <connections>
+                        <outlet property="indicatorView" destination="0Yk-US-WGu" id="uw5-KR-p8d"/>
+                        <outlet property="nowPasswordTextField" destination="Qk9-aK-qsa" id="cUF-a4-V99"/>
+                        <outlet property="savePasswordButton" destination="Rpz-xI-wRN" id="8Ye-9u-99v"/>
+                        <outletCollection property="newPasswordTextFieldList" destination="fib-EA-ULK" collectionClass="NSMutableArray" id="hgn-9I-5Vh"/>
+                        <outletCollection property="newPasswordTextFieldList" destination="XV0-7w-KWX" collectionClass="NSMutableArray" id="Xim-5c-8S8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpY-9h-oea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
