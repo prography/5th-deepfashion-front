@@ -41,10 +41,12 @@ final class CodiListGenerator {
         // ✓ otherClassifiedClothingDataLists : 현재 계절 이외 옷 데이터 2차원배열 리스트
         // ✓ recommendedClothingDataLists : 실제 코디 추천에 사용 될 2차원배열 리스트
 
-        guard let weatherData = CommonUserData.shared.weatherData else { return }
-        if weatherData.temperature <= 5.0 {
+        guard let weatherData = CommonUserData.shared.weatherData,
+            let _temperature = weatherData.temperature,
+            let temperature = Double(_temperature) else { return }
+        if temperature <= 5.0 {
             seasonIndex = .winter
-        } else if weatherData.temperature <= 23.0 {
+        } else if temperature <= 23.0 {
             seasonIndex = .springFall
         } else {
             seasonIndex = .summer
@@ -64,8 +66,8 @@ final class CodiListGenerator {
             recommendedClothingDataLists[i] = seasonClassifiedClothingDataLists[i].shuffled() + otherClassifiedClothingDataLists[i].shuffled()
         }
 
-        debugPrint("seasonClassifiedClothingDataLists : \(seasonClassifiedClothingDataLists)")
-        debugPrint("otherClassifiedClothingDataLists : \(otherClassifiedClothingDataLists)")
+//        debugPrint("seasonClassifiedClothingDataLists : \(seasonClassifiedClothingDataLists)")
+//        debugPrint("otherClassifiedClothingDataLists : \(otherClassifiedClothingDataLists)")
         debugPrint("recommendedClothingDataLists : \(recommendedClothingDataLists)")
     }
 

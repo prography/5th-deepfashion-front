@@ -26,7 +26,7 @@ final class CommonUserData {
 
     private(set) var clothingDataList = [ClothingAPIData]()
     private(set) var codiListCollection = [CodiListAPIData]()
-    private(set) var weatherData: WeatherData?
+    private(set) var weatherData: WeatherAPIData?
     var thumbnailImageCache = NSCache<NSString, UIImage>()
 //    var nowWeatherData =
 
@@ -97,7 +97,7 @@ final class CommonUserData {
         self.codiListCollection = codiListCollection
     }
 
-    func configureWeatherData(_ weatherData: WeatherData) {
+    func configureWeatherData(_ weatherData: WeatherAPIData) {
         self.weatherData = weatherData
     }
 

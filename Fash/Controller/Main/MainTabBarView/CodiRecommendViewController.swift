@@ -228,13 +228,13 @@ class CodiRecommendViewController: UIViewController {
             celsiusLabel.text = "\((temperature * 10).rounded() / 10)°C"
         }
 
-        if let rainValueString = weatherData.rain,
+        if let rainValueString = weatherData.rainThreeHour,
             let rainValue = Double(rainValueString) {
             if rainValue >= 0.6 {
                 weatherIndex = .rainy
             }
             return
-        } else if let snowValueString = weatherData.snow,
+        } else if let snowValueString = weatherData.snowThreeHour,
             let snowValue = Double(snowValueString) {
             if snowValue >= 0.6 {
                 weatherIndex = .snowy
@@ -379,39 +379,12 @@ class CodiRecommendViewController: UIViewController {
         }
     }
 
-    private func checkWeatherData(_ weatherDataList: [WeatherAPIData]?, coordinator: CLLocationCoordinate2D) {
+    private func checkWeatherData(_ weatherData: WeatherAPIData?) {
         // 에러 없이 날씨데이터를 받아왔다면 받아온 데이터와 현지 위치좌표를 비교한다.
-
-        guard let weatherDataList = weatherDataList else { return }
-
-        var minDiff: Double = 6e4
-        weatherDataList.forEach {
-            guard let latitude = LocationData.coordinatorList[$0.id]?.1,
-                let longitude = LocationData.coordinatorList[$0.id]?.2 else { return }
-            let diff = abs(coordinator.latitude - latitude) + abs(coordinator.longitude - longitude)
-            if diff < minDiff {
-                minDiff = diff
-                self.nowWeatherData = $0
-            }
-        }
-
-        // 현재 흭득한 날씨 정보를 CommonUserData에 저장
-        guard let weatherAPIData = self.nowWeatherData,
-            let _temperature = weatherAPIData.temperature,
-            let temperature = Double(_temperature) else { return }
-        let weatherData = WeatherData(temperature: temperature, coordinator: coordinator)
-        CommonUserData.shared.configureWeatherData(weatherData)
-        recommendAPIDataChecker.isWeatherData = true
-
-        DispatchQueue.main.async {
-            self.updateWeatherData(weatherData: weatherAPIData)
-            self.locationManager.stopUpdatingLocation()
-        }
+        guard let weatherData = weatherData else { return }
+        updateWeatherData(weatherData: weatherData)
+        locationManager.stopUpdatingLocation()
     }
-
-    //    private func hideBackgroundImage() {
-    //        backgroundImageView.isHidden = true
-    //    }
 
     @objc func codiAddViewAddButtonPressed(_: UIButton) {
         if codiAddView.nameTextField.text?.trimmingCharacters(in: .whitespaces) == "" {
@@ -514,19 +487,27 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
         guard let nowCoordinator = locations.first?.coordinate else { return }
         // 현지 위치정보를 얻었는데 만약 날씨 데이터가 존재하지 않는나면,
         // 날씨 데이터를 요청해서 받아온다.
-        RequestAPI.shared.getAPIData(APIMode: .getWeather, type: WeatherAPIDataList.self) { error, data in
+
+        let latitude = String(nowCoordinator.latitude)
+        let longitude = String(nowCoordinator.longitude)
+        print("latitude : \(latitude), longitude : \(longitude)")
+        let locationData = LocationAPIData(latitude: latitude, longitude: longitude)
+        RequestAPI.shared.postAPIData(userData: locationData, APIMode: .weather) { error in
 
             if error != nil {
-                self.recommendAPIDataChecker.isWeatherData = false
-
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
+                    self.recommendAPIDataChecker.isWeatherData = false
                     tabBarController.presentToastMessage("날씨 정보를 불러오는데 실패했습니다.")
                 }
                 return
             }
 
-            self.checkWeatherData(data, coordinator: nowCoordinator)
+            DispatchQueue.main.async {
+                self.locationManager.stopUpdatingLocation()
+                self.checkWeatherData(CommonUserData.shared.weatherData)
+                self.recommendAPIDataChecker.isWeatherData = true
+            }
         }
     }
 

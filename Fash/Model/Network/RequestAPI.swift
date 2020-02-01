@@ -50,6 +50,7 @@ enum APIPostMode: String {
     case loginData
     case clothing
     case codiList
+    case weather
 }
 
 enum APIDeleteMode: String {
@@ -92,6 +93,7 @@ struct APIURL {
             static let clothing = "clothing/"
             static let clothingUpload = "clothing/upload"
             static let codiList = "clothing/codilist/"
+            static let weather = "weatherapi/global-current/"
         }
 
         struct Put {
@@ -414,6 +416,52 @@ final class RequestAPI {
                         debugPrint("request failed : \(response.statusCode)")
                         self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
                         completion(self.configureError(errorType))
+                    }
+                }
+            }.resume()
+
+        case .weather:
+            guard let userData = userData as? LocationAPIData else {
+                delegate?.requestAPIDidError()
+                completion(NetworkError.client)
+                return
+            }
+
+            print("Coordinator : \(userData.longitude), \(userData.latitude)")
+
+            let userDataPostURLString = "\(APIURL.base)\(APIURL.SubURL.Post.weather)"
+            print("url : \(userDataPostURLString)")
+            guard let locationAPIData = try? JSONEncoder().encode(userData),
+                let postURL = URL(string: userDataPostURLString) else {
+                completion(configureError(.client))
+                return
+            }
+
+            var urlRequest = URLRequest(url: postURL)
+            urlRequest.httpMethod = "POST"
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+            // URLSession을 만들어 Post 작용을 시작한다.
+            urlSession.uploadTask(with: urlRequest, from: locationAPIData) {
+                data, _, error in
+
+                if error != nil {
+                    self.classifyErrorType(statusCode: nowStatusCode, errorType: &errorType)
+                    completion(self.configureError(.client))
+                    return
+                }
+
+                if let data = data {
+                    do {
+                        let weatherAPIData = try JSONDecoder().decode(WeatherAPIData.self, from: data)
+                        CommonUserData.shared.configureWeatherData(weatherAPIData)
+                        self.delegate?.requestAPIDidFinished()
+                        completion(nil)
+                    } catch let jsonError {
+                        print(jsonError)
+                        errorType = .client
+                        self.delegate?.requestAPIDidError()
+                        completion(self.configureError(.wrongType))
                     }
                 }
             }.resume()

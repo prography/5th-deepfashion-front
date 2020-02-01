@@ -39,7 +39,7 @@ class EditUserInfoViewController: UIViewController {
         idTextField.delegate = self
         idTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         genderSegmentedControl.selectedSegmentIndex = gender == "M" ? 0 : 1
-        editUserDataButton.configureBasicButton(title: "유저정보 변경", fontSize: 17)
+        editUserDataButton.configureButtonByStatus(true)
     }
 
     override func viewWillAppear(_: Bool) {
