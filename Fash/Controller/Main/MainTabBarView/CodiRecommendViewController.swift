@@ -495,6 +495,7 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
         RequestAPI.shared.postAPIData(userData: locationData, APIMode: .weather) { error in
 
             if error != nil {
+                if error == NetworkError.duplicate { return }
                 DispatchQueue.main.async {
                     guard let tabBarController = self.tabBarController as? MainTabBarController else { return }
                     self.recommendAPIDataChecker.isWeatherData = false
@@ -504,6 +505,7 @@ extension CodiRecommendViewController: CLLocationManagerDelegate {
             }
 
             DispatchQueue.main.async {
+                if self.recommendAPIDataChecker.isWeatherData { return }
                 self.locationManager.stopUpdatingLocation()
                 self.checkWeatherData(CommonUserData.shared.weatherData)
                 self.recommendAPIDataChecker.isWeatherData = true

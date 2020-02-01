@@ -107,7 +107,7 @@ final class RequestAPI {
 
     // MARK: - Properties
 
-//    private var isWeatherRequested = false
+    private var isWeatherRequested = false
 
     private let urlSession = URLSession(configuration: .default)
     private var dataTask = URLSessionDataTask()
@@ -148,47 +148,51 @@ final class RequestAPI {
             }).resume()
         case .getWeather:
 
-            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
-            guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
-            var urlRequest = URLRequest(url: requestAPIURL)
-            urlRequest.httpMethod = "GET"
-            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            urlSession.dataTask(with: requestAPIURL) { data, response, error in
-                if error != nil {
+//            if isWeatherRequested == false {
+//                completion(self.configureError(.duplicate), nil)
+//            }
+//
+//            let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.currentWeather)"
+//            guard let requestAPIURL = URL(string: requestAPIURLString) else { return }
+//            var urlRequest = URLRequest(url: requestAPIURL)
+//            urlRequest.httpMethod = "GET"
+//            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//            urlSession.dataTask(with: requestAPIURL) { data, response, error in
+//                if error != nil {
 //                    self.isWeatherRequested = false
-                    completion(self.configureError(.client), nil)
-                    return
-                }
-
-                guard let weatherData = data else {
+//                    completion(self.configureError(.client), nil)
+//                    return
+//                }
+//
+//                guard let weatherData = data else {
 //                    self.isWeatherRequested = false
-                    completion(self.configureError(.client), nil)
-                    return
-                }
-
-                guard let weatherAPIData = try? JSONDecoder().decode(T.self, from: weatherData) else {
-                    errorType = .client
+//                    completion(self.configureError(.client), nil)
+//                    return
+//                }
+//
+//                guard let weatherAPIData = try? JSONDecoder().decode(T.self, from: weatherData) else {
+//                    errorType = .client
 //                    self.isWeatherRequested = false
-                    self.delegate?.requestAPIDidError()
-                    completion(errorType, nil)
-                    return
-                }
-
-                if let response = response as? HTTPURLResponse {
-                    if (200 ... 299).contains(response.statusCode) {
+//                    self.delegate?.requestAPIDidError()
+//                    completion(errorType, nil)
+//                    return
+//                }
+//
+//                if let response = response as? HTTPURLResponse {
+//                    if (200 ... 299).contains(response.statusCode) {
 //                        self.isWeatherRequested = false
-                        self.delegate?.requestAPIDidFinished()
-                        completion(nil, weatherAPIData)
-                    } else {
-                        debugPrint("request failed : \(response.statusCode)")
+//                        self.delegate?.requestAPIDidFinished()
+//                        completion(nil, weatherAPIData)
+//                    } else {
+//                        debugPrint("request failed : \(response.statusCode)")
 //                        self.isWeatherRequested = false
-                        self.delegate?.requestAPIDidError()
-                        self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
-                        completion(errorType, nil)
-                    }
-                }
-            }.resume()
-
+//                        self.delegate?.requestAPIDidError()
+//                        self.classifyErrorType(statusCode: response.statusCode, errorType: &errorType)
+//                        completion(errorType, nil)
+//                    }
+//                }
+//            }.resume()
+            return
         case .getClothing:
             let requestAPIURLString = "\(APIURL.base)\(APIURL.SubURL.Get.clothing)"
             guard let url = URL(string: requestAPIURLString) else { return }
@@ -421,6 +425,12 @@ final class RequestAPI {
             }.resume()
 
         case .weather:
+
+            if isWeatherRequested == true {
+                completion(configureError(.duplicate))
+                return
+            }
+
             guard let userData = userData as? LocationAPIData else {
                 delegate?.requestAPIDidError()
                 completion(NetworkError.client)
@@ -455,6 +465,7 @@ final class RequestAPI {
                     do {
                         let weatherAPIData = try JSONDecoder().decode(WeatherAPIData.self, from: data)
                         CommonUserData.shared.configureWeatherData(weatherAPIData)
+                        self.isWeatherRequested = true
                         self.delegate?.requestAPIDidFinished()
                         completion(nil)
                     } catch let jsonError {
@@ -652,6 +663,6 @@ final class RequestAPI {
     }
 
     func resetProperties() {
-//        isWeatherRequested = false
+        isWeatherRequested = false
     }
 }
