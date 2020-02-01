@@ -40,7 +40,7 @@ struct ViewData {
             }
 
             static let myPageTableView = ["공지사항", "개인/보안", "이용약관", "로그아웃"]
-            static let privacyTableView = ["유저정보변경", "스타일변경", "회원탈퇴"]
+            static let privacyTableView = ["ID/성별변경", "비밀번호변경", "스타일변경", "회원탈퇴"]
 
             enum MyPage: Int {
                 case notice = 0
@@ -50,9 +50,10 @@ struct ViewData {
             }
 
             enum Privacy: Int {
-                case editUser = 0
-                case style = 1
-                case deleteUser = 2
+                case idAndGender = 0
+                case password = 1
+                case style = 2
+                case deleteUser = 3
             }
         }
     }

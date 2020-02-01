@@ -801,16 +801,113 @@
                         <outlet property="privacyTableView" destination="rRB-Gk-G43" id="1Zh-Cg-mic"/>
                         <segue destination="K1b-dd-den" kind="show" identifier="goToDeleteUserView" id="7Z6-bA-Oux"/>
                         <segue destination="SRV-u9-PsF" kind="show" identifier="goToEditUserView" id="Pd4-M5-sdP"/>
+                        <segue destination="slo-P2-crf" kind="show" identifier="goToEditPasswordView" id="XWP-Ez-mIv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEs-VX-GLs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5334.7826086956529" y="1380.8035714285713"/>
         </scene>
-        <!--유저정보 변경-->
+        <!--비밀번호 변경-->
+        <scene sceneID="A0L-Xy-gCx">
+            <objects>
+                <viewController id="slo-P2-crf" customClass="EditPasswordViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X8c-fN-iLK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="FPv-Th-Gqk">
+                                <rect key="frame" x="10" y="74" width="394" height="294.33333333333331"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 비밀번호 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcS-4C-g3e">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="eS6-2z-4fK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qk9-aK-qsa">
+                                        <rect key="frame" x="0.0" y="37" width="394" height="56.333333333333343"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="password"/>
+                                        <connections>
+                                            <action selector="textFieldEditingValueChanged:" destination="dve-eK-BpR" eventType="editingChanged" id="fK3-x4-aQv"/>
+                                            <outlet property="delegate" destination="dve-eK-BpR" id="6HK-3p-PVT"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 비밀번호 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8F-mx-bex">
+                                        <rect key="frame" x="0.0" y="100.33333333333334" width="394" height="30"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fib-EA-ULK">
+                                        <rect key="frame" x="0.0" y="137.33333333333334" width="394" height="56.666666666666657"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="password"/>
+                                        <connections>
+                                            <action selector="textFieldEditingValueChanged:" destination="dve-eK-BpR" eventType="editingChanged" id="OgY-eE-HCr"/>
+                                            <outlet property="delegate" destination="dve-eK-BpR" id="68i-Bz-Awb"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 비밀번호 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imm-qn-NIJ">
+                                        <rect key="frame" x="0.0" y="201" width="394" height="30"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="8자리이상 영문+숫자 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XV0-7w-KWX">
+                                        <rect key="frame" x="0.0" y="238.00000000000003" width="394" height="56.333333333333343"/>
+                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="new-password"/>
+                                        <connections>
+                                            <action selector="textFieldEditingValueChanged:" destination="dve-eK-BpR" eventType="editingChanged" id="4mj-ZR-HEI"/>
+                                            <outlet property="delegate" destination="dve-eK-BpR" id="rNP-va-I5Z"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HcS-4C-g3e" firstAttribute="height" secondItem="imm-qn-NIJ" secondAttribute="height" id="77X-cn-e2C"/>
+                                    <constraint firstItem="HcS-4C-g3e" firstAttribute="width" secondItem="Qk9-aK-qsa" secondAttribute="width" id="9j3-c4-Y0c"/>
+                                    <constraint firstItem="Qk9-aK-qsa" firstAttribute="height" secondItem="XV0-7w-KWX" secondAttribute="height" id="BII-tp-gKe"/>
+                                    <constraint firstItem="fib-EA-ULK" firstAttribute="width" secondItem="imm-qn-NIJ" secondAttribute="width" id="bhu-0o-sjg"/>
+                                    <constraint firstItem="v8F-mx-bex" firstAttribute="width" secondItem="fib-EA-ULK" secondAttribute="width" id="db6-HZ-9jv"/>
+                                    <constraint firstItem="imm-qn-NIJ" firstAttribute="width" secondItem="XV0-7w-KWX" secondAttribute="width" id="maf-wa-wH1"/>
+                                    <constraint firstItem="Qk9-aK-qsa" firstAttribute="height" secondItem="fib-EA-ULK" secondAttribute="height" id="qIM-r7-jFk"/>
+                                    <constraint firstItem="HcS-4C-g3e" firstAttribute="height" secondItem="v8F-mx-bex" secondAttribute="height" id="tdn-Kj-fZg"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FPv-Th-Gqk" firstAttribute="top" secondItem="Xcu-xq-63N" secondAttribute="top" constant="30" id="WAR-Hq-UGH"/>
+                            <constraint firstItem="FPv-Th-Gqk" firstAttribute="leading" secondItem="Xcu-xq-63N" secondAttribute="leading" constant="10" id="bDw-FN-0wM"/>
+                            <constraint firstItem="Xcu-xq-63N" firstAttribute="trailing" secondItem="FPv-Th-Gqk" secondAttribute="trailing" constant="10" id="kAL-ub-YXq"/>
+                            <constraint firstItem="FPv-Th-Gqk" firstAttribute="height" secondItem="X8c-fN-iLK" secondAttribute="height" multiplier="0.4" id="qWj-bD-8SQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Xcu-xq-63N"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="비밀번호 변경" id="bmh-j7-I5b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HpY-9h-oea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5334" y="688"/>
+        </scene>
+        <!--ID/성별 변경-->
         <scene sceneID="Sbs-Fv-hwG">
             <objects>
-                <viewController id="SRV-u9-PsF" customClass="EditUserInfoViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SRV-u9-PsF" customClass="EditIdGenderViewController" customModule="Fash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="arn-GJ-L87">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -890,7 +987,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q6g-eT-AVe"/>
                     </view>
-                    <navigationItem key="navigationItem" title="유저정보 변경" id="A9e-oR-AqT"/>
+                    <navigationItem key="navigationItem" title="ID/성별 변경" id="A9e-oR-AqT"/>
                     <connections>
                         <outlet property="editUserDataButton" destination="ZCM-EE-dVw" id="WtS-af-UsX"/>
                         <outlet property="genderSegmentedControl" destination="DAE-qf-K9u" id="bVb-qa-l5k"/>

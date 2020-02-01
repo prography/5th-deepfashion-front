@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditUserInfoViewController: UIViewController {
+class EditIdGenderViewController: UIViewController {
     @IBOutlet var idTextField: UITextField!
     @IBOutlet var genderSegmentedControl: UISegmentedControl!
     @IBOutlet var editUserDataButton: UIButton!
@@ -105,7 +105,7 @@ class EditUserInfoViewController: UIViewController {
     }
 }
 
-extension EditUserInfoViewController: UITextFieldDelegate {
+extension EditIdGenderViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString string: String) -> Bool {
         return checkCharacter(textField: textField, character: string)
     }
@@ -116,7 +116,7 @@ extension EditUserInfoViewController: UITextFieldDelegate {
     }
 }
 
-extension EditUserInfoViewController: RequestAPIDelegate {
+extension EditIdGenderViewController: RequestAPIDelegate {
     func requestAPIDidBegin() {
         isAPIDateRequested = true
     }

@@ -46,7 +46,7 @@
 		076F6BCC237BFEA800A2CBB4 /* LoginAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCB237BFEA800A2CBB4 /* LoginAPIData.swift */; };
 		076F6BCE237BFF8100A2CBB4 /* LoginUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */; };
 		0771B83323E5626200145179 /* UserAPIPutData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771B83223E5626200145179 /* UserAPIPutData.swift */; };
-		0771B83523E5653B00145179 /* EditUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771B83423E5653B00145179 /* EditUserInfoViewController.swift */; };
+		0771B83523E5653B00145179 /* EditIdGenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771B83423E5653B00145179 /* EditIdGenderViewController.swift */; };
 		0777D45123B51B0400385E68 /* ColorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45023B51B0400385E68 /* ColorList.swift */; };
 		0777D45723B6121500385E68 /* UINavigationBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45623B6121500385E68 /* UINavigationBar+.swift */; };
 		0777D45A23B62F3A00385E68 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777D45923B62F3A00385E68 /* PrivacyViewController.swift */; };
@@ -67,6 +67,7 @@
 		0798DE0123DAEAFA0090CD3C /* SeasonIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */; };
 		0798DE0323DAEE500090CD3C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0798DE0223DAEE500090CD3C /* WeatherData.swift */; };
 		079AA93123E5963500B02758 /* LocationAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079AA93023E5963500B02758 /* LocationAPIData.swift */; };
+		079AA93323E5B2C000B02758 /* EditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079AA93223E5B2C000B02758 /* EditPasswordViewController.swift */; };
 		079B530B23CDDFDE0042D06E /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530A23CDDFDE0042D06E /* MainNavigationController.swift */; };
 		079F56A123D40D0D00F1F859 /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */; };
 		079F56A523D4137F00F1F859 /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */; };
@@ -188,7 +189,7 @@
 		076F6BCB237BFEA800A2CBB4 /* LoginAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPIData.swift; sourceTree = "<group>"; };
 		076F6BCD237BFF8100A2CBB4 /* LoginUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserData.swift; sourceTree = "<group>"; };
 		0771B83223E5626200145179 /* UserAPIPutData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPIPutData.swift; sourceTree = "<group>"; };
-		0771B83423E5653B00145179 /* EditUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserInfoViewController.swift; sourceTree = "<group>"; };
+		0771B83423E5653B00145179 /* EditIdGenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdGenderViewController.swift; sourceTree = "<group>"; };
 		0777D45023B51B0400385E68 /* ColorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorList.swift; sourceTree = "<group>"; };
 		0777D45623B6121500385E68 /* UINavigationBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+.swift"; sourceTree = "<group>"; };
 		0777D45923B62F3A00385E68 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +210,7 @@
 		0798DE0023DAEAFA0090CD3C /* SeasonIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonIndex.swift; sourceTree = "<group>"; };
 		0798DE0223DAEE500090CD3C /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		079AA93023E5963500B02758 /* LocationAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPIData.swift; sourceTree = "<group>"; };
+		079AA93223E5B2C000B02758 /* EditPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPasswordViewController.swift; sourceTree = "<group>"; };
 		079B530A23CDDFDE0042D06E /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		079F56A023D40D0D00F1F859 /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		079F56A423D4137F00F1F859 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
@@ -462,7 +464,8 @@
 			children = (
 				07B6E0612382AF7C00D6A9E1 /* MyPageViewController.swift */,
 				0777D45923B62F3A00385E68 /* PrivacyViewController.swift */,
-				0771B83423E5653B00145179 /* EditUserInfoViewController.swift */,
+				0771B83423E5653B00145179 /* EditIdGenderViewController.swift */,
+				079AA93223E5B2C000B02758 /* EditPasswordViewController.swift */,
 				07E5B39223B64D8000F5ACCC /* DeleteUserViewController.swift */,
 			);
 			path = MyPageViewController;
@@ -993,6 +996,7 @@
 				07D5E9B9236EF9A900A27B28 /* UserDataRule.swift in Sources */,
 				079B530B23CDDFDE0042D06E /* MainNavigationController.swift in Sources */,
 				077C77B6237814AA0088B151 /* RequestAPIDelegate.swift in Sources */,
+				079AA93323E5B2C000B02758 /* EditPasswordViewController.swift in Sources */,
 				07C5C5EA23AB549000324B67 /* UIBarButtonItem+.swift in Sources */,
 				07598532237E93E500C48EE7 /* ClothingAddViewController.swift in Sources */,
 				07D49949239A8B910099B7A9 /* ClosetListTableViewCell.swift in Sources */,
@@ -1048,7 +1052,7 @@
 				07C745A82392A41D0045AB56 /* ClothingMainType.swift in Sources */,
 				07B6E05E2382AE9500D6A9E1 /* CodiListViewController.swift in Sources */,
 				073547C023BCC95A00E45ADF /* UIImageView+.swift in Sources */,
-				0771B83523E5653B00145179 /* EditUserInfoViewController.swift in Sources */,
+				0771B83523E5653B00145179 /* EditIdGenderViewController.swift in Sources */,
 				07A3B0C623911BBC0028DC6B /* EditStyleCollectionViewFlowLayout.swift in Sources */,
 				07BFE0BF23BF0E6600AD9287 /* CodiListGenerator.swift in Sources */,
 				07B7F6C2238FAA7F00EA9C10 /* TypeAlertController.swift in Sources */,

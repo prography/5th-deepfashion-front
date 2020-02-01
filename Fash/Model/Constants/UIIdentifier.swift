@@ -74,6 +74,7 @@ struct UIIdentifier {
         static let goToPrivacy = "goToPrivacyView"
         static let goToDeleteUser = "goToDeleteUserView"
         static let goToEditUser = "goToEditUserView"
+        static let goToEditPassword = "goToEditPasswordView"
         static let goToLogin = "goToLoginView"
     }
 
